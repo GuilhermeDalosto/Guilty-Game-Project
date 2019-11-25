@@ -12,6 +12,7 @@
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
 		ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C73238C472B00876A0B /* Assets.xcassets */; };
 		ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */; };
+		ACF93C86238C6AC600876A0B /* Sorteio.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C85238C6AC600876A0B /* Sorteio.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		ACF93C73238C472B00876A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF93C76238C472B00876A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF93C78238C472B00876A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF93C84238C6AC600876A0B /* Sorteio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sorteio.h; sourceTree = "<group>"; };
+		ACF93C85238C6AC600876A0B /* Sorteio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sorteio.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +57,40 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
+				ACF93C80238C4D8300876A0B /* Controller */,
+				ACF93C7F238C4D7E00876A0B /* View */,
+				ACF93C7E238C4D7A00876A0B /* Model */,
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
-				ACF93C6E238C472700876A0B /* ViewController.swift */,
-				ACF93C70238C472700876A0B /* Main.storyboard */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
-				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
 			);
 			path = GuiltyGameProject;
+			sourceTree = "<group>";
+		};
+		ACF93C7E238C4D7A00876A0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ACF93C84238C6AC600876A0B /* Sorteio.h */,
+				ACF93C85238C6AC600876A0B /* Sorteio.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACF93C7F238C4D7E00876A0B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACF93C70238C472700876A0B /* Main.storyboard */,
+				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ACF93C80238C4D8300876A0B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ACF93C6E238C472700876A0B /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +125,7 @@
 				TargetAttributes = {
 					ACF93C68238C472600876A0B = {
 						CreatedOnToolsVersion = 11.2;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
@@ -135,6 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACF93C86238C6AC600876A0B /* Sorteio.m in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 			);
@@ -280,6 +311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWK9C69PH;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
@@ -289,6 +321,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.GuiltyGameProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
@@ -298,6 +332,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7YWK9C69PH;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
@@ -307,6 +342,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Academy.GuiltyGameProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 			};
