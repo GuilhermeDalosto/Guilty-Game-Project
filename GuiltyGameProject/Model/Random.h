@@ -1,5 +1,5 @@
 //
-//  NSObject+Sorteio.h
+//  NSObject+Random.h
 //  GuiltyGameProject
 //
 //  Created by Guilherme Martins Dalosto de Oliveira on 25/11/19.
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (Sorteio)
+@interface NSObject (Random)
 
 @end
 

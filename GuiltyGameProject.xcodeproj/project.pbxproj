@@ -13,7 +13,8 @@
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
 		ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C73238C472B00876A0B /* Assets.xcassets */; };
 		ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */; };
-		ACF93C86238C6AC600876A0B /* Sorteio.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C85238C6AC600876A0B /* Sorteio.m */; };
+		ACF93C89238C6CF000876A0B /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C88238C6CF000876A0B /* Random.m */; };
+		ACF93C8B238C775200876A0B /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C8A238C775200876A0B /* Config.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +26,9 @@
 		ACF93C73238C472B00876A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF93C76238C472B00876A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF93C78238C472B00876A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACF93C84238C6AC600876A0B /* Sorteio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sorteio.h; sourceTree = "<group>"; };
-		ACF93C85238C6AC600876A0B /* Sorteio.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sorteio.m; sourceTree = "<group>"; };
+		ACF93C87238C6CF000876A0B /* Random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		ACF93C88238C6CF000876A0B /* Random.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
+		ACF93C8A238C775200876A0B /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
+				ACF93C8C238C777000876A0B /* Utils */,
 				ACF93C80238C4D8300876A0B /* Controller */,
 				ACF93C7F238C4D7E00876A0B /* View */,
 				ACF93C7E238C4D7A00876A0B /* Model */,
@@ -73,8 +76,8 @@
 		ACF93C7E238C4D7A00876A0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93C84238C6AC600876A0B /* Sorteio.h */,
-				ACF93C85238C6AC600876A0B /* Sorteio.m */,
+				ACF93C87238C6CF000876A0B /* Random.h */,
+				ACF93C88238C6CF000876A0B /* Random.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -83,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				ACF93C70238C472700876A0B /* Main.storyboard */,
+				ACF93C8A238C775200876A0B /* Config.storyboard */,
 				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
 			);
 			path = View;
@@ -94,6 +98,13 @@
 				ACF93C6E238C472700876A0B /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		ACF93C8C238C777000876A0B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +168,7 @@
 			files = (
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
+				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,10 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACF93C86238C6AC600876A0B /* Sorteio.m in Sources */,
 				7BEF4A79238C74DC00E71689 /* Word.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
+				ACF93C89238C6CF000876A0B /* Random.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
