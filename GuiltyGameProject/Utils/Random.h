@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Random)
     
-    -(void) decide: (NSArray *)vector;
+    -(void) decide: (NSMutableArray *)vector;
 
 @end
 

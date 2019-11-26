@@ -7,26 +7,53 @@
 //
 
 #import "Random.h"
+#import "Word.h"
+#import "Event.h"
+#import "Judge.h"
 
 
 
 
 @implementation NSObject (Random)
     
-    - (void)decide:(NSArray *)vector{
-        NSArray *vector2 = [NSArray array];
+    - (void)decide:(NSMutableArray *)vector{
+        Word *word = [[Word alloc] init];
+//        NSArray *vector2 = [NSArray arrayWithObject:word];
+        
+        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+        
+//        Word* wordA = [wordArray objectAtIndex:0];
+        
+//        NSMutableArray *mutableArray = [NSMutableArray arrayWithObjects:@[word, word, word], nil];
+        
+        
+//        Judge *judge = [[Judge alloc]init];
+//
+//        [judge decide:wordArray];
+        
+//        [mutableArray removeObjectAtIndex:0];
+        
         
         for (int n = 0; n<vector.count; n++) {
-            if (vector2[n] == vector[n]) {
-                //add
+            
+            Word *word1 = [vector objectAtIndex:n];
+            
+            
+            if (word1.gone == true) {
+                [wordArray addObject: [vector objectAtIndex:n]];
             }
         }
         
-        for (NSArray *vector3 in vector) {
-            if (vector3 == vector.firstObject) {
-                //add
-            }
-        }
+//        for (NSArray *vector3 in vector) {
+//            if (vector3 == vector.firstObject) {
+//                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
+//                [wordArray addObject: [vector objectAtIndex:n]]
+//            }
+//        }
+        
+        
+        
+        
     }
 
 @end
