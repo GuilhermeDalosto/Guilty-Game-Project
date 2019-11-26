@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7BEF4A79238C74DC00E71689 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A78238C74DC00E71689 /* Word.swift */; };
+		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -23,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		7BEF4A78238C74DC00E71689 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
+		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +126,8 @@
 		ACF93C8C238C777000876A0B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				95F8C8F9238DC0A300E8ACAB /* Random.h */,
+				95F8C8FA238DC0AD00E8ACAB /* Random.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
 				ACF93C9A238DAB5B00876A0B /* Person.m in Sources */,
+				95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

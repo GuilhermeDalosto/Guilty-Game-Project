@@ -12,5 +12,21 @@
 
 
 @implementation NSObject (Random)
+    
+    - (void)decide:(NSArray *)vector{
+        NSArray *vector2 = [NSArray array];
+        
+        for (int n = 0; n<vector.count; n++) {
+            if (vector2[n] == vector[n]) {
+                //add
+            }
+        }
+        
+        for (NSArray *vector3 in vector) {
+            if (vector3 == vector.firstObject) {
+                //add
+            }
+        }
+    }
 
 @end
