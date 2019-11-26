@@ -16,4 +16,6 @@ class Word{
     var strMagic : [String] = ["Varinha", "Magia", "Gnomo", "Elfo", "Arco", "Poção", "Maldição", "Benção", "Fada", "Madrinha", "Mago", "Bruxa", "Pacto", "Feitiço", "Ogro", "Taverna", "Dragão", "Zumbi", "Esqueleto"]
 
     var strAnimal : [String] = ["Gato", "Cavalo", "Pessoas", "Jacaré", "Pata", "Pato", "Macaco", "Criança", "Castor", "Piolho", "Pássaro", "Urso", "Mosquito", "Planta", "Barata", "Verme", "Pinguim", "Bebê", "Carrocinha", "Baleia", "Inseto"]
+    
+    var strNinja : [String] = ["Traidor", "Ninja", "Samurai", "Katana", "Kunai", "Shuriken", "Assassino", "Mestre", "Mascarado", "Templo", "Tempo", "Pergaminho", "Batalha", "Guerra", "Tatame", "Ninjutsu", "Kendo", "Artimanhas", "Técnica", "Japão","Luta", "Kimono", "Artefato", "Honra", "Tradição", "Família", "Tradicional", "Aventura", "Guerra", "Destruição", "Arma", "Máscara", "Esperança", "Sacrifício", "Dragão", "Treinamento", "Mestre", "Rivalidade", "Tamanco", "Silêncio", "Orgulho", "Vida", "Equilíbrio", "Arte", "Marcial", "Sobrevivência", "Vontade", "Conhecimento", "Perseguir", "Julgamento"]
 }
