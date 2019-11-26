@@ -14,6 +14,7 @@
 		ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */; };
 		ACF93C89238C6CF000876A0B /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C88238C6CF000876A0B /* Random.m */; };
 		ACF93C8B238C775200876A0B /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C8A238C775200876A0B /* Config.storyboard */; };
+		ACF93C92238D8F7800876A0B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C91238D8F7800876A0B /* Event.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,8 @@
 		ACF93C87238C6CF000876A0B /* Random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		ACF93C88238C6CF000876A0B /* Random.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		ACF93C8A238C775200876A0B /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
+		ACF93C90238D8F7800876A0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		ACF93C91238D8F7800876A0B /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +76,8 @@
 		ACF93C7E238C4D7A00876A0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93C87238C6CF000876A0B /* Random.h */,
-				ACF93C88238C6CF000876A0B /* Random.m */,
+				ACF93C90238D8F7800876A0B /* Event.h */,
+				ACF93C91238D8F7800876A0B /* Event.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,6 +103,8 @@
 		ACF93C8C238C777000876A0B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				ACF93C87238C6CF000876A0B /* Random.h */,
+				ACF93C88238C6CF000876A0B /* Random.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
+				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 				ACF93C89238C6CF000876A0B /* Random.m in Sources */,
 			);

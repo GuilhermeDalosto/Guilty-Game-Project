@@ -1,16 +1,18 @@
 //
-//  NSObject+Random.m
+//  NSObject+Random.h
 //  GuiltyGameProject
 //
 //  Created by Guilherme Martins Dalosto de Oliveira on 25/11/19.
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
-#import "Random.h"
 
-#import <AppKit/AppKit.h>
+#import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
-@implementation NSObject (Random)
+@interface NSObject (Random)
 
 @end
+
+NS_ASSUME_NONNULL_END
