@@ -16,4 +16,12 @@ class Word{
     var strMagic : [String] = ["Varinha", "Magia", "Gnomo", "Elfo", "Arco", "Poção", "Maldição", "Benção", "Fada", "Madrinha", "Mago", "Bruxa", "Pacto", "Feitiço", "Ogro", "Taverna", "Dragão", "Zumbi", "Esqueleto"]
 
     var strAnimal : [String] = ["Gato", "Cavalo", "Pessoas", "Jacaré", "Pata", "Pato", "Macaco", "Criança", "Castor", "Piolho", "Pássaro", "Urso", "Mosquito", "Planta", "Barata", "Verme", "Pinguim", "Bebê", "Carrocinha", "Baleia", "Inseto"]
+    
+    var strIgor : [String] = ["Leve","Sede","Maneiro","Pena","Saia","Viva","Prova","Sessão", "Abandonar", "Animado", "Ironia","Salsicha","Santo","Aleatório","Alicate","Convidou","Fumado","Plutão","Flor","Circo","Vibrar","Rotação", "Médico", "Cerimônia","Fumaça","Sinais","Inalar","Rei","Ancestral","Tornozelo","Mosca","Pais","Seleção", "Armário", "Garra", "Coluna","Safira","Fim","Comentário","Cego", "Estrada", "Real","Instinto","Seguir","Café","Diamantes", "Lesão","Bicicleta","Inseticida"]
+    
+    var strOldWest : [String] = ["Leis","Armas","Caubóis", "Tiro","Oponente","Duelo","Faroeste","Ouro", "Atirador","Pistoleiro","Fama", "Histórias","Países", "Culpado","Controlar","Autoridade", "Terra", "Cavalo","Bebida","Chapéu","Água","Duelo","Selvagem","Fogo","Gado"]
+    
+    
+    
+    var strNinja : [String] = ["Traidor", "Ninja", "Samurai", "Katana", "Kunai", "Shuriken", "Assassino", "Mestre", "Mascarado", "Templo", "Tempo", "Pergaminho", "Batalha", "Guerra", "Tatame", "Ninjutsu", "Kendo", "Artimanhas", "Técnica", "Japão","Luta", "Kimono", "Artefato", "Honra", "Tradição", "Família", "Tradicional", "Aventura", "Guerra", "Destruição", "Arma", "Máscara", "Esperança", "Sacrifício", "Dragão", "Treinamento", "Mestre", "Rivalidade", "Tamanco", "Silêncio", "Orgulho", "Vida", "Equilíbrio", "Arte", "Marcial", "Sobrevivência", "Vontade", "Conhecimento", "Perseguir", "Julgamento"]
 }
