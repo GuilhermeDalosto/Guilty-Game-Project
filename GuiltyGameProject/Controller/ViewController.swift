@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     }
 
     func addWords(){
-        let words = allWordsSigned()
+        let words = Words()
         for element in words.strAnimal{
             allWords.append(Word(element, difficulty: 0, deck: element))
         }
