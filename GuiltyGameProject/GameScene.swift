@@ -11,13 +11,13 @@ import SpriteKit
 
 class GameScene: SKScene{
     /// Background Sprite at Game Scene
-    let backgroundSprite = SKSpriteNode(imageNamed: "2")
+    let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
     var pinsSprite = [SKSpriteNode]()
     /// Lifes Sprites at Game Scene
     var lifeTeamSprite = [SKSpriteNode]()
     /// Judge Sprite at Game Scene
-    var judgeSprite = SKSpriteNode(imageNamed: "2")
+    var judgeSprite = SKSpriteNode(imageNamed: "judge")
     /// NPC Pins Sprites at Game Scene
     var pinsNPCSprite = [SKSpriteNode]()
     
@@ -31,7 +31,7 @@ class GameScene: SKScene{
     var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     /// Array of Images to Sprites
-    var imagesSprite: [String] = ["1", "1", "1", "1", "1", "1"]
+    var imagesSprite: [String] = ["pin1", "pin2", "pin1", "pin2", "pin1", "pin2"]
     
     /// User Defaults
     let defaults = UserDefaults.standard
@@ -173,7 +173,7 @@ class GameScene: SKScene{
         
         // NPC Pin Sprite
         for _ in 0...1{
-            pinsNPCSprite.append(SKSpriteNode(imageNamed: "1"))
+            pinsNPCSprite.append(SKSpriteNode(imageNamed: "pinA"))
         }
         
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
@@ -185,7 +185,7 @@ class GameScene: SKScene{
         for i in 0...numberOfPlayers - 2{
             addChild(pinsSprite[i])
         }
-        for i in 0...pinsNPCSprite.count{
+        for i in 0...pinsNPCSprite.count - 1{
             addChild(pinsNPCSprite[i])
         }
     }
@@ -197,16 +197,16 @@ class GameScene: SKScene{
         for i in 0...1{
             switch team[i].lifes {
             case 3:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
                 break
             case 2:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
                 break
             case 1:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
                 break
             default:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
             }
         }
         
