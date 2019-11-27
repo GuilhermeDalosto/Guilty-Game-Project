@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BEF4A79238C74DC00E71689 /* allWordsSigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A78238C74DC00E71689 /* allWordsSigned.swift */; };
+		7BEF4A79238C74DC00E71689 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A78238C74DC00E71689 /* Words.swift */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7BEF4A78238C74DC00E71689 /* allWordsSigned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allWordsSigned.swift; sourceTree = "<group>"; };
+		7BEF4A78238C74DC00E71689 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
-				7BEF4A78238C74DC00E71689 /* allWordsSigned.swift */,
+				7BEF4A78238C74DC00E71689 /* Words.swift */,
 				ACF93CA2238DCD0B00876A0B /* allEventsSigned.swift */,
 			);
 			path = GuiltyGameProject;
@@ -216,7 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF93C9D238DABA300876A0B /* Team.m in Sources */,
-				7BEF4A79238C74DC00E71689 /* allWordsSigned.swift in Sources */,
+				7BEF4A79238C74DC00E71689 /* Words.swift in Sources */,
 				ACF93CA3238DCD0B00876A0B /* allEventsSigned.swift in Sources */,
 				ACF93C97238DAB0C00876A0B /* Word.m in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
