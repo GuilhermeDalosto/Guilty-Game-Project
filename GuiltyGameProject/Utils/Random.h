@@ -11,14 +11,20 @@
 #import <SpriteKit/SpriteKit.h>
 #import "Word.h"
 #import "Event.h"
+#import "Team.h"
+#import "Person.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Random)
     
-    +(Word *_Nonnull) decideWord: (NSMutableArray *)vector;
+    +(Word *_Nonnull) decideWord: (NSMutableArray<Word *>*)vector;
 
-    +(Event *_Nonnull) decideEvent: (NSMutableArray *)vector;
+    +(Event *_Nonnull) decideEvent: (NSMutableArray<Event *>*)vector;
+
+    +(Person *_Nonnull) decideOrder: (Team *)team;
+
+    +(Person *_Nonnull) decidePersonLucky: (Team *)team;
 
 @end
 

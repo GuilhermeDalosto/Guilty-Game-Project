@@ -16,6 +16,7 @@
     if (self) {
         self.color = color;
         self.team = team;
+        self.gone = false;
     }
     return self;
 }

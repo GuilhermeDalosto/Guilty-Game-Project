@@ -20,7 +20,7 @@
         self.difficulty = difficulty;
         self.type = type;
         self.duration = duration;
-      //  self.gone = false;
+        self.gone = false;
     }
     return self;
 }
