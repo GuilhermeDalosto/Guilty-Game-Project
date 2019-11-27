@@ -13,11 +13,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Event : NSObject
 
-@property NSString *description;
-@property NSInteger *difficulty;
-@property NSInteger *duration;
+
+
+@property NSString *descriptionEvent;
+@property NSInteger difficulty;
+@property NSInteger duration;
 @property NSString *type;
 @property (assign) BOOL *gone;
+
+- (instancetype)init : (NSString*) description difficulty: (NSInteger) difficulty type: (NSString*) type duration: (NSInteger) duration;
 
 @end
 
