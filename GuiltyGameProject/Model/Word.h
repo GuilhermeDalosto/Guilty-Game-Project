@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString *deck;
 @property BOOL gone;
 
+- (instancetype) init : (NSString*) title difficulty: (NSInteger) difficulty deck: (NSString*) deck;
+
 @end
 
 NS_ASSUME_NONNULL_END

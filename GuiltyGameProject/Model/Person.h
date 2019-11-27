@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Team.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Person : NSObject
 
-@property NSString *cor;
-//@property Team team;
+@property NSString *color;
+@property Team *team;
+
+- (instancetype)init: (NSString*) color team: (Team*) team;
 
 @end
 

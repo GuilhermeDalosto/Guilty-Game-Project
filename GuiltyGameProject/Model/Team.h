@@ -12,11 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Team : NSObject
 
-@property NSArray *persons;
+@property NSMutableArray *persons;
 @property NSInteger lifes;
 @property NSInteger numberPerson;
 @property BOOL turn;
 
+- (instancetype)init : (NSArray*) persons _:(NSInteger) lifes _: (NSInteger) numberPerson;
 - (void) toggleTurn;
 
 @end

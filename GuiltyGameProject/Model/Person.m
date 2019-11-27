@@ -10,11 +10,12 @@
 
 @implementation Person
 
-- (instancetype)init: (NSString*) cor
+- (instancetype)init: (NSString*) color team: (Team*) team
 {
     self = [super init];
     if (self) {
-        self.cor = cor;
+        self.color = color;
+        self.team = team;
     }
     return self;
 }

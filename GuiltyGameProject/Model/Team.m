@@ -11,7 +11,7 @@
 @implementation Team
 
 
-- (instancetype)init : (NSArray*) persons _:(NSInteger) lifes _: (NSInteger) numberPerson
+- (instancetype)init : (NSMutableArray*) persons _:(NSInteger) lifes _: (NSInteger) numberPerson
 {
     self = [super init];
     if (self) {
