@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) init;
 - (void) showReport;
-- (void) addTurn;
+- (void) addTurn : (NSString*) word color:  (NSString*) color;
 
 @end
 

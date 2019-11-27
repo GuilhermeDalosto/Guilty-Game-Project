@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Judge : NSObject
 
- @property NSArray *teams;
+@property NSArray *teams;
 @property Skin *skin;
 
 - (instancetype)init : (NSArray*) teams;

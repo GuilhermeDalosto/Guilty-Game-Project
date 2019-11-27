@@ -8,21 +8,26 @@
 
 #import "Team.h"
 
+
 @implementation Team
 
 
-- (instancetype)init : (NSMutableArray*) persons _:(NSInteger) lifes _: (NSInteger) numberPerson
+- (instancetype)init : (NSInteger) numberPerson
 {
     self = [super init];
     if (self) {
-        self.persons = persons;
-        self.lifes = lifes;
         self.numberPerson = numberPerson;
+        self.lifes = 3;
         self.turn = false;
     }
     return self;
 }
 
+- (void) addPlayer : (Person*) person
+{
+    
+    
+}
 
 - (void) toggleTurn
 {

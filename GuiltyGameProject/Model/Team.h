@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+
+
 NS_ASSUME_NONNULL_BEGIN
+
+@class Person;
 
 @interface Team : NSObject
 
@@ -17,7 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSInteger numberPerson;
 @property BOOL turn;
 
-- (instancetype)init : (NSArray*) persons _:(NSInteger) lifes _: (NSInteger) numberPerson;
+- (instancetype)init : (NSInteger) numberPerson;
+- (void) addPlayer : (Person*) person;
 - (void) toggleTurn;
 
 @end

@@ -15,6 +15,7 @@
 {
     self = [super init];
     if (self) {
+        self.allRounds = [[NSMutableDictionary alloc]init];
     }
     return self;
     
@@ -24,12 +25,15 @@
 
 - (void) showReport
 {
-    NSLog(@"Report: show report");
+    
+    NSLog(@"%@ - %@", self.allRounds.allKeys,self.allRounds.allValues);
+    // Show by order inputed
 }
 
-- (void) addTurn
+- (void) addTurn : (NSString*) word color:  (NSString*) color
 {
-    NSLog(@"Report: add turn");
+    [self.allRounds setObject:word forKey:color];
+    
 }
 
 

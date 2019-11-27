@@ -6,4 +6,6 @@
 #import "Person.h"
 #import "Team.h"
 #import "Judge.h"
+#import "Report.h"
+#import "Skin.h"
 

@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Team.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class Team;
 
 @interface Person : NSObject
 
