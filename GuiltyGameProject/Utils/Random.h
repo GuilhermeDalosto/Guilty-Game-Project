@@ -8,7 +8,6 @@
 
 
 #import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
 #import "Word.h"
 #import "Event.h"
 #import "Team.h"
