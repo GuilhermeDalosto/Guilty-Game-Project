@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-@property NSString *description;
+@property NSString *descriptionEvent;
 @property NSInteger difficulty;
 @property NSInteger duration;
 @property NSString *type;

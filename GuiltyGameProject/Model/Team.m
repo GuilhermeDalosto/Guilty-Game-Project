@@ -18,6 +18,7 @@
         self.persons = persons;
         self.lifes = lifes;
         self.numberPerson = numberPerson;
+        self.turn = false;
     }
     return self;
 }

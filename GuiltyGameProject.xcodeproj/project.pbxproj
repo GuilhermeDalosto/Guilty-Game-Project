@@ -20,6 +20,8 @@
 		ACF93C9D238DABA300876A0B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9C238DABA300876A0B /* Team.m */; };
 		ACF93CA0238DABDA00876A0B /* Judge.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9F238DABDA00876A0B /* Judge.m */; };
 		ACF93CA3238DCD0B00876A0B /* allEventsSigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA2238DCD0B00876A0B /* allEventsSigned.swift */; };
+		ACF93CA6238EA81B00876A0B /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA5238EA81B00876A0B /* Report.m */; };
+		ACF93CA9238EB07000876A0B /* Skin.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA8238EB07000876A0B /* Skin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,10 @@
 		ACF93C9F238DABDA00876A0B /* Judge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Judge.m; sourceTree = "<group>"; };
 		ACF93CA1238DC24F00876A0B /* GuiltyGameProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GuiltyGameProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		ACF93CA2238DCD0B00876A0B /* allEventsSigned.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = allEventsSigned.swift; sourceTree = "<group>"; };
+		ACF93CA4238EA81B00876A0B /* Report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		ACF93CA5238EA81B00876A0B /* Report.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		ACF93CA7238EB07000876A0B /* Skin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skin.h; sourceTree = "<group>"; };
+		ACF93CA8238EB07000876A0B /* Skin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skin.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +82,10 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93C8C238C777000876A0B /* Utils */,
-				ACF93C80238C4D8300876A0B /* Controller */,
-				ACF93C7F238C4D7E00876A0B /* View */,
 				ACF93C7E238C4D7A00876A0B /* Model */,
+				ACF93C7F238C4D7E00876A0B /* View */,
+				ACF93C80238C4D8300876A0B /* Controller */,
+				ACF93C8C238C777000876A0B /* Utils */,
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
@@ -103,6 +109,10 @@
 				ACF93C9C238DABA300876A0B /* Team.m */,
 				ACF93C9E238DABDA00876A0B /* Judge.h */,
 				ACF93C9F238DABDA00876A0B /* Judge.m */,
+				ACF93CA4238EA81B00876A0B /* Report.h */,
+				ACF93CA5238EA81B00876A0B /* Report.m */,
+				ACF93CA7238EB07000876A0B /* Skin.h */,
+				ACF93CA8238EB07000876A0B /* Skin.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +222,8 @@
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
+				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
+				ACF93CA6238EA81B00876A0B /* Report.m in Sources */,
 				ACF93C9A238DAB5B00876A0B /* Person.m in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 			);

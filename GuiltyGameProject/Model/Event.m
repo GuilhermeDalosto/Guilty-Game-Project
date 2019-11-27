@@ -10,15 +10,17 @@
 
 @implementation Event
 
-- (instancetype)init : (NSString*) description difficulty: (NSInteger) difficulty type: (NSString*) type duration: (NSInteger*) duration
+- (instancetype)init : (NSString*) description difficulty: (NSInteger) difficulty type: (NSString*) type duration: (NSInteger) duration
 {
     self = [super init];
     if (self) {
-        self.description = description;
+       // _descriptionEvent = description;
+        self.descriptionEvent = description;
+        
         self.difficulty = difficulty;
         self.type = type;
         self.duration = duration;
-        self.gone = false;
+      //  self.gone = false;
     }
     return self;
 }

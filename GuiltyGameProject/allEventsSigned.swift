@@ -10,7 +10,7 @@ import Foundation
 
 class allEventsSigned{
     
-    var events = ["a","b"]
+    var events = ["O jogador deve falar gritando","O jogador deve falar sussurrando","O jogador deve terminar as frases com câmbio","O jogador não pode manter contato visual","O jogador deve sempre se jogar no chão sempre quando alguém gritar granada"]
     
     
 }

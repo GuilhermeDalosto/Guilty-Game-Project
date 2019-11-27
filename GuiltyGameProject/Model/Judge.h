@@ -7,18 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Skin.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Judge : NSObject
 
-// @property Hammer hat;
-// @property Hammer hammer;
  @property NSArray *teams;
+@property Skin *skin;
 
 - (instancetype)init : (NSArray*) teams;
 
-
+- (void) passTurn;
+- (void) agree;
+- (void) deny;
+- (void) order;
+- (void) endGame;
+- (void) report;
 
 @end
 

@@ -19,4 +19,37 @@
     }
     return self;
 }
+
+- (void) passTurn
+{
+    NSLog(@"Judge: pass turn");
+}
+
+- (void) agree
+{
+    NSLog(@"Judge: agree");
+}
+
+- (void) deny
+{
+    NSLog(@"Judge: deny");
+}
+
+- (void) order
+{
+    NSLog(@"Judge: order");
+    
+}
+
+- (void) endGame
+{
+    NSLog(@"Judge: end game");
+}
+
+- (void) report
+{
+    NSLog(@"Judge: report");
+}
+
+
 @end

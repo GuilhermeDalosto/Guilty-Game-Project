@@ -20,11 +20,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        addAll()
+        
+        judge.agree()
+        judge.deny()
+        judge.endGame()
+
+        for i in allWords{
+            print("A palavra da vez é \(i.title)")
+        }
+        
+        for j in allEvents{
+            print("O evento da vez é \(j.descriptionEvent)")
+        }
+        
+        
+        
+    }
+    
+    func addAll(){
         addWords()
         addEvents()
-        
-        print(allEvents)
-        print(allWords)
+        addJudge()
     }
     
     
@@ -35,17 +52,15 @@ class ViewController: UIViewController {
     func addWords(){
         let words = allWordsSigned()
         for element in words.strAnimal{
-            allWords.append(Word("", difficulty: 0, deck: ""))
+            allWords.append(Word(element, difficulty: 0, deck: element))
         }
     }
-    
     func addEvents(){
         let events = allEventsSigned()
         for element in  events.events{
-            allEvents.append(Event("", difficulty: 0, type: "", duration: 0))
+            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
         }
     }
-    
     func addJudge(){
         
     }
