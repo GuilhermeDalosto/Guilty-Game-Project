@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property NSString *color;
 @property Team *team;
+@property BOOL gone;
 
 - (instancetype)init: (NSString*) color team: (Team*) team;
 

@@ -20,9 +20,17 @@
         self.difficulty = difficulty;
         self.type = type;
         self.duration = duration;
-      //  self.gone = false;
+        self.gone = false;
     }
     return self;
+}
+
+- (void)changeGone:(BOOL)gone{
+    self.gone = gone;
+}
+
+- (BOOL)getGone{
+    return self.gone;
 }
 
 
