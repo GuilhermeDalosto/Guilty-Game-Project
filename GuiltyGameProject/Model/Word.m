@@ -1,26 +1,26 @@
+
 //
-//  NSObject+Event.m
+//  NSObject+Word.m
 //  GuiltyGameProject
 //
 //  Created by Guilherme Martins Dalosto de Oliveira on 26/11/19.
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
-#import "Event.h"
+#import "Word.h"
 
-@implementation Event
+@implementation Word
 
-- (instancetype)init : (NSString*) description _: (NSInteger*) difficulty _: (NSString*) type _: (NSInteger*) duration
+- (instancetype)init : (NSString*) title _: (NSInteger*) difficulty _: (NSString*) deck
 {
     self = [super init];
     if (self) {
-        self.description = description;
+        self.title = title;
         self.difficulty = difficulty;
-        self.type = type;
-        self.duration = duration;
+        self.deck = deck;
+        
     }
     return self;
 }
-
 
 @end
