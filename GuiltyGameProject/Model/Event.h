@@ -19,9 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSInteger difficulty;
 @property NSInteger duration;
 @property NSString *type;
-@property (assign) BOOL *gone;
+@property (assign) BOOL gone;
 
 - (instancetype)init : (NSString*) description difficulty: (NSInteger) difficulty type: (NSString*) type duration: (NSInteger) duration;
+
+- (void) changeGone : (BOOL ) gone;
+
+- (BOOL) getGone;
 
 @end
 

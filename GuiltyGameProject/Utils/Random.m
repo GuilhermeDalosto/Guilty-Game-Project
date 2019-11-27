@@ -44,7 +44,9 @@
             
             
             if (word1.gone == true) {
+                
                 [wordArray addObject: [vector objectAtIndex:n]];
+                [wordArray objectAtIndex:n].gone = false;
             }
         }
         uint32_t rnd = arc4random_uniform([wordArray count]);
@@ -56,13 +58,24 @@
     +(Event *_Nonnull) decideEvent: (NSMutableArray *)vector{
         NSMutableArray<Event *> *eventArray = [NSMutableArray array];
         int n = 0;
+        //BOOL state = false;
+        
+        
+        
         for (n = 0; n<vector.count; n++) {
             
             Event *event1 = [vector objectAtIndex:n];
             
             
-            if (event1.gone == true) {
+            if ([event1 getGone] == true) {
                 [eventArray addObject: [vector objectAtIndex:n]];
+                
+                Event * e = [eventArray objectAtIndex:n];
+                [e changeGone:false];
+                
+                
+                
+
             }
         }
         uint32_t rnd = arc4random_uniform([eventArray count]);

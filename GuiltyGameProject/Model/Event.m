@@ -25,5 +25,13 @@
     return self;
 }
 
+- (void)changeGone:(BOOL)gone{
+    self.gone = gone;
+}
+
+- (BOOL)getGone{
+    return self.gone;
+}
+
 
 @end
