@@ -9,12 +9,16 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Word.h"
+#import "Event.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Random)
     
-    -(void) decide: (NSMutableArray *)vector;
+    +(Word *_Nonnull) decideWord: (NSMutableArray *)vector;
+
+    +(Event *_Nonnull) decideEvent: (NSMutableArray *)vector;
 
 @end
 

@@ -7,8 +7,6 @@
 //
 
 #import "Random.h"
-#import "Word.h"
-#import "Event.h"
 #import "Judge.h"
 
 
@@ -16,11 +14,9 @@
 
 @implementation NSObject (Random)
     
-    - (void)decide:(NSMutableArray *)vector{
-        Word *word = [[Word alloc] init];
+    +(Word *_Nonnull)decideWord:(NSMutableArray *)vector{
+//        Word *word = [[Word alloc] init];
 //        NSArray *vector2 = [NSArray arrayWithObject:word];
-        
-        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
         
 //        Word* wordA = [wordArray objectAtIndex:0];
         
@@ -33,8 +29,16 @@
         
 //        [mutableArray removeObjectAtIndex:0];
         
+//        for (NSArray *vector3 in vector) {
+//            if (vector3 == vector.firstObject) {
+//                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
+//                [wordArray addObject: [vector objectAtIndex:n]]
+//            }
+//        }
         
-        for (int n = 0; n<vector.count; n++) {
+        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+        int n = 0;
+        for (n = 0; n<vector.count; n++) {
             
             Word *word1 = [vector objectAtIndex:n];
             
@@ -43,17 +47,27 @@
                 [wordArray addObject: [vector objectAtIndex:n]];
             }
         }
+        uint32_t rnd = arc4random_uniform([wordArray count]);
         
-//        for (NSArray *vector3 in vector) {
-//            if (vector3 == vector.firstObject) {
-//                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
-//                [wordArray addObject: [vector objectAtIndex:n]]
-//            }
-//        }
+        return [wordArray objectAtIndex:rnd];
         
+    }
+
+    +(Event *_Nonnull) decideEvent: (NSMutableArray *)vector{
+        NSMutableArray<Event *> *eventArray = [NSMutableArray array];
+        int n = 0;
+        for (n = 0; n<vector.count; n++) {
+            
+            Event *event1 = [vector objectAtIndex:n];
+            
+            
+            if (event1.gone == true) {
+                [eventArray addObject: [vector objectAtIndex:n]];
+            }
+        }
+        uint32_t rnd = arc4random_uniform([eventArray count]);
         
-        
-        
+        return [eventArray objectAtIndex:rnd];
     }
 
 @end
