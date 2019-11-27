@@ -31,6 +31,10 @@
 		ACF93C9A238DAB5B00876A0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C99238DAB5B00876A0B /* Person.m */; };
 		ACF93C9D238DABA300876A0B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9C238DABA300876A0B /* Team.m */; };
 		ACF93CA0238DABDA00876A0B /* Judge.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9F238DABDA00876A0B /* Judge.m */; };
+		ACF93CA6238EA81B00876A0B /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA5238EA81B00876A0B /* Report.m */; };
+		ACF93CA9238EB07000876A0B /* Skin.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA8238EB07000876A0B /* Skin.m */; };
+		ACF93CB5238EE83F00876A0B /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CB4238EE83F00876A0B /* Words.swift */; };
+		ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,13 @@
 		ACF93C9C238DABA300876A0B /* Team.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		ACF93C9E238DABDA00876A0B /* Judge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Judge.h; sourceTree = "<group>"; };
 		ACF93C9F238DABDA00876A0B /* Judge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Judge.m; sourceTree = "<group>"; };
+		ACF93CA1238DC24F00876A0B /* GuiltyGameProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GuiltyGameProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		ACF93CA4238EA81B00876A0B /* Report.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Report.h; sourceTree = "<group>"; };
+		ACF93CA5238EA81B00876A0B /* Report.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
+		ACF93CA7238EB07000876A0B /* Skin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skin.h; sourceTree = "<group>"; };
+		ACF93CA8238EB07000876A0B /* Skin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skin.m; sourceTree = "<group>"; };
+		ACF93CB4238EE83F00876A0B /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allEventsSigned.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +112,7 @@
 			children = (
 				ACF93C6B238C472600876A0B /* GuiltyGameProject */,
 				ACF93C6A238C472600876A0B /* Products */,
+				ACF93CB1238EE80500876A0B /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,14 +127,15 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93C8C238C777000876A0B /* Utils */,
-				ACF93C80238C4D8300876A0B /* Controller */,
-				ACF93C7F238C4D7E00876A0B /* View */,
 				ACF93C7E238C4D7A00876A0B /* Model */,
+				ACF93C7F238C4D7E00876A0B /* View */,
+				ACF93C80238C4D8300876A0B /* Controller */,
+				ACF93C8C238C777000876A0B /* Utils */,
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
-				7BEF4A78238C74DC00E71689 /* Word.swift */,
+				ACF93CB4238EE83F00876A0B /* Words.swift */,
+				ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */,
 				7BEF4A80238DB8A300E71689 /* GameScene.swift */,
 			);
 			path = GuiltyGameProject;
@@ -131,6 +144,7 @@
 		ACF93C7E238C4D7A00876A0B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ACF93CA1238DC24F00876A0B /* GuiltyGameProject-Bridging-Header.h */,
 				ACF93C90238D8F7800876A0B /* Event.h */,
 				ACF93C91238D8F7800876A0B /* Event.m */,
 				ACF93C95238DAB0C00876A0B /* Word.h */,
@@ -141,6 +155,10 @@
 				ACF93C9C238DABA300876A0B /* Team.m */,
 				ACF93C9E238DABDA00876A0B /* Judge.h */,
 				ACF93C9F238DABDA00876A0B /* Judge.m */,
+				ACF93CA4238EA81B00876A0B /* Report.h */,
+				ACF93CA5238EA81B00876A0B /* Report.m */,
+				ACF93CA7238EB07000876A0B /* Skin.h */,
+				ACF93CA8238EB07000876A0B /* Skin.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -179,6 +197,13 @@
 				95F8C8FA238DC0AD00E8ACAB /* Random.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		ACF93CB1238EE80500876A0B /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,15 +284,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF93C9D238DABA300876A0B /* Team.m in Sources */,
-				7BEF4A79238C74DC00E71689 /* Word.swift in Sources */,
 				ACF93C97238DAB0C00876A0B /* Word.m in Sources */,
 				781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */,
 				781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
+				ACF93CB5238EE83F00876A0B /* Words.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
+				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
+				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
+				ACF93CA6238EA81B00876A0B /* Report.m in Sources */,
 				ACF93C9A238DAB5B00876A0B /* Person.m in Sources */,
 				95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,

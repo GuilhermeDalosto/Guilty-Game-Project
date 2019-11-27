@@ -15,6 +15,8 @@ class GameViewController: UIViewController{
     @IBOutlet weak var gameView: SKView!
     
     var gameScene: GameScene? = nil
+    var word = [Word]()
+    var events = [Event]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
