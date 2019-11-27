@@ -10,139 +10,230 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene{
+    /// Background Sprite at Game Scene
     let backgroundSprite = SKSpriteNode(imageNamed: "2")
-        var pinsSprite = [SKSpriteNode]()
-    //    let eventSprite = SKSpriteNode(imageNamed: "2")
+    /// Pins Sprites at Game Scene
+    var pinsSprite = [SKSpriteNode]()
+    /// Lifes Sprites at Game Scene
+    var lifeTeamSprite = [SKSpriteNode]()
+    /// Judge Sprite at Game Scene
+    var judgeSprite = SKSpriteNode(imageNamed: "2")
+    /// NPC Pins Sprites at Game Scene
+    var pinsNPCSprite = [SKSpriteNode]()
+    
+    /// Word Label at Game Scene
+    var wordLabel = SKLabelNode(fontNamed: "Chalkduster")
+    /// Timer Label at Game Scene
+    var timerLabel = SKLabelNode(fontNamed: "Chalkduster")
+    /// Round Label at Game Scene
+    var roundLabel = SKLabelNode(fontNamed: "Chalkduster")
+    /// Event Label at Game Scene
+    var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
+    /// Array of Images to Sprites
+    var imagesSprite: [String] = ["1", "1", "1", "1", "1", "1"]
+    
+    /// User Defaults
+    let defaults = UserDefaults.standard
+    
+    /// Array with two teams
+    var team = [Team]()
+    /// Timer
+    weak var timer: Timer?
+    /// Seconds at the timer
+    var time: Int = 30
+    
+    /// Number of Turns
+    static var turn: Int = 0
+    /// Number of Rounds
+    static var round: Int = 0
+    
+    /**
+     Init Scene if there is not a event to the current player
+    */
+    init(size: CGSize, word: Word, team1: Team, team2: Team, judge: Judge) {
+        super.init(size: size)
         
-        var wordLabel = SKLabelNode(fontNamed: "Chalkduster")
-        var timerLabel = SKLabelNode(fontNamed: "Chalkduster")
-        var roundLabel = SKLabelNode(fontNamed: "Chalkduster")
-        var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
+//        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
+        let numberOfPlayers: Int = 3
         
-        var imagesSprite: [String] = ["1", "1", "1", "1", "1", "1"]
+        team.append(team1)
+        team.append(team2)
         
-        let defaults = UserDefaults.standard
+        setupLifes(team: team)
+        addTurn(numberOfPlayers: numberOfPlayers)
+        setupLabel(word: word.title, event: nil)
+        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge)
+        startTimer()
+    }
+    
+    /**
+     Init Scene if there is a event to the current player
+     */
+    init(size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge){
+        super.init(size: size)
+//        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
+        let numberOfPlayers: Int = 3
         
-        weak var timer: Timer?
-        var time: Int = 30
+        team.append(team1)
+        team.append(team2)
         
-        static var turn: Int = 0
-        static var round: Int = 0
+        setupLifes(team: team)
+        addTurn(numberOfPlayers: numberOfPlayers)
+        setupLabel(word: word.title, event: event.descriptionEvent)
+        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge)
+        startTimer()
+    }
         
-        init(size: CGSize, word: String) {
-            super.init(size: size)
-    //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
-            let numberOfPlayers: Int = 3
-            
-            addTurn(numberOfPlayers: numberOfPlayers)
-            setupLabel(word: word, event: nil)
-            setupSprites(numberOfPlayers: numberOfPlayers)
-            startTimer()
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    /**
+     Add a turn to the game and calculate Round
+     */
+    func addTurn(numberOfPlayers: Int){
+        GameScene.turn += 1
+        GameScene.round = (GameScene.turn / (numberOfPlayers - 1)) + 1
+    }
+    
+    /**
+     Setup word, timer, round and event labels in Nodes
+     */
+    func setupLabel(word: String, event: String?){
+        if(GameScene.turn == 1){
+            time = 60
+        } else {
+            time = 30
         }
         
-        init(size: CGSize, word: String, event: String){
-            super.init(size: size)
-    //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
-            let numberOfPlayers: Int = 3
-            
-            addTurn(numberOfPlayers: numberOfPlayers)
-            setupLabel(word: word, event: event)
-            setupSprites(numberOfPlayers: numberOfPlayers)
-            startTimer()
+        wordLabel.text = word
+        wordLabel.fontSize = 30
+        wordLabel.fontColor = .black
+        wordLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 15)
+        
+        timerLabel.text = "\(time)"
+        timerLabel.fontSize = 30
+        timerLabel.fontColor = .black
+        timerLabel.position = CGPoint(x: size.width/2, y: size.height/2 - 15)
+        
+        roundLabel.text = "\(GameScene.round)"
+        roundLabel.fontSize = 30
+        roundLabel.fontColor = .black
+        roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
+        
+        if let eventString = event{
+            eventLabel.text = eventString
+            eventLabel.fontSize = 30
+            eventLabel.fontColor = .black
+            eventLabel.position = CGPoint(x: size.width/2, y: 40)
+            addChild(eventLabel)
         }
         
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        addChild(wordLabel)
+        addChild(timerLabel)
+        addChild(roundLabel)
+    }
+    
+    /**
+     Setup sprites of background, pins in game and npc pins in Nodes
+     */
+    func setupSprites(numberOfPlayers: Int, judge: Judge){
+        // Background Sprite
+        backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundSprite.zPosition = -1.0
+        
+        // Judge Sprite
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * CGFloat(0.8))
+        
+        // Player Pin Sprite
+        for i in 0...numberOfPlayers - 2{
+            pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i]))
+        }
+            
+        switch numberOfPlayers {
+        case 3:
+            pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
+            break
+        case 5:
+            pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
+            break
+        default:
+            pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[4].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[5].position = CGPoint(x: 0, y: size.height/4)
         }
         
-        func addTurn(numberOfPlayers: Int){
-            GameScene.turn += 1
-            GameScene.round = (GameScene.turn / (numberOfPlayers - 1)) + 1
+        // NPC Pin Sprite
+        for _ in 0...1{
+            pinsNPCSprite.append(SKSpriteNode(imageNamed: "1"))
         }
         
-        func setupLabel(word: String, event: String?){
-            if(GameScene.turn == 1){
-                time = 60
-            } else {
-                time = 30
-            }
-            
-            wordLabel.text = word
-            wordLabel.fontSize = 30
-            wordLabel.fontColor = .black
-            wordLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 15)
-            
-            timerLabel.text = "\(time)"
-            timerLabel.fontSize = 30
-            timerLabel.fontColor = .black
-            timerLabel.position = CGPoint(x: size.width/2, y: size.height/2 - 15)
-            
-            roundLabel.text = "\(GameScene.round)"
-            roundLabel.fontSize = 30
-            roundLabel.fontColor = .black
-            roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
-            
-            if let eventString = event{
-                eventLabel.text = eventString
-                eventLabel.fontSize = 30
-                eventLabel.fontColor = .black
-                eventLabel.position = CGPoint(x: size.width/2, y: 40)
-                addChild(eventLabel)
-            }
-            
-            addChild(wordLabel)
-            addChild(timerLabel)
-            addChild(roundLabel)
-        }
+        pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
+        pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
         
-        func setupSprites(numberOfPlayers: Int){
-            backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
-            backgroundSprite.zPosition = -1.0
-    //        eventSprite.position = CGPoint(x: size.width/2, y: 0)
-            
-            for i in 0...numberOfPlayers - 2{
-    //            pinsSprite[i] = SKSpriteNode(imageNamed: imagesSprite[i])
-                pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i]))
-            }
-            
-            switch numberOfPlayers {
+        // add Child
+        addChild(judgeSprite)
+        addChild(backgroundSprite)
+        for i in 0...numberOfPlayers - 2{
+            addChild(pinsSprite[i])
+        }
+        for i in 0...pinsNPCSprite.count{
+            addChild(pinsNPCSprite[i])
+        }
+    }
+    
+    /**
+     Setup lifes sprites by team number of lifes in Nodes
+     */
+    func setupLifes(team: [Team]){
+        for i in 0...1{
+            switch team[i].lifes {
             case 3:
-                pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
-                pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
                 break
-            case 5:
-                pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
+            case 2:
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
+                break
+            case 1:
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
                 break
             default:
-                pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[4].position = CGPoint(x: 0, y: size.height/4)
-                pinsSprite[5].position = CGPoint(x: 0, y: size.height/4)
-            }
-            
-            addChild(backgroundSprite)
-    //        addChild(eventSprite)
-            for i in 0...numberOfPlayers - 2{
-                addChild(pinsSprite[i])
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "1"))
             }
         }
         
-        func startTimer(){
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDecrease), userInfo: nil, repeats: true)
-        }
+        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.25), y: size.height * CGFloat(0.75))
+        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.75), y: size.height * CGFloat(0.75))
         
-        @objc func timerDecrease(){
-            time -= 1
-            DispatchQueue.main.async {
-                self.timerLabel.text = "\(self.time)"
-            }
-            if time == 0{
-                timer?.invalidate()
-            }
+        addChild(lifeTeamSprite[0])
+        addChild(lifeTeamSprite[1])
+    }
+    
+    /**
+     Start timer for player speak
+     */
+    func startTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDecrease), userInfo: nil, repeats: true)
+    }
+    
+    /**
+     Function to decrease time to the label timer
+     */
+    @objc func timerDecrease(){
+        time -= 1
+        DispatchQueue.main.async {
+            self.timerLabel.text = "\(self.time)"
         }
+        if time == 0{
+            timer?.invalidate()
+        }
+    }
 }
