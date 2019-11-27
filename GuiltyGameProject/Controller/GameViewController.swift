@@ -14,11 +14,14 @@ class GameViewController: UIViewController{
     
     @IBOutlet weak var gameView: SKView!
     
-    let gameScene = GameScene()
+    var gameScene: GameScene? = nil
+    var word = [Word]()
+    var events = [Event]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Passou aq")
+        // init for player that gain a event -> GameScene(size: view.bounds.size, word: , event: )
+        gameScene = GameScene(size: view.bounds.size, word: "")
         gameView.presentScene(gameScene)
     }
 }
