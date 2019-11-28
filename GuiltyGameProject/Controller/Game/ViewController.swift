@@ -45,6 +45,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var currentColor = "" // : String?
     
     var judgeDecision = "" // : String?
+    ///Condição para verificar qual será o time que irá perder, se perder
+    var conditionToFinish : Bool?
+    
+    var choosenTeam: Team?
     
     
     
@@ -58,7 +62,48 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         addAll()
         gameRunning = false
+<<<<<<< HEAD:GuiltyGameProject/Controller/Game/ViewController.swift
       
+=======
+        while (gameRunning){
+            // startRound()
+            // Startar timer, resetar os currents...
+            currentWord = allWords[a].title
+            currentEvent = allEvents[a].descriptionEvent
+            currentColor = colors[a]
+            
+            
+            print("A palavra da vez é \(currentWord)")
+            print("O evento é \(currentEvent)")
+            
+            print("É a vez de \(currentColor)")
+            //print("É a vez de \(firstTeam.persons[0].color)" )
+            
+            
+            // DECISAO JUIZ
+            
+            
+            report.addTurn(currentWord, color: currentColor)
+            
+            if(Team.turn){
+                choosenTeam = firstTeam
+            }else{
+                choosenTeam = secondTeam
+            }
+            
+            ///Quando o jogo for acabar
+            if conditionToFinish != nil{
+                finishGame(team: choosenTeam!, judge: judge)
+            }
+            
+            a += 1
+            
+            if a == 3{
+            gameRunning = false;
+            }
+            
+        }
+>>>>>>> BranchDoDia:GuiltyGameProject/Controller/ViewController.swift
       
         report.show();
         
@@ -151,6 +196,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     func addJudge(){
         
+    }
+    
+    func finishGame(team: Team, judge: Judge){
+        if team.lifes != 0{
+            judge.deny(team)
+        }else{
+            judge.endGame()
+        }
     }
     
     func addToReport(){
