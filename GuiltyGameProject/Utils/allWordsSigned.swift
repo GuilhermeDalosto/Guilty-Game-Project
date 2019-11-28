@@ -37,13 +37,3 @@ class Words{
     var strNatal: [String] = ["Ceia","Peru","Papai Noel","Mamãe Noel", "Rena","Árvore de Natal", "Pavê","Familia","Férias","Rabanada","Tio Chato","Decoração","Pessoas","Mesa","Presentes","Gnomo","Duende","Feriado","Celebrar","Chuva","Frio","Lareira","Amigo Oculto","Compartilhar","Festa","Música","Neve","Ano Novo","Panetone","Uva Passa"]
 }
 
-var wordsRandom =  [Word]()
-var wordsHard = [Word]()
-var wordsFood = [Word]()
-var wordsFoodHard = [Word]()
-var wordsMagic = [Word]()
-var wordsAnimal = [Word]()
-var wordsAnimalHard = [Word]()
-var wordsOldWest = [Word]()
-var wordNinja = [Word]()
-var wordChristmas = [Word]()
