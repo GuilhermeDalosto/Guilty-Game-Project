@@ -31,6 +31,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     var currentColor = "" // : String?
     
     var judgeDecision = "" // : String?
+    ///Condição para verificar qual será o time que irá perder, se perder
+    var conditionToFinish : Bool?
+    
+    var choosenTeam: Team?
     
     
     
@@ -68,9 +72,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             
             report.addTurn(currentWord, color: currentColor)
             
-          //  judgeDecision = judge.deny()
+            if(Team.turn){
+                choosenTeam = firstTeam
+            }else{
+                choosenTeam = secondTeam
+            }
             
-            
+            ///Quando o jogo for acabar
+            if conditionToFinish != nil{
+                finishGame(team: choosenTeam!, judge: judge)
+            }
             
             a += 1
             
@@ -128,6 +139,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         
     func addJudge(){
         
+    }
+    
+    func finishGame(team: Team, judge: Judge){
+        if team.lifes != 0{
+            judge.deny(team)
+        }else{
+            judge.endGame()
+        }
     }
     
     func addToReport(){

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSMutableArray *persons;
 @property NSInteger lifes;
 @property NSInteger numberPerson;
-@property BOOL turn;
+@property (class) BOOL turn;
 
 - (instancetype)init : (NSInteger) numberPerson;
 - (void) addPlayer : (Person*) person;
