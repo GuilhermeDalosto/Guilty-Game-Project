@@ -8,4 +8,5 @@
 #import "Judge.h"
 #import "Report.h"
 #import "Skin.h"
+#import "SiriRemote.h"
 
