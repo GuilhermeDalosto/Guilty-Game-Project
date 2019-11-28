@@ -1,28 +1,24 @@
-
 //
-//  NSObject+Word.m
+//  NSObject+Person.m
 //  GuiltyGameProject
 //
 //  Created by Guilherme Martins Dalosto de Oliveira on 26/11/19.
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
-#import "Word.h"
+#import "Deck.h"
 
-@implementation Word
+@implementation Deck
 
-- (instancetype) init : (NSString*) title deck: (NSString*) deck;
+- (instancetype)init: (NSString*) name cards: (NSMutableArray*) cards hardCards: (NSMutableArray*) hardCards
 {
     self = [super init];
     if (self) {
-        self.title = title;
-        self.deck = deck;
-        self.gone = false;
-        
+        self.name = name;
+        self.cards = cards;
+        self.hardCards = cards;
     }
     return self;
-    
-    //dealloc
 }
 
 @end

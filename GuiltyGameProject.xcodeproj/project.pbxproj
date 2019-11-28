@@ -23,6 +23,7 @@
 		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
 		ACBB918323903A6E0060FF8B /* Hammer.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918023903A6D0060FF8B /* Hammer.m */; };
 		ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918123903A6D0060FF8B /* SiriRemote.m */; };
+		ACBB9187239042AF0060FF8B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB9186239042AF0060FF8B /* Deck.m */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */; };
 		ACF93C8B238C775200876A0B /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C8A238C775200876A0B /* Config.storyboard */; };
 		ACF93C92238D8F7800876A0B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C91238D8F7800876A0B /* Event.m */; };
-		ACF93C97238DAB0C00876A0B /* Word.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C96238DAB0C00876A0B /* Word.m */; };
 		ACF93C9A238DAB5B00876A0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C99238DAB5B00876A0B /* Person.m */; };
 		ACF93C9D238DABA300876A0B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9C238DABA300876A0B /* Team.m */; };
 		ACF93CA0238DABDA00876A0B /* Judge.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9F238DABDA00876A0B /* Judge.m */; };
@@ -62,6 +62,8 @@
 		ACBB918023903A6D0060FF8B /* Hammer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hammer.m; sourceTree = "<group>"; };
 		ACBB918123903A6D0060FF8B /* SiriRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiriRemote.m; sourceTree = "<group>"; };
 		ACBB918223903A6E0060FF8B /* Hammer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hammer.h; sourceTree = "<group>"; };
+		ACBB9185239042AF0060FF8B /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
+		ACBB9186239042AF0060FF8B /* Deck.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,8 +74,6 @@
 		ACF93C8A238C775200876A0B /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		ACF93C90238D8F7800876A0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		ACF93C91238D8F7800876A0B /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
-		ACF93C95238DAB0C00876A0B /* Word.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Word.h; sourceTree = "<group>"; };
-		ACF93C96238DAB0C00876A0B /* Word.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Word.m; sourceTree = "<group>"; };
 		ACF93C98238DAB5B00876A0B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		ACF93C99238DAB5B00876A0B /* Person.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		ACF93C9B238DABA300876A0B /* Team.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
@@ -169,8 +169,6 @@
 				ACBB918123903A6D0060FF8B /* SiriRemote.m */,
 				ACF93C90238D8F7800876A0B /* Event.h */,
 				ACF93C91238D8F7800876A0B /* Event.m */,
-				ACF93C95238DAB0C00876A0B /* Word.h */,
-				ACF93C96238DAB0C00876A0B /* Word.m */,
 				ACF93C98238DAB5B00876A0B /* Person.h */,
 				ACF93C99238DAB5B00876A0B /* Person.m */,
 				ACF93C9B238DABA300876A0B /* Team.h */,
@@ -181,6 +179,8 @@
 				ACF93CA5238EA81B00876A0B /* Report.m */,
 				ACF93CA7238EB07000876A0B /* Skin.h */,
 				ACF93CA8238EB07000876A0B /* Skin.m */,
+				ACBB9185239042AF0060FF8B /* Deck.h */,
+				ACBB9186239042AF0060FF8B /* Deck.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,9 +310,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF93C9D238DABA300876A0B /* Team.m in Sources */,
-				ACF93C97238DAB0C00876A0B /* Word.m in Sources */,
 				781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */,
 				781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */,
+				ACBB9187239042AF0060FF8B /* Deck.m in Sources */,
 				95F8C901239039CE00E8ACAB /* Music.m in Sources */,
 				ACBB918323903A6E0060FF8B /* Hammer.m in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
