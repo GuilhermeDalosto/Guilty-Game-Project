@@ -51,37 +51,41 @@ class GameScene: SKScene{
     /**
      Init Scene if there is not a event to the current player
     */
-    init(size: CGSize, word: Word, team1: Team, team2: Team, judge: Judge) {
+    init(size: CGSize, word: Word, team1: Team, team2: Team, judge: Judge, players: [Person]) {
         super.init(size: size)
         
 //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
         let numberOfPlayers: Int = 3
         
+        // add teams to the array
         team.append(team1)
         team.append(team2)
         
+        // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
         setupLabel(word: word.title, event: nil)
-        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge)
+        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }
     
     /**
      Init Scene if there is a event to the current player
      */
-    init(size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge){
+    init(size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
         super.init(size: size)
 //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
         let numberOfPlayers: Int = 3
         
+        // add teams to array
         team.append(team1)
         team.append(team2)
         
+        // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
         setupLabel(word: word.title, event: event.descriptionEvent)
-        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge)
+        setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }
         
@@ -101,27 +105,32 @@ class GameScene: SKScene{
      Setup word, timer, round and event labels in Nodes
      */
     func setupLabel(word: String, event: String?){
+        // set time to timer
         if(GameScene.turn == 1){
             time = 60
         } else {
             time = 30
         }
         
+        // set word label
         wordLabel.text = word
         wordLabel.fontSize = 30
         wordLabel.fontColor = .black
         wordLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 15)
         
+        // set timer label
         timerLabel.text = "\(time)"
         timerLabel.fontSize = 30
         timerLabel.fontColor = .black
         timerLabel.position = CGPoint(x: size.width/2, y: size.height/2 - 15)
         
+        // set round label
         roundLabel.text = "\(GameScene.round)"
         roundLabel.fontSize = 30
         roundLabel.fontColor = .black
         roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
         
+        // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
             eventLabel.fontSize = 30
@@ -130,6 +139,7 @@ class GameScene: SKScene{
             addChild(eventLabel)
         }
         
+        // add label to the scene
         addChild(wordLabel)
         addChild(timerLabel)
         addChild(roundLabel)
@@ -138,7 +148,7 @@ class GameScene: SKScene{
     /**
      Setup sprites of background, pins in game and npc pins in Nodes
      */
-    func setupSprites(numberOfPlayers: Int, judge: Judge){
+    func setupSprites(numberOfPlayers: Int, judge: Judge, players: [Person]){
         // Background Sprite
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundSprite.zPosition = -1.0
@@ -148,9 +158,11 @@ class GameScene: SKScene{
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 2{
-            pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i]))
+            pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
+//            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
-            
+        
+        // set player position in base of how many players have
         switch numberOfPlayers {
         case 3:
             pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
@@ -176,6 +188,7 @@ class GameScene: SKScene{
             pinsNPCSprite.append(SKSpriteNode(imageNamed: "pinA"))
         }
         
+        // set NPC Pin position
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
         
@@ -194,6 +207,7 @@ class GameScene: SKScene{
      Setup lifes sprites by team number of lifes in Nodes
      */
     func setupLifes(team: [Team]){
+        // set number of hearts of each team
         for i in 0...1{
             switch team[i].lifes {
             case 3:
@@ -210,9 +224,11 @@ class GameScene: SKScene{
             }
         }
         
+        // set life position of each team
         lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.25), y: size.height * CGFloat(0.75))
         lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.75), y: size.height * CGFloat(0.75))
         
+        // add to the scene
         addChild(lifeTeamSprite[0])
         addChild(lifeTeamSprite[1])
     }
@@ -221,6 +237,7 @@ class GameScene: SKScene{
      Start timer for player speak
      */
     func startTimer(){
+        // start timer
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDecrease), userInfo: nil, repeats: true)
     }
     
