@@ -61,7 +61,6 @@
                                 <state key="normal" title="Home"/>
                                 <connections>
                                     <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
-                                    <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="SQP-hw-Clv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,6 +69,7 @@
                     <connections>
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
+                        <segue destination="0tF-A9-xoE" kind="show" identifier="Config" id="2Ka-xc-eP7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOD-A5-rhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

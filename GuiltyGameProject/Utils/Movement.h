@@ -1,5 +1,5 @@
 //
-//  NSObject+Movement.h
+//  Movement.h
 //  GuiltyGameProject
 //
 //  Created by Victor Dângelo Teixeira Ciccarini on 27/11/19.

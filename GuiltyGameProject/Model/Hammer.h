@@ -1,20 +1,17 @@
 //
-//  NSObject+Random.h
+//  NSObject+Hammer.h
 //  GuiltyGameProject
 //
-//  Created by Guilherme Martins Dalosto de Oliveira on 25/11/19.
+//  Created by Guilherme Martins Dalosto de Oliveira on 27/11/19.
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
 
 #import <Foundation/Foundation.h>
-#import <SpriteKit/SpriteKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSObject (Random)
-    
-    -(void) decide: (NSMutableArray *)vector;
+@interface Hammer : NSObject
 
 @end
 

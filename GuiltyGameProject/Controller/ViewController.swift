@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import SpriteKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var allWords =  [Word]()
     var allEvents = [Event]()
-    
+
     var persons = [Person]()
     var colors = ["Blue","Green","Purple","Yellow","Red","Orange"]
+    var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     
     // Receber a quantidade por delegate
     var qtPlayer = 4
@@ -29,18 +31,27 @@ class ViewController: UIViewController {
     var currentColor = "" // : String?
     
     var judgeDecision = "" // : String?
+    ///Condição para verificar qual será o time que irá perder, se perder
+    var conditionToFinish : Bool?
+    
+    var choosenTeam: Team?
+    
+    
     
     var gameRunning = true;
     var a = 0;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+          
+        print("this View Controller")
+        
+        
+        
         // Do any additional setup after loading the view.
+        
         addAll()
-        
-        judge.agree()
-        judge.deny()
-        judge.endGame()
-        
+        gameRunning = false
         while (gameRunning){
             // startRound()
             // Startar timer, resetar os currents...
@@ -59,12 +70,18 @@ class ViewController: UIViewController {
             // DECISAO JUIZ
             
             
-            
             report.addTurn(currentWord, color: currentColor)
             
-          //  judgeDecision = judge.deny()
+            if(Team.turn){
+                choosenTeam = firstTeam
+            }else{
+                choosenTeam = secondTeam
+            }
             
-            
+            ///Quando o jogo for acabar
+            if conditionToFinish != nil{
+                finishGame(team: choosenTeam!, judge: judge)
+            }
             
             a += 1
             
@@ -72,7 +89,6 @@ class ViewController: UIViewController {
             gameRunning = false;
             }
             
-            // endRound() -> Send report;
         }
       
         report.show();
@@ -81,9 +97,17 @@ class ViewController: UIViewController {
     }
     
     func addAll(){
+        addController()
         addWords()
         addEvents()
         addJudge()
+    }
+    
+    func addController(){
+      var _ = SiriRemote(self.view)
+        for i in 0..<funcoesControle.count{
+            self.view.gestureRecognizers?[i].addTarget(self, action: Selector(funcoesControle[i]))
+        }
     }
 
     func addWords(){
@@ -112,16 +136,65 @@ class ViewController: UIViewController {
         }
         
     }
-    
-    
+        
     func addJudge(){
         
+    }
+    
+    func finishGame(team: Team, judge: Judge){
+        if team.lifes != 0{
+            judge.deny(team)
+        }else{
+            judge.endGame()
+        }
     }
     
     func addToReport(){
         report.addTurn(currentWord, color: currentColor)
     }
 
-
+    @objc func PlayPause(){
+        print("pause")
+    }
+    
+    @objc func Menu(){
+        print("menu")
+    }
+    
+    @objc func Select(){
+        print("select")
+    }
+    
+    @objc func UpArrow(){
+        print("uparrow")
+    }
+    
+    @objc func LeftArrow(){
+        print("leftarrow")
+    }
+    
+    @objc func DownArrow(){
+        print("downarrow")
+    }
+    
+    @objc func RightArrow(){
+        print("rightarrow")
+    }
+    
+    @objc func SwipeUp(){
+        print("swipeup")
+    }
+    
+    @objc func SwipeLeft(){
+        print("swipeleft")
+    }
+    
+    @objc func SwipeDown(){
+        print("swipedown")
+    }
+    
+    @objc func SwipeRight(){
+        print("swiperight")
+    }
 }
 

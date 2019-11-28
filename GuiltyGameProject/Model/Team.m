@@ -18,7 +18,7 @@
     if (self) {
         self.numberPerson = numberPerson;
         self.lifes = 3;
-        self.turn = false;
+        Team.turn = false;
     }
     return self;
 }
@@ -31,7 +31,7 @@
 
 - (void) toggleTurn
 {
-    self.turn = !self.turn;
+    Team.turn = !Team.turn;
     
 }
 
