@@ -2,16 +2,16 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Report View Controller-->
+        <!--View Controller-->
         <scene sceneID="1Vl-YW-yJQ">
             <objects>
-                <viewController id="cDf-Cc-Cpa" customClass="ReportViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cDf-Cc-Cpa" customClass="ViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VTv-ND-QbA"/>
                         <viewControllerLayoutGuide type="bottom" id="CQJ-ya-wah"/>
@@ -52,9 +52,6 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R3K-yd-gRl"/>
                     </view>
-                    <connections>
-                        <outlet property="collectionView" destination="b5g-Yo-r4N" id="J68-Xo-1W7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k1-bZ-umO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
