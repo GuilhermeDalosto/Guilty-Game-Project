@@ -11,12 +11,11 @@
 
 @implementation Word
 
-- (instancetype) init : (NSString*) title difficulty: (NSInteger) difficulty deck: (NSString*) deck;
+- (instancetype) init : (NSString*) title deck: (NSString*) deck;
 {
     self = [super init];
     if (self) {
         self.title = title;
-        self.difficulty = difficulty;
         self.deck = deck;
         self.gone = false;
         
