@@ -108,6 +108,14 @@
 			path = CustomizeJudge;
 			sourceTree = "<group>";
 		};
+		7B28DF902390377200B41070 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				7BEF4A80238DB8A300E71689 /* GameScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		ACF93C60238C472600876A0B = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +136,7 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
+				7B28DF902390377200B41070 /* Scene */,
 				ACF93C7E238C4D7A00876A0B /* Model */,
 				ACF93C7F238C4D7E00876A0B /* View */,
 				ACF93C80238C4D8300876A0B /* Controller */,
@@ -137,7 +146,6 @@
 				ACF93C78238C472B00876A0B /* Info.plist */,
 				ACF93CB4238EE83F00876A0B /* Words.swift */,
 				ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */,
-				7BEF4A80238DB8A300E71689 /* GameScene.swift */,
 			);
 			path = GuiltyGameProject;
 			sourceTree = "<group>";
