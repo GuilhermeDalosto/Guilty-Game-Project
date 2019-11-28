@@ -20,6 +20,7 @@
 		7BEF4A81238DB8A300E71689 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A80238DB8A300E71689 /* GameScene.swift */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
+		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
 		ACBB918323903A6E0060FF8B /* Hammer.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918023903A6D0060FF8B /* Hammer.m */; };
 		ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918123903A6D0060FF8B /* SiriRemote.m */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
@@ -55,6 +56,8 @@
 		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		95F8C8FC238F159900E8ACAB /* Movement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movement.h; sourceTree = "<group>"; };
 		95F8C8FD238F159900E8ACAB /* Movement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
+		95F8C8FF239039CE00E8ACAB /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
+		95F8C900239039CE00E8ACAB /* Music.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
 		ACBB917F23903A6D0060FF8B /* SiriRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiriRemote.h; sourceTree = "<group>"; };
 		ACBB918023903A6D0060FF8B /* Hammer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hammer.m; sourceTree = "<group>"; };
 		ACBB918123903A6D0060FF8B /* SiriRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiriRemote.m; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				95F8C8FA238DC0AD00E8ACAB /* Random.m */,
 				95F8C8FC238F159900E8ACAB /* Movement.h */,
 				95F8C8FD238F159900E8ACAB /* Movement.m */,
+				95F8C8FF239039CE00E8ACAB /* Music.h */,
+				95F8C900239039CE00E8ACAB /* Music.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				ACF93C97238DAB0C00876A0B /* Word.m in Sources */,
 				781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */,
 				781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */,
+				95F8C901239039CE00E8ACAB /* Music.m in Sources */,
 				ACBB918323903A6E0060FF8B /* Hammer.m in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
