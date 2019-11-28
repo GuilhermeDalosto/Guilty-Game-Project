@@ -1,5 +1,5 @@
 //
-//  NSObject+Random.h
+//  Random.h
 //  GuiltyGameProject
 //
 //  Created by Guilherme Martins Dalosto de Oliveira on 25/11/19.

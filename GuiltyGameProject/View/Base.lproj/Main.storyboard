@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,7 +26,6 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="PressStart:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="EgU-08-zFO"/>
-                                    <segue destination="T9a-E1-v83" kind="show" identifier="SetGame" id="BIA-fL-3fX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-Tu-R3N">
@@ -36,7 +35,6 @@
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <action selector="PressSettings:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="lff-Gn-mgn"/>
-                                    <segue destination="ZZe-sd-Z37" kind="show" identifier="Settings" id="ENM-hf-maL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Guilty Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VjQ-ob-Qrv">
@@ -53,6 +51,8 @@
                     <connections>
                         <outlet property="settingsButton" destination="Vbk-Tu-R3N" id="S6L-BE-sOc"/>
                         <outlet property="startButton" destination="DPT-wG-foO" id="kto-8E-P3A"/>
+                        <segue destination="ZZe-sd-Z37" kind="show" identifier="Settings" id="Ce6-dw-8yT"/>
+                        <segue destination="T9a-E1-v83" kind="show" identifier="SetGame" id="Qws-Ck-3j1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
