@@ -36,12 +36,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="5"/>
+                                <connections>
+                                    <action selector="press5:" destination="Yjf-7n-6c9" eventType="primaryActionTriggered" id="DIS-dB-lg5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QwT-bf-BRY">
                                 <rect key="frame" x="854" y="406" width="212" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="3"/>
+                                <connections>
+                                    <action selector="press3:" destination="Yjf-7n-6c9" eventType="primaryActionTriggered" id="58W-It-ntR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Difficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjL-F6-uMO">
                                 <rect key="frame" x="185" y="223" width="193" height="59"/>
@@ -98,7 +104,6 @@
                                 <state key="normal" title="Next"/>
                                 <connections>
                                     <action selector="pressNext:" destination="Yjf-7n-6c9" eventType="primaryActionTriggered" id="Lqf-XY-iyq"/>
-                                    <segue destination="MYv-yA-wzu" kind="show" identifier="judge" id="DYX-72-abP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xil-rM-j0D">
@@ -117,17 +122,27 @@
                                     <action selector="press7:" destination="Yjf-7n-6c9" eventType="primaryActionTriggered" id="w19-Gy-j0h"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-f7-IBW">
+                                <rect key="frame" x="602" y="60" width="841" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UYk-IN-ioI"/>
                     </view>
                     <connections>
                         <outlet property="difficultButton" destination="Ra1-vY-zjT" id="Ewa-G8-1rp"/>
                         <outlet property="freeButton" destination="cyT-MX-dSX" id="sCa-Rc-0Kg"/>
+                        <outlet property="labelError" destination="mzg-f7-IBW" id="IWG-K1-RAG"/>
+                        <outlet property="nextButton" destination="H2N-11-4GU" id="noo-af-gIP"/>
                         <outlet property="normalButton" destination="Mk7-g3-971" id="1e8-aQ-TeF"/>
                         <outlet property="number3" destination="QwT-bf-BRY" id="iCd-B6-6nP"/>
                         <outlet property="number5" destination="xVz-mA-85x" id="arZ-1e-ajp"/>
                         <outlet property="number7" destination="Tz0-ox-WBM" id="iEm-Wm-rYq"/>
                         <outlet property="randomButton" destination="5tH-rr-WgG" id="zrd-Id-4Ns"/>
+                        <segue destination="MYv-yA-wzu" kind="show" identifier="judge" id="yl1-5a-ZX6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aoX-2j-PwG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

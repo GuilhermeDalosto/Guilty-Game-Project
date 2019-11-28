@@ -67,7 +67,6 @@
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="pressStart:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="QSJ-cN-Vyv"/>
-                                    <segue destination="tpK-7B-pXG" kind="show" identifier="goGame" id="FgC-15-sfg"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAq-MB-LET">
@@ -90,7 +89,6 @@
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="pressBack:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="fje-hU-OVu"/>
-                                    <segue destination="Tyo-3h-boV" kind="show" identifier="goBack" id="7JT-L1-Pgk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +97,8 @@
                     <connections>
                         <outlet property="imageHammer" destination="jAq-MB-LET" id="ctQ-HR-dng"/>
                         <outlet property="judgeCollectionVIew" destination="0ry-wP-D65" id="ldP-zN-Ynb"/>
+                        <segue destination="tpK-7B-pXG" kind="show" identifier="goGame" id="07R-Da-IaB"/>
+                        <segue destination="Tyo-3h-boV" kind="show" identifier="goBack" id="Qo9-FJ-Gke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xMU-b7-rIl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
