@@ -18,7 +18,6 @@ class GameViewController: UIViewController{
     var team1: Team = Team()
     var team2: Team = Team()
     var judge: Judge = Judge()
-    var words = [Word]()
     var events = [Event]()
     var wordsCount: Int = 0
     var eventsCount: Int = 0
