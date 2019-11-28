@@ -33,7 +33,7 @@
 		ACF93CA0238DABDA00876A0B /* Judge.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9F238DABDA00876A0B /* Judge.m */; };
 		ACF93CA6238EA81B00876A0B /* Report.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA5238EA81B00876A0B /* Report.m */; };
 		ACF93CA9238EB07000876A0B /* Skin.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CA8238EB07000876A0B /* Skin.m */; };
-		ACF93CB5238EE83F00876A0B /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CB4238EE83F00876A0B /* Words.swift */; };
+		ACF93CB5238EE83F00876A0B /* allWordsSigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CB4238EE83F00876A0B /* allWordsSigned.swift */; };
 		ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,7 +76,7 @@
 		ACF93CA5238EA81B00876A0B /* Report.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Report.m; sourceTree = "<group>"; };
 		ACF93CA7238EB07000876A0B /* Skin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Skin.h; sourceTree = "<group>"; };
 		ACF93CA8238EB07000876A0B /* Skin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Skin.m; sourceTree = "<group>"; };
-		ACF93CB4238EE83F00876A0B /* Words.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
+		ACF93CB4238EE83F00876A0B /* allWordsSigned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allWordsSigned.swift; sourceTree = "<group>"; };
 		ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = allEventsSigned.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,7 +135,7 @@
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
-				ACF93CB4238EE83F00876A0B /* Words.swift */,
+				ACF93CB4238EE83F00876A0B /* allWordsSigned.swift */,
 				ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */,
 				7BEF4A80238DB8A300E71689 /* GameScene.swift */,
 			);
@@ -293,7 +293,7 @@
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
-				ACF93CB5238EE83F00876A0B /* Words.swift in Sources */,
+				ACF93CB5238EE83F00876A0B /* allWordsSigned.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
