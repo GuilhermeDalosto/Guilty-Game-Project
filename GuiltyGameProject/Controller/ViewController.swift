@@ -38,7 +38,7 @@ class ViewController: UIViewController {
         addAll()
         
         judge.agree()
-        judge.deny()
+        judge.deny(firstTeam)
         judge.endGame()
         
         while (gameRunning){
