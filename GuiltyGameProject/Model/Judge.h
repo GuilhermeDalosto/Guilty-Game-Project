@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Skin.h"
+#import "Team.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) passTurn;
 - (void) agree;
-- (void) deny;
+- (void) deny: (Team *)team;
 - (void) order;
 - (void) endGame;
 - (void) report;

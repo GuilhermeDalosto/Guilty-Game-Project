@@ -30,9 +30,10 @@
     NSLog(@"Judge: agree");
 }
 
-- (void) deny
+- (void) deny: (Team *)team
 {
     NSLog(@"Judge: deny");
+    team.lifes -= 1;
 }
 
 - (void) order
