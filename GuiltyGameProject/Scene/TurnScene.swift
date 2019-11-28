@@ -9,6 +9,9 @@
 import Foundation
 import SpriteKit
 
+/**
+ Class responsable to show someone's turn
+ */
 class TurnScene: SKScene{
     
     /// text to say how is the turn now
