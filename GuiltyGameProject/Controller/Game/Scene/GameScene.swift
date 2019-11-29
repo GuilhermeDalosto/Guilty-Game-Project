@@ -51,7 +51,7 @@ class GameScene: SKScene{
     /**
      Init Scene if there is not a event to the current player
     */
-    init(size: CGSize, word: Word, team1: Team, team2: Team, judge: Judge, players: [Person]) {
+    init(size: CGSize, team1: Team, team2: Team, judge: Judge, players: [Person]) {
         super.init(size: size)
         
 //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
@@ -64,7 +64,7 @@ class GameScene: SKScene{
         // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLabel(word: word.title, event: nil)
+//      /  setupLabel(word: word.title, event: nil)
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }
@@ -72,7 +72,7 @@ class GameScene: SKScene{
     /**
      Init Scene if there is a event to the current player
      */
-    init(size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
+    init(size: CGSize,  event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
         super.init(size: size)
 //        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
         let numberOfPlayers: Int = 3
@@ -84,7 +84,7 @@ class GameScene: SKScene{
         // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLabel(word: word.title, event: event.descriptionEvent)
+      //  setupLabel(word: word.title, event: event.descriptionEvent)
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }

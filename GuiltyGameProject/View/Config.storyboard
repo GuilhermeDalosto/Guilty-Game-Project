@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYb-IG-xlo">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,29 +33,22 @@
                                 <rect key="frame" x="695" y="283" width="530" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Music             Off"/>
+                                <state key="normal" title="Music"/>
                                 <connections>
                                     <action selector="pressMusicButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="DLd-ks-NIv"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-kG-oQY">
-                                <rect key="frame" x="1017" y="586" width="208" height="145"/>
+                                <rect key="frame" x="695" y="586" width="530" height="145"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="PT"/>
+                                <state key="normal" title="Language"/>
                                 <connections>
                                     <action selector="pressLanguageButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="rEe-Qa-y1W"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEl-X4-fnI">
-                                <rect key="frame" x="723" y="630" width="213" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
-                                <rect key="frame" x="112" y="68" width="181" height="86"/>
+                                <rect key="frame" x="106" y="312" width="267" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Home"/>
@@ -69,7 +62,7 @@
                     <connections>
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
-                        <segue destination="0tF-A9-xoE" kind="show" identifier="Config" id="2Ka-xc-eP7"/>
+                        <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="2Ka-xc-eP7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOD-A5-rhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

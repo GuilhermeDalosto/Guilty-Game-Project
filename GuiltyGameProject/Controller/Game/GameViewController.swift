@@ -17,6 +17,7 @@ class GameViewController: UIViewController{
     var gameScene: GameScene? = nil
     var team1: Team = Team()
     var team2: Team = Team()
+    var players : Person = Person()
     var judge: Judge = Judge()
     var events = [Event]()
     var wordsCount: Int = 0
@@ -28,7 +29,7 @@ class GameViewController: UIViewController{
       //  words.append(Word("aaa", difficulty: 1, deck: "Normal"))
        // words.append(Word("bbb", difficulty: 1, deck: "Normal"))
         //init for player that gain a event -> GameScene(size: view.bounds.size, word: words[], event: events[])
-        gameScene = GameScene(size: size, word: words[wordsCount], team1: team1, team2: team2, judge: judge)
+        gameScene = GameScene(size: size, team1: team1, team2: team2, judge: judge,players: [players])
 //        (size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge)
         gameView.presentScene(gameScene)
         wordsCount += 1

@@ -14,7 +14,7 @@
 
 @implementation NSObject (Random)
     
-    +(Word *_Nonnull)decideWord:(NSMutableArray<Word *>*)vector{
+ //   +(Word *_Nonnull)decideWord:(NSMutableArray<Word *>*)vector{
 //        Word *word = [[Word alloc] init];
 //        NSArray *vector2 = [NSArray arrayWithObject:word];
         
@@ -35,25 +35,25 @@
 //                [wordArray addObject: [vector objectAtIndex:n]]
 //            }
 //        }
-        
-        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
-        int n = 0;
-        for (n = 0; n<vector.count; n++) {
-            
-            Word *word1 = [vector objectAtIndex:n];
-            
-            
-            if (word1.gone == false) {
-                
-                [wordArray addObject: [vector objectAtIndex:n]];
-                [vector objectAtIndex:n].gone = true;
-            }
-        }
-        uint32_t rnd = arc4random_uniform([wordArray count]);
-        
-        return [wordArray objectAtIndex:rnd];
-        
-    }
+//
+//        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+//        int n = 0;
+//        for (n = 0; n<vector.count; n++) {
+//
+//            Word *word1 = [vector objectAtIndex:n];
+//
+//
+//            if (word1.gone == false) {
+//
+//                [wordArray addObject: [vector objectAtIndex:n]];
+//                [vector objectAtIndex:n].gone = true;
+//            }
+//        }
+//        uint32_t rnd = arc4random_uniform([wordArray count]);
+//
+//        return [wordArray objectAtIndex:rnd];
+//
+ //   }
 
 +(Event *_Nonnull) decideEvent: (NSMutableArray<Event *>*)vector{
         NSMutableArray<Event *> *eventArray = [NSMutableArray array];
