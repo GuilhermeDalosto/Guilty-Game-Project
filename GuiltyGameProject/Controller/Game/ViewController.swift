@@ -62,13 +62,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         addAll()
         gameRunning = false
-<<<<<<< HEAD:GuiltyGameProject/Controller/Game/ViewController.swift
-      
-=======
+
         while (gameRunning){
             // startRound()
             // Startar timer, resetar os currents...
-            currentWord = allWords[a].title
+           // currentWord = allWords[a].title
             currentEvent = allEvents[a].descriptionEvent
             currentColor = colors[a]
             
@@ -103,7 +101,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             
         }
->>>>>>> BranchDoDia:GuiltyGameProject/Controller/ViewController.swift
+
       
         report.show();
         
