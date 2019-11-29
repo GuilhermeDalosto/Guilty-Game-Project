@@ -10,6 +10,7 @@
 
 
 @implementation Team
+ 
 
 
 - (instancetype)init : (NSInteger) numberPerson
