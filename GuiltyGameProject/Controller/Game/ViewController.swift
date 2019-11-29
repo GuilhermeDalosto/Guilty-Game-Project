@@ -11,7 +11,21 @@ import SpriteKit
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
-    var allWords =  [Word]()
+    // ALL WORDS
+    var wordsRandom =  [String]()
+    var wordsHard = [String]()
+    var wordsFood = [String]()
+    var wordsFoodHard = [String]()
+    var wordsMagic = [String]()
+    var wordsAnimal = [String]()
+    var wordsAnimalHard = [String]()
+    var wordsOldWest = [String]()
+    var wordsNinja = [String]()
+    var wordsChristmas = [String]()
+    
+    
+    
+    
     var allEvents = [Event]()
 
     var persons = [Person]()
@@ -43,15 +57,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          
-        print("this View Controller")
-        
-        
         
         // Do any additional setup after loading the view.
-        
+
         addAll()
         gameRunning = false
+<<<<<<< HEAD:GuiltyGameProject/Controller/Game/ViewController.swift
+      
+=======
         while (gameRunning){
             // startRound()
             // Startar timer, resetar os currents...
@@ -90,6 +103,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             }
             
         }
+>>>>>>> BranchDoDia:GuiltyGameProject/Controller/ViewController.swift
       
         report.show();
         
@@ -112,9 +126,52 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
     func addWords(){
         let words = Words()
-        for element in words.strAnimal{
-            allWords.append(Word(element, difficulty: 0, deck: element))
+        
+        for element in words.str{
+            wordsRandom.append(element)
         }
+        for element in words.strFood{
+            wordsFood.append(element)
+        }
+        for element in words.strHardFood{
+            wordsFoodHard.append(element)
+        }
+        for element in words.strMagic{
+            wordsMagic.append(element)
+        }
+        for element in words.strAnimal{
+            wordsRandom.append(element)
+        }
+        for element in words.strHardAnimal{
+            wordsAnimalHard.append(element)
+        }
+        for element in words.strOldWest{
+            wordsOldWest.append(element)
+        }
+        for element in words.strNinja{
+            wordsNinja.append(element)
+        }
+        for element in words.strNormalWords{
+            wordsRandom.append(element)
+        }
+        for element in words.strHardWords{
+            wordsHard.append(element)
+        }
+        for element in words.strNatal{
+            wordsChristmas.append(element)
+        }
+        
+        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
+        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
+        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
+        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
+        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
+        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
+        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
+        
+        
+        
+        print(christmas.cards)
     }
     
     func addEvents(){
