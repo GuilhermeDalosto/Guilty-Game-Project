@@ -51,11 +51,10 @@ class GameScene: SKScene{
     /**
      Init Scene if there is not a event to the current player
     */
-    init(size: CGSize, word: Word, team1: Team, team2: Team, judge: Judge, players: [Person]) {
+    init(size: CGSize, word: String, team1: Team, team2: Team, judge: Judge, players: [Person]) {
         super.init(size: size)
         
-//        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
-        let numberOfPlayers: Int = 3
+        let numberOfPlayers = players.count
         
         // add teams to the array
         team.append(team1)
@@ -64,7 +63,7 @@ class GameScene: SKScene{
         // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLabel(word: word.title, event: nil)
+        setupLabel(word: word, event: nil)
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }
@@ -72,10 +71,10 @@ class GameScene: SKScene{
     /**
      Init Scene if there is a event to the current player
      */
-    init(size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
+    init(size: CGSize, word: String, event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
         super.init(size: size)
-//        let numberOfPlayers: Int = defaults.integer(forKey: "NumberOfPlayers")
-        let numberOfPlayers: Int = 3
+        
+        let numberOfPlayers = players.count
         
         // add teams to array
         team.append(team1)
@@ -84,7 +83,7 @@ class GameScene: SKScene{
         // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLabel(word: word.title, event: event.descriptionEvent)
+        setupLabel(word: word, event: event.descriptionEvent)
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }
@@ -164,11 +163,11 @@ class GameScene: SKScene{
         
         // set player position in base of how many players have
         switch numberOfPlayers {
-        case 3:
+        case 2:
             pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
             break
-        case 5:
+        case 4:
             pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
             pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
