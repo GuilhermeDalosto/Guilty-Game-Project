@@ -21,6 +21,8 @@ class ThemeScene: SKScene{
     override init(size: CGSize){
         super.init(size: size)
         
+        // chamar a funcao aleatoria para retornar os temas aleatorios
+        
         localTheme.text = ""
         localTheme.color = .red
         localTheme.fontSize = 30
