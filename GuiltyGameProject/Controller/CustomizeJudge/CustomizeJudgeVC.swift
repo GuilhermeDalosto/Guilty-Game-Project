@@ -10,8 +10,19 @@ import Foundation
 import UIKit
 
 class CustomizeJudgeViewController: UIViewController {
-        
+    
+    var focusedGuideUp = UIFocusGuide()
+    var focusedGuideLeft = UIFocusGuide()
+    var focusedGuideLeftDown = UIFocusGuide()
+    var focusedGuideRightDown = UIFocusGuide()
+    var focusedGuideRightUp = UIFocusGuide()
+    
+    
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
     
     
     @IBOutlet weak var imageHammer: UIImageView!
@@ -27,9 +38,111 @@ class CustomizeJudgeViewController: UIViewController {
     var typePeople: Int?
     
     override func viewDidLoad() {
-       // judge = judgeIdentifier.map{UIImage(named: $0)!}
+        // judge = judgeIdentifier.map{UIImage(named: $0)!}
         super.viewDidLoad()
+        setLayoutGuide()
     }
+    
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focusedGuideUp = context.nextFocusedView else {return}
+        guard let focusedGuideLeft = context.nextFocusedView else {return}
+        guard let focusedGuideLeftDown = context.nextFocusedView else {return}
+        print(context.nextFocusedView)
+        
+        switch focusedGuideUp{
+        case self.leftButton:
+            self.focusedGuideUp.preferredFocusedView = self.backButton
+            
+        case self.backButton:
+            self.focusedGuideUp.preferredFocusedView = self.leftButton
+        case self.rightButton:
+            self.focusedGuideUp.preferredFocusedView = self.startButton
+        default:
+            self.focusedGuideUp.preferredFocusedView = nil
+        }
+        
+        switch focusedGuideLeft {
+        case self.backButton:
+            self.focusedGuideLeft.preferredFocusedView = self.leftButton
+        case self.leftButton:
+            self.focusedGuideLeft.preferredFocusedView = self.backButton
+        default:
+            self.focusedGuideLeft.preferredFocusedView = nil
+        }
+        
+        switch focusedGuideLeftDown{
+        case self.rightButton:
+            self.focusedGuideLeftDown.preferredFocusedView = self.startButton
+        case self.startButton:
+            self.focusedGuideLeftDown.preferredFocusedView = self.rightButton
+        default:
+            self.focusedGuideLeftDown.preferredFocusedView = nil
+        }
+        
+        switch focusedGuideRightDown{
+               case self.rightButton:
+                   self.focusedGuideRightDown.preferredFocusedView = self.startButton
+               case self.startButton:
+                   self.focusedGuideRightDown.preferredFocusedView = self.rightButton
+               default:
+                self.focusedGuideRightDown.preferredFocusedView = self.rightButton
+            }
+        
+        switch focusedGuideRightUp{
+        case self.startButton:
+            self.focusedGuideRightUp.preferredFocusedView = self.startButton
+        default:
+            self.focusedGuideRightUp.preferredFocusedView = self.rightButton
+        }
+               
+        
+        
+        
+    }
+    
+    func setLayoutGuide(){
+        self.view.addLayoutGuide(focusedGuideUp)
+        self.view.addLayoutGuide(focusedGuideLeft)
+        self.view.addLayoutGuide(focusedGuideLeftDown)
+        self.view.addLayoutGuide(focusedGuideRightDown)
+        self.view.addLayoutGuide((focusedGuideRightUp))
+        
+        
+        self.focusedGuideUp.leftAnchor.constraint(equalTo: self.leftButton.leftAnchor).isActive = true
+        self.focusedGuideUp.widthAnchor.constraint(equalTo: self.leftButton.widthAnchor).isActive = true
+        
+        self.focusedGuideUp.heightAnchor.constraint(equalTo: self.backButton.heightAnchor).isActive = true
+        self.focusedGuideUp.topAnchor.constraint(equalTo: self.backButton.topAnchor).isActive = true
+        
+        self.focusedGuideLeft.leftAnchor.constraint(equalTo: self.backButton.leftAnchor).isActive = true
+        self.focusedGuideLeft.widthAnchor.constraint(equalTo: self.backButton.widthAnchor).isActive = true
+        
+        self.focusedGuideLeft.heightAnchor.constraint(equalTo: self.leftButton.heightAnchor).isActive = true
+        self.focusedGuideLeft.topAnchor.constraint(equalTo: self.leftButton.topAnchor).isActive = true
+        
+        self.focusedGuideLeftDown.rightAnchor.constraint(equalTo: self.rightButton.rightAnchor).isActive = true
+        self.focusedGuideLeftDown.widthAnchor.constraint(equalTo: self.rightButton.widthAnchor).isActive = true
+        
+        self.focusedGuideLeftDown.heightAnchor.constraint(equalTo: self.rightButton.heightAnchor).isActive = true
+        self.focusedGuideLeftDown.topAnchor.constraint(equalTo: self.startButton.topAnchor).isActive = true
+        
+        self.focusedGuideRightDown.leftAnchor.constraint(equalTo: self.startButton.leftAnchor).isActive = true
+        self.focusedGuideRightDown.widthAnchor.constraint(equalTo: self.startButton.widthAnchor).isActive = true
+        
+        self.focusedGuideRightDown.heightAnchor.constraint(equalTo: self.rightButton.heightAnchor).isActive = true
+        self.focusedGuideRightDown.topAnchor.constraint(equalTo: self.rightButton.topAnchor).isActive = true
+        
+        self.focusedGuideRightUp.leftAnchor.constraint(equalTo: self.rightButton.leftAnchor).isActive = true
+        self.focusedGuideRightUp.widthAnchor.constraint(equalTo: self.rightButton.widthAnchor).isActive = true
+        
+        self.focusedGuideRightUp.heightAnchor.constraint(equalTo: self.backButton.heightAnchor).isActive = true
+        self.focusedGuideRightUp.topAnchor.constraint(equalTo: self.backButton.topAnchor).isActive = true
+        
+        
+        
+    }
+    
     
     
     @IBAction func scrollRightJudge(_ sender: Any) {
@@ -45,7 +158,7 @@ class CustomizeJudgeViewController: UIViewController {
             _judgeIndex -= 1
         }
     }
-
+    
     @IBAction func pressStart(_ sender: Any) {
         performSegue(withIdentifier: "goGame", sender: nil)
     }
@@ -58,7 +171,7 @@ class CustomizeJudgeViewController: UIViewController {
 extension CustomizeJudgeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-            return judge.count
+        return judge.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -67,7 +180,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegate, UICollectionVi
         cell.imageJudge.image = judge[indexPath.row]
         cell.imageJudge.contentMode = .center
         return cell
-
+        
     }
 }
 

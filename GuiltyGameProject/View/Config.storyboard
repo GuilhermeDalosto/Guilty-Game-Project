@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
-                                <rect key="frame" x="106" y="312" width="267" height="86"/>
+                                <rect key="frame" x="106" y="68" width="267" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Home"/>
@@ -60,6 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="AGK-Nu-LCG"/>
                     </view>
                     <connections>
+                        <outlet property="homeButton" destination="k8y-tJ-alt" id="lJf-54-aBI"/>
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
                         <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="2Ka-xc-eP7"/>

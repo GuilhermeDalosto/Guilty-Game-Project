@@ -7,6 +7,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main-->
+        <scene sceneID="kbs-ew-nfJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="R15-J0-UQI" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="GAj-rK-mcu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xf8-6M-Lyn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1489" y="-151"/>
+        </scene>
         <!--SetGame-->
         <scene sceneID="Pjs-ru-CC2">
             <objects>
@@ -123,18 +133,28 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-f7-IBW">
-                                <rect key="frame" x="542" y="60" width="841" height="46"/>
+                                <rect key="frame" x="541" y="61" width="841" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2f-hb-bAs">
+                                <rect key="frame" x="139" y="60" width="239" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <segue destination="R15-J0-UQI" kind="show" id="bIW-89-bKw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UYk-IN-ioI"/>
                     </view>
                     <connections>
                         <outlet property="difficultButton" destination="Ra1-vY-zjT" id="Ewa-G8-1rp"/>
                         <outlet property="freeButton" destination="cyT-MX-dSX" id="sCa-Rc-0Kg"/>
+                        <outlet property="homeButton" destination="f2f-hb-bAs" id="4cW-l4-nSz"/>
                         <outlet property="labelError" destination="mzg-f7-IBW" id="IWG-K1-RAG"/>
                         <outlet property="nextButton" destination="H2N-11-4GU" id="noo-af-gIP"/>
                         <outlet property="normalButton" destination="Mk7-g3-971" id="1e8-aQ-TeF"/>
