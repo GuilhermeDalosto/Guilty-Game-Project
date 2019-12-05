@@ -14,24 +14,268 @@ class GameViewController: UIViewController{
     
     @IBOutlet weak var gameView: SKView!
     
+    var drawScene: DrawScene? = nil
+    var turnScene: TurnScene? = nil
+    var themeScene: ThemeScene? = nil
     var gameScene: GameScene? = nil
-    var team1: Team = Team()
-    var team2: Team = Team()
-    var players : Person = Person()
-    var judge: Judge = Judge()
-    var events = [Event]()
+
+    var team = [Team]()
+    var judge: Judge?
+    var players = [Person]()
+
     var wordsCount: Int = 0
     var eventsCount: Int = 0
     
+    // ALL WORDS
+    var wordsRandom =  [String]()
+    var wordsHard = [String]()
+    var wordsFood = [String]()
+    var wordsFoodHard = [String]()
+    var wordsMagic = [String]()
+    var wordsAnimal = [String]()
+    var wordsAnimalHard = [String]()
+    var wordsOldWest = [String]()
+    var wordsNinja = [String]()
+    var wordsChristmas = [String]()
+    
+    
+    
+    
+    var allEvents = [Event]()
+
+//    var persons = [Person]()
+    var colors = ["Blue","Green","Purple","Yellow","Red","Orange"]
+    var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
+    
+    // Receber a quantidade por delegate
+    var qtPlayer = 4
+    var firstTeam = Team(2)
+    var secondTeam = Team(2)
+    
+    var report = Report()
+    
+    var currentWord = "" // : String?
+    var currentEvent: String? = ""// : String?
+    var currentColor = "" // : String?
+    
+    var judgeDecision = "" // : String?
+    ///Condição para verificar qual será o time que irá perder, se perder
+    var conditionToFinish : Bool?
+    
+    var choosenTeam: Team?
+    
+    var gameRunning = true
+    var a = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupGame()
+        
+        startTheme()
+        
+        // fazer o sorteio das palavras e dos eventos
+        
+//        if let event = currentEvent{
+//            gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
+//        } else {
+//            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+//        }
+//
+//        gameView.presentScene(gameScene)
+//        wordsCount += 1
+    
+    }
+    
+    func startTheme(){
         let size: CGSize = view.bounds.size
-      //  words.append(Word("aaa", difficulty: 1, deck: "Normal"))
-       // words.append(Word("bbb", difficulty: 1, deck: "Normal"))
-        //init for player that gain a event -> GameScene(size: view.bounds.size, word: words[], event: events[])
-        gameScene = GameScene(size: size, team1: team1, team2: team2, judge: judge,players: [players])
-//        (size: CGSize, word: Word, event: Event, team1: Team, team2: Team, judge: Judge)
-        gameView.presentScene(gameScene)
-        wordsCount += 1
+
+        themeScene = ThemeScene(size: size)
+        gameView.presentScene(themeScene)
+    }
+    
+    func setupGame(){
+        // pegar as cores e adicionar ao array colors
+        // PROVISORIO
+        colors.append("Black")
+        colors.append("White")
+        colors.append("Yellow")
+        colors.append("Red")
+        colors.append("Green")
+        colors.append("Grey")
+        
+        // instantiate and add teams to team array
+        team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
+        
+        // instantiate and add person to players array
+        for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 2{
+            if i < UserDefaults.standard.integer(forKey: "numberOfPlayers")/2{
+                players.append(Person(colors[i], team: team[0]))
+            } else {
+                players.append(Person(colors[i], team: team[1]))
+            }
+        }
+        
+        // instantiate
+        judge = Judge(team)
+        
+        addAll()
+        
+    }
+    
+    func addAll(){
+        addController()
+        addWords()
+        addEvents()
+    }
+    
+    func addController(){
+      var _ = SiriRemote(self.view)
+        for i in 0..<funcoesControle.count{
+            self.view.gestureRecognizers?[i].addTarget(self, action: Selector(funcoesControle[i]))
+        }
+    }
+
+    func addWords(){
+        let words = Words()
+        
+        // Fazer a condicao de selecao de deck
+        for element in words.str{
+            wordsRandom.append(element)
+        }
+        for element in words.strFood{
+            wordsFood.append(element)
+        }
+        for element in words.strHardFood{
+            wordsFoodHard.append(element)
+        }
+        for element in words.strMagic{
+            wordsMagic.append(element)
+        }
+        for element in words.strAnimal{
+            wordsRandom.append(element)
+        }
+        for element in words.strHardAnimal{
+            wordsAnimalHard.append(element)
+        }
+        for element in words.strOldWest{
+            wordsOldWest.append(element)
+        }
+        for element in words.strNinja{
+            wordsNinja.append(element)
+        }
+        for element in words.strNormalWords{
+            wordsRandom.append(element)
+        }
+        for element in words.strHardWords{
+            wordsHard.append(element)
+        }
+        for element in words.strNatal{
+            wordsChristmas.append(element)
+        }
+        
+//        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
+//        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
+//        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
+//        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
+//        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
+//        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
+//        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
+//
+//
+//
+//        print(christmas.cards)
+    }
+    
+    func addEvents(){
+        let events = allEventsSigned()
+        for element in  events.events{
+            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+        }
+    }
+    
+    func finishGame(team: Team, judge: Judge){
+        if team.lifes != 0{
+            judge.deny(team)
+        }else{
+            judge.endGame()
+        }
+    }
+    
+    func addToReport(){
+        report.addTurn(currentWord, color: currentColor)
+    }
+    
+    @objc func PlayPause(){
+        print("pause")
+    }
+    
+    @objc func Menu(){
+        print("menu")
+    }
+    
+    @objc func Select(){
+        print("select")
+    }
+    
+    @objc func UpArrow(){
+        print("uparrow")
+    }
+    
+    @objc func LeftArrow(){
+        print("leftarrow")
+        
+    }
+    
+    @objc func DownArrow(){
+        print("downarrow")
+    }
+    
+    @objc func RightArrow(){
+        print("rightarrow")
+    }
+    
+    @objc func SwipeUp(){
+        print("swipeup")
+    }
+    
+    @objc func SwipeLeft(){
+        print("swipeleft")
+    }
+    
+    @objc func SwipeDown(){
+        print("swipedown")
+    }
+    
+    @objc func SwipeRight(){
+        print("swiperight")
+    }
+    
+    func changeScene(){
+        switch gameView.scene {
+        case themeScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(gameScene)
+            break
+        case gameScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(turnScene)
+            break
+        case turnScene:
+            gameView.scene?.removeFromParent()
+            if GameScene.turn % qtPlayer != 0{
+                gameView.presentScene(gameScene)
+            } else {
+                gameView.presentScene(drawScene)
+            }
+            break
+        case drawScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(turnScene)
+            break
+        default:
+            print("None Scene")
+        }
+
     }
 }
