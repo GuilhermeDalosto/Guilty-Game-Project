@@ -25,6 +25,7 @@ class GameViewController: UIViewController{
 
     var wordsCount: Int = 0
     var eventsCount: Int = 0
+    var pauseScene: PauseScene? = nil
     
     // ALL WORDS
     var wordsRandom =  [String]()
@@ -212,6 +213,12 @@ class GameViewController: UIViewController{
     
     @objc func Menu(){
         print("menu")
+        //Pause o tempo
+        //Pausa a cena
+        //Se não estiver no menu
+        gameScene?.endTimer()
+        gameScene?.isPaused = true
+        gameView.presentScene(pauseScene)
     }
     
     @objc func Select(){
@@ -224,7 +231,6 @@ class GameViewController: UIViewController{
     
     @objc func LeftArrow(){
         print("leftarrow")
-        
     }
     
     @objc func DownArrow(){
@@ -241,6 +247,7 @@ class GameViewController: UIViewController{
     
     @objc func SwipeLeft(){
         print("swipeleft")
+        changeScene()
     }
     
     @objc func SwipeDown(){
@@ -249,6 +256,7 @@ class GameViewController: UIViewController{
     
     @objc func SwipeRight(){
         print("swiperight")
+        changeScene()
     }
     
     func changeScene(){
