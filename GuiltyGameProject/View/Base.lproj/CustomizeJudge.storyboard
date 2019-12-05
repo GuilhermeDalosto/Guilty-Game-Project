@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I7h-7K-wrd">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36w-Db-i6p">
-                                <rect key="frame" x="1622" y="926" width="162" height="86"/>
+                                <rect key="frame" x="1538" y="926" width="276" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Start"/>
@@ -69,10 +69,6 @@
                                     <action selector="pressStart:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="QSJ-cN-Vyv"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAq-MB-LET">
-                                <rect key="frame" x="1407" y="770" width="169" height="242"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgA-DA-tw6">
                                 <rect key="frame" x="1174" y="462" width="104" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,7 +79,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-pE-O79">
-                                <rect key="frame" x="81" y="68" width="164" height="86"/>
+                                <rect key="frame" x="81" y="68" width="233" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Back"/>
@@ -91,12 +87,20 @@
                                     <action selector="pressBack:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="fje-hU-OVu"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAq-MB-LET">
+                                <rect key="frame" x="1257" y="770" width="169" height="242"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b9z-CJ-TVR"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="8J6-pE-O79" id="05M-vV-Rvt"/>
                         <outlet property="imageHammer" destination="jAq-MB-LET" id="ctQ-HR-dng"/>
                         <outlet property="judgeCollectionVIew" destination="0ry-wP-D65" id="ldP-zN-Ynb"/>
+                        <outlet property="leftButton" destination="cao-MN-v6l" id="SEx-f8-yCD"/>
+                        <outlet property="rightButton" destination="xgA-DA-tw6" id="vdh-xn-dAx"/>
+                        <outlet property="startButton" destination="36w-Db-i6p" id="9KT-Wz-Arx"/>
                         <segue destination="tpK-7B-pXG" kind="show" identifier="goGame" id="07R-Da-IaB"/>
                         <segue destination="Tyo-3h-boV" kind="show" identifier="goBack" id="Qo9-FJ-Gke"/>
                     </connections>

@@ -18,11 +18,11 @@ class GameViewController: UIViewController{
     var turnScene: TurnScene? = nil
     var themeScene: ThemeScene? = nil
     var gameScene: GameScene? = nil
+
     var team = [Team]()
     var judge: Judge?
     var players = [Person]()
-//    var events = [Event]()
-//    var words = [String]()
+
     var wordsCount: Int = 0
     var eventsCount: Int = 0
     
@@ -89,6 +89,7 @@ class GameViewController: UIViewController{
     
     func startTheme(){
         let size: CGSize = view.bounds.size
+
         themeScene = ThemeScene(size: size)
         gameView.presentScene(themeScene)
     }
@@ -275,5 +276,6 @@ class GameViewController: UIViewController{
         default:
             print("None Scene")
         }
+
     }
 }

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		781C58CF238DAB6A00957CCE /* SettingsGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 781C58CE238DAB6A00957CCE /* SettingsGame.storyboard */; };
-		781C58D1238DBF8D00957CCE /* CustomizeJudge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 781C58D0238DBF8D00957CCE /* CustomizeJudge.storyboard */; };
-		781C58D3238DC50300957CCE /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 781C58D2238DC50300957CCE /* Report.storyboard */; };
 		781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D4238DC74C00957CCE /* MenuViewController.swift */; };
 		781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D6238DFCD000957CCE /* SettingsViewController.swift */; };
 		781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D8238E023C00957CCE /* SettingsGameVC.swift */; };
@@ -27,6 +24,11 @@
 		ACBB919623918C180060FF8B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919223918C180060FF8B /* GameScene.swift */; };
 		ACBB919723918C180060FF8B /* ThemeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919323918C180060FF8B /* ThemeScene.swift */; };
 		ACBB919823918C180060FF8B /* TurnScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919423918C180060FF8B /* TurnScene.swift */; };
+		ACF59359239976C5001C1B94 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF59358239976C5001C1B94 /* UserDefault.swift */; };
+		ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACF5935F239978C7001C1B94 /* Localizable.strings */; };
+		ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5936B23998679001C1B94 /* SettingsGame.storyboard */; };
+		ACF5936C2399867E001C1B94 /* CustomizeJudge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */; };
+		ACF5936F23998682001C1B94 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5937123998682001C1B94 /* Report.storyboard */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -44,9 +46,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		781C58CE238DAB6A00957CCE /* SettingsGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsGame.storyboard; sourceTree = "<group>"; };
-		781C58D0238DBF8D00957CCE /* CustomizeJudge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomizeJudge.storyboard; sourceTree = "<group>"; };
-		781C58D2238DC50300957CCE /* Report.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report.storyboard; sourceTree = "<group>"; };
 		781C58D4238DC74C00957CCE /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		781C58D6238DFCD000957CCE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		781C58D8238E023C00957CCE /* SettingsGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameVC.swift; sourceTree = "<group>"; };
@@ -70,6 +69,12 @@
 		ACBB919223918C180060FF8B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ACBB919323918C180060FF8B /* ThemeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeScene.swift; sourceTree = "<group>"; };
 		ACBB919423918C180060FF8B /* TurnScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnScene.swift; sourceTree = "<group>"; };
+		ACF59358239976C5001C1B94 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		ACF5935E239978C7001C1B94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACF59365239979A1001C1B94 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		ACF5936A23998679001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsGame.storyboard; sourceTree = "<group>"; };
+		ACF5936D2399867E001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CustomizeJudge.storyboard; sourceTree = "<group>"; };
+		ACF5937023998682001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report.storyboard; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +192,7 @@
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
+				ACF5935F239978C7001C1B94 /* Localizable.strings */,
 			);
 			path = GuiltyGameProject;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 				ACF93CA8238EB07000876A0B /* Skin.m */,
 				ACBB9185239042AF0060FF8B /* Deck.h */,
 				ACBB9186239042AF0060FF8B /* Deck.m */,
+				ACF59358239976C5001C1B94 /* UserDefault.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -224,9 +231,9 @@
 				ACF93C8A238C775200876A0B /* Config.storyboard */,
 				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
 				7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */,
-				781C58CE238DAB6A00957CCE /* SettingsGame.storyboard */,
-				781C58D0238DBF8D00957CCE /* CustomizeJudge.storyboard */,
-				781C58D2238DC50300957CCE /* Report.storyboard */,
+				ACF5936B23998679001C1B94 /* SettingsGame.storyboard */,
+				ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */,
+				ACF5937123998682001C1B94 /* Report.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = ACF93C60238C472600876A0B;
 			productRefGroup = ACF93C6A238C472600876A0B /* Products */;
@@ -325,9 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
-				781C58D3238DC50300957CCE /* Report.storyboard in Resources */,
-				781C58CF238DAB6A00957CCE /* SettingsGame.storyboard in Resources */,
-				781C58D1238DBF8D00957CCE /* CustomizeJudge.storyboard in Resources */,
+				ACF5936F23998682001C1B94 /* Report.storyboard in Resources */,
+				ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */,
+				ACF5936C2399867E001C1B94 /* CustomizeJudge.storyboard in Resources */,
+				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
@@ -365,6 +374,7 @@
 				ACBB919623918C180060FF8B /* GameScene.swift in Sources */,
 				ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */,
 				95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */,
+				ACF59359239976C5001C1B94 /* UserDefault.swift in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 				7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */,
 				781C58E1238E1A3900957CCE /* CustomizeJudgeCV.swift in Sources */,
@@ -374,6 +384,39 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ACF5935F239978C7001C1B94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACF5935E239978C7001C1B94 /* en */,
+				ACF59365239979A1001C1B94 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		ACF5936B23998679001C1B94 /* SettingsGame.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACF5936A23998679001C1B94 /* Base */,
+			);
+			name = SettingsGame.storyboard;
+			sourceTree = "<group>";
+		};
+		ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACF5936D2399867E001C1B94 /* Base */,
+			);
+			name = CustomizeJudge.storyboard;
+			sourceTree = "<group>";
+		};
+		ACF5937123998682001C1B94 /* Report.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACF5937023998682001C1B94 /* Base */,
+			);
+			name = Report.storyboard;
+			sourceTree = "<group>";
+		};
 		ACF93C70238C472700876A0B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -397,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -457,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
