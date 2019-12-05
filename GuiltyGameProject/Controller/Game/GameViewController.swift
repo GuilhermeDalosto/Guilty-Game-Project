@@ -224,7 +224,6 @@ class GameViewController: UIViewController{
     
     @objc func LeftArrow(){
         print("leftarrow")
-        
     }
     
     @objc func DownArrow(){
@@ -241,6 +240,7 @@ class GameViewController: UIViewController{
     
     @objc func SwipeLeft(){
         print("swipeleft")
+        changeScene()
     }
     
     @objc func SwipeDown(){
@@ -249,6 +249,7 @@ class GameViewController: UIViewController{
     
     @objc func SwipeRight(){
         print("swiperight")
+        changeScene()
     }
     
     func changeScene(){
