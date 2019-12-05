@@ -27,6 +27,8 @@
 		ACBB919623918C180060FF8B /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919223918C180060FF8B /* GameScene.swift */; };
 		ACBB919723918C180060FF8B /* ThemeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919323918C180060FF8B /* ThemeScene.swift */; };
 		ACBB919823918C180060FF8B /* TurnScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACBB919423918C180060FF8B /* TurnScene.swift */; };
+		ACF59359239976C5001C1B94 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF59358239976C5001C1B94 /* UserDefault.swift */; };
+		ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACF5935F239978C7001C1B94 /* Localizable.strings */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -70,6 +72,10 @@
 		ACBB919223918C180060FF8B /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		ACBB919323918C180060FF8B /* ThemeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeScene.swift; sourceTree = "<group>"; };
 		ACBB919423918C180060FF8B /* TurnScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurnScene.swift; sourceTree = "<group>"; };
+		ACF59358239976C5001C1B94 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		ACF5935A23997866001C1B94 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		ACF5935E239978C7001C1B94 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACF59365239979A1001C1B94 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +193,7 @@
 				ACF93C6C238C472600876A0B /* AppDelegate.swift */,
 				ACF93C73238C472B00876A0B /* Assets.xcassets */,
 				ACF93C78238C472B00876A0B /* Info.plist */,
+				ACF5935F239978C7001C1B94 /* Localizable.strings */,
 			);
 			path = GuiltyGameProject;
 			sourceTree = "<group>";
@@ -213,6 +220,7 @@
 				ACF93CA8238EB07000876A0B /* Skin.m */,
 				ACBB9185239042AF0060FF8B /* Deck.h */,
 				ACBB9186239042AF0060FF8B /* Deck.m */,
+				ACF59358239976C5001C1B94 /* UserDefault.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +316,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = ACF93C60238C472600876A0B;
 			productRefGroup = ACF93C6A238C472600876A0B /* Products */;
@@ -328,6 +337,7 @@
 				781C58D3238DC50300957CCE /* Report.storyboard in Resources */,
 				781C58CF238DAB6A00957CCE /* SettingsGame.storyboard in Resources */,
 				781C58D1238DBF8D00957CCE /* CustomizeJudge.storyboard in Resources */,
+				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
@@ -365,6 +375,7 @@
 				ACBB919623918C180060FF8B /* GameScene.swift in Sources */,
 				ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */,
 				95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */,
+				ACF59359239976C5001C1B94 /* UserDefault.swift in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 				7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */,
 				781C58E1238E1A3900957CCE /* CustomizeJudgeCV.swift in Sources */,
@@ -374,10 +385,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		ACF5935F239978C7001C1B94 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ACF5935E239978C7001C1B94 /* en */,
+				ACF59365239979A1001C1B94 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		ACF93C70238C472700876A0B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ACF93C71238C472700876A0B /* Base */,
+				ACF5935A23997866001C1B94 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -397,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -457,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

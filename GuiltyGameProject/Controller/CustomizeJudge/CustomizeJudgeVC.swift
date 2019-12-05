@@ -16,7 +16,7 @@ class CustomizeJudgeViewController: UIViewController {
     var focusedGuideLeftDown = UIFocusGuide()
     var focusedGuideRightDown = UIFocusGuide()
     var focusedGuideRightUp = UIFocusGuide()
-    
+    var focusedGuideLeftDownDown = UIFocusGuide()
     
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
@@ -48,6 +48,9 @@ class CustomizeJudgeViewController: UIViewController {
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
+        guard let focusedGuideGuideRightDown = context.nextFocusedView else {return}
+        guard let focusedGuideGuideRightUp = context.nextFocusedView else {return}
+        guard let focusedGuideGuideDownDown = context.nextFocusedView else {return}
         print(context.nextFocusedView)
         
         switch focusedGuideUp{
@@ -76,11 +79,13 @@ class CustomizeJudgeViewController: UIViewController {
             self.focusedGuideLeftDown.preferredFocusedView = self.startButton
         case self.startButton:
             self.focusedGuideLeftDown.preferredFocusedView = self.rightButton
+        case self.leftButton:
+            self.focusedGuideLeftDown.preferredFocusedView = self.startButton
         default:
             self.focusedGuideLeftDown.preferredFocusedView = nil
         }
         
-        switch focusedGuideRightDown{
+        switch focusedGuideGuideRightDown{
                case self.rightButton:
                    self.focusedGuideRightDown.preferredFocusedView = self.startButton
                case self.startButton:
@@ -89,13 +94,20 @@ class CustomizeJudgeViewController: UIViewController {
                 self.focusedGuideRightDown.preferredFocusedView = self.rightButton
             }
         
-        switch focusedGuideRightUp{
-        case self.startButton:
-            self.focusedGuideRightUp.preferredFocusedView = self.startButton
+        switch focusedGuideGuideRightUp{
+        case self.rightButton:
+            self.focusedGuideRightUp.preferredFocusedView = self.backButton
         default:
             self.focusedGuideRightUp.preferredFocusedView = self.rightButton
         }
                
+        
+        switch focusedGuideGuideDownDown{
+        case self.leftButton:
+            self.focusedGuideLeftDownDown.preferredFocusedView = self.startButton
+        default:
+            self.focusedGuideLeftDownDown.preferredFocusedView = nil
+        }
         
         
         
@@ -107,6 +119,7 @@ class CustomizeJudgeViewController: UIViewController {
         self.view.addLayoutGuide(focusedGuideLeftDown)
         self.view.addLayoutGuide(focusedGuideRightDown)
         self.view.addLayoutGuide((focusedGuideRightUp))
+        self.view.addLayoutGuide(focusedGuideLeftDownDown)
         
         
         self.focusedGuideUp.leftAnchor.constraint(equalTo: self.leftButton.leftAnchor).isActive = true
@@ -138,6 +151,13 @@ class CustomizeJudgeViewController: UIViewController {
         
         self.focusedGuideRightUp.heightAnchor.constraint(equalTo: self.backButton.heightAnchor).isActive = true
         self.focusedGuideRightUp.topAnchor.constraint(equalTo: self.backButton.topAnchor).isActive = true
+        
+        self.focusedGuideLeftDownDown.leftAnchor.constraint(equalTo: self.leftButton.leftAnchor).isActive = true
+        self.focusedGuideLeftDownDown.widthAnchor.constraint(equalTo: self.leftButton.widthAnchor).isActive = true
+        
+        self.focusedGuideLeftDownDown.heightAnchor.constraint(equalTo: self.startButton.heightAnchor).isActive = true
+        self.focusedGuideLeftDownDown.topAnchor.constraint(equalTo: self.startButton.topAnchor).isActive = true
+        
         
         
         

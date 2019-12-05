@@ -14,6 +14,10 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        startButton.titleLabel?.text = NSLocalizedString("startText", comment: "")
+        settingsButton.titleLabel?.text = NSLocalizedString("settingsText", comment: "")
+    }
     
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)

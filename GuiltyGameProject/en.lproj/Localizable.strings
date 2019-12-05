@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  GuiltyGameProject
+
+  Created by Guilherme Martins Dalosto de Oliveira on 05/12/19.
+  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
+*/
+
+"startText" = "Start";
+"settingsText" = "Settings";
