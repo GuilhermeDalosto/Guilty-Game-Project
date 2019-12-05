@@ -14,7 +14,7 @@
 
 @implementation NSObject (Random)
     
-    +(Word *_Nonnull)decideWord:(NSMutableArray<Word *>*)vector{
+    +(NSString *_Nonnull) decideWord: (NSMutableArray<NSString *>*)vet joiningArgument2: (Deck*) deck{
 //        Word *word = [[Word alloc] init];
 //        NSArray *vector2 = [NSArray arrayWithObject:word];
         
@@ -36,17 +36,17 @@
 //            }
 //        }
         
-        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+        NSMutableArray<NSString *> *wordArray = [NSMutableArray array];
         int n = 0;
-        for (n = 0; n<vector.count; n++) {
+        for (n = 0; n<vet.count; n++) {
             
-            Word *word1 = [vector objectAtIndex:n];
+            NSString *word1 = [deck.gone objectAtIndex:n];
             
             
-            if (word1.gone == false) {
+            if ([word1  isEqual: @"nop"]) {
                 
-                [wordArray addObject: [vector objectAtIndex:n]];
-                [vector objectAtIndex:n].gone = true;
+                [wordArray addObject: [vet objectAtIndex:n]];
+                deck.gone = @"yes";
             }
         }
         uint32_t rnd = arc4random_uniform([wordArray count]);

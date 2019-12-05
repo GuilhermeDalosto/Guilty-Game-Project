@@ -17,6 +17,8 @@
         self.name = name;
         self.cards = cards;
         self.hardCards = cards;
+        for(int n = 0; n<cards.count;n++)
+            self.gone[n] = @"nop";
     }
     return self;
 }
