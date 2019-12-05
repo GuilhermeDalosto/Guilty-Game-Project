@@ -26,14 +26,35 @@
         
 //        Judge *judge = [[Judge alloc]init];
 //
-//        [judge decide:wordArray];
-        
-//        [mutableArray removeObjectAtIndex:0];
-        
-//        for (NSArray *vector3 in vector) {
-//            if (vector3 == vector.firstObject) {
-//                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
-//                [wordArray addObject: [vector objectAtIndex:n]]
+////        Word* wordA = [wordArray objectAtIndex:0];
+//
+////        NSMutableArray *mutableArray = [NSMutableArray arrayWithObjects:@[word, word, word], nil];
+//
+//
+////        Judge *judge = [[Judge alloc]init];
+////
+////        [judge decide:wordArray];
+//
+////        [mutableArray removeObjectAtIndex:0];
+//
+////        for (NSArray *vector3 in vector) {
+////            if (vector3 == vector.firstObject) {
+////                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
+////                [wordArray addObject: [vector objectAtIndex:n]]
+////            }
+////        }
+//
+//        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+//        int n = 0;
+//        for (n = 0; n<vector.count; n++) {
+//
+//            Word *word1 = [vector objectAtIndex:n];
+//
+//
+//            if (word1.gone == false) {
+//
+//                [wordArray addObject: [vector objectAtIndex:n]];
+//                [vector objectAtIndex:n].gone = true;
 //            }
 //        }
 
