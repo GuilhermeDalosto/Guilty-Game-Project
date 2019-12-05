@@ -71,7 +71,7 @@ class GameScene: SKScene{
     /**
      Init Scene if there is a event to the current player
      */
-    init(size: CGSize, word: String, event: Event, team1: Team, team2: Team, judge: Judge, players: [Person]){
+    init(size: CGSize, word: String, event: String, team1: Team, team2: Team, judge: Judge, players: [Person]){
         super.init(size: size)
         
         let numberOfPlayers = players.count
@@ -83,7 +83,7 @@ class GameScene: SKScene{
         // setups
         setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLabel(word: word, event: event.descriptionEvent)
+        setupLabel(word: word, event: event)
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
         startTimer()
     }

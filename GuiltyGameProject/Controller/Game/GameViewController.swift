@@ -14,6 +14,9 @@ class GameViewController: UIViewController{
     
     @IBOutlet weak var gameView: SKView!
     
+    var drawScene: DrawScene? = nil
+    var turnScene: TurnScene? = nil
+    var themeScene: ThemeScene? = nil
     var gameScene: GameScene? = nil
     var team = [Team]()
     var judge: Judge?
@@ -52,7 +55,7 @@ class GameViewController: UIViewController{
     var report = Report()
     
     var currentWord = "" // : String?
-    var currentEvent = ""// : String?
+    var currentEvent: String? = ""// : String?
     var currentColor = "" // : String?
     
     var judgeDecision = "" // : String?
@@ -66,12 +69,28 @@ class GameViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let size: CGSize = view.bounds.size
         
-        //init for player that gain a event -> GameScene(size: view.bounds.size, word: words[], event: events[])
-        gameScene = GameScene(size: size, word: words[wordsCount], team1: team[0], team2: team[1], judge: judge!, players: players)
-        gameView.presentScene(gameScene)
-        wordsCount += 1
+        setupGame()
+        
+        startTheme()
+        
+        // fazer o sorteio das palavras e dos eventos
+        
+//        if let event = currentEvent{
+//            gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
+//        } else {
+//            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+//        }
+//
+//        gameView.presentScene(gameScene)
+//        wordsCount += 1
+    
+    }
+    
+    func startTheme(){
+        let size: CGSize = view.bounds.size
+        themeScene = ThemeScene(size: size)
+        gameView.presentScene(themeScene)
     }
     
     func setupGame(){
@@ -99,9 +118,7 @@ class GameViewController: UIViewController{
         // instantiate
         judge = Judge(team)
         
-        // instantiate words to build a deck
-        
-        // instantiate events
+        addAll()
         
     }
     
@@ -109,7 +126,6 @@ class GameViewController: UIViewController{
         addController()
         addWords()
         addEvents()
-        addJudge()
     }
     
     func addController(){
@@ -176,23 +192,6 @@ class GameViewController: UIViewController{
             allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
         }
     }
-
-//    func addPlayers(){
-//
-//        for i in 0...qtPlayer/2{
-//            firstTeam.addPlayer(Person(colors[i], team: firstTeam))
-//
-//        }
-//
-//        for j in qtPlayer/2 + 1...qtPlayer{
-//            secondTeam.addPlayer(Person(colors[j], team: secondTeam))
-//        }
-//
-//    }
-        
-    func addJudge(){
-        
-    }
     
     func finishGame(team: Team, judge: Judge){
         if team.lifes != 0{
@@ -224,6 +223,7 @@ class GameViewController: UIViewController{
     
     @objc func LeftArrow(){
         print("leftarrow")
+        
     }
     
     @objc func DownArrow(){
@@ -248,5 +248,32 @@ class GameViewController: UIViewController{
     
     @objc func SwipeRight(){
         print("swiperight")
+    }
+    
+    func changeScene(){
+        switch gameView.scene {
+        case themeScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(gameScene)
+            break
+        case gameScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(turnScene)
+            break
+        case turnScene:
+            gameView.scene?.removeFromParent()
+            if GameScene.turn % qtPlayer != 0{
+                gameView.presentScene(gameScene)
+            } else {
+                gameView.presentScene(drawScene)
+            }
+            break
+        case drawScene:
+            gameView.scene?.removeFromParent()
+            gameView.presentScene(turnScene)
+            break
+        default:
+            print("None Scene")
+        }
     }
 }
