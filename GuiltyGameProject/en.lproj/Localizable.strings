@@ -13,7 +13,7 @@
 "musicText" = "Music";
 "homeText" = "Home";
 
-"difficultText" = "Difficult";
+"difficultText" = "Difficulty";
 "peopleText" = "Nº of Players";
 "themeText" = "Theme";
 "homeText" = "Home";
@@ -28,5 +28,5 @@
 
 "backText" = "Back";
 "startText" = "Start";
-
+"errorSelect" = "Some options wasn't selected.";
 

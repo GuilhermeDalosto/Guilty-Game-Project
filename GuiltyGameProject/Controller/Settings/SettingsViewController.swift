@@ -65,9 +65,20 @@ class SettingsViewController: UIViewController {
         switch focusedGuideUp{
         case self.musicButton:            
             self.focusedGuideUp.preferredFocusedView = self.homeButton
+            self.musicButton.backgroundColor = .brown
+            self.languageButton.backgroundColor = .clear
+            self.homeButton.backgroundColor = .clear
             
         case self.homeButton:
             self.focusedGuideUp.preferredFocusedView = self.musicButton
+            self.musicButton.backgroundColor = .clear
+                       self.languageButton.backgroundColor = .clear
+                self.homeButton.backgroundColor = .brown
+            
+        case self.languageButton:
+            self.musicButton.backgroundColor = .clear
+                          self.languageButton.backgroundColor = .brown
+                   self.homeButton.backgroundColor = .clear
         default:
             self.focusedGuideUp.preferredFocusedView = nil
         }
