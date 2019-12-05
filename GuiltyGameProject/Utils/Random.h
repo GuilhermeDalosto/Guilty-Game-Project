@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 
     +(Person *_Nonnull) decidePersonLucky: (Team *)team;
 
+    +(void) fixEvents: (NSMutableArray<Event *>*)vector;
+
+    +(void) fixOrder: (Team *)team;
+
+    +(void) fixWords: (Deck *)deck;
+
 @end
 
 NS_ASSUME_NONNULL_END

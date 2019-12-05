@@ -23,4 +23,8 @@
     return self;
 }
 
++ (void)setGonee: (int) value gone: (NSMutableArray<NSString*>*) gone{
+    gone[value] = @"yep";
+}
+
 @end

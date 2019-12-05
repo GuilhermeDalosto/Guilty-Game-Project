@@ -62,48 +62,44 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         addAll()
         gameRunning = false
-<<<<<<< HEAD:GuiltyGameProject/Controller/Game/ViewController.swift
-      
-=======
-        while (gameRunning){
-            // startRound()
-            // Startar timer, resetar os currents...
-            currentWord = allWords[a].title
-            currentEvent = allEvents[a].descriptionEvent
-            currentColor = colors[a]
-            
-            
-            print("A palavra da vez é \(currentWord)")
-            print("O evento é \(currentEvent)")
-            
-            print("É a vez de \(currentColor)")
-            //print("É a vez de \(firstTeam.persons[0].color)" )
-            
-            
-            // DECISAO JUIZ
-            
-            
-            report.addTurn(currentWord, color: currentColor)
-            
-            if(Team.turn){
-                choosenTeam = firstTeam
-            }else{
-                choosenTeam = secondTeam
-            }
-            
-            ///Quando o jogo for acabar
-            if conditionToFinish != nil{
-                finishGame(team: choosenTeam!, judge: judge)
-            }
-            
-            a += 1
-            
-            if a == 3{
-            gameRunning = false;
-            }
-            
-        }
->>>>>>> BranchDoDia:GuiltyGameProject/Controller/ViewController.swift
+//        while (gameRunning){
+//            // startRound()
+//            // Startar timer, resetar os currents...
+//            currentWord = allWords[a].title
+//            currentEvent = allEvents[a].descriptionEvent
+//            currentColor = colors[a]
+//
+//
+//            print("A palavra da vez é \(currentWord)")
+//            print("O evento é \(currentEvent)")
+//
+//            print("É a vez de \(currentColor)")
+//            //print("É a vez de \(firstTeam.persons[0].color)" )
+//
+//
+//            // DECISAO JUIZ
+//
+//
+//            report.addTurn(currentWord, color: currentColor)
+//
+//            if(Team.turn){
+//                choosenTeam = firstTeam
+//            }else{
+//                choosenTeam = secondTeam
+//            }
+//
+//            ///Quando o jogo for acabar
+//            if conditionToFinish != nil{
+//                finishGame(team: choosenTeam!, judge: judge)
+//            }
+//
+//            a += 1
+//
+//            if a == 3{
+//            gameRunning = false;
+//            }
+//
+//        }
       
         report.show();
         
@@ -161,17 +157,17 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             wordsChristmas.append(element)
         }
         
-        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
-        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
-        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
-        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
-        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
-        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
-        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
+//        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
+//        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
+//        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
+//        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
+//        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
+//        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
+//        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
         
         
         
-        print(christmas.cards)
+//        print(christmas.cards)
     }
     
     func addEvents(){

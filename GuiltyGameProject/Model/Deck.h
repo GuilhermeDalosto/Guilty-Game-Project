@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init: (NSString*) name cards: (NSMutableArray*) cards hardCards: (NSMutableArray*) hardCards;
 
++ (void)setGonee: (int) value gone: (NSMutableArray<NSString*>*) gone;
+
 
 
 @end

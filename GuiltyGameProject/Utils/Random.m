@@ -46,7 +46,8 @@
             if ([word1  isEqual: @"nop"]) {
                 
                 [wordArray addObject: [vet objectAtIndex:n]];
-                deck.gone = @"yes";
+                
+                [Deck setGonee:n gone:deck.gone];
             }
         }
         uint32_t rnd = arc4random_uniform([wordArray count]);
@@ -103,5 +104,37 @@
         uint32_t rnd = arc4random_uniform([team.persons count]);
         return [team.persons objectAtIndex:rnd];
     }
+
++(void) fixEvents: (NSMutableArray<Event *>*)vector{
+    
+    int n = 0;
+    
+    for (n = 0; n<vector.count; n++) {
+        
+        [[vector objectAtIndex:n] changeGone:true];
+
+    }
+}
+
++(void) fixOrder: (Team *)team{
+    
+    int n = 0;
+    
+    for (n = 0; n<team.persons.count; n++) {
+        
+        [[team.persons objectAtIndex:n] changeGone:true];
+
+    }
+    
+}
++(void) fixWords: (Deck *)deck{
+    
+    int n = 0;
+    for (n = 0; n<deck.cards.count; n++) {
+        
+        [Deck setGonee:n gone:deck.gone];
+        
+    }
+}
 
 @end
