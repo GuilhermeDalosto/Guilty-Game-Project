@@ -138,6 +138,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func PressHome(_ sender: Any) {
         performSegue(withIdentifier: "Main", sender: nil)
+    
     }
     
     @IBAction func pressMusicButton(_ sender: Any) {

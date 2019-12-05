@@ -41,6 +41,10 @@ class CustomizeJudgeViewController: UIViewController {
         // judge = judgeIdentifier.map{UIImage(named: $0)!}
         super.viewDidLoad()
         setLayoutGuide()
+        populateJudge()
+        judgeCollectionVIew.delegate = self
+        judgeCollectionVIew.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,6 +178,7 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
+            
         }
     }
     
@@ -192,11 +197,20 @@ class CustomizeJudgeViewController: UIViewController {
         performSegue(withIdentifier: "goBack", sender: nil)
     }
     
+    func populateJudge(){
+        judge.append(UIImage(named: "maconier")!)
+        judge.append(UIImage(named: "maconier")!)
+    }
+    
 }
-extension CustomizeJudgeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return judge.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return self.judgeCollectionVIew.frame.size
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
