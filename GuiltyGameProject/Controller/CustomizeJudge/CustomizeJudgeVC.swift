@@ -41,6 +41,7 @@ class CustomizeJudgeViewController: UIViewController {
         // judge = judgeIdentifier.map{UIImage(named: $0)!}
         super.viewDidLoad()
         setLayoutGuide()
+        populateJudge()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -190,6 +191,10 @@ class CustomizeJudgeViewController: UIViewController {
     
     @IBAction func pressBack(_ sender: Any) {
         performSegue(withIdentifier: "goBack", sender: nil)
+    }
+    
+    func populateJudge(){
+        judge.append(UIImage(named: "maconier")!)
     }
     
 }
