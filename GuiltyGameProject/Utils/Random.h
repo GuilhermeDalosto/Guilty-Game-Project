@@ -8,7 +8,7 @@
 
 
 #import <Foundation/Foundation.h>
-#import "Word.h"
+#import "Deck.h"
 #import "Event.h"
 #import "Team.h"
 #import "Person.h"
@@ -17,13 +17,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (Random)
     
-    +(Word *_Nonnull) decideWord: (NSMutableArray<Word *>*)vector;
+    +(NSString *_Nonnull) decideWord: (NSMutableArray<NSString *>*)vet joiningArgument2: (Deck*) deck;
 
     +(Event *_Nonnull) decideEvent: (NSMutableArray<Event *>*)vector;
 
     +(Person *_Nonnull) decideOrder: (Team *)team;
 
     +(Person *_Nonnull) decidePersonLucky: (Team *)team;
+
+    +(void) fixEvents: (NSMutableArray<Event *>*)vector;
+
+    +(void) fixOrder: (Team *)team;
+
+    +(void) fixWords: (Deck *)deck;
 
 @end
 
