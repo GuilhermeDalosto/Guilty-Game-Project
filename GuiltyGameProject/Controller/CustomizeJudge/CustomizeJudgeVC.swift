@@ -42,6 +42,8 @@ class CustomizeJudgeViewController: UIViewController {
         super.viewDidLoad()
         setLayoutGuide()
         populateJudge()
+        judgeCollectionVIew.delegate = self
+        judgeCollectionVIew.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -194,6 +196,7 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     func populateJudge(){
+        judge.append(UIImage(named: "maconier")!)
         judge.append(UIImage(named: "maconier")!)
     }
     
