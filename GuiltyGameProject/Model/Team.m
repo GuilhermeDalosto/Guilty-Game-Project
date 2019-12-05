@@ -11,15 +11,16 @@
 
 @implementation Team
  
-
+@synthesize turn = _turn;
 
 - (instancetype)init : (NSInteger) numberPerson
+
 {
     self = [super init];
     if (self) {
         self.numberPerson = numberPerson;
         self.lifes = 3;
-        Team.turn = false;
+        self.turn = NO;
     }
     return self;
 }
@@ -32,7 +33,7 @@
 
 - (void) toggleTurn
 {
-    Team.turn = !Team.turn;
+    self.turn = !self.turn;
     
 }
 

@@ -26,6 +26,7 @@ class CustomizeJudgeViewController: UIViewController {
     
     
     @IBOutlet weak var imageHammer: UIImageView!
+    var characterSelected : UIImage?
     
     var judge = [UIImage]()
     var judgeIdentifier = [""]
@@ -42,14 +43,22 @@ class CustomizeJudgeViewController: UIViewController {
         super.viewDidLoad()
         setLayoutGuide()
         populateJudge()
+        judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
+        judgeCollectionVIew.allowsSelection = false
         judgeCollectionVIew.delegate = self
         judgeCollectionVIew.dataSource = self
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
         backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(_judgeIndex, forKey: "positionCollection")
+        characterSelected = judge[_judgeIndex]
     }
     
     
@@ -178,7 +187,10 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
-            
+            rightButton.backgroundColor = .clear
+        }
+        else{
+            rightButton.backgroundColor = .red
         }
     }
     
@@ -186,11 +198,16 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
+            leftButton.backgroundColor = .clear
+        }
+        else{
+            leftButton.backgroundColor = .red
         }
     }
     
     @IBAction func pressStart(_ sender: Any) {
         performSegue(withIdentifier: "goGame", sender: nil)
+        
     }
     
     @IBAction func pressBack(_ sender: Any) {
@@ -199,7 +216,9 @@ class CustomizeJudgeViewController: UIViewController {
     
     func populateJudge(){
         judge.append(UIImage(named: "maconier")!)
-        judge.append(UIImage(named: "maconier")!)
+        judge.append(UIImage(named: "judge")!)
+        judge.append(UIImage(named: "1")!)
+        judge.append(UIImage(named: "2")!)
     }
     
 }
