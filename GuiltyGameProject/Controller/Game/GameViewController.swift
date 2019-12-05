@@ -65,4 +65,48 @@ class GameViewController: UIViewController{
         // instantiate events
         
     }
+    
+    @objc func PlayPause(){
+        print("pause")
+    }
+    
+    @objc func Menu(){
+        print("menu")
+    }
+    
+    @objc func Select(){
+        print("select")
+    }
+    
+    @objc func UpArrow(){
+        print("uparrow")
+    }
+    
+    @objc func LeftArrow(){
+        print("leftarrow")
+    }
+    
+    @objc func DownArrow(){
+        print("downarrow")
+    }
+    
+    @objc func RightArrow(){
+        print("rightarrow")
+    }
+    
+    @objc func SwipeUp(){
+        print("swipeup")
+    }
+    
+    @objc func SwipeLeft(){
+        print("swipeleft")
+    }
+    
+    @objc func SwipeDown(){
+        print("swipedown")
+    }
+    
+    @objc func SwipeRight(){
+        print("swiperight")
+    }
 }

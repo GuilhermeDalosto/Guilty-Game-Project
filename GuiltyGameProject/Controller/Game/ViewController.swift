@@ -62,9 +62,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         addAll()
         gameRunning = false
-<<<<<<< HEAD:GuiltyGameProject/Controller/Game/ViewController.swift
-      
-=======
+
         while (gameRunning){
             // startRound()
             // Startar timer, resetar os currents...
@@ -102,9 +100,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             gameRunning = false;
             }
             
-        }
->>>>>>> BranchDoDia:GuiltyGameProject/Controller/ViewController.swift
-      
+        }      
         report.show();
         
         
