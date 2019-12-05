@@ -30,6 +30,9 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var difficultLabel: UILabel!
+    @IBOutlet weak var peopleLabel: UILabel!
+    @IBOutlet weak var themeLabel: UILabel!
     
     
     var typeTheme = 0
@@ -50,6 +53,30 @@ class SettingsGameViewController: UIViewController {
         nextButton.isEnabled = true
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
+        self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
+        self.themeLabel.text = NSLocalizedString("themeText", comment: "")
+        
+        
+        
+        
+        self.homeButton.setTitle(NSLocalizedString("homeText", comment: ""), for: .normal)
+        self.normalButton.setTitle(NSLocalizedString("normalText", comment: ""), for: .normal)
+        self.difficultButton.setTitle(NSLocalizedString("hardText", comment: ""), for: .normal)
+        
+        self.number3.setTitle(NSLocalizedString("number3", comment: ""), for: .normal)
+        self.number5.setTitle(NSLocalizedString("number5", comment: ""), for: .normal)
+        self.number7.setTitle(NSLocalizedString("number7", comment: ""), for: .normal)
+        
+        self.freeButton.setTitle(NSLocalizedString("freeText", comment: ""), for: .normal)
+        self.randomButton.setTitle(NSLocalizedString("randomText", comment: ""), for: .normal)
+        
+        self.nextButton.setTitle(NSLocalizedString("nextText", comment: ""), for: .normal)
+        
+        
+    }
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(selectedDifficulty, forKey: "difficulty")
         UserDefaults.standard.set(selectedPeople, forKey: "people")
@@ -271,7 +298,7 @@ class SettingsGameViewController: UIViewController {
         
         if((numberSelected == false ) || (difficultySelected == false) || (themeSelected == false)){
             self.labelError.isHidden = false
-            self.labelError.text = "Alguma(as) das opções não foi(ram) selecionada(s). Selecione alguma das opções!"
+            self.labelError.text = NSLocalizedString("errorSelect",comment: "")
             return
         }else {
             UserDefaults.standard.set(typeTheme, forKey: "theme")

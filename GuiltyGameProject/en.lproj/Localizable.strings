@@ -8,3 +8,25 @@
 
 "startText" = "Start";
 "settingsText" = "Settings";
+
+"languageText" = "Language";
+"musicText" = "Music";
+"homeText" = "Home";
+
+"difficultText" = "Difficult";
+"peopleText" = "Nº of Players";
+"themeText" = "Theme";
+"homeText" = "Home";
+"normalText" = "Normal";
+"hardText" = "Hard";
+"number3" = "3";
+"number5" = "5";
+"number7" = "7";
+"freeText" = "Free";
+"randomText" = "Random";
+"nextText" = "Next";
+
+"backText" = "Back";
+"startText" = "Start";
+
+

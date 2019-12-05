@@ -8,3 +8,23 @@
 
 "startText" = "Começar";
 "settingsText" = "Configurações";
+
+"languageText" = "Idioma";
+"musicText" = "Música";
+"homeText" = "Menu";
+
+"difficultText" = "Dificuldade";
+"peopleText" = "Nº de jogadores";
+"themeText" = "Tema";
+"homeText" = "Menu";
+"normalText" = "Normal";
+"hardText" = "Díficil";
+"number3" = "3";
+"number5" = "5";
+"number7" = "7";
+"freeText" = "Livre";
+"randomText" = "Aleatório";
+"nextText" = "Próximo";
+
+"backText" = "Voltar";
+"startText" = "Começar";

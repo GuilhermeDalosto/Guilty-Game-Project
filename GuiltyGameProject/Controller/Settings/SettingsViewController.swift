@@ -30,6 +30,7 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setLayoutGuide()
+        
         musicOption = UserDefaults.standard.bool(forKey: "musicOption")
         languageOption = UserDefaults.standard.bool(forKey: "languageOption")
         
@@ -45,9 +46,9 @@ class SettingsViewController: UIViewController {
         else{
             languageOptionStr = "BR"
         }
-        
-        self.languageButton.setTitle("Language                \(languageOptionStr)", for: .normal)
-        self.musicButton.setTitle("Music                \(musicOptionStr)", for: .normal)
+        self.homeButton.setTitle("\(NSLocalizedString("homeText", comment: ""))", for: .normal)
+        self.languageButton.setTitle("\(NSLocalizedString("languageText",comment: ""))                \(languageOptionStr)", for: .normal)
+        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment: ""))                \(musicOptionStr)", for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -139,7 +140,7 @@ class SettingsViewController: UIViewController {
         }
         
         print(musicOption)
-        self.musicButton.setTitle("Music                \(musicOptionStr)", for: .normal)
+        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment:""))                \(musicOptionStr)", for: .normal)
     }
     
     @IBAction func pressLanguageButton(_ sender: Any) {
@@ -151,7 +152,7 @@ class SettingsViewController: UIViewController {
             languageOptionStr = "BR"
         }
         
-        self.languageButton.setTitle("Language                \(languageOptionStr)", for: .normal)
+        self.languageButton.setTitle("\(NSLocalizedString("languageText", comment: ""))                \(languageOptionStr)", for: .normal)
     }
 
     

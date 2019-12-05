@@ -43,6 +43,11 @@ class CustomizeJudgeViewController: UIViewController {
         setLayoutGuide()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
+        startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+    }
+    
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focusedGuideUp = context.nextFocusedView else {return}

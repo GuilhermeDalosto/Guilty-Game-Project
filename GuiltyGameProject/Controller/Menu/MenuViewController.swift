@@ -14,9 +14,9 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
-    override func viewDidAppear(_ animated: Bool) {
-        startButton.titleLabel?.text = NSLocalizedString("startText", comment: "")
-        settingsButton.titleLabel?.text = NSLocalizedString("settingsText", comment: "")
+    override func viewWillAppear(_ animated: Bool) {        
+        startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+        settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
     }
     
     @IBAction func PressStart(_ sender: Any) {
