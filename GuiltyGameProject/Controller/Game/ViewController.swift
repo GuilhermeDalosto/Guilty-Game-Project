@@ -61,44 +61,44 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         addAll()
         gameRunning = false
 
-        while (gameRunning){
-            // startRound()
-            // Startar timer, resetar os currents...
-            currentWord = allWords[a].title
-            currentEvent = allEvents[a].descriptionEvent
-            currentColor = colors[a]
-            
-            
-            print("A palavra da vez é \(currentWord)")
-            print("O evento é \(currentEvent)")
-            
-            print("É a vez de \(currentColor)")
-            //print("É a vez de \(firstTeam.persons[0].color)" )
-            
-            
-            // DECISAO JUIZ
-            
-            
-            report.addTurn(currentWord, color: currentColor)
-            
-            if(Team.turn){
-                choosenTeam = firstTeam
-            }else{
-                choosenTeam = secondTeam
-            }
-            
-            ///Quando o jogo for acabar
-            if conditionToFinish != nil{
-                finishGame(team: choosenTeam!, judge: judge)
-            }
-            
-            a += 1
-            
-            if a == 3{
-            gameRunning = false;
-            }
-            
-        }      
+//        while (gameRunning){
+//            // startRound()
+//            // Startar timer, resetar os currents...
+//            currentWord = allWords[a].title
+//            currentEvent = allEvents[a].descriptionEvent
+//            currentColor = colors[a]
+//            
+//            
+//            print("A palavra da vez é \(currentWord)")
+//            print("O evento é \(currentEvent)")
+//            
+//            print("É a vez de \(currentColor)")
+//            //print("É a vez de \(firstTeam.persons[0].color)" )
+//            
+//            
+//            // DECISAO JUIZ
+//            
+//            
+//            report.addTurn(currentWord, color: currentColor)
+//            
+//            if(Team.turn){
+//                choosenTeam = firstTeam
+//            }else{
+//                choosenTeam = secondTeam
+//            }
+//            
+//            ///Quando o jogo for acabar
+//            if conditionToFinish != nil{
+//                finishGame(team: choosenTeam!, judge: judge)
+//            }
+//            
+//            a += 1
+//            
+//            if a == 3{
+//            gameRunning = false;
+//            }
+//            
+//        }      
         report.show();
         
         
