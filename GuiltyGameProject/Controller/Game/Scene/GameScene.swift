@@ -252,4 +252,19 @@ class GameScene: SKScene{
             timer?.invalidate()
         }
     }
+    
+    func endTimer(){
+        // start timer
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerStop), userInfo: nil, repeats: false)
+    }
+    
+    /**
+     Function to decrease time to the label timer
+     */
+    @objc func timerStop(){
+        time -= 0
+        DispatchQueue.main.async {
+            self.timerLabel.text = "\(self.time)"
+        }
+    }
 }

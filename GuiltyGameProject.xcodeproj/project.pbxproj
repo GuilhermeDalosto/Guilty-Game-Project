@@ -20,6 +20,7 @@
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
 		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
+		95F8C903239978DD00E8ACAB /* PauseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C902239978DD00E8ACAB /* PauseScene.swift */; };
 		ACBB918323903A6E0060FF8B /* Hammer.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918023903A6D0060FF8B /* Hammer.m */; };
 		ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB918123903A6D0060FF8B /* SiriRemote.m */; };
 		ACBB9187239042AF0060FF8B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = ACBB9186239042AF0060FF8B /* Deck.m */; };
@@ -60,6 +61,7 @@
 		95F8C8FD238F159900E8ACAB /* Movement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		95F8C8FF239039CE00E8ACAB /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		95F8C900239039CE00E8ACAB /* Music.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		95F8C902239978DD00E8ACAB /* PauseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScene.swift; sourceTree = "<group>"; };
 		ACBB917F23903A6D0060FF8B /* SiriRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SiriRemote.h; sourceTree = "<group>"; };
 		ACBB918023903A6D0060FF8B /* Hammer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hammer.m; sourceTree = "<group>"; };
 		ACBB918123903A6D0060FF8B /* SiriRemote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SiriRemote.m; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				ACBB919223918C180060FF8B /* GameScene.swift */,
 				ACBB919323918C180060FF8B /* ThemeScene.swift */,
 				ACBB919423918C180060FF8B /* TurnScene.swift */,
+				95F8C902239978DD00E8ACAB /* PauseScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				ACF93C9D238DABA300876A0B /* Team.m in Sources */,
 				781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */,
+				95F8C903239978DD00E8ACAB /* PauseScene.swift in Sources */,
 				781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */,
 				ACBB919823918C180060FF8B /* TurnScene.swift in Sources */,
 				ACBB9187239042AF0060FF8B /* Deck.m in Sources */,

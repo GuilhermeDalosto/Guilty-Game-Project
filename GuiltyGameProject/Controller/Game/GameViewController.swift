@@ -23,6 +23,7 @@ class GameViewController: UIViewController{
     var colors = [String]()
     var wordsCount: Int = 0
     var eventsCount: Int = 0
+    var pauseScene: PauseScene? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +73,12 @@ class GameViewController: UIViewController{
     
     @objc func Menu(){
         print("menu")
+        //Pause o tempo
+        //Pausa a cena
+        //Se não estiver no menu
+        gameScene?.endTimer()
+        gameScene?.isPaused = true
+        gameView.presentScene(pauseScene)
     }
     
     @objc func Select(){
