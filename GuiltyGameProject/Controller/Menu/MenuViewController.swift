@@ -18,6 +18,20 @@ class MenuViewController: UIViewController {
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
         settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
     }
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focusedView = context.nextFocusedView else {return}
+        
+        switch focusedView{
+        case startButton:
+            startButton.backgroundColor = .brown
+            settingsButton.backgroundColor = .clear
+        case settingsButton:
+            settingsButton.backgroundColor = .brown
+            startButton.backgroundColor = .clear
+        default:
+            print("a")
+        }
+    }
     
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
