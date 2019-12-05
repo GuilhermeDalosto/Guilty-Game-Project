@@ -260,24 +260,35 @@ class GameViewController: UIViewController{
     }
     
     func changeScene(){
+        let size = view.bounds.size
         switch gameView.scene {
         case themeScene:
+            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameView.scene?.removeFromParent()
             gameView.presentScene(gameScene)
             break
         case gameScene:
+            turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             break
         case turnScene:
             gameView.scene?.removeFromParent()
             if GameScene.turn % qtPlayer != 0{
+                // fazer o teste do evento
+                if let event = currentEvent{
+                    gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
+                } else {
+                    gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+                }
                 gameView.presentScene(gameScene)
             } else {
+                drawScene = DrawScene(size: size)
                 gameView.presentScene(drawScene)
             }
             break
         case drawScene:
+            turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             break
