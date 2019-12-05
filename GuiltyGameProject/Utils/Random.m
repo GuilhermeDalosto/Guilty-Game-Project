@@ -15,6 +15,7 @@
 @implementation NSObject (Random)
     
     +(NSString *_Nonnull) decideWord: (NSMutableArray<NSString *>*)vet joiningArgument2: (Deck*) deck{
+
 //        Word *word = [[Word alloc] init];
 //        NSArray *vector2 = [NSArray arrayWithObject:word];
         
@@ -35,6 +36,7 @@
 //                [wordArray addObject: [vector objectAtIndex:n]]
 //            }
 //        }
+
         
         NSMutableArray<NSString *> *wordArray = [NSMutableArray array];
         int n = 0;
@@ -55,6 +57,7 @@
         return [wordArray objectAtIndex:rnd];
         
     }
+
 
 +(Event *_Nonnull) decideEvent: (NSMutableArray<Event *>*)vector{
         NSMutableArray<Event *> *eventArray = [NSMutableArray array];
