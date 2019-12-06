@@ -6,14 +6,10 @@
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
-#import "SKAction.h"
+#import "Actions.h"
 #import <SpriteKit/SpriteKit.h>
 
-@implementation SKAction
-
-
-
-
+@implementation Actions
 
 - (void) moveBy :(SKSpriteNode*) sprite x: (CGFloat*) x y: (CGFloat*) y interval: (CGFloat*) interval
 {
@@ -28,12 +24,12 @@
     [sprite runAction:move];
 }
 
-//
-//- (void) moveTo : (SKSpriteNode*) sprite point:(CGPoint)point interval: (CGFloat*) interval
-//{
-//    SKAction *move = [SKAction moveTo:point duration:*interval];
-//    [sprite runAction:move];
-//}
+
+- (void) rotate : (SKSpriteNode*) sprite angle:(CGFloat)angle interval: (CGFloat*) interval
+{
+    SKAction *rotate = [SKAction rotateByAngle: angle duration:*interval];
+    [sprite runAction:rotate];
+}
 
 
 

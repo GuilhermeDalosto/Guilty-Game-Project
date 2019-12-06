@@ -14,6 +14,7 @@ class GameViewController: UIViewController{
     
     @IBOutlet weak var gameView: SKView!
     
+    var actions = SKAction();
     var drawScene: DrawScene? = nil
     var turnScene: TurnScene? = nil
     var themeScene: ThemeScene? = nil
