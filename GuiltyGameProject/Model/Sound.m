@@ -6,10 +6,10 @@
 //  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
-#import "Music.h"
+#import "Sound.h"
 
 
-@implementation Music
+@implementation Sound
 
 
 

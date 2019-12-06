@@ -11,12 +11,12 @@ import UIKit
 class LaunchViewController: UIViewController {
     
     @IBOutlet weak var fromSoftware: UIImageView!
-    let music = Music()
+    let music = Sound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fromSoftware.alpha = 0
-        music.play("darksouls2", type: ".mp4")
+        music.playMusic("darksouls2", type: ".mp4")
         
         
         

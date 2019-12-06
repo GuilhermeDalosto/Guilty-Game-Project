@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Music : NSObject
+@interface Sound : NSObject
 
 @property AVAudioPlayer *audioPlayer;
 
