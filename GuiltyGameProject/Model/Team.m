@@ -20,7 +20,7 @@
     if (self) {
         self.numberPerson = numberPerson;
         self.lifes = 3;
-        self.turn = NO;
+        self.turn = false;
     }
     return self;
 }
@@ -33,6 +33,7 @@
 
 - (void) toggleTurn
 {
+
     self.turn = !self.turn;
     
 }

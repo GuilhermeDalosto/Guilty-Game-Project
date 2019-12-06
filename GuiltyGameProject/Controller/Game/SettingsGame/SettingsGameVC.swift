@@ -79,13 +79,13 @@ class SettingsGameViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(selectedDifficulty, forKey: "difficulty")
-        UserDefaults.standard.set(selectedPeople, forKey: "people")
+        UserDefaults.standard.set(selectedPeople, forKey: "numberOfPlayers")
         UserDefaults.standard.set(selectedTheme, forKey: "theme")
     }
     
     func letPressed(){
         let dif = UserDefaults.standard.integer(forKey: "difficulty")
-        let number = UserDefaults.standard.integer(forKey: "people")
+        let number = UserDefaults.standard.integer(forKey: "numberOfPlayers")
         let theme = UserDefaults.standard.integer(forKey: "theme")
         
         print(dif)
@@ -211,11 +211,11 @@ class SettingsGameViewController: UIViewController {
     
     func pressed3(){
         self.number3.backgroundColor = .red
-           self.number5.backgroundColor = .gray
-           self.number7.backgroundColor = .gray
-           typeOfPeople = 3
-           numberSelected = true
-            selectedPeople = 1
+        self.number5.backgroundColor = .gray
+        self.number7.backgroundColor = .gray
+        typeOfPeople = 3
+        numberSelected = true
+        selectedPeople = 3
     }
     func pressed5(){
         self.number3.backgroundColor = .gray
@@ -223,7 +223,7 @@ class SettingsGameViewController: UIViewController {
         self.number7.backgroundColor = .gray
         typeOfPeople = 5
         numberSelected = true
-        selectedPeople = 2
+        selectedPeople = 5
     }
     func pressed7(){
         self.number3.backgroundColor = .gray
@@ -231,7 +231,7 @@ class SettingsGameViewController: UIViewController {
                self.number7.backgroundColor = .red
                typeOfPeople = 7
                numberSelected = true
-        selectedPeople = 3
+        selectedPeople = 7
     }
     
     func pressedNormal(){

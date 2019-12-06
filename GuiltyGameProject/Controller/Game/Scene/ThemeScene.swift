@@ -14,29 +14,33 @@ class ThemeScene: SKScene{
     
     var action: [String] = ["Assassinado", "Roubo", "Fuga", "Sequestro", "Jogou lixo no chão", "Apedrejou", "Perseguição", "Invasão", "Briga", "Rinha de Galo", "Sonegar", "Destruição", "Infecção", "Venda Ilegal", "Mentir", "Protesto", "Atirar", "Bateu", "Esfaqueou", "Peidou", "Perdeu"]
     
-    var localTheme = SKLabelNode(fontNamed: "")
-    var actionTheme = SKLabelNode(fontNamed: "")
-    var titleLabel = SKLabelNode(fontNamed: "")
+    var localTheme = SKLabelNode(fontNamed: "Arial")
+    var actionTheme = SKLabelNode(fontNamed: "Arial")
+    var titleLabel = SKLabelNode(fontNamed: "Arial")
     
     override init(size: CGSize){
         super.init(size: size)
-        
         // chamar a funcao aleatoria para retornar os temas aleatorios
         
-        localTheme.text = ""
+        localTheme.text = "local"
         localTheme.color = .red
         localTheme.fontSize = 30
         localTheme.position = CGPoint(x: size.width * 0.25, y: size.height/2)
         
-        actionTheme.text = ""
+        actionTheme.text = "acao"
         actionTheme.color = .red
         actionTheme.fontSize = 30
         actionTheme.position = CGPoint(x: size.width * 0.75, y: size.height/2)
         
-        titleLabel.text = ""
+        titleLabel.text = "Theme AAAA"
         titleLabel.color = .blue
         titleLabel.fontSize = 40
         titleLabel.position = CGPoint(x: size.width/2, y: size.height * 0.85)
+        print("passou aq")
+        
+        addChild(localTheme)
+        addChild(actionTheme)
+        addChild(titleLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {

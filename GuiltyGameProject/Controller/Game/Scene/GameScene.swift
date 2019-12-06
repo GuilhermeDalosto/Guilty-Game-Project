@@ -44,7 +44,7 @@ class GameScene: SKScene{
     var time: Int = 30
     
     /// Number of Turns
-    static var turn: Int = 0
+    static var turn: Int = -1
     /// Number of Rounds
     static var round: Int = 0
     
@@ -63,8 +63,8 @@ class GameScene: SKScene{
         team.append(team2)
         
         // setups
-        setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
+        setupLifes(team: team)
 
         setupLabel(word: word, event: nil)
 
@@ -87,9 +87,9 @@ class GameScene: SKScene{
         team.append(team2)
         
         // setups
-        setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-
+        setupLifes(team: team)
+        
         setupLabel(word: word, event: event)
 
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
@@ -113,7 +113,7 @@ class GameScene: SKScene{
      */
     func setupLabel(word: String, event: String?){
         // set time to timer
-        if(GameScene.turn == 1){
+        if(GameScene.turn == 0){
             time = 60
         } else {
             time = 30
@@ -164,18 +164,18 @@ class GameScene: SKScene{
         judgeSprite.position = CGPoint(x: size.width/2, y: size.height * CGFloat(0.8))
         
         // Player Pin Sprite
-        for i in 0...numberOfPlayers - 2{
+        for i in 0...numberOfPlayers - 1{
             pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
 //            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
         
         // set player position in base of how many players have
         switch numberOfPlayers {
-        case 2:
+        case 3:
             pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
             break
-        case 4:
+        case 5:
             pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
             pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
