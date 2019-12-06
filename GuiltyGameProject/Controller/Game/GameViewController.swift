@@ -283,7 +283,7 @@ class GameViewController: UIViewController{
                 }
                 gameView.presentScene(gameScene)
             } else {
-                drawScene = DrawScene(size: size)
+             //   drawScene = DrawScene(size: size)
                 gameView.presentScene(drawScene)
             }
             break

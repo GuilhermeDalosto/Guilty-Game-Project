@@ -10,4 +10,5 @@
 #import "Skin.h"
 #import "SiriRemote.h"
 #import "Random.h"
+#import "Music.h"
 
