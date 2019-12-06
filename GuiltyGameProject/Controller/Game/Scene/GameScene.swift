@@ -63,8 +63,8 @@ class GameScene: SKScene{
         team.append(team2)
         
         // setups
-        setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
+        setupLifes(team: team)
 
         setupLabel(word: word, event: nil)
 
@@ -87,9 +87,9 @@ class GameScene: SKScene{
         team.append(team2)
         
         // setups
-        setupLifes(team: team)
         addTurn(numberOfPlayers: numberOfPlayers)
-
+        setupLifes(team: team)
+        
         setupLabel(word: word, event: event)
 
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
