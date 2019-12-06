@@ -93,11 +93,11 @@ class SettingsGameViewController: UIViewController {
         print(theme)
         
         switch number{
-        case 1:
-            pressed3()
-        case 2:
-            pressed5()
         case 3:
+            pressed3()
+        case 5:
+            pressed5()
+        case 7:
             pressed7()
         default:
             print()

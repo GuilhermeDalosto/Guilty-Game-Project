@@ -10,6 +10,8 @@ import Foundation
 import SpriteKit
 
 class GameScene: SKScene{
+    
+    var actions = Actions()
     /// Background Sprite at Game Scene
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
@@ -201,6 +203,7 @@ class GameScene: SKScene{
         
         // add Child
         addChild(judgeSprite)
+
         addChild(backgroundSprite)
         for i in 0...numberOfPlayers - 2{
             addChild(pinsSprite[i])

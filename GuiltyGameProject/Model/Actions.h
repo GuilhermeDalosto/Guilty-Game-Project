@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <SpriteKit/SpriteKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Actions : NSObject
 
 
-- (void) moveBy :(SKSpriteNode*) sprite x: (CGFloat*) x y: (CGFloat*) y interval: (CGFloat*) interval;
-- (void) moveTo : (SKSpriteNode*) sprite point:(CGPoint)point interval: (CGFloat*) interval;
-- (void) rotate : (SKSpriteNode*) sprite angle:(CGFloat)angle interval: (CGFloat*) interval;
+- (void) moveXY :(SKSpriteNode*) sprite x: (NSInteger) x y: (NSInteger) y interval: (NSInteger) interval;
+- (void) movePOINT : (SKSpriteNode*) sprite point:(CGPoint)point interval: (NSInteger) interval;
+- (void) rotate : (SKSpriteNode*) sprite angle:(CGFloat)angle interval: (NSInteger) interval;
 
 @end
 

@@ -11,23 +11,23 @@
 
 @implementation Actions
 
-- (void) moveBy :(SKSpriteNode*) sprite x: (CGFloat*) x y: (CGFloat*) y interval: (CGFloat*) interval
+- (void) moveXY :(SKSpriteNode*) sprite x: (NSInteger) x y: (NSInteger) y interval: (NSInteger) interval
 {
-    SKAction *move = [SKAction moveByX:*x y:*y duration:*interval];
+    SKAction *move = [SKAction moveByX:x y:y duration:interval];
     [sprite runAction:move];
 }
 
 
-- (void) moveTo : (SKSpriteNode*) sprite point:(CGPoint)point interval: (CGFloat*) interval
+- (void) movePOINT : (SKSpriteNode*) sprite point:(CGPoint)point interval: (NSInteger) interval
 {
-    SKAction *move = [SKAction moveTo:point duration:*interval];
+    SKAction *move = [SKAction moveTo:point duration:interval];
     [sprite runAction:move];
 }
 
 
-- (void) rotate : (SKSpriteNode*) sprite angle:(CGFloat)angle interval: (CGFloat*) interval
+- (void) rotate : (SKSpriteNode*) sprite angle:(CGFloat)angle interval: (NSInteger) interval
 {
-    SKAction *rotate = [SKAction rotateByAngle: angle duration:*interval];
+    SKAction *rotate = [SKAction rotateByAngle: angle duration:interval];
     [sprite runAction:rotate];
 }
 
