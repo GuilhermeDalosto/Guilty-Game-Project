@@ -39,7 +39,7 @@ class GameViewController: UIViewController{
     var wordsNinja = [String]()
     var wordsChristmas = [String]()
     
-    
+    var drawPassed: Bool = true
     
     
     var allEvents = [Event]()
@@ -49,7 +49,7 @@ class GameViewController: UIViewController{
     var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     
     // Receber a quantidade por delegate
-    var qtPlayer = 4
+    var qtPlayer = UserDefaults.standard.integer(forKey: "numberOfPlayers")
     var firstTeam = Team(2)
     var secondTeam = Team(2)
     
@@ -107,9 +107,10 @@ class GameViewController: UIViewController{
         
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
+        team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         
         // instantiate and add person to players array
-        for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 2{
+        for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 1{
             if i < UserDefaults.standard.integer(forKey: "numberOfPlayers")/2{
                 players.append(Person(colors[i], team: team[0]))
             } else {
@@ -268,14 +269,16 @@ class GameViewController: UIViewController{
             gameView.presentScene(gameScene)
             break
         case gameScene:
+            print(GameScene.turn % qtPlayer)
             turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             break
         case turnScene:
             gameView.scene?.removeFromParent()
-            if GameScene.turn % qtPlayer != 0{
+            if GameScene.turn % qtPlayer != 0 || drawPassed{
                 // fazer o teste do evento
+                drawPassed = false
                 if let event = currentEvent{
                     gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
                 } else {
@@ -283,7 +286,7 @@ class GameViewController: UIViewController{
                 }
                 gameView.presentScene(gameScene)
             } else {
-                drawScene = DrawScene(size: size)
+//                drawScene = DrawScene(coder: size)
                 gameView.presentScene(drawScene)
             }
             break
@@ -291,6 +294,7 @@ class GameViewController: UIViewController{
             turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
+            drawPassed = true
             break
         default:
             print("None Scene")
