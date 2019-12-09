@@ -14,21 +14,68 @@ class GameViewController: UIViewController{
     
     @IBOutlet weak var gameView: SKView!
     
+    // scenes
+    /// scene to draw a event to one player for each team
     var drawScene: DrawScene? = nil
+    /// scene to say which player will play
     var turnScene: TurnScene? = nil
+    /// scene with theme to start the game
     var themeScene: ThemeScene? = nil
+    /// main scene of the game
     var gameScene: GameScene? = nil
-
-    var team = [Team]()
-    var judge: Judge?
-    var players = [Person]()
-    var playerTurn = Person()
-
-    var wordsCount: Int = 0
-    var eventsCount: Int = 0
+    /// scene of pause
     var pauseScene: PauseScene? = nil
+
     
-    // ALL WORDS
+    // characters of the game (without judge)
+    /// 2 teams that is in the game
+    var team = [Team]()
+    /// array with all players(excluding the judge)
+    var players = [Person]()
+    /// player of the turn
+    var playerTurn = Person()
+    /// array of players colors
+    var colors = ["Blue","Green","Orange","Purple","Red","Yellow"]
+
+    
+    // judge
+    /// judge that controls the game
+    var judge: Judge?
+    
+    
+    // controls
+    /// functions of the controll
+    var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
+    /// reporter of control actions
+    var report = Report()
+    
+    
+    // auxiliar var
+    /// number of words played
+    var wordsCount: Int = 0
+    /// number of events played
+    var eventsCount: Int = 0
+    /// bool to know if draw scene has passed already
+    var drawPassed: Bool = true
+    /// number of players in game
+    var qtPlayer = UserDefaults.standard.integer(forKey: "numberOfPlayers")
+    /// current word at the game
+    var currentWord = "" // : String?
+    /// current event at the game
+    var currentEvent: String? = ""// : String?
+    /// current color of the player
+    var currentColor = "" // : String?
+    /// judge decision about player story
+    var judgeDecision = "" // : String?
+    /// condition to see which team has lose
+    var conditionToFinish : Bool?
+    /// team of the time
+    var choosenTeam = Team()
+    /// bool to know if game still running
+    var gameRunning = true
+    
+    // words and events
+    // all words
     var wordsRandom =  [String]()
     var wordsHard = [String]()
     var wordsFood = [String]()
@@ -40,34 +87,9 @@ class GameViewController: UIViewController{
     var wordsNinja = [String]()
     var wordsChristmas = [String]()
     
-    var drawPassed: Bool = true
-    
-    
+    /// all events
     var allEvents = [Event]()
-
-//    var persons = [Person]()
-    var colors = ["Blue","Green","Orange","Purple","Red","Yellow"]
-    var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     
-    // Receber a quantidade por delegate
-    var qtPlayer = UserDefaults.standard.integer(forKey: "numberOfPlayers")
-    var firstTeam = Team(2)
-    var secondTeam = Team(2)
-    
-    var report = Report()
-    
-    var currentWord = "" // : String?
-    var currentEvent: String? = ""// : String?
-    var currentColor = "" // : String?
-    
-    var judgeDecision = "" // : String?
-    ///Condição para verificar qual será o time que irá perder, se perder
-    var conditionToFinish : Bool?
-    
-    var choosenTeam =  Team()
-    
-    var gameRunning = true
-    var a = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,14 +112,18 @@ class GameViewController: UIViewController{
     
     }
     
-    
+    /**
+     Function to start the game with theme scene
+     */
     func startTheme(){
         let size: CGSize = view.bounds.size
-
         themeScene = ThemeScene(size: size)
         gameView.presentScene(themeScene)
     }
     
+    /**
+     Setup the game (colors, players, judge, words, team, controller)
+     */
     func setupGame(){
         // pegar as cores e adicionar ao array colors
         // PROVISORIO
@@ -106,8 +132,8 @@ class GameViewController: UIViewController{
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         choosenTeam = team[0]
-        // instantiate and add person to players array
         
+        // instantiate and add person to players array
         for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 1{
             if i < UserDefaults.standard.integer(forKey: "numberOfPlayers")/2{
                 players.append(Person(colors[i], team: team[0]))
@@ -123,15 +149,20 @@ class GameViewController: UIViewController{
         judge = Judge(team)
         
         addAll()
-        
     }
     
+    /**
+     Function to add controller, words and events
+     */
     func addAll(){
         addController()
         addWords()
         addEvents()
     }
     
+    /**
+     Function to add the controller
+     */
     func addController(){
       var _ = SiriRemote(self.view)
         for i in 0..<funcoesControle.count{
@@ -139,6 +170,9 @@ class GameViewController: UIViewController{
         }
     }
 
+    /**
+     Function to add words
+     */
     func addWords(){
         let words = Words()
         
@@ -190,6 +224,9 @@ class GameViewController: UIViewController{
 //        print(christmas.cards)
     }
     
+    /**
+     Function to add events
+     */
     func addEvents(){
         let events = allEventsSigned()
         for element in  events.events{
@@ -197,6 +234,9 @@ class GameViewController: UIViewController{
         }
     }
     
+    /**
+     Function to end game by team life or by the judge
+     */
     func finishGame(team: Team, judge: Judge){
         if team.lifes != 0{
             judge.deny(team)
@@ -205,14 +245,23 @@ class GameViewController: UIViewController{
         }
     }
     
+    /**
+     Function to report judge decision by control
+     */
     func addToReport(){
         report.addTurn(currentWord, color: currentColor)
     }
     
+    /**
+     Function to pause game
+     */
     @objc func PlayPause(){
         print("pause")
     }
     
+    /**
+     Function to pause game
+     */
     @objc func Menu(){
         print("menu")
         //Pause o tempo
@@ -223,6 +272,9 @@ class GameViewController: UIViewController{
         gameView.presentScene(pauseScene)
     }
     
+    /**
+     functions of the controller (Select)
+     */
     @objc func Select(){
         print("select")
         print(choosenTeam.lifes)
@@ -271,6 +323,9 @@ class GameViewController: UIViewController{
         
     }
     
+    /**
+     Function to change scenes
+     */
     func changeScene(){
         let size = view.bounds.size
         
@@ -283,10 +338,18 @@ class GameViewController: UIViewController{
             break
         case gameScene:
             print(GameScene.turn % qtPlayer)
-            playerTurn = players[(GameScene.turn % qtPlayer)]
-            turnScene = TurnScene(size: size, player: playerTurn)
             gameView.scene?.removeFromParent()
-            gameView.presentScene(turnScene)
+            
+            if GameScene.turn % qtPlayer != 0 || drawPassed{
+                drawPassed = false
+                playerTurn = players[(GameScene.turn % qtPlayer)]
+                turnScene = TurnScene(size: size, player: playerTurn)
+                gameView.presentScene(turnScene)
+            } else {
+                // criar a cena do sorteio
+                drawScene = DrawScene(size: size, players: players)
+                gameView.presentScene(drawScene)
+            }
             break
         case turnScene:
             if choosenTeam == team[0] {
@@ -295,25 +358,19 @@ class GameViewController: UIViewController{
                 choosenTeam = team[0]
             }
             gameView.scene?.removeFromParent()
-            if GameScene.turn % qtPlayer != 0 || drawPassed{
-                // fazer o teste do evento
-                drawPassed = false
-                if let event = currentEvent{
-                    gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
-                } else {
-                    gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
-                }
-                if GameScene.turn % qtPlayer == 0{
-                    gameScene?.movePlayer(playerNumber: qtPlayer - 1)
-                }else{
-                gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
-                }
-
-                gameView.presentScene(gameScene)
+            
+            if let event = currentEvent{
+                gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
             } else {
-                drawScene = DrawScene(size: size, players: players)
-                gameView.presentScene(drawScene)
+                gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+
             }
+            if GameScene.turn == qtPlayer{
+                gameScene?.movePlayer(playerNumber: qtPlayer - 1)
+            }else{
+                gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
+            }
+            gameView.presentScene(gameScene)
             break
         case drawScene:
             turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
