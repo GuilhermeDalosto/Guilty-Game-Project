@@ -33,7 +33,7 @@ class GameScene: SKScene{
     var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     /// Array of Images to Sprites
-    var imagesSprite: [String] = ["pin1", "pin2", "pin1", "pin2", "pin1", "pin2"]
+    var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPurple", "pinRed", "pinYellow"]
     
     /// User Defaults
     let defaults = UserDefaults.standard
@@ -160,7 +160,10 @@ class GameScene: SKScene{
     func setupSprites(numberOfPlayers: Int, judge: Judge, players: [Person]){
         // Background Sprite
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundSprite.size = size
+        backgroundSprite.alpha = 0.2
         backgroundSprite.zPosition = -1.0
+        
         
         // Judge Sprite
         judgeSprite.position = CGPoint(x: size.width/2, y: size.height * CGFloat(0.8))
@@ -168,20 +171,21 @@ class GameScene: SKScene{
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
             pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
+            pinsSprite[i].setScale(0.7)
 //            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
         
         // set player position in base of how many players have
         switch numberOfPlayers {
-        case 3:
+        case 2:
             pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
             break
-        case 5:
-            pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
+        case 4:
+            pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width/1.4, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width/1.2, y: size.height/4)
             break
         default:
             pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
@@ -203,14 +207,19 @@ class GameScene: SKScene{
         
         // add Child
         addChild(judgeSprite)
-
         addChild(backgroundSprite)
-        for i in 0...numberOfPlayers - 2{
+        for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
         for i in 0...pinsNPCSprite.count - 1{
             addChild(pinsNPCSprite[i])
         }
+    }
+    
+    func movePlayer(playerNumber : Int){
+        
+        print(playerNumber)
+        actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height/2), interval: 2)
     }
     
     /**
@@ -219,35 +228,40 @@ class GameScene: SKScene{
     func setupLifes(team: [Team]){
         // set number of hearts of each team
         for i in 0...1{
+            
             switch team[i].lifes {
             case 3:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart3"))
                 break
             case 2:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart2"))
                 break
             case 1:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart1"))
                 break
             default:
-                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart"))
+                lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart3"))
             }
         }
+        print(team[0].lifes)
+        print(team[1].lifes)
         
         // set life position of each team
         lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.25), y: size.height * CGFloat(0.75))
         lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.75), y: size.height * CGFloat(0.75))
         
         // add to the scene
+        
         addChild(lifeTeamSprite[0])
         addChild(lifeTeamSprite[1])
+        
     }
     
     /**
      Start timer for player speak
      */
     func startTimer(){
-        // start timer
+        // start timer     
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDecrease), userInfo: nil, repeats: true)
     }
     

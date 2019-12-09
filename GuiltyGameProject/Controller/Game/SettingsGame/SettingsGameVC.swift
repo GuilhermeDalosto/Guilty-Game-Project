@@ -93,11 +93,11 @@ class SettingsGameViewController: UIViewController {
         print(theme)
         
         switch number{
-        case 3:
+        case 2:
             pressed3()
-        case 5:
+        case 4:
             pressed5()
-        case 7:
+        case 6:
             pressed7()
         default:
             print()
@@ -215,7 +215,7 @@ class SettingsGameViewController: UIViewController {
         self.number7.backgroundColor = .gray
         typeOfPeople = 3
         numberSelected = true
-        selectedPeople = 3
+        selectedPeople = 2
     }
     func pressed5(){
         self.number3.backgroundColor = .gray
@@ -223,7 +223,7 @@ class SettingsGameViewController: UIViewController {
         self.number7.backgroundColor = .gray
         typeOfPeople = 5
         numberSelected = true
-        selectedPeople = 5
+        selectedPeople = 4
     }
     func pressed7(){
         self.number3.backgroundColor = .gray
@@ -231,7 +231,7 @@ class SettingsGameViewController: UIViewController {
                self.number7.backgroundColor = .red
                typeOfPeople = 7
                numberSelected = true
-        selectedPeople = 7
+        selectedPeople = 6
     }
     
     func pressedNormal(){
