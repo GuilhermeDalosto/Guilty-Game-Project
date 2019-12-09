@@ -15,17 +15,17 @@ class DrawScene: SKScene{
     var diceTeam2 = SKSpriteNode()
     
     var diceRotate: [SKTexture] = []
+    var rotateFrame: [SKTexture] = []
     
     var arrayDiceImage: [String] = ["Dice1","Dice2","Dice3","Dice4","Dice5","Dice6"]
     
-    
-    init(team1: Team, team2: Team, players: [Person]){
-        super.init()
-        
-        let numPlayers = players.count
-        
+    init(size: CGSize,players: [Person] ) {
+        super.init(size: size)
+         let numPlayers = players.count
+               
         drawDice(players: numPlayers)
     }
+ 
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -48,8 +48,8 @@ class DrawScene: SKScene{
         self.diceTeam2.size = CGSize(width: 300, height: 300)
         
         
-        let diceAnimateAtlas = SKTextureAtlas(named: "DiceImages")
-        var rotateFrame: [SKTexture] = []
+        let diceAnimateAtlas = SKTextureAtlas(named: "Dices")
+        
         
         let numImages = diceAnimateAtlas.textureNames.count
         
@@ -65,8 +65,9 @@ class DrawScene: SKScene{
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
                 
             }
-        } else {
+        } else {            
             for i in 1...numImages {
+                
                 let diceTextureName = "Dice\(i)"
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
                 
@@ -79,6 +80,13 @@ class DrawScene: SKScene{
         let firstFrameTextureDice2 = diceRotate[Int(numbertwo)]
         self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
         self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+        diceTeam1.position.x = size.width/1.5
+        diceTeam1.position.y = size.height/2
+        
+        
+        diceTeam2.position.x = size.width/2
+           diceTeam2.position.y = size.height/2
+        
         addChild(diceTeam1)
         addChild(diceTeam2)
         animateDice()
@@ -93,33 +101,37 @@ class DrawScene: SKScene{
         
     }
     
-    func animateNode(_ nodes: [SKNode]){
-        for(index,node) in nodes.enumerated() {
+    func animateNode(_ nodes: [SKSpriteNode]){
+        
+        for nodePassed in nodes {
+            
+            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
+                    
+                    let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
+                    let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
+                    
+                    let waitAction = SKAction.wait(forDuration: 2)
+                    
+                    let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+            rotateFrame.shuffle()
+            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.1)
+                    
+                    
+                    let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 0.6)
+                    
+                    let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
+            
+                    nodePassed.run(actionSequence)
             
             
-            let delayAction = SKAction.wait(forDuration: TimeInterval(index) * 0.2)
             
-            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
-            let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
-            
-            let waitAction = SKAction.wait(forDuration: 2)
-            
-            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
-            
-            let repeatAction = SKAction.repeatForever(scaleActionSequence)
-            
-            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 0.6)
-            
-            let actionSequence = SKAction.sequence([delayAction,repeatAction, rotateAction])
-    
-            node.run(actionSequence)
             
         }
+        
 
     }
     
     func animateDice(){
-        animateNode(self.diceTeam1.children)
-        animateNode(self.diceTeam2.children)
+        animateNode([self.diceTeam1,self.diceTeam2])
     }
 }
