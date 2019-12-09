@@ -278,7 +278,7 @@ class GameViewController: UIViewController{
         case themeScene:
             gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameView.scene?.removeFromParent()
-         //   gameScene?.movePlayer(playerNumber: GameScene.turn % qtPlayer)
+//         gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
             gameView.presentScene(gameScene)
             break
         case gameScene:
@@ -303,7 +303,7 @@ class GameViewController: UIViewController{
                 } else {
                     gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 }
-                if GameScene.turn == qtPlayer{
+                if GameScene.turn % qtPlayer == 0{
                     gameScene?.movePlayer(playerNumber: qtPlayer - 1)
                 }else{
                 gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
