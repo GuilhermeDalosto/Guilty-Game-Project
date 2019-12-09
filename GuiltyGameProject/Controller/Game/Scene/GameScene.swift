@@ -129,9 +129,9 @@ class GameScene: SKScene{
         
         // set timer label
         timerLabel.text = "\(time)"
-        timerLabel.fontSize = 30
-        timerLabel.fontColor = .black
-        timerLabel.position = CGPoint(x: size.width/2, y: size.height/2 - 15)
+        timerLabel.fontSize = 100
+        timerLabel.fontColor = .white
+        timerLabel.position = CGPoint(x: size.width/1.15, y: size.height/1.25)
         
         // set round label
         roundLabel.text = "\(GameScene.round)"
