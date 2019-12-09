@@ -79,7 +79,7 @@ class SettingsGameViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(selectedDifficulty, forKey: "difficulty")
-        UserDefaults.standard.set(selectedPeople, forKey: "numberOfPlayers")
+        UserDefaults.standard.set(selectedPeople - 1, forKey: "numberOfPlayers")
         UserDefaults.standard.set(selectedTheme, forKey: "theme")
     }
     

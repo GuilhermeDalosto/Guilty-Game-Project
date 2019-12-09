@@ -22,6 +22,7 @@ class GameViewController: UIViewController{
     var team = [Team]()
     var judge: Judge?
     var players = [Person]()
+    var playerTurn = Person()
 
     var wordsCount: Int = 0
     var eventsCount: Int = 0
@@ -63,7 +64,7 @@ class GameViewController: UIViewController{
     ///Condição para verificar qual será o time que irá perder, se perder
     var conditionToFinish : Bool?
     
-    var choosenTeam: Team?
+    var choosenTeam =  Team()
     
     var gameRunning = true
     var a = 0
@@ -74,7 +75,7 @@ class GameViewController: UIViewController{
         setupGame()
         
         startTheme()
-        
+
         // fazer o sorteio das palavras e dos eventos
         
 //        if let event = currentEvent{
@@ -85,8 +86,10 @@ class GameViewController: UIViewController{
 //
 //        gameView.presentScene(gameScene)
 //        wordsCount += 1
+        
     
     }
+    
     
     func startTheme(){
         let size: CGSize = view.bounds.size
@@ -98,23 +101,20 @@ class GameViewController: UIViewController{
     func setupGame(){
         // pegar as cores e adicionar ao array colors
         // PROVISORIO
-        colors.append("Black")
-        colors.append("White")
-        colors.append("Yellow")
-        colors.append("Red")
-        colors.append("Green")
-        colors.append("Grey")
         
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
-        
+        choosenTeam = team[0]
         // instantiate and add person to players array
+        
         for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 1{
             if i < UserDefaults.standard.integer(forKey: "numberOfPlayers")/2{
                 players.append(Person(colors[i], team: team[0]))
+                print("person color team 0 - \(colors[i])")
             } else {
                 players.append(Person(colors[i], team: team[1]))
+                print("person color team 1 - \(colors[i])")
             }
         }
         
@@ -224,6 +224,7 @@ class GameViewController: UIViewController{
     
     @objc func Select(){
         print("select")
+        print(choosenTeam.lifes)
     }
     
     @objc func UpArrow(){
@@ -248,6 +249,14 @@ class GameViewController: UIViewController{
     
     @objc func SwipeLeft(){
         print("swipeleft")
+        if choosenTeam == team[0]{
+            judge?.deny(team[0])
+        } else{
+            judge?.deny(team[1])
+        }
+        if choosenTeam.lifes == 0{
+            self.performSegue(withIdentifier: "endGame", sender: nil)
+        }
         changeScene()
     }
     
@@ -258,23 +267,32 @@ class GameViewController: UIViewController{
     @objc func SwipeRight(){
         print("swiperight")
         changeScene()
+        
     }
     
     func changeScene(){
         let size = view.bounds.size
+        
         switch gameView.scene {
         case themeScene:
             gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameView.scene?.removeFromParent()
+         //   gameScene?.movePlayer(playerNumber: GameScene.turn % qtPlayer)
             gameView.presentScene(gameScene)
             break
         case gameScene:
             print(GameScene.turn % qtPlayer)
-            turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
+            playerTurn = players[GameScene.turn % qtPlayer]
+            turnScene = TurnScene(size: size, player: playerTurn)
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             break
         case turnScene:
+            if choosenTeam == team[0] {
+                choosenTeam = team[1]
+            } else{
+                choosenTeam = team[0]
+            }
             gameView.scene?.removeFromParent()
             if GameScene.turn % qtPlayer != 0 || drawPassed{
                 // fazer o teste do evento
@@ -284,6 +302,9 @@ class GameViewController: UIViewController{
                 } else {
                     gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 }
+                gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
+                
+
                 gameView.presentScene(gameScene)
             } else {
 //                drawScene = DrawScene(coder: size)

@@ -16,7 +16,7 @@
 
 
 
-- (void) playMusic : (NSString*) soundName type: (NSString*) soundType
+- (void) playSound : (NSString*) soundName type: (NSString*) soundType
 {
     
     NSString *url = [[NSBundle mainBundle]pathForResource:soundName ofType:soundType];

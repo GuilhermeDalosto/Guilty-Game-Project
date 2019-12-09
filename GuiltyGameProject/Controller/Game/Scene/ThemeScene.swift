@@ -22,19 +22,19 @@ class ThemeScene: SKScene{
         super.init(size: size)
         // chamar a funcao aleatoria para retornar os temas aleatorios
         
-        localTheme.text = "local"
+        localTheme.text = "Águas Claras"
         localTheme.color = .red
-        localTheme.fontSize = 30
+        localTheme.fontSize = 50
         localTheme.position = CGPoint(x: size.width * 0.25, y: size.height/2)
         
-        actionTheme.text = "acao"
+        actionTheme.text = "Roubo"
         actionTheme.color = .red
-        actionTheme.fontSize = 30
+        actionTheme.fontSize = 50
         actionTheme.position = CGPoint(x: size.width * 0.75, y: size.height/2)
         
-        titleLabel.text = "Theme AAAA"
+        titleLabel.text = "Páscoa"
         titleLabel.color = .blue
-        titleLabel.fontSize = 40
+        titleLabel.fontSize = 70
         titleLabel.position = CGPoint(x: size.width/2, y: size.height * 0.85)
         print("passou aq")
         
