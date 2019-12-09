@@ -177,11 +177,11 @@ class GameScene: SKScene{
         
         // set player position in base of how many players have
         switch numberOfPlayers {
-        case 3:
+        case 2:
             pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
             break
-        case 5:
+        case 4:
             pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
             pinsSprite[2].position = CGPoint(x: size.width/1.4, y: size.height/4)
@@ -208,7 +208,7 @@ class GameScene: SKScene{
         // add Child
         addChild(judgeSprite)
         addChild(backgroundSprite)
-        for i in 0...numberOfPlayers - 2{
+        for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
         for i in 0...pinsNPCSprite.count - 1{
@@ -217,7 +217,8 @@ class GameScene: SKScene{
     }
     
     func movePlayer(playerNumber : Int){
-        print("player number: \(playerNumber)")
+        
+        print(playerNumber)
         actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height/2), interval: 2)
     }
     

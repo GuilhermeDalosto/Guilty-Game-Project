@@ -46,7 +46,7 @@ class GameViewController: UIViewController{
     var allEvents = [Event]()
 
 //    var persons = [Person]()
-    var colors = ["Blue","Green","Purple","Yellow","Red","Orange"]
+    var colors = ["Blue","Green","Orange","Purple","Red","Yellow"]
     var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     
     // Receber a quantidade por delegate
@@ -118,6 +118,7 @@ class GameViewController: UIViewController{
             }
         }
         
+        print("number of players: \(players.count)")
         // instantiate
         judge = Judge(team)
         
@@ -282,7 +283,7 @@ class GameViewController: UIViewController{
             break
         case gameScene:
             print(GameScene.turn % qtPlayer)
-            playerTurn = players[GameScene.turn % qtPlayer]
+            playerTurn = players[(GameScene.turn % qtPlayer)]
             turnScene = TurnScene(size: size, player: playerTurn)
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
@@ -302,8 +303,11 @@ class GameViewController: UIViewController{
                 } else {
                     gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 }
+                if GameScene.turn == qtPlayer{
+                    gameScene?.movePlayer(playerNumber: qtPlayer - 1)
+                }else{
                 gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
-                
+                }
 
                 gameView.presentScene(gameScene)
             } else {
