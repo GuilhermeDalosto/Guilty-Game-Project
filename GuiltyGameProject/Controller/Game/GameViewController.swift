@@ -25,7 +25,7 @@ class GameViewController: UIViewController{
     var gameScene: GameScene? = nil
     /// scene of pause
     var pauseScene: PauseScene? = nil
-
+    
     
     // characters of the game (without judge)
     /// 2 teams that is in the game
@@ -36,7 +36,7 @@ class GameViewController: UIViewController{
     var playerTurn = Person()
     /// array of players colors
     var colors = ["Blue","Green","Orange","Purple","Red","Yellow"]
-
+    
     
     // judge
     /// judge that controls the game
@@ -97,19 +97,19 @@ class GameViewController: UIViewController{
         setupGame()
         
         startTheme()
-
+        
         // fazer o sorteio das palavras e dos eventos
         
-//        if let event = currentEvent{
-//            gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
-//        } else {
-//            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
-//        }
-//
-//        gameView.presentScene(gameScene)
-//        wordsCount += 1
+        //        if let event = currentEvent{
+        //            gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
+        //        } else {
+        //            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+        //        }
+        //
+        //        gameView.presentScene(gameScene)
+        //        wordsCount += 1
         
-    
+        
     }
     
     /**
@@ -164,12 +164,12 @@ class GameViewController: UIViewController{
      Function to add the controller
      */
     func addController(){
-      var _ = SiriRemote(self.view)
+        var _ = SiriRemote(self.view)
         for i in 0..<funcoesControle.count{
             self.view.gestureRecognizers?[i].addTarget(self, action: Selector(funcoesControle[i]))
         }
     }
-
+    
     /**
      Function to add words
      */
@@ -211,17 +211,17 @@ class GameViewController: UIViewController{
             wordsChristmas.append(element)
         }
         
-//        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
-//        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
-//        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
-//        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
-//        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
-//        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
-//        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
-//
-//
-//
-//        print(christmas.cards)
+        //        var random = Deck("Random", cards: wordsRandom as! NSMutableArray, hardCards: wordsHard as! NSMutableArray)
+        //        var food = Deck("Food", cards: wordsFood as! NSMutableArray, hardCards: wordsFoodHard as! NSMutableArray)
+        //        var magic = Deck("Magic", cards: wordsMagic as! NSMutableArray, hardCards: wordsMagic as! NSMutableArray)
+        //        var animal = Deck("Animal", cards: wordsRandom as! NSMutableArray, hardCards: wordsAnimalHard as! NSMutableArray)
+        //        var oldwest = Deck("Old West", cards: wordsOldWest as! NSMutableArray, hardCards: wordsOldWest as! NSMutableArray)
+        //        var ninja = Deck("Ninja", cards: wordsNinja as! NSMutableArray, hardCards: wordsNinja as! NSMutableArray)
+        //        var christmas = Deck("Christmas", cards: wordsChristmas as! NSMutableArray, hardCards: wordsChristmas as! NSMutableArray)
+        //
+        //
+        //
+        //        print(christmas.cards)
     }
     
     /**
@@ -300,18 +300,35 @@ class GameViewController: UIViewController{
         print("swipeup")
     }
     
+    var vencedor = ""
     @objc func SwipeLeft(){
-        print("swipeleft")
-        if choosenTeam == team[0]{
-            judge?.deny(team[0])
-        } else{
-            judge?.deny(team[1])
+        if (GameScene.turn > 0){
+            if choosenTeam == team[0]{
+                judge?.deny(team[1])
+            } else{
+                judge?.deny(team[0])
+            }
+            if team[0].lifes == 0 || team[1].lifes == 0{
+                if team[0].lifes == 0{
+                    vencedor = "Time 2"
+                } else{
+                    vencedor = "Time 1"
+                }
+                self.performSegue(withIdentifier: "endGame", sender: nil)
+            }else{
+                changeScene()
+            }
         }
-        if choosenTeam.lifes == 0{
-            self.performSegue(withIdentifier: "endGame", sender: nil)
-        }
-        changeScene()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "endGame"{
+            if let vc = segue.destination as? ViewController{
+                vc.vencedor = vencedor
+            }
+        }
+    }
+    
     
     @objc func SwipeDown(){
         print("swipedown")
@@ -326,6 +343,33 @@ class GameViewController: UIViewController{
     /**
      Function to change scenes
      */
+    
+    var teamTurnA = 0
+    
+    var teamTurnB = UserDefaults.standard.integer(forKey: "numberOfPlayers")/2
+    
+    var numberPlayer = 0
+    
+    func readjustPlayers(){
+        teamTurnA = 0
+        teamTurnB = players.count/2
+        numberPlayer = 0
+        definePlayerTurn()
+    }
+    func definePlayerTurn (){
+        if (GameScene.turn > -1){
+            if (GameScene.turn % 2 == 0)  {
+                playerTurn = players[teamTurnA]
+                numberPlayer = teamTurnA
+                teamTurnA += 1
+            } else {
+                playerTurn = players[teamTurnB]
+                numberPlayer = teamTurnB
+                teamTurnB += 1
+            }
+        }
+    }
+    
     func changeScene(){
         let size = view.bounds.size
         
@@ -333,16 +377,14 @@ class GameViewController: UIViewController{
         case themeScene:
             gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameView.scene?.removeFromParent()
-//         gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
             gameView.presentScene(gameScene)
             break
         case gameScene:
-            print(GameScene.turn % qtPlayer)
-            gameView.scene?.removeFromParent()
-            
+            gameView.scene?.removeFromParent()            
             if GameScene.turn % qtPlayer != 0 || drawPassed{
                 drawPassed = false
-                playerTurn = players[(GameScene.turn % qtPlayer)]
+                print("Gamescene.turn -> \(GameScene.turn)")
+                definePlayerTurn()
                 turnScene = TurnScene(size: size, player: playerTurn)
                 gameView.presentScene(turnScene)
             } else {
@@ -363,24 +405,22 @@ class GameViewController: UIViewController{
                 gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
             } else {
                 gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
-
+                
             }
-            if GameScene.turn == qtPlayer{
-                gameScene?.movePlayer(playerNumber: qtPlayer - 1)
-            }else{
-                gameScene?.movePlayer(playerNumber: (GameScene.turn % qtPlayer) - 1)
-            }
+            gameScene?.movePlayer(playerNumber: numberPlayer)
             gameView.presentScene(gameScene)
             break
         case drawScene:
-            turnScene = TurnScene(size: size, player: players[GameScene.turn % qtPlayer])
+            readjustPlayers()
+            turnScene = TurnScene(size: size,player: playerTurn)
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             drawPassed = true
+            
             break
         default:
             print("None Scene")
         }
-
+        
     }
 }
