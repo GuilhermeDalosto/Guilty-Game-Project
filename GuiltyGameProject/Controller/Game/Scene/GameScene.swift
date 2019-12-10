@@ -9,7 +9,14 @@
 import Foundation
 import SpriteKit
 
+
+protocol sendTimerDelegate{
+    func timeIsOver()
+}
+
 class GameScene: SKScene{
+    
+    var delegateSend: sendTimerDelegate?
     
     var actions = Actions()
     /// Background Sprite at Game Scene
@@ -123,9 +130,9 @@ class GameScene: SKScene{
         
         // set word label
         wordLabel.text = word
-        wordLabel.fontSize = 30
-        wordLabel.fontColor = .black
-        wordLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 15)
+        wordLabel.fontSize = 40
+        wordLabel.fontColor = .white
+        wordLabel.position = CGPoint(x: size.width/2, y: size.height/1.65)
         
         // set timer label
         timerLabel.text = "\(time)"
@@ -142,8 +149,8 @@ class GameScene: SKScene{
         // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
-            eventLabel.fontSize = 30
-            eventLabel.fontColor = .black
+            eventLabel.fontSize = 50
+            eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
             addChild(eventLabel)
         }
@@ -178,22 +185,22 @@ class GameScene: SKScene{
         // set player position in base of how many players have
         switch numberOfPlayers {
         case 2:
-            pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width*0.75, y: size.height/4)
             break
         case 4:
             pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width/1.4, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width/1.2, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width*0.875, y: size.height/4)
             break
         default:
-            pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[4].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[5].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width/16, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width/8, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[4].position = CGPoint(x: size.width*0.875, y: size.height/4)
+            pinsSprite[5].position = CGPoint(x: size.width*0.925, y: size.height/4)
         }
         
         // NPC Pin Sprite
@@ -269,14 +276,16 @@ class GameScene: SKScene{
      Function to decrease time to the label timer
      */
     @objc func timerDecrease(){
-        time -= 1
+        time -= 1        
         DispatchQueue.main.async {
             self.timerLabel.text = "\(self.time)"
         }
-        if time == 0{
+        if time <= 0{
+            delegateSend?.timeIsOver()
             timer?.invalidate()
         }
     }
+    
     
     func endTimer(){
         // start timer
@@ -292,4 +301,6 @@ class GameScene: SKScene{
             self.timerLabel.text = "\(self.time)"
         }
     }
+    
+   
 }

@@ -10,9 +10,16 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class GameViewController: UIViewController{
+class GameViewController: UIViewController , sendTimerDelegate{
+    
+    func timeIsOver() {
+        print("tempo acabou")
+        changeScene()
+    }
     
     @IBOutlet weak var gameView: SKView!
+    
+    let music = Sound()
     
     // scenes
     /// scene to draw a event to one player for each team
@@ -336,6 +343,7 @@ class GameViewController: UIViewController{
     
     @objc func SwipeRight(){
         print("swiperight")
+        
         changeScene()
         
     }
@@ -369,23 +377,40 @@ class GameViewController: UIViewController{
             }
         }
     }
+    var randomEvent : String?
+    var randomWord = ""
+    
+    func randomStuff(){
+        currentWord = wordsHard.randomElement()!
+        currentEvent = allEvents.randomElement()?.descriptionEvent
+        
+    }
+    
     
     func changeScene(){
         let size = view.bounds.size
+        if GameScene.turn > -1 {
+        randomStuff()
+        }
+        
         
         switch gameView.scene {
         case themeScene:
             gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+            gameScene?.delegateSend = self
             gameView.scene?.removeFromParent()
             gameView.presentScene(gameScene)
             break
         case gameScene:
+            gameScene?.timer?.invalidate()
             gameView.scene?.removeFromParent()            
             if GameScene.turn % qtPlayer != 0 || drawPassed{
                 drawPassed = false
                 print("Gamescene.turn -> \(GameScene.turn)")
                 definePlayerTurn()
-                turnScene = TurnScene(size: size, player: playerTurn)
+                turnScene = TurnScene(size: size, player: playerTurn,word: currentWord,event: currentEvent!)
+                randomWord = currentWord
+                randomEvent = currentEvent!
                 gameView.presentScene(turnScene)
             } else {
                 // criar a cena do sorteio
@@ -401,18 +426,20 @@ class GameViewController: UIViewController{
             }
             gameView.scene?.removeFromParent()
             
-            if let event = currentEvent{
-                gameScene = GameScene(size: size, word: currentWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
+            if let event = randomEvent{
+                gameScene = GameScene(size: size, word: randomWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
             } else {
-                gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+                gameScene = GameScene(size: size, word: randomWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 
             }
+            
             gameScene?.movePlayer(playerNumber: numberPlayer)
+            gameScene?.delegateSend = self
             gameView.presentScene(gameScene)
             break
         case drawScene:
             readjustPlayers()
-            turnScene = TurnScene(size: size,player: playerTurn)
+            turnScene = TurnScene(size: size,player: playerTurn,word: randomWord,event: randomEvent!)
             gameView.scene?.removeFromParent()
             gameView.presentScene(turnScene)
             drawPassed = true
