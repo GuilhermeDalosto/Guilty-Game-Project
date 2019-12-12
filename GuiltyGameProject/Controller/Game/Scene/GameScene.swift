@@ -21,6 +21,7 @@ class GameScene: SKScene{
     var firstSelectedEvent : Int?
     var secondSelectedEvent : Int?
     /// Background Sprite at Game Scene
+    let backgroundLayerSprite = SKSpriteNode(imageNamed: "fundoTribunal")
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
     var pinsSprite = [SKSpriteNode]()
@@ -39,6 +40,9 @@ class GameScene: SKScene{
     var roundLabel = SKLabelNode(fontNamed: "Chalkduster")
     /// Event Label at Game Scene
     var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
+    
+    var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
+    var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
     
     /// Array of Images to Sprites
     var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
@@ -136,13 +140,13 @@ class GameScene: SKScene{
         wordLabel.text = word
         wordLabel.fontSize = 40
         wordLabel.fontColor = .white
-        wordLabel.position = CGPoint(x: size.width/2, y: size.height/1.65)
+        wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.9))
         
         // set timer label
         timerLabel.text = "\(time)"
         timerLabel.fontSize = 100
         timerLabel.fontColor = .white
-        timerLabel.position = CGPoint(x: size.width/1.15, y: size.height/1.25)
+        timerLabel.position = CGPoint(x: size.width/2, y: size.height/1.75)
         
         // set round label
         roundLabel.text = "\(GameScene.round)"
@@ -156,13 +160,14 @@ class GameScene: SKScene{
             eventLabel.fontSize = 50
             eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
+            eventLabel.position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.85))
             addChild(eventLabel)
         }
         
         // add label to the scene
         addChild(wordLabel)
         addChild(timerLabel)
-        addChild(roundLabel)
+     //   addChild(roundLabel)
     }
     
     /**
@@ -175,9 +180,17 @@ class GameScene: SKScene{
         backgroundSprite.alpha = 1
         backgroundSprite.zPosition = -1.0
         
+        backgroundLayerSprite.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundLayerSprite.size = size
+        backgroundLayerSprite.alpha = 1
+        backgroundLayerSprite.zPosition = -2.0
+        
+        balaoAnjo.position = CGPoint(x: size.width * 0.80, y: size.height*0.62)
+        balaoCapeta.position = CGPoint(x: size.width * 0.21, y: size.height*0.64)
         
         // Judge Sprite
-        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.75)
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.77)
+        judgeSprite.zPosition -= 1
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
@@ -189,22 +202,22 @@ class GameScene: SKScene{
         // set player position in base of how many players have
         switch numberOfPlayers {
         case 2:
-            pinsSprite[0].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.385, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width*0.61, y: size.height/4)
             break
         case 4:
-            pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width*0.75, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width*0.875, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.31, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width*0.385, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width*0.61, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width*0.69, y: size.height/4)
             break
         default:
-            pinsSprite[0].position = CGPoint(x: size.width/16, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/8, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width*0.75, y: size.height/4)
-            pinsSprite[4].position = CGPoint(x: size.width*0.875, y: size.height/4)
-            pinsSprite[5].position = CGPoint(x: size.width*0.925, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.235, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            pinsSprite[4].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
+            pinsSprite[5].position = CGPoint(x: size.width*0.77, y: size.height/3.6)
         }
         
         // NPC Pin Sprite
@@ -221,6 +234,9 @@ class GameScene: SKScene{
         // add Child
         addChild(judgeSprite)
         addChild(backgroundSprite)
+        addChild(backgroundLayerSprite)
+        addChild(balaoAnjo)
+        addChild(balaoCapeta)
         for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
@@ -232,7 +248,7 @@ class GameScene: SKScene{
     func movePlayer(playerNumber : Int){
         
         print(playerNumber)
-        actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height/2), interval: 2)
+        actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height*0.4), interval: 2)        
     }
     
     /**
@@ -260,8 +276,8 @@ class GameScene: SKScene{
         print(team[1].lifes)
         
         // set life position of each team
-        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.25), y: size.height * CGFloat(0.75))
-        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.75), y: size.height * CGFloat(0.75))
+        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.41), y: size.height * CGFloat(0.70))
+        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.59), y: size.height * CGFloat(0.70))
         
         // add to the scene
         
