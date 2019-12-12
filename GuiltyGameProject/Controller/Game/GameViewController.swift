@@ -351,10 +351,6 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
         
     }
     
-    /**
-     Function to change scenes
-     */
-    
     var teamTurnA = 0
     
     var teamTurnB = UserDefaults.standard.integer(forKey: "numberOfPlayers")/2
@@ -367,6 +363,7 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
         numberPlayer = 0
         definePlayerTurn()
     }
+    
     func definePlayerTurn (){
         
         if (GameScene.turn > -1){
@@ -425,6 +422,9 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     }
 
     
+    /**
+    Function to change scenes
+    */
     func changeScene(){
         let size = view.bounds.size
         
