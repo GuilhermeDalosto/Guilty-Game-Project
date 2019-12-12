@@ -150,7 +150,7 @@ class GameScene: SKScene{
         // set timer label
         timerLabel.text = "\(time)"
         timerLabel.fontSize = 100
-        timerLabel.fontColor = .white
+        timerLabel.fontColor = .systemYellow
         timerLabel.position = CGPoint(x: size.width/2, y: size.height/1.75)
         
         // set round label
@@ -224,14 +224,14 @@ class GameScene: SKScene{
         // set player position in base of how many players have
         switch numberOfPlayers {
         case 2:
-            pinsSprite[0].position = CGPoint(x: size.width*0.385, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width*0.61, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
             break
         case 4:
-            pinsSprite[0].position = CGPoint(x: size.width*0.31, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width*0.385, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width*0.61, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width*0.69, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
             break
         default:
             pinsSprite[0].position = CGPoint(x: size.width*0.235, y: size.height/3.6)
@@ -314,8 +314,8 @@ class GameScene: SKScene{
         
         
         // set life position of each team
-        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.41), y: size.height * CGFloat(0.70))
-        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.59), y: size.height * CGFloat(0.70))
+        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.415), y: size.height * CGFloat(0.71))
+        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.585), y: size.height * CGFloat(0.71))
         
         // add to the scene
         
@@ -329,10 +329,8 @@ class GameScene: SKScene{
         firstSelectedEvent = first
         secondSelectedEvent = second
         
-        if firstSelectedEvent != 9 && secondSelectedEvent != 9{
-            pinsSprite[first - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
-            pinsSprite[second - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
-          }
+        pinsSprite[first - 1].run(SKAction.scale(by: 2, duration: 1))
+        pinsSprite[second - 1].run(SKAction.scale(by: 2, duration: 1))
           
     }
     
