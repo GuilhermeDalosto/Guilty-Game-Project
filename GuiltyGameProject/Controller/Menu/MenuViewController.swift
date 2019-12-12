@@ -42,3 +42,7 @@ class MenuViewController: UIViewController {
     }
     
 }
+
+extension SiriRemote{
+    
+}

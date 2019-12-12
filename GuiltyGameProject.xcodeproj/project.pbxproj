@@ -18,6 +18,8 @@
 		7B9B078723A02404001375BB /* ChooseOption.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078323A02404001375BB /* ChooseOption.wav */; };
 		7B9B078823A02404001375BB /* PassOption.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078423A02404001375BB /* PassOption.wav */; };
 		7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078923A02EB8001375BB /* DiceRoll.wav */; };
+		7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFD23A2B1DE00955590 /* GameSong.wav */; };
+		7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
@@ -70,6 +72,8 @@
 		7B9B078323A02404001375BB /* ChooseOption.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = ChooseOption.wav; sourceTree = "<group>"; };
 		7B9B078423A02404001375BB /* PassOption.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = PassOption.wav; sourceTree = "<group>"; };
 		7B9B078923A02EB8001375BB /* DiceRoll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DiceRoll.wav; sourceTree = "<group>"; };
+		7BCF5BFD23A2B1DE00955590 /* GameSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSong.wav; sourceTree = "<group>"; };
+		7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TutorialSong.wav; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
@@ -168,26 +172,6 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
-		7B9B077F23A023BE001375BB /* Songs */ = {
-			isa = PBXGroup;
-			children = (
-				7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */,
-			);
-			path = Songs;
-			sourceTree = "<group>";
-		};
-		7B9B078023A023D9001375BB /* SFX */ = {
-			isa = PBXGroup;
-			children = (
-				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
-				7B9B078323A02404001375BB /* ChooseOption.wav */,
-				7B9B078423A02404001375BB /* PassOption.wav */,
-				7B9B078223A02404001375BB /* SwipeLeft.wav */,
-				7B9B078123A02404001375BB /* SwipeRight.wav */,
-			);
-			path = SFX;
-			sourceTree = "<group>";
-		};
 		ACBB918823906B1F0060FF8B /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,9 +220,15 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
-				7B9B078023A023D9001375BB /* SFX */,
-				7B9B077F23A023BE001375BB /* Songs */,
+				7BCF5BFD23A2B1DE00955590 /* GameSong.wav */,
+				7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */,
+				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
+				7B9B078323A02404001375BB /* ChooseOption.wav */,
+				7B9B078423A02404001375BB /* PassOption.wav */,
+				7B9B078223A02404001375BB /* SwipeLeft.wav */,
+				7B9B078123A02404001375BB /* SwipeRight.wav */,
 				AC66756B239ACAD500DC5D65 /* darksouls2.mp4 */,
+				7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */,
 				AC667569239AC90F00DC5D65 /* darksouls.mp4 */,
 				ACF93C7E238C4D7A00876A0B /* Model */,
 				ACF93C7F238C4D7E00876A0B /* View */,
@@ -393,10 +383,12 @@
 			files = (
 				7B9B078523A02404001375BB /* SwipeRight.wav in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
+				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
 				7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
 				ACF5936F23998682001C1B94 /* Report.storyboard in Resources */,
+				7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */,
 				7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */,
 				7B9B078823A02404001375BB /* PassOption.wav in Resources */,
 				7B9B078723A02404001375BB /* ChooseOption.wav in Resources */,
@@ -631,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YWK9C69PH;
+				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -652,7 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YWK9C69PH;
+				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
