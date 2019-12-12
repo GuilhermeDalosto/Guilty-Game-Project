@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  GuiltyGameProject
+
+  Created by Guilherme Martins Dalosto de Oliveira on 05/12/19.
+  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
+*/
+
+"startText" = "Start";
+"settingsText" = "Settings";
+
+"languageText" = "Language";
+"musicText" = "Music";
+"homeText" = "Home";
+
+"difficultText" = "Difficulty";
+"peopleText" = "Nº of Players";
+"themeText" = "Theme";
+"homeText" = "Home";
+"normalText" = "Normal";
+"hardText" = "Hard";
+"number3" = "3";
+"number5" = "5";
+"number7" = "7";
+"freeText" = "Free";
+"randomText" = "Random";
+"nextText" = "Next";
+
+"backText" = "Back";
+"startText" = "Start";
+"errorSelect" = "Some options wasn't selected.";
+

@@ -14,6 +14,7 @@ import SpriteKit
  */
 class TurnScene: SKScene{
     
+  
     /// text to say how is the turn now
     var titleLabel = SKLabelNode(fontNamed: "")
     /// sprite of player's turn
@@ -37,10 +38,11 @@ class TurnScene: SKScene{
      Add elements (player's pin and title label) to the scene
      */
     func setupScene(player: Person){
-        playerTimeSprite = SKSpriteNode(imageNamed: "pin_\(player.color)")
+        
+        playerTimeSprite = SKSpriteNode(imageNamed: "pin\(player.color)")
         playerTimeSprite?.position = CGPoint(x: size.width/2, y: size.height * 0.4)
         
-        titleLabel.text = "The turn of"
+        titleLabel.text = "It's \(player.color)'s turn"
         titleLabel.fontSize = 30
         titleLabel.fontColor = .red
         titleLabel.position = CGPoint(x: size.width/2, y: size.height/2 * 0.6)

@@ -14,7 +14,8 @@
 
 @implementation NSObject (Random)
     
-    +(Word *_Nonnull)decideWord:(NSMutableArray<Word *>*)vector{
+    +(NSString *_Nonnull) decideWord: (NSMutableArray<NSString *>*)vet joiningArgument2: (Deck*) deck{
+
 //        Word *word = [[Word alloc] init];
 //        NSArray *vector2 = [NSArray arrayWithObject:word];
         
@@ -25,28 +26,51 @@
         
 //        Judge *judge = [[Judge alloc]init];
 //
-//        [judge decide:wordArray];
-        
-//        [mutableArray removeObjectAtIndex:0];
-        
-//        for (NSArray *vector3 in vector) {
-//            if (vector3 == vector.firstObject) {
-//                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
-//                [wordArray addObject: [vector objectAtIndex:n]]
+////        Word* wordA = [wordArray objectAtIndex:0];
+//
+////        NSMutableArray *mutableArray = [NSMutableArray arrayWithObjects:@[word, word, word], nil];
+//
+//
+////        Judge *judge = [[Judge alloc]init];
+////
+////        [judge decide:wordArray];
+//
+////        [mutableArray removeObjectAtIndex:0];
+//
+////        for (NSArray *vector3 in vector) {
+////            if (vector3 == vector.firstObject) {
+////                vector2 = [vector arrayByAddingObject:[[Word alloc] init]];
+////                [wordArray addObject: [vector objectAtIndex:n]]
+////            }
+////        }
+//
+//        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+//        int n = 0;
+//        for (n = 0; n<vector.count; n++) {
+//
+//            Word *word1 = [vector objectAtIndex:n];
+//
+//
+//            if (word1.gone == false) {
+//
+//                [wordArray addObject: [vector objectAtIndex:n]];
+//                [vector objectAtIndex:n].gone = true;
 //            }
 //        }
+
         
-        NSMutableArray<Word *> *wordArray = [NSMutableArray array];
+        NSMutableArray<NSString *> *wordArray = [NSMutableArray array];
         int n = 0;
-        for (n = 0; n<vector.count; n++) {
+        for (n = 0; n<vet.count; n++) {
             
-            Word *word1 = [vector objectAtIndex:n];
+            NSString *word1 = [deck.gone objectAtIndex:n];
             
             
-            if (word1.gone == false) {
+            if ([word1  isEqual: @"nop"]) {
                 
-                [wordArray addObject: [vector objectAtIndex:n]];
-                [vector objectAtIndex:n].gone = true;
+                [wordArray addObject: [vet objectAtIndex:n]];
+                
+                [Deck setGonee:n gone:deck.gone];
             }
         }
         uint32_t rnd = arc4random_uniform([wordArray count]);
@@ -54,6 +78,7 @@
         return [wordArray objectAtIndex:rnd];
         
     }
+
 
 +(Event *_Nonnull) decideEvent: (NSMutableArray<Event *>*)vector{
         NSMutableArray<Event *> *eventArray = [NSMutableArray array];
@@ -103,5 +128,37 @@
         uint32_t rnd = arc4random_uniform([team.persons count]);
         return [team.persons objectAtIndex:rnd];
     }
+
++(void) fixEvents: (NSMutableArray<Event *>*)vector{
+    
+    int n = 0;
+    
+    for (n = 0; n<vector.count; n++) {
+        
+        [[vector objectAtIndex:n] changeGone:true];
+
+    }
+}
+
++(void) fixOrder: (Team *)team{
+    
+    int n = 0;
+    
+    for (n = 0; n<team.persons.count; n++) {
+        
+        [[team.persons objectAtIndex:n] changeGone:true];
+
+    }
+    
+}
++(void) fixWords: (Deck *)deck{
+    
+    int n = 0;
+    for (n = 0; n<deck.cards.count; n++) {
+        
+        [Deck setGonee:n gone:deck.gone];
+        
+    }
+}
 
 @end

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3RO-AK-ixi">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="TyP-4N-ARc">
+            <objects>
+                <viewController id="3RO-AK-ixi" customClass="LaunchViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aZ5-MD-naK"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZSs-ig-4U9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Ig-mo-ZEo">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="from software" translatesAutoresizingMaskIntoConstraints="NO" id="UCI-No-Grc">
+                                <rect key="frame" x="176" y="268" width="1568" height="545"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="MfD-3u-XAs"/>
+                    </view>
+                    <connections>
+                        <outlet property="fromSoftware" destination="UCI-No-Grc" id="6xI-eL-9ZL"/>
+                        <segue destination="ovZ-9F-hLP" kind="show" identifier="segueMain" id="jdP-I0-8l9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7BS-BL-IT2" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="24"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Q5T-7g-cXS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Main" storyboardName="Main" id="ovZ-9F-hLP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="k27-r4-E38"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rrK-6f-dho" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1496" y="30"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="from software" width="800" height="311"/>
+    </resources>
+</document>

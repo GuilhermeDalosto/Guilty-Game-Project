@@ -9,4 +9,7 @@
 #import "Report.h"
 #import "Skin.h"
 #import "SiriRemote.h"
+#import "Random.h"
+#import "Sound.h"
+#import "Actions.h"
 

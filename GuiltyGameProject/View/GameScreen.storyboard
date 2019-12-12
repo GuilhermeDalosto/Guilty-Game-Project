@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gDs-tw-zEt">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,11 +28,22 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="VgG-44-4A6" id="oPR-pt-dDF"/>
+                        <segue destination="xAb-xw-dih" kind="show" identifier="endGame" id="n9y-Au-V7R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-X6-v9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="-548"/>
+        </scene>
+        <!--Report-->
+        <scene sceneID="bUD-WI-tB3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report" id="xAb-xw-dih" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="blo-xs-LRJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dbp-Kl-EaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1506" y="-640"/>
         </scene>
     </scenes>
 </document>
