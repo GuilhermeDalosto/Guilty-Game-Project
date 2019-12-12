@@ -10,7 +10,9 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
+class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, StatisticsProtocol{
+    
+    var playersInfo: [StatisticsInfo] = []
     
     func sendRandom(one: Int, two: Int) {
         firstSortedForEvent = one
@@ -309,7 +311,10 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 } else{
                     vencedor = "Time 1"
                 }
+                
+                
                 self.performSegue(withIdentifier: "endGame", sender: nil)
+                
             }else{
                 changeScene()
             }
@@ -356,7 +361,6 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     }
     
     func definePlayerTurn (){
-        
         if (GameScene.turn > -1){
             if (GameScene.turn % 2 == 0)  {
                 playerTurn = players[teamTurnA]
@@ -367,6 +371,7 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 numberPlayer = teamTurnB
                 teamTurnB += 1
             }
+            
         }
     }
     
@@ -445,9 +450,9 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 definePlayerTurn()
                 defineEventPlayer()
                 
+                
                 turnScene = TurnScene(size: size, player: playerTurn,word: currentWord,event: randomEvent!)
                 randomWord = currentWord
-                
               
                 gameView.presentScene(turnScene)
             } else {
@@ -473,9 +478,11 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 gameScene = GameScene(size: size, word: randomWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 
             }
+
             if auxFirst == 5{
             gameScene!.sendSortedEvent(auxFirst,auxSecond)
             }
+            playersInfo.append(StatisticsInfo(word: randomWord, event: randomEvent!, color: playerTurn.color, round: GameScene.round))
             gameScene?.movePlayer(playerNumber: numberPlayer)
             gameScene?.delegateSend = self
             gameView.presentScene(gameScene)
