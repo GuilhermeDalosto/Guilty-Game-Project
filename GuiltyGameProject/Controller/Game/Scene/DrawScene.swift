@@ -9,13 +9,21 @@
 import Foundation
 import SpriteKit
 
+protocol randomDelegate{
+    func sendRandom(one: Int,two: Int)
+}
+
 class DrawScene: SKScene{
+    
+    var randomDelegate : randomDelegate?
     
     var diceTeam1 = SKSpriteNode()
     var diceTeam2 = SKSpriteNode()
     
     var diceRotate: [SKTexture] = []
     var rotateFrame: [SKTexture] = []
+    var numPlayers = 0
+    var randomLabel = SKLabelNode()
     
     var firstFrameTextureDice1 = SKTexture()
     var firstFrameTextureDice2 = SKTexture()
@@ -24,11 +32,19 @@ class DrawScene: SKScene{
     
     init(size: CGSize,players: [Person] ) {
         super.init(size: size)
-        let numPlayers = players.count
+        numPlayers = players.count
         
-        drawDice(players: numPlayers)
+       
+        
+        randomLabel.text = "Random Dices"
+        randomLabel.fontSize = 60
+        randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
+        self.addChild(randomLabel)
     }
     
+    func drawDice(){
+        drawDice(players: numPlayers)
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -50,9 +66,7 @@ class DrawScene: SKScene{
             numbertwo = arc4random_uniform(UInt32(3)) + 4
         }
         
-        //        let diceTeam1 = SKSpriteNode(imageNamed: "Dice\(numberOne)")
-        //        let diceTeam2 = SKSpriteNode(imageNamed: "Dice\(numbertwo)")
-        
+        randomDelegate?.sendRandom(one : Int(numberOne),two: Int(numbertwo))
         
         self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
         self.diceTeam1.size = CGSize(width: 300, height: 200)
@@ -120,6 +134,7 @@ class DrawScene: SKScene{
     var i = 0
     
     func animateNode(_ nodes: [SKSpriteNode]){
+        i = Int.random(in: 0...1)
         
         for nodePassed in nodes {
             
@@ -132,14 +147,15 @@ class DrawScene: SKScene{
             
             let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
              rotateFrame.shuffle()
-            rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
-            if i > 0{
+            
+            if i == 0{
                 rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
+                i = 1
+            } else{
+                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
+                i = 0
             }
-            
-            i += 1
-            
-            
+     
             let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.1)
             
             

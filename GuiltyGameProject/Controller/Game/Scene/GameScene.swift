@@ -17,8 +17,9 @@ protocol sendTimerDelegate{
 class GameScene: SKScene{
     
     var delegateSend: sendTimerDelegate?
-    
     var actions = Actions()
+    var firstSelectedEvent : Int?
+    var secondSelectedEvent : Int?
     /// Background Sprite at Game Scene
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
@@ -26,7 +27,7 @@ class GameScene: SKScene{
     /// Lifes Sprites at Game Scene
     var lifeTeamSprite = [SKSpriteNode]()
     /// Judge Sprite at Game Scene
-    var judgeSprite = SKSpriteNode(imageNamed: "judge")
+    var judgeSprite = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
     /// NPC Pins Sprites at Game Scene
     var pinsNPCSprite = [SKSpriteNode]()
     
@@ -40,7 +41,7 @@ class GameScene: SKScene{
     var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     /// Array of Images to Sprites
-    var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPurple", "pinRed", "pinYellow"]
+    var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     
     /// User Defaults
     let defaults = UserDefaults.standard
@@ -122,9 +123,12 @@ class GameScene: SKScene{
      */
     func setupLabel(word: String, event: String?){
         // set time to timer
-        if(GameScene.turn == 0){
+        if(GameScene.turn < 1){
+            timerLabel.alpha = 0
+        } else if GameScene.turn == 1 {
+            timerLabel.alpha = 1
             time = 60
-        } else {
+        } else{
             time = 30
         }
         
@@ -143,7 +147,7 @@ class GameScene: SKScene{
         // set round label
         roundLabel.text = "\(GameScene.round)"
         roundLabel.fontSize = 30
-        roundLabel.fontColor = .black
+        roundLabel.fontColor = .white
         roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
         
         // set event if player had it
@@ -168,17 +172,17 @@ class GameScene: SKScene{
         // Background Sprite
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundSprite.size = size
-        backgroundSprite.alpha = 0.2
+        backgroundSprite.alpha = 1
         backgroundSprite.zPosition = -1.0
         
         
         // Judge Sprite
-        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * CGFloat(0.8))
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.75)
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
             pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
-            pinsSprite[i].setScale(0.7)
+       //     pinsSprite[i].setScale(0.7)
 //            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
         
@@ -212,6 +216,8 @@ class GameScene: SKScene{
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
         
+  
+        
         // add Child
         addChild(judgeSprite)
         addChild(backgroundSprite)
@@ -219,7 +225,7 @@ class GameScene: SKScene{
             addChild(pinsSprite[i])
         }
         for i in 0...pinsNPCSprite.count - 1{
-            addChild(pinsNPCSprite[i])
+         //   addChild(pinsNPCSprite[i])
         }
     }
     
@@ -263,6 +269,19 @@ class GameScene: SKScene{
         addChild(lifeTeamSprite[1])
         
     }
+    
+    
+    func sendSortedEvent(_ first: Int, _ second: Int){
+        firstSelectedEvent = first
+        secondSelectedEvent = second
+        
+        if firstSelectedEvent != 9 && secondSelectedEvent != 9{
+            pinsSprite[first - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
+            pinsSprite[second - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
+          }
+          
+    }
+    
     
     /**
      Start timer for player speak
