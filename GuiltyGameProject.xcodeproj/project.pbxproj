@@ -179,11 +179,6 @@
 		7B9B078023A023D9001375BB /* SFX */ = {
 			isa = PBXGroup;
 			children = (
-				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
-				7B9B078323A02404001375BB /* ChooseOption.wav */,
-				7B9B078423A02404001375BB /* PassOption.wav */,
-				7B9B078223A02404001375BB /* SwipeLeft.wav */,
-				7B9B078123A02404001375BB /* SwipeRight.wav */,
 			);
 			path = SFX;
 			sourceTree = "<group>";
@@ -237,6 +232,11 @@
 			isa = PBXGroup;
 			children = (
 				7B9B078023A023D9001375BB /* SFX */,
+				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
+				7B9B078323A02404001375BB /* ChooseOption.wav */,
+				7B9B078423A02404001375BB /* PassOption.wav */,
+				7B9B078223A02404001375BB /* SwipeLeft.wav */,
+				7B9B078123A02404001375BB /* SwipeRight.wav */,
 				7B9B077F23A023BE001375BB /* Songs */,
 				AC66756B239ACAD500DC5D65 /* darksouls2.mp4 */,
 				AC667569239AC90F00DC5D65 /* darksouls.mp4 */,
@@ -630,7 +630,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YWK9C69PH;
+				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -651,7 +651,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7YWK9C69PH;
+				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

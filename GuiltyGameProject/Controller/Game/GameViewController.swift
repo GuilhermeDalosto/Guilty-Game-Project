@@ -73,6 +73,8 @@ class GameViewController: UIViewController{
     var choosenTeam = Team()
     /// bool to know if game still running
     var gameRunning = true
+    /// sound player
+    let sound = Sound()
     
     // words and events
     // all words
@@ -302,6 +304,12 @@ class GameViewController: UIViewController{
     
     var vencedor = ""
     @objc func SwipeLeft(){
+        // play sound of lie if is on gamescene
+        if gameView.scene == gameScene{
+//            let sound = Sound()
+            sound.play("SwipeLeft", type: ".wav")
+        }
+        
         if (GameScene.turn > 0){
             if choosenTeam == team[0]{
                 judge?.deny(team[1])
@@ -335,6 +343,10 @@ class GameViewController: UIViewController{
     }
     
     @objc func SwipeRight(){
+        if gameView.scene == gameScene{
+            sound.play("SwipeRight", type: ".wav")
+        }
+        
         print("swiperight")
         changeScene()
         
