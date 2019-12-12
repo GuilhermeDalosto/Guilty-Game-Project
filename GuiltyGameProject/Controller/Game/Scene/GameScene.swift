@@ -44,6 +44,9 @@ class GameScene: SKScene{
     var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
     var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
     
+    var balaoComentario = SKLabelNode(fontNamed: "Chalkduster")
+    var balaoComentario2 = SKLabelNode(fontNamed: "Chalkduster")
+    
     /// Array of Images to Sprites
     var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     
@@ -102,11 +105,12 @@ class GameScene: SKScene{
         
         // setups
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLifes(team: team)
+        
         
         setupLabel(word: word, event: event)
 
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
+        setupLifes(team: team)
         startTimer()
     }
         
@@ -141,6 +145,7 @@ class GameScene: SKScene{
         wordLabel.fontSize = 40
         wordLabel.fontColor = .white
         wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.9))
+        
         
         // set timer label
         timerLabel.text = "\(time)"
@@ -188,6 +193,23 @@ class GameScene: SKScene{
         balaoAnjo.position = CGPoint(x: size.width * 0.80, y: size.height*0.62)
         balaoCapeta.position = CGPoint(x: size.width * 0.21, y: size.height*0.64)
         
+        balaoComentario.position = balaoAnjo.position
+        balaoComentario.fontColor = .black
+        balaoComentario.fontSize -= 10
+        balaoComentario.zPosition += 1
+        balaoComentario.text = "Perdeu mano"
+        
+        balaoComentario2.position = balaoCapeta.position
+        balaoComentario2.fontColor = .white
+        balaoComentario2.fontSize -= 10
+        balaoComentario2.zPosition += 1
+        balaoComentario2.text = "Perdeu vidinha"
+        
+        balaoAnjo.alpha = 0
+        balaoCapeta.alpha = 0
+        balaoComentario.alpha = 0
+        balaoComentario2.alpha = 0
+        
         // Judge Sprite
         judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.77)
         judgeSprite.zPosition -= 1
@@ -232,6 +254,8 @@ class GameScene: SKScene{
   
         
         // add Child
+        addChild(balaoComentario)
+        addChild(balaoComentario2)
         addChild(judgeSprite)
         addChild(backgroundSprite)
         addChild(backgroundLayerSprite)
@@ -250,6 +274,9 @@ class GameScene: SKScene{
         print(playerNumber)
         actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height*0.4), interval: 2)        
     }
+    
+    var flag = UserDefaults.standard.bool(forKey: "flag")
+    var flag2 = UserDefaults.standard.bool(forKey: "flag2")
     
     /**
      Setup lifes sprites by team number of lifes in Nodes
@@ -272,8 +299,19 @@ class GameScene: SKScene{
                 lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart3"))
             }
         }
-        print(team[0].lifes)
-        print(team[1].lifes)
+        
+        if team[0].lifes == 2 && flag{
+            balaoComentario.alpha = 1
+            balaoAnjo.alpha = 1
+            UserDefaults.standard.set(false, forKey: "flag")
+        }
+        
+        if team[1].lifes == 1 && flag2{
+            balaoComentario2.alpha = 1
+            balaoCapeta.alpha = 1
+            UserDefaults.standard.set(false, forKey: "flag2")
+        }
+        
         
         // set life position of each team
         lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.41), y: size.height * CGFloat(0.70))

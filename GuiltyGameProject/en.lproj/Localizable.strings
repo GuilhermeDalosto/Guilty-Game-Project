@@ -30,3 +30,12 @@
 "startText" = "Start";
 "errorSelect" = "Some options wasn't selected.";
 
+
+"turnComment" = "It's %@'s turn";
+
+"yellow" = "Yellow";
+"blue" = "Blue";
+"orange" = "Orange";
+"black" = "Black";
+"pink" = "Pink";
+"green" = "Green";

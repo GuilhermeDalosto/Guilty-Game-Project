@@ -51,6 +51,7 @@ class TurnScene: SKScene{
         playerTimeSprite = SKSpriteNode(imageNamed: "pin\(player.color)")
         playerTimeSprite?.position = CGPoint(x: size.width/2, y: size.height * 0.4)
         
+        titleLabel.text = String(format: NSLocalizedString("turnComment", comment: ""), player.color)
         titleLabel.text = "It's \(player.color)'s turn"
         titleLabel.fontSize = 50
         titleLabel.fontColor = .red

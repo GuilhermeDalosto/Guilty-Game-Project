@@ -51,8 +51,7 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     /// player of the turn
     var playerTurn = Person()
     /// array of players colors
-    var colors = ["Blue","Green","Orange","Pink","Black","Yellow"]
-    
+    var colors = [NSLocalizedString("blue", comment: ""),NSLocalizedString("green", comment: ""),NSLocalizedString("orange", comment: ""),NSLocalizedString("pink", comment: ""),NSLocalizedString("black", comment: ""),NSLocalizedString("yellow", comment: "")]
     
     // judge
     /// judge that controls the game
@@ -113,7 +112,8 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UserDefaults.standard.set(true, forKey: "flag")
+        UserDefaults.standard.set(true, forKey: "flag2")
         setupGame()
         
         startTheme()
@@ -145,17 +145,13 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
         for i in 0...UserDefaults.standard.integer(forKey: "numberOfPlayers") - 1{
             if i < UserDefaults.standard.integer(forKey: "numberOfPlayers")/2{
                 players.append(Person(colors[i], team: team[0]))
-                print("person color team 0 - \(colors[i])")
             } else {
                 players.append(Person(colors[i], team: team[1]))
-                print("person color team 1 - \(colors[i])")
             }
         }
         
-        print("number of players: \(players.count)")
         // instantiate
-        judge = Judge(team)
-        
+        judge = Judge(team)        
         addAll()
     }
     
@@ -299,14 +295,8 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     var vencedor = ""
     @objc func SwipeLeft(){
 
-        // play sound of lie if is on gamescene
-        if gameView.scene == gameScene{
-//            let sound = Sound()
+        if (GameScene.turn > 0) && gameView.scene == gameScene{
             sound.play("SwipeLeft", type: ".wav",repeat: 0)
-        }
-        
-        if (GameScene.turn > 0){
-
             if choosenTeam == team[0]{
                 judge?.deny(team[1])
             } else{
@@ -324,6 +314,7 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 changeScene()
             }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -405,15 +396,18 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
         }
         
     }
-    
+    var auxFirst = 5
+    var auxSecond = 5
     func defineEventPlayer(){
         if teamTurnA == firstSortedForEvent{
             randomEvent = allEvents.randomElement()?.descriptionEvent
             firstSortedForEvent = 9
+            auxFirst = firstSortedForEvent
         } else
         if teamTurnB == secondSortedForEvent{
             randomEvent = allEvents.randomElement()?.descriptionEvent
             secondSortedForEvent = 9
+            auxSecond = secondSortedForEvent
         
         } else{
             randomEvent = ""
@@ -479,8 +473,9 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
                 gameScene = GameScene(size: size, word: randomWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 
             }
-            
-            gameScene!.sendSortedEvent(firstSortedForEvent,secondSortedForEvent)
+            if auxFirst == 5{
+            gameScene!.sendSortedEvent(auxFirst,auxSecond)
+            }
             gameScene?.movePlayer(playerNumber: numberPlayer)
             gameScene?.delegateSend = self
             gameView.presentScene(gameScene)
