@@ -352,10 +352,6 @@ class GameViewController: UIViewController{
         
     }
     
-    /**
-     Function to change scenes
-     */
-    
     var teamTurnA = 0
     
     var teamTurnB = UserDefaults.standard.integer(forKey: "numberOfPlayers")/2
@@ -368,6 +364,7 @@ class GameViewController: UIViewController{
         numberPlayer = 0
         definePlayerTurn()
     }
+    
     func definePlayerTurn (){
         if (GameScene.turn > -1){
             if (GameScene.turn % 2 == 0)  {
@@ -382,6 +379,9 @@ class GameViewController: UIViewController{
         }
     }
     
+    /**
+    Function to change scenes
+    */
     func changeScene(){
         let size = view.bounds.size
         
