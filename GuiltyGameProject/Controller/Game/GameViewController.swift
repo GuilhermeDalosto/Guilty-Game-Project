@@ -302,7 +302,7 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
         // play sound of lie if is on gamescene
         if gameView.scene == gameScene{
 //            let sound = Sound()
-            sound.play("SwipeLeft", type: ".wav")
+            sound.play("SwipeLeft", type: ".wav",repeat: 0)
         }
         
         if (GameScene.turn > 0){
@@ -340,11 +340,12 @@ class GameViewController: UIViewController , sendTimerDelegate,randomDelegate{
     }
     
     @objc func SwipeRight(){
-        if gameView.scene == gameScene{
-            sound.play("SwipeRight", type: ".wav")
+        if gameView.scene == gameScene && GameScene.turn > 0{
+            sound.play("SwipeRight", type: ".wav",repeat: 0)
+            print("swiperight")
         }
         
-        print("swiperight")
+        
         
         changeScene()
         

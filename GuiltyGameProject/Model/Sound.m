@@ -16,7 +16,7 @@
 
 
 
-- (void) playSound : (NSString*) soundName type: (NSString*) soundType
+- (void) playSound : (NSString*) soundName type: (NSString*) soundType repeat: (NSInteger) repeat
 {
     
     NSString *url = [[NSBundle mainBundle]pathForResource:soundName ofType:soundType];
@@ -24,7 +24,9 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     _audioPlayer.delegate = self;
-    _audioPlayer.numberOfLoops = 1;
+    if (repeat > 0) {
+    _audioPlayer.numberOfLoops = repeat;
+    }
     [_audioPlayer play];
     
     
