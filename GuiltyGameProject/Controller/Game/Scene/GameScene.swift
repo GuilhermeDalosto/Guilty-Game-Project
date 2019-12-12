@@ -9,9 +9,17 @@
 import Foundation
 import SpriteKit
 
+
+protocol sendTimerDelegate{
+    func timeIsOver()
+}
+
 class GameScene: SKScene{
     
+    var delegateSend: sendTimerDelegate?
     var actions = Actions()
+    var firstSelectedEvent : Int?
+    var secondSelectedEvent : Int?
     /// Background Sprite at Game Scene
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
@@ -19,7 +27,7 @@ class GameScene: SKScene{
     /// Lifes Sprites at Game Scene
     var lifeTeamSprite = [SKSpriteNode]()
     /// Judge Sprite at Game Scene
-    var judgeSprite = SKSpriteNode(imageNamed: "judge")
+    var judgeSprite = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
     /// NPC Pins Sprites at Game Scene
     var pinsNPCSprite = [SKSpriteNode]()
     
@@ -33,7 +41,7 @@ class GameScene: SKScene{
     var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
     
     /// Array of Images to Sprites
-    var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPurple", "pinRed", "pinYellow"]
+    var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     
     /// User Defaults
     let defaults = UserDefaults.standard
@@ -115,17 +123,20 @@ class GameScene: SKScene{
      */
     func setupLabel(word: String, event: String?){
         // set time to timer
-        if(GameScene.turn == 0){
+        if(GameScene.turn < 1){
+            timerLabel.alpha = 0
+        } else if GameScene.turn == 1 {
+            timerLabel.alpha = 1
             time = 60
-        } else {
+        } else{
             time = 30
         }
         
         // set word label
         wordLabel.text = word
-        wordLabel.fontSize = 30
-        wordLabel.fontColor = .black
-        wordLabel.position = CGPoint(x: size.width/2, y: size.height/2 + 15)
+        wordLabel.fontSize = 40
+        wordLabel.fontColor = .white
+        wordLabel.position = CGPoint(x: size.width/2, y: size.height/1.65)
         
         // set timer label
         timerLabel.text = "\(time)"
@@ -136,14 +147,14 @@ class GameScene: SKScene{
         // set round label
         roundLabel.text = "\(GameScene.round)"
         roundLabel.fontSize = 30
-        roundLabel.fontColor = .black
+        roundLabel.fontColor = .white
         roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
         
         // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
-            eventLabel.fontSize = 30
-            eventLabel.fontColor = .black
+            eventLabel.fontSize = 50
+            eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
             addChild(eventLabel)
         }
@@ -161,39 +172,39 @@ class GameScene: SKScene{
         // Background Sprite
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundSprite.size = size
-        backgroundSprite.alpha = 0.2
+        backgroundSprite.alpha = 1
         backgroundSprite.zPosition = -1.0
         
         
         // Judge Sprite
-        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * CGFloat(0.8))
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.75)
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
             pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
-            pinsSprite[i].setScale(0.7)
+       //     pinsSprite[i].setScale(0.7)
 //            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
         
         // set player position in base of how many players have
         switch numberOfPlayers {
         case 2:
-            pinsSprite[0].position = CGPoint(x: size.width, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width*0.75, y: size.height/4)
             break
         case 4:
             pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
             pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width/1.4, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width/1.2, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width*0.875, y: size.height/4)
             break
         default:
-            pinsSprite[0].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[4].position = CGPoint(x: 0, y: size.height/4)
-            pinsSprite[5].position = CGPoint(x: 0, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width/16, y: size.height/4)
+            pinsSprite[1].position = CGPoint(x: size.width/8, y: size.height/4)
+            pinsSprite[2].position = CGPoint(x: size.width/4, y: size.height/4)
+            pinsSprite[3].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[4].position = CGPoint(x: size.width*0.875, y: size.height/4)
+            pinsSprite[5].position = CGPoint(x: size.width*0.925, y: size.height/4)
         }
         
         // NPC Pin Sprite
@@ -205,6 +216,8 @@ class GameScene: SKScene{
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
         
+  
+        
         // add Child
         addChild(judgeSprite)
         addChild(backgroundSprite)
@@ -212,7 +225,7 @@ class GameScene: SKScene{
             addChild(pinsSprite[i])
         }
         for i in 0...pinsNPCSprite.count - 1{
-            addChild(pinsNPCSprite[i])
+         //   addChild(pinsNPCSprite[i])
         }
     }
     
@@ -257,6 +270,19 @@ class GameScene: SKScene{
         
     }
     
+    
+    func sendSortedEvent(_ first: Int, _ second: Int){
+        firstSelectedEvent = first
+        secondSelectedEvent = second
+        
+        if firstSelectedEvent != 9 && secondSelectedEvent != 9{
+            pinsSprite[first - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
+            pinsSprite[second - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
+          }
+          
+    }
+    
+    
     /**
      Start timer for player speak
      */
@@ -269,14 +295,16 @@ class GameScene: SKScene{
      Function to decrease time to the label timer
      */
     @objc func timerDecrease(){
-        time -= 1
+        time -= 1        
         DispatchQueue.main.async {
             self.timerLabel.text = "\(self.time)"
         }
-        if time == 0{
+        if time <= 0{
+            delegateSend?.timeIsOver()
             timer?.invalidate()
         }
     }
+    
     
     func endTimer(){
         // start timer
@@ -292,4 +320,6 @@ class GameScene: SKScene{
             self.timerLabel.text = "\(self.time)"
         }
     }
+    
+   
 }

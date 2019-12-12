@@ -47,6 +47,7 @@ class CustomizeJudgeViewController: UIViewController {
         judgeCollectionVIew.allowsSelection = false
         judgeCollectionVIew.delegate = self
         judgeCollectionVIew.dataSource = self
+        judgeCollectionVIew.backgroundColor = .clear
         
     }
     
@@ -215,10 +216,8 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     func populateJudge(){
-        judge.append(UIImage(named: "maconier")!)
-        judge.append(UIImage(named: "judge")!)
-        judge.append(UIImage(named: "1")!)
-        judge.append(UIImage(named: "2")!)
+        judge.append(UIImage(named: "judge0")!)
+        judge.append(UIImage(named: "judge1")!)
     }
     
 }
@@ -227,6 +226,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         
         return judge.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.judgeCollectionVIew.frame.size
@@ -240,6 +240,8 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         return cell
         
     }
+    
+    
 }
 
 
