@@ -143,6 +143,7 @@ class SettingsViewController: UIViewController {
         
         print(musicOption)
         self.musicButton.setTitle("\(NSLocalizedString("musicText",comment:""))                \(musicOptionStr)", for: .normal)
+        
     }
     
     @IBAction func pressLanguageButton(_ sender: Any) {

@@ -19,6 +19,7 @@
 		78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */; };
 		78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */; };
 		78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB723A31DE7003E4F41 /* Adonay.ttf */; };
+		78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */; };
 		7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */; };
 		7B9B078523A02404001375BB /* SwipeRight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078123A02404001375BB /* SwipeRight.wav */; };
 		7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078223A02404001375BB /* SwipeLeft.wav */; };
@@ -82,6 +83,7 @@
 		78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDLC.storyboard; sourceTree = "<group>"; };
 		78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDLC.swift; sourceTree = "<group>"; };
 		78F4CBB723A31DE7003E4F41 /* Adonay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adonay.ttf; sourceTree = "<group>"; };
+		78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "myriad-pro-8.otf"; sourceTree = "<group>"; };
 		7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GuiltyProjectSong.wav; sourceTree = "<group>"; };
 		7B9B078123A02404001375BB /* SwipeRight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeRight.wav; sourceTree = "<group>"; };
 		7B9B078223A02404001375BB /* SwipeLeft.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeLeft.wav; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		78F4CBB623A31DA1003E4F41 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */,
 				78F4CBB723A31DE7003E4F41 /* Adonay.ttf */,
 			);
 			path = Fonts;
@@ -448,6 +451,7 @@
 				ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */,
 				ACF5936C2399867E001C1B94 /* CustomizeJudge.storyboard in Resources */,
 				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
+				78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,

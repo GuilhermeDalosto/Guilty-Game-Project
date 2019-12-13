@@ -33,19 +33,19 @@ class GameScene: SKScene{
     var pinsNPCSprite = [SKSpriteNode]()
     
     /// Word Label at Game Scene
-    var wordLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var wordLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Timer Label at Game Scene
-    var timerLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var timerLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Round Label at Game Scene
-    var roundLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var roundLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Event Label at Game Scene
-    var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var eventLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
     var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
     
-    var balaoComentario = SKLabelNode(fontNamed: "Chalkduster")
-    var balaoComentario2 = SKLabelNode(fontNamed: "Chalkduster")
+    var balaoComentario = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var balaoComentario2 = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     /// Array of Images to Sprites
     var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
