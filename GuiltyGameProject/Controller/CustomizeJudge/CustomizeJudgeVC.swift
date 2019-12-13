@@ -26,6 +26,10 @@ class CustomizeJudgeViewController: UIViewController {
     
     
     @IBOutlet weak var imageHammer: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     var characterSelected : UIImage?
     
     var judge = [UIImage]()
@@ -221,6 +225,8 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
 }
+
+
 extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
