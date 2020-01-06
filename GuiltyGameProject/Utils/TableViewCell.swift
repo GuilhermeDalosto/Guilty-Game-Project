@@ -8,11 +8,8 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+class CustomCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var pinImage: UIImageView!
-    @IBOutlet weak var wordLabel: UILabel!
-    @IBOutlet weak var eventLabel: UILabel!
-    @IBOutlet weak var acceptedImage: UIImageView!
+    
 
 }

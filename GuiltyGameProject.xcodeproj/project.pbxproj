@@ -20,8 +20,8 @@
 		7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078923A02EB8001375BB /* DiceRoll.wav */; };
 		7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFD23A2B1DE00955590 /* GameSong.wav */; };
 		7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */; };
-		7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0123A2BF0600955590 /* TableViewCell.swift */; };
 		7BCF5C0423A2C39B00955590 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */; };
+		7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
@@ -76,8 +76,8 @@
 		7B9B078923A02EB8001375BB /* DiceRoll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DiceRoll.wav; sourceTree = "<group>"; };
 		7BCF5BFD23A2B1DE00955590 /* GameSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSong.wav; sourceTree = "<group>"; };
 		7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TutorialSong.wav; sourceTree = "<group>"; };
-		7BCF5C0123A2BF0600955590 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
+		7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 				95F8C8FD238F159900E8ACAB /* Movement.m */,
 				95F8C8FF239039CE00E8ACAB /* Music.h */,
 				95F8C900239039CE00E8ACAB /* Music.m */,
-				7BCF5C0123A2BF0600955590 /* TableViewCell.swift */,
 				7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */,
+				7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -431,11 +431,11 @@
 				AC66756F239ACBB800DC5D65 /* Actions.m in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
+				7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */,
 				AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */,
 				ACF93CB5238EE83F00876A0B /* allWordsSigned.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
-				7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
 				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
 				95F8C8FE238F159900E8ACAB /* Movement.m in Sources */,

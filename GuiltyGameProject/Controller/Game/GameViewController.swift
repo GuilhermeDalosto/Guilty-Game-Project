@@ -27,6 +27,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     @IBOutlet weak var gameView: SKView!
     
+    
     let music = Sound()
     var firstSortedForEvent = 9
     var secondSortedForEvent = 9
@@ -114,12 +115,12 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
+        
         setupGame()
-        
         startTheme()
-        
     }
     
     /**
@@ -155,6 +156,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         // instantiate
         judge = Judge(team)        
         addAll()
+        
+        // create class to stored players info
+        for i in 0...qtPlayer - 1{
+            playersInfo.append(StatisticsInfo(color: players[i].color))
+        }
     }
     
     /**
@@ -326,6 +332,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         if segue.identifier == "endGame"{
             if let vc = segue.destination as? ViewController{
                 vc.vencedor = vencedor
+                vc.delegate = self
             }
         }
     }
@@ -480,9 +487,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             }
 
             if auxFirst == 5{
-            gameScene!.sendSortedEvent(auxFirst,auxSecond)
+                gameScene!.sendSortedEvent(auxFirst,auxSecond)
             }
-            playersInfo.append(StatisticsInfo(word: randomWord, event: randomEvent!, color: playerTurn.color, round: GameScene.round))
+            addWordInfo(color: playerTurn.color, word: randomWord)
             gameScene?.movePlayer(playerNumber: numberPlayer)
             gameScene?.delegateSend = self
             gameView.presentScene(gameScene)
@@ -500,5 +507,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             print("None Scene")
         }
         
+    }
+    
+    /**
+     Add the actual word to player info class
+     */
+    func addWordInfo(color: String, word: String){
+        for player in playersInfo{
+            if player.pinColor == color{
+                player.addWord(word: word)
+            }
+        }
     }
 }
