@@ -37,6 +37,7 @@ class DrawScene: SKScene{
        
         
         randomLabel.text = "Random Dices"
+        randomLabel.fontName = "MyriadPro-Regular"
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
         self.addChild(randomLabel)

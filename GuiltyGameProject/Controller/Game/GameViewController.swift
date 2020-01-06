@@ -302,7 +302,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     var vencedor = ""
     @objc func SwipeLeft(){
-
+        
         if (GameScene.turn > 0) && gameView.scene == gameScene{
             sound.play("SwipeLeft", type: ".wav",repeat: 0)
             if choosenTeam == team[0]{
@@ -410,27 +410,30 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     }
     var auxFirst = 5
     var auxSecond = 5
+    
     func defineEventPlayer(){
         if teamTurnA == firstSortedForEvent{
             randomEvent = allEvents.randomElement()?.descriptionEvent
-            firstSortedForEvent = 9
             auxFirst = firstSortedForEvent
+            firstSortedForEvent = 9
+            
         } else
-        if teamTurnB == secondSortedForEvent{
-            randomEvent = allEvents.randomElement()?.descriptionEvent
-            secondSortedForEvent = 9
-            auxSecond = secondSortedForEvent
-        
-        } else{
-            randomEvent = ""
+            if teamTurnB == secondSortedForEvent{
+                randomEvent = allEvents.randomElement()?.descriptionEvent
+                auxSecond = secondSortedForEvent
+                secondSortedForEvent = 9
+                
+                
+            } else{
+                randomEvent = ""
         }
         
     }
-
+    
     
     /**
-    Function to change scenes
-    */
+     Function to change scenes
+     */
     func changeScene(){
         let size = view.bounds.size
         
@@ -451,16 +454,13 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             gameView.scene?.removeFromParent()            
             if GameScene.turn % qtPlayer != 0 || drawPassed{
                 drawPassed = false
-                
-                
-                
                 definePlayerTurn()
                 defineEventPlayer()
                 
                 
                 turnScene = TurnScene(size: size, player: playerTurn,word: currentWord,event: randomEvent!)
                 randomWord = currentWord
-              
+                
                 gameView.presentScene(turnScene)
             } else {
                 // criar a cena do sorteio
@@ -468,6 +468,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
                 drawScene?.randomDelegate = self
                 drawScene?.drawDice()
                 readjustPlayers()
+                
+                
                 gameView.presentScene(drawScene)
             }
             break
@@ -478,7 +480,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
                 choosenTeam = team[0]
             }
             gameView.scene?.removeFromParent()
-           
+            
             if let event = randomEvent{
                 gameScene = GameScene(size: size, word: randomWord, event: event, team1: team[0], team2: team[1], judge: judge!, players: players)
             } else {

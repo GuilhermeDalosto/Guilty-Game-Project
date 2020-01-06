@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 class MenuViewController: UIViewController {
     
+
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var shopButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {        
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
@@ -26,6 +29,13 @@ class MenuViewController: UIViewController {
     @IBAction func PressSettings(_ sender: Any) {
         performSegue(withIdentifier: "Settings", sender: nil)
     }
+    
+    
+    @IBAction func PressShop(_ sender: Any) {
+        
+        performSegue(withIdentifier: "Store", sender: nil)
+    }
+    
     
 }
 
