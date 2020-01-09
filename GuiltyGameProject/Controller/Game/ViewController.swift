@@ -41,16 +41,26 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource{
         let imageName = (delegate?.playersInfo[indexPath.row].pinColor)!
         
         cell.pinImage.image = UIImage(named: "pin\(imageName)")
-        cell.word1.text = delegate?.playersInfo[indexPath.row].words[0] ?? ""
-        cell.word2.text = delegate?.playersInfo[indexPath.row].words[1] ?? ""
-        cell.word3.text = delegate?.playersInfo[indexPath.row].words[2] ?? ""
-        cell.word4.text = delegate?.playersInfo[indexPath.row].words[3] ?? ""
-        cell.word5.text = delegate?.playersInfo[indexPath.row].words[4] ?? ""
-        cell.word6.text = delegate?.playersInfo[indexPath.row].words[5] ?? ""
-        cell.word7.text = delegate?.playersInfo[indexPath.row].words[6] ?? ""
-        cell.word8.text = delegate?.playersInfo[indexPath.row].words[7] ?? ""
-        cell.word9.text = delegate?.playersInfo[indexPath.row].words[8] ?? ""
-        cell.word10.text = delegate?.playersInfo[indexPath.row].words[9] ?? ""
+        guard let word1 = delegate?.playersInfo[indexPath.row].words[0] else { return cell }
+        cell.word1.text = word1
+        guard let word2 = delegate?.playersInfo[indexPath.row].words[1] else { return cell }
+        cell.word2.text = word2
+        guard let word3 = delegate?.playersInfo[indexPath.row].words[2] else { return cell }
+        cell.word3.text = word3
+        guard let word4 = delegate?.playersInfo[indexPath.row].words[3] else { return cell }
+        cell.word4.text = word4
+        guard let word5 = delegate?.playersInfo[indexPath.row].words[4] else { return cell }
+        cell.word5.text = word5
+        guard let word6 = delegate?.playersInfo[indexPath.row].words[5] else { return cell }
+        cell.word6.text = word6
+        guard let word7 = delegate?.playersInfo[indexPath.row].words[6] else { return cell }
+        cell.word7.text = word7
+        guard let word8 = delegate?.playersInfo[indexPath.row].words[7] else { return cell }
+        cell.word8.text = word8
+        guard let word9 = delegate?.playersInfo[indexPath.row].words[8] else { return cell }
+        cell.word9.text = word9
+        guard let word10 = delegate?.playersInfo[indexPath.row].words[9] else { return cell }
+        cell.word10.text = word10
         
         return cell
     }

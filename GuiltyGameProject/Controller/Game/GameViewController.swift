@@ -160,6 +160,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         // create class to stored players info
         for i in 0...qtPlayer - 1{
             playersInfo.append(StatisticsInfo(color: players[i].color))
+            for _ in 0...9{
+                playersInfo[i].addWord(word: "")
+            }
         }
     }
     
@@ -278,6 +281,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     @objc func Select(){
         print("select")
         print(choosenTeam.lifes)
+        if gameScene?.scene == themeScene{
+            changeScene()
+        }
     }
     
     @objc func UpArrow(){
@@ -347,8 +353,6 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             sound.play("SwipeRight", type: ".wav",repeat: 0)
             print("swiperight")
         }
-        
-        
         
         changeScene()
         
@@ -447,6 +451,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameScene?.delegateSend = self
             gameView.scene?.removeFromParent()
+            print("Piru")
             gameView.presentScene(gameScene)
             break
         case gameScene:

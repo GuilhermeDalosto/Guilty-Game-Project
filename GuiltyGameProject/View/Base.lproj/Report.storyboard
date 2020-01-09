@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="myriad-pro-8.otf">
-            <string>MyriadPro-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="1Vl-YW-yJQ">
@@ -25,11 +20,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gql-4k-WUA">
-                                <rect key="frame" x="106" y="68" width="1708" height="952"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Gql-4k-WUA">
+                                <rect key="frame" x="106" y="64" width="1708" height="952"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UBs-aM-IIZ">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UBs-aM-IIZ">
                                     <size key="itemSize" width="600" height="456"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -37,18 +31,17 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="rIp-v3-yf4" customClass="CustomCollectionCell" customModule="GuiltyGameProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="456"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="455"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="b1m-7j-UfL">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="456"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="455"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E98-KS-w3C">
-                                                    <rect key="frame" x="0.0" y="0.0" width="211" height="456"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E98-KS-w3C">
+                                                    <rect key="frame" x="20" y="20" width="211" height="415"/>
                                                 </imageView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="C6V-JK-lJd">
-                                                    <rect key="frame" x="236" y="35" width="284" height="386"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="C6V-JK-lJd">
+                                                    <rect key="frame" x="256" y="34.5" width="284" height="386"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="39" translatesAutoresizingMaskIntoConstraints="NO" id="1nv-Ob-mjE">
                                                             <rect key="frame" x="0.0" y="0.0" width="92" height="386"/>
@@ -123,8 +116,17 @@
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="C6V-JK-lJd" firstAttribute="centerY" secondItem="b1m-7j-UfL" secondAttribute="centerY" id="9FN-dk-iwL"/>
+                                                <constraint firstItem="E98-KS-w3C" firstAttribute="width" secondItem="b1m-7j-UfL" secondAttribute="width" multiplier="0.351667" id="CZ0-Lt-baG"/>
+                                                <constraint firstItem="E98-KS-w3C" firstAttribute="top" secondItem="b1m-7j-UfL" secondAttribute="top" constant="20" symbolic="YES" id="KM5-4g-lwe"/>
+                                                <constraint firstItem="C6V-JK-lJd" firstAttribute="leading" secondItem="E98-KS-w3C" secondAttribute="trailing" constant="25" id="PZ6-eg-kzJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="E98-KS-w3C" secondAttribute="bottom" constant="20" symbolic="YES" id="s5b-md-weu"/>
+                                                <constraint firstItem="E98-KS-w3C" firstAttribute="leading" secondItem="b1m-7j-UfL" secondAttribute="leading" constant="20" symbolic="YES" id="t4L-zO-jOE"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="600" height="456"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="customSize" width="600" height="455"/>
                                         <connections>
                                             <outlet property="pinImage" destination="E98-KS-w3C" id="h6P-fu-YgB"/>
                                             <outlet property="word1" destination="1IW-CV-Wud" id="DSs-ZJ-kAI"/>
@@ -142,6 +144,12 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Gql-4k-WUA" firstAttribute="width" secondItem="9Mg-eC-CH6" secondAttribute="width" multiplier="0.889583" id="ABZ-8O-rue"/>
+                            <constraint firstItem="Gql-4k-WUA" firstAttribute="centerY" secondItem="9Mg-eC-CH6" secondAttribute="centerY" id="dmg-45-AKw"/>
+                            <constraint firstItem="Gql-4k-WUA" firstAttribute="height" secondItem="9Mg-eC-CH6" secondAttribute="height" multiplier="0.881481" id="pSp-KK-zW9"/>
+                            <constraint firstItem="Gql-4k-WUA" firstAttribute="centerX" secondItem="9Mg-eC-CH6" secondAttribute="centerX" id="r03-9Z-at9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="R3K-yd-gRl"/>
                     </view>
                     <connections>
