@@ -55,9 +55,9 @@ class SettingsGameViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
-        self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
-        self.themeLabel.text = NSLocalizedString("themeText", comment: "")
+//        self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
+//        self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
+//        self.themeLabel.text = NSLocalizedString("themeText", comment: "")
         
         
         

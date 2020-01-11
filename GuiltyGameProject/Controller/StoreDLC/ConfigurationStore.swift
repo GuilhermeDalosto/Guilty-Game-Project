@@ -16,6 +16,7 @@ class ConfigurationStore: UITableViewController{
     var products: [SKProduct] = []
     var array: [String] = ["br.com.deck_food.guilty"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                        
@@ -52,7 +53,8 @@ class ConfigurationStore: UITableViewController{
         
         navigationItem.leftBarButtonItem = backButton
         
-
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -114,9 +116,8 @@ extension ConfigurationStore {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! StoreTableViewCell
-//        let product = products[0]
         
-        let product = products[indexPath.row]
+        let product = products[array.count]
 
         ProductsDLC.store.isProductPurchased(product.productIdentifier)
         let name = resourceNameForProductIdentifier(product.productIdentifier)
@@ -139,6 +140,10 @@ extension ConfigurationStore {
 
         let product = products[indexPath.row]
         ProductsDLC.store.buyProduct(product)
+        
+        cell.product = product
+        
+        
        
     }
     

@@ -36,12 +36,15 @@ class SettingsViewController: UIViewController {
         
         if musicOption{
             musicOptionStr = "On"
+            musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
         }else{
             musicOptionStr = "Off"
+            musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
         }
         
         if languageOption{
             languageOptionStr = "EN"
+            
         }
         else{
             languageOptionStr = "BR"
@@ -137,8 +140,10 @@ class SettingsViewController: UIViewController {
         
         if musicOption{
             musicOptionStr = "On"
+            musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
         }else{
             musicOptionStr = "Off"
+            musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
         }
         
         print(musicOption)
@@ -151,8 +156,10 @@ class SettingsViewController: UIViewController {
         
         if languageOption{
             languageOptionStr = "EN"
+            languageButton.setImage(UIImage(named: "IdiomaEN"), for: .normal)
         }else{
             languageOptionStr = "BR"
+            languageButton.setImage(UIImage(named: "IdiomaPT"), for: .normal)
         }
         
         self.languageButton.setTitle("\(NSLocalizedString("languageText", comment: ""))                \(languageOptionStr)", for: .normal)
