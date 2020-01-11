@@ -143,6 +143,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5I-ff-46B">
+                                <rect key="frame" x="1629" y="68" width="178" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Voltar"/>
+                                <connections>
+                                    <segue destination="wCu-e1-WBo" kind="show" id="5Lx-Xm-m7v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Gql-4k-WUA" firstAttribute="width" secondItem="9Mg-eC-CH6" secondAttribute="width" multiplier="0.889583" id="ABZ-8O-rue"/>
@@ -159,6 +168,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k1-bZ-umO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="71" y="-7"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="VLh-LP-yFW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="wCu-e1-WBo" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dTl-sT-sok"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Wf-Lz-fUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312" y="-502"/>
         </scene>
     </scenes>
 </document>
