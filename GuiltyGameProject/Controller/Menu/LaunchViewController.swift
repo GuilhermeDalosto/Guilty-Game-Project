@@ -16,7 +16,7 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.fromSoftware.alpha = 0
-//        music.play("darksouls2", type: ".mp4",repeat: 2)
+        music.play("darksouls2", type: ".mp4",repeat: 2)
         
         
         
