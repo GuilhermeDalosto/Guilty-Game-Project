@@ -8,19 +8,22 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 class MenuViewController: UIViewController {
+    
     
     @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     private var focusGuideSelected = UIFocusGuide()
     
+    
     override func viewWillAppear(_ animated: Bool) {        
-      //  startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
-      //  settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
+        //  startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+        //  settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
     }
-
+    
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
@@ -29,7 +32,8 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: "Settings", sender: nil)
     }
     
-
+    
+    
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
         
@@ -41,13 +45,13 @@ class MenuViewController: UIViewController {
             }
         case self.settingsButton:
             UIView.animate(withDuration: 0.3) {
-            self.settingsButton.frame.size.height += 15
-            self.settingsButton.frame.size.width += 15
+                self.settingsButton.frame.size.height += 15
+                self.settingsButton.frame.size.width += 15
             }
         default:
             UIView.animate(withDuration: 0.3) {
-            self.shopButton.frame.size.height += 15
-            self.shopButton.frame.size.width += 15
+                self.shopButton.frame.size.height += 15
+                self.shopButton.frame.size.width += 15
             }
             
         }
@@ -79,6 +83,11 @@ class MenuViewController: UIViewController {
         
         updateFocusIfNeeded()
         
+    }
+    
+    @IBAction func PressShop(_ sender: Any) {
+        
+        performSegue(withIdentifier: "Store", sender: nil)
     }
     
     

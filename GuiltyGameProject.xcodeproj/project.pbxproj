@@ -12,6 +12,14 @@
 		781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D8238E023C00957CCE /* SettingsGameVC.swift */; };
 		781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */; };
 		781C58E1238E1A3900957CCE /* CustomizeJudgeCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */; };
+		78F4CBA52399A53F003E4F41 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F4CBA42399A53F003E4F41 /* StoreKit.framework */; };
+		78F4CBA72399A8B3003E4F41 /* StoreDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBA62399A8B3003E4F41 /* StoreDLC.swift */; };
+		78F4CBAC239ACDE3003E4F41 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBAB239ACDE3003E4F41 /* ConfigurationStore.swift */; };
+		78F4CBAE239ACE36003E4F41 /* StoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBAD239ACE36003E4F41 /* StoreTableViewCell.swift */; };
+		78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */; };
+		78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */; };
+		78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB723A31DE7003E4F41 /* Adonay.ttf */; };
+		78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */; };
 		7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */; };
 		7B9B078523A02404001375BB /* SwipeRight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078123A02404001375BB /* SwipeRight.wav */; };
 		7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078223A02404001375BB /* SwipeLeft.wav */; };
@@ -20,8 +28,8 @@
 		7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078923A02EB8001375BB /* DiceRoll.wav */; };
 		7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFD23A2B1DE00955590 /* GameSong.wav */; };
 		7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */; };
-		7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0123A2BF0600955590 /* TableViewCell.swift */; };
 		7BCF5C0423A2C39B00955590 /* StatisticsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */; };
+		7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
@@ -68,6 +76,14 @@
 		781C58D8238E023C00957CCE /* SettingsGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameVC.swift; sourceTree = "<group>"; };
 		781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeVC.swift; sourceTree = "<group>"; };
 		781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeCV.swift; sourceTree = "<group>"; };
+		78F4CBA42399A53F003E4F41 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		78F4CBA62399A8B3003E4F41 /* StoreDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDLC.swift; sourceTree = "<group>"; };
+		78F4CBAB239ACDE3003E4F41 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
+		78F4CBAD239ACE36003E4F41 /* StoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreTableViewCell.swift; sourceTree = "<group>"; };
+		78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoreDLC.storyboard; sourceTree = "<group>"; };
+		78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDLC.swift; sourceTree = "<group>"; };
+		78F4CBB723A31DE7003E4F41 /* Adonay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adonay.ttf; sourceTree = "<group>"; };
+		78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "myriad-pro-8.otf"; sourceTree = "<group>"; };
 		7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GuiltyProjectSong.wav; sourceTree = "<group>"; };
 		7B9B078123A02404001375BB /* SwipeRight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeRight.wav; sourceTree = "<group>"; };
 		7B9B078223A02404001375BB /* SwipeLeft.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeLeft.wav; sourceTree = "<group>"; };
@@ -76,8 +92,8 @@
 		7B9B078923A02EB8001375BB /* DiceRoll.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = DiceRoll.wav; sourceTree = "<group>"; };
 		7BCF5BFD23A2B1DE00955590 /* GameSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GameSong.wav; sourceTree = "<group>"; };
 		7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = TutorialSong.wav; sourceTree = "<group>"; };
-		7BCF5C0123A2BF0600955590 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsInfo.swift; sourceTree = "<group>"; };
+		7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
@@ -141,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F4CBA52399A53F003E4F41 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,6 +179,34 @@
 				781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */,
 			);
 			path = CustomizeJudge;
+			sourceTree = "<group>";
+		};
+		78F4CBA32399A53F003E4F41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78F4CBA42399A53F003E4F41 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78F4CBA8239ACC3E003E4F41 /* StoreDLC */ = {
+			isa = PBXGroup;
+			children = (
+				78F4CBAB239ACDE3003E4F41 /* ConfigurationStore.swift */,
+				78F4CBAD239ACE36003E4F41 /* StoreTableViewCell.swift */,
+				78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */,
+				78F4CBA62399A8B3003E4F41 /* StoreDLC.swift */,
+			);
+			path = StoreDLC;
+			sourceTree = "<group>";
+		};
+		78F4CBB623A31DA1003E4F41 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */,
+				78F4CBB723A31DE7003E4F41 /* Adonay.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		7B28DF902390377200B41070 /* Scene */ = {
@@ -210,6 +255,7 @@
 				ACF93C6B238C472600876A0B /* GuiltyGameProject */,
 				ACF93C6A238C472600876A0B /* Products */,
 				ACF93CB1238EE80500876A0B /* Recovered References */,
+				78F4CBA32399A53F003E4F41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,6 +270,7 @@
 		ACF93C6B238C472600876A0B /* GuiltyGameProject */ = {
 			isa = PBXGroup;
 			children = (
+				78F4CBB623A31DA1003E4F41 /* Fonts */,
 				7BCF5BFD23A2B1DE00955590 /* GameSong.wav */,
 				7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */,
 				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
@@ -287,6 +334,7 @@
 				ACF5936B23998679001C1B94 /* SettingsGame.storyboard */,
 				ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */,
 				ACF5937123998682001C1B94 /* Report.storyboard */,
+				78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */,
 				AC667561239A933A00DC5D65 /* Launch.storyboard */,
 			);
 			path = View;
@@ -295,6 +343,7 @@
 		ACF93C80238C4D8300876A0B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				78F4CBA8239ACC3E003E4F41 /* StoreDLC */,
 				ACBB918C23906B540060FF8B /* Game */,
 				ACBB918B23906B470060FF8B /* Settings */,
 				ACBB918823906B1F0060FF8B /* Menu */,
@@ -314,8 +363,8 @@
 				95F8C8FD238F159900E8ACAB /* Movement.m */,
 				95F8C8FF239039CE00E8ACAB /* Music.h */,
 				95F8C900239039CE00E8ACAB /* Music.m */,
-				7BCF5C0123A2BF0600955590 /* TableViewCell.swift */,
 				7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */,
+				7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -388,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B9B078523A02404001375BB /* SwipeRight.wav in Resources */,
+				78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
@@ -401,9 +451,11 @@
 				ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */,
 				ACF5936C2399867E001C1B94 /* CustomizeJudge.storyboard in Resources */,
 				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
+				78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
+				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
 				7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */,
 				AC66756C239ACAD500DC5D65 /* darksouls2.mp4 in Resources */,
@@ -431,16 +483,21 @@
 				AC66756F239ACBB800DC5D65 /* Actions.m in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
+				7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */,
 				AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */,
 				ACF93CB5238EE83F00876A0B /* allWordsSigned.swift in Sources */,
+				78F4CBAC239ACDE3003E4F41 /* ConfigurationStore.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
+				78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
+				78F4CBAE239ACE36003E4F41 /* StoreTableViewCell.swift in Sources */,
 				7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
 				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
 				95F8C8FE238F159900E8ACAB /* Movement.m in Sources */,
 				ACF93CA6238EA81B00876A0B /* Report.m in Sources */,
 				ACBB919723918C180060FF8B /* ThemeScene.swift in Sources */,
+				78F4CBA72399A8B3003E4F41 /* StoreDLC.swift in Sources */,
 				ACF93C9A238DAB5B00876A0B /* Person.m in Sources */,
 				ACBB919523918C180060FF8B /* DrawScene.swift in Sources */,
 				ACBB919623918C180060FF8B /* GameScene.swift in Sources */,
@@ -627,7 +684,6 @@
 		ACF93C7C238C472B00876A0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
@@ -636,7 +692,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.GuiltyGameProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -648,7 +704,6 @@
 		ACF93C7D238C472B00876A0B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
@@ -657,7 +712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Academy.GuiltyGameProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

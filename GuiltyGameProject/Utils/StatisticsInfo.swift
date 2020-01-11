@@ -9,27 +9,19 @@
 import Foundation
 
 class StatisticsInfo{
-    var round: Int
-    var word: String
-    var event: String
+    var words = [String]()
     var pinColor: String
-    var accepted: Bool = true
     
-    init(word: String, event: String, color: String, round: Int){
-        self.word = word
-        self.event = event
+    init(color: String){
         self.pinColor = color
-        self.round = round
     }
     
-    init(word: String, color: String, round: Int){
-        self.word = word
-        self.event = ""
-        self.pinColor = color
-        self.round = round
-    }
-    
-    func notAccepted(){
-        self.accepted = false
+    func addWord(word: String){
+        if words.count == 10{
+            words.removeFirst()
+            words.append(word)
+        } else {
+            words.append(word)
+        }
     }
 }

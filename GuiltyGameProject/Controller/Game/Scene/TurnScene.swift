@@ -16,9 +16,9 @@ class TurnScene: SKScene{
     
   
     /// text to say how is the turn now
-    var titleLabel = SKLabelNode(fontNamed: "")
-    var wordLabel = SKLabelNode(fontNamed: "")
-    var eventLabel = SKLabelNode(fontNamed: "")
+    var titleLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var wordLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var eventLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     /// Aux for display text
     var wordDisplay = ""

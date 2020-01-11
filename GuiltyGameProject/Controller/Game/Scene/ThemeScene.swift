@@ -17,9 +17,9 @@ class ThemeScene: SKScene{
     
     var action: [String] = ["Assassinado", "Roubo", "Fuga", "Sequestro", "Jogou lixo no chão", "Apedrejou", "Perseguição", "Invasão", "Briga", "Rinha de Galo", "Sonegar", "Destruição", "Infecção", "Venda Ilegal", "Mentir", "Protesto", "Atirar", "Bateu", "Esfaqueou", "Peidou", "Perdeu"]
     
-    var localTheme = SKLabelNode(fontNamed: "Arial")
-    var actionTheme = SKLabelNode(fontNamed: "Arial")
-    var titleLabel = SKLabelNode(fontNamed: "Arial")
+    var localTheme = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var actionTheme = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var titleLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     override init(size: CGSize){
         super.init(size: size)

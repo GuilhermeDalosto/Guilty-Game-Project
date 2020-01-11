@@ -10,7 +10,7 @@ import Foundation
 
 class allEventsSigned{
     
-    var events = ["Deve falar gritando","Deve falar sussurrando","Deve terminar as frases com câmbio","Não pode manter contato visual","Deve sempre se jogar no chão sempre quando alguém gritar granada","Deverá ficar em posição de T","Deve fugir do tiro que alguém apontar","Deve falar bêbado","Deverá fingir ser eletrocutado sempre que alguém encosta-lo","Deverá ficar as mãos fechadas","Deverá terminar suas frases com perguntas","Deverá falar agachado, em pé, deitado","Deverá falar triste","Deverá falar gaguejando","Deverá falar buffalo bill","Deverá falar ajoelhado","Deverá falar piscando o olho","Deverá falar em inglês","Deverá falar em sotaque chinês","Deverá falar com sotaque goiano","Deverá falar rimando","Deverá fingir que é um peixe","Não poderá dobrar o braço"]
+    var events = ["Deve falar gritando","Deve falar sussurrando","Deve terminar as frases com câmbio","Não pode manter contato visual","Deve sempre se jogar no chão sempre quando alguém gritar granada","Deverá ficar em posição de T","Deve fugir do tiro que alguém apontar","Deve falar bêbado","Deverá fingir ser eletrocutado sempre que alguém encosta-lo","Deverá ficar as mãos fechadas","Deverá terminar suas frases com perguntas","Deverá falar agachado, em pé, deitado","Deverá falar triste","Deverá falar gaguejando","Deverá falar buffalo bill","Deverá falar ajoelhado","Deverá falar piscando o olho","Deverá falar em inglês","Deverá falar em sotaque chinês","Deverá falar com sotaque goiano","Deverá falar rimando","Deverá fingir que é um peixe","Não poderá dobrar o braço","Deverá falar com o braço aberto","Verá falar com lip sync em outro jogador","Deverá falar e traduzir em linguagem de sinais","Deverá trocar de personagem","Deverá imitar o seu aliado e vice versa"]
     
-    
+    var eventsForAllPlayers = ["Os times são trocados"]
 }
