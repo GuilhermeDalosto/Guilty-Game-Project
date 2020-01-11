@@ -14,7 +14,11 @@ protocol StatisticsProtocol: NSObject{
 
 class ViewController: UIViewController  {
     
+    ///Menu button
+    let menuPressRecognizer = UITapGestureRecognizer()
     var vencedor = "Ninguém"
+    private var focusGuideSelected = UIFocusGuide()
+    @IBOutlet weak var backBTN: UIButton!
     weak var delegate: StatisticsProtocol?
     
     @IBOutlet weak var staticsCollection: UICollectionView!
@@ -25,8 +29,38 @@ class ViewController: UIViewController  {
         staticsCollection.delegate = self
         staticsCollection.dataSource = self
         
+        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuPressRecognizer)
+        
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focus = context.nextFocusedView else {return}
+        
+        print(focus)
+        
+        switch focus{
+        default:
+            UIView.animate(withDuration: 0.3) {
+                self.backBTN.frame.size.height += 15
+                self.backBTN.frame.size.width += 15
+            }
+            
+        }
+        
+        if backBTN.frame.size.width > 250 && focus != self.backBTN {
+            UIView.animate(withDuration: 0.3) {
+                self.backBTN.frame.size.height -= 15
+                self.backBTN.frame.size.width -= 15
+            }
+        }
         
         
+        
+        
+        
+        updateFocusIfNeeded()
     }
 }
 

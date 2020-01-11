@@ -75,9 +75,7 @@ class StoreTableViewCell: UITableViewCell{
         accessoryView = nil
        
     }
-    
-    
-    
+
 //    func newBuyButton() -> UIButton {
 //        let button = UIButton(type: .system)
 //        button.setTitleColor(.blue, for: .normal)
@@ -92,11 +90,10 @@ class StoreTableViewCell: UITableViewCell{
       buyButtonHandler?(product!)
     }
     
-      func newBuyButton()  {
-            let button = UIButton(type: .system)
-            button.addTarget(self, action: #selector(StoreTableViewCell.buyButtonTapped(_:)), for: .touchUpInside)
-            
+    func newBuyButton()  {
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(StoreTableViewCell.buyButtonTapped(_:)), for: .touchUpInside)
 
-        }
-    
+    }
+
 }

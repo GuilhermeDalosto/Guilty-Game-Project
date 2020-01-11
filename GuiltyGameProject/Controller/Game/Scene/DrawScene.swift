@@ -30,6 +30,8 @@ class DrawScene: SKScene{
     
     var arrayDiceImage: [String] = ["Dice1","Dice2","Dice3","Dice4","Dice5","Dice6"]
     
+    var backgroundImage = SKSpriteNode()
+    
     init(size: CGSize,players: [Person] ) {
         super.init(size: size)
         numPlayers = players.count
@@ -41,6 +43,14 @@ class DrawScene: SKScene{
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
         self.addChild(randomLabel)
+        
+        
+        backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
+        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.zPosition = 1
+        backgroundImage.size = size
+        
+        self.addChild(backgroundImage)
     }
     
     func drawDice(){
@@ -76,12 +86,12 @@ class DrawScene: SKScene{
 
         randomDelegate?.sendRandom(one : Int(numberOne),two: Int(numbertwo))
         
+
         
         self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
-        self.diceTeam1.size = CGSize(width: 300, height: 200)
-        
-        self.diceTeam2.position = CGPoint(x: size.width/2, y: size.height/2 + 50)
-        self.diceTeam2.size = CGSize(width: 300, height: 300)
+        self.diceTeam1.size = CGSize(width: 300, height: 200)        
+        self.diceTeam2.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
+        self.diceTeam2.size = CGSize(width: 500, height: 400)
         
         
         let diceAnimateAtlas = SKTextureAtlas(named: "Dices")
