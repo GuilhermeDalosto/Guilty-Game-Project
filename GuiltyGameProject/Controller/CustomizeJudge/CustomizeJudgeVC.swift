@@ -53,6 +53,8 @@ class CustomizeJudgeViewController: UIViewController {
         judgeCollectionVIew.dataSource = self
         judgeCollectionVIew.backgroundColor = .clear
         
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

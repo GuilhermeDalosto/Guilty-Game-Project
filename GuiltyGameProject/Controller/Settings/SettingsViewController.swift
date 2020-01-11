@@ -13,8 +13,7 @@ class SettingsViewController: UIViewController {
     
     var focusedGuideUp = UIFocusGuide()
     var focusedGuideLeft = UIFocusGuide()
-    var focusedGuideLeftDown = UIFocusGuide()
-    
+    var focusedGuideLeftDown = UIFocusGuide()    
     
     var musicOption = true
     var musicOptionStr = "On"
@@ -34,21 +33,34 @@ class SettingsViewController: UIViewController {
         musicOption = UserDefaults.standard.bool(forKey: "musicOption")
         languageOption = UserDefaults.standard.bool(forKey: "languageOption")
         
-        if musicOption{
-            musicOptionStr = "On"
-        }else{
-            musicOptionStr = "Off"
-        }
+        
         
         if languageOption{
             languageOptionStr = "EN"
+            
         }
         else{
             languageOptionStr = "BR"
         }
-        self.homeButton.setTitle("\(NSLocalizedString("homeText", comment: ""))", for: .normal)
-        self.languageButton.setTitle("\(NSLocalizedString("languageText",comment: ""))                \(languageOptionStr)", for: .normal)
-        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment: ""))                \(musicOptionStr)", for: .normal)
+        
+        if NSLocalizedString("homeText", comment: "") == "Home"{
+            homeButton.imageView?.image = UIImage(named: "homeConf")
+            if musicOption{
+                if musicOption{
+                    musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
+                }else{
+                    musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
+                }
+            } else{
+                homeButton.imageView?.image = UIImage(named: "menuConf")
+                if musicOption{
+                    musicButton.setImage(UIImage(named: "musicaOn"), for: .normal)
+                }else{
+                    musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
+                }
+            }
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,6 +73,36 @@ class SettingsViewController: UIViewController {
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
+        guard let focus = context.nextFocusedView else {return}
+        
+        switch focus{
+        case self.musicButton:
+            UIView.animate(withDuration: 0.3) {
+                self.musicButton.frame.size.height += 15
+                self.musicButton.frame.size.width += 15
+            }
+        default:
+            UIView.animate(withDuration: 0.3) {
+                self.homeButton.frame.size.height += 15
+                self.homeButton.frame.size.width += 15
+            }
+        }
+            
+            
+            if self.musicButton.frame.size.width > 530 && focus != self.musicButton{
+                UIView.animate(withDuration: 0.3) {
+                    self.musicButton.frame.size.height -= 15
+                    self.musicButton.frame.size.width -= 15
+                }
+            }
+            
+            if self.homeButton.frame.size.width > 255 && focus != self.homeButton{
+                UIView.animate(withDuration: 0.3) {
+                    self.homeButton.frame.size.height -= 15
+                    self.homeButton.frame.size.width -= 15
+                }
+            
+        }
         
         switch focusedGuideUp{
         case self.musicButton:            
@@ -68,7 +110,7 @@ class SettingsViewController: UIViewController {
             
         case self.homeButton:
             self.focusedGuideUp.preferredFocusedView = self.musicButton
-
+            
         default:
             self.focusedGuideUp.preferredFocusedView = nil
         }
@@ -116,10 +158,10 @@ class SettingsViewController: UIViewController {
         
         self.focusedGuideLeftDown.rightAnchor.constraint(equalTo: self.homeButton.rightAnchor).isActive = true
         self.focusedGuideLeftDown.widthAnchor.constraint(equalTo: self.homeButton.widthAnchor).isActive = true
-              
+        
         self.focusedGuideLeftDown.heightAnchor.constraint(equalTo: self.musicButton.heightAnchor).isActive = true
         self.focusedGuideLeftDown.topAnchor.constraint(equalTo: self.languageButton.topAnchor).isActive = true
-              
+        
         
         
         
@@ -128,21 +170,32 @@ class SettingsViewController: UIViewController {
     
     @IBAction func PressHome(_ sender: Any) {
         performSegue(withIdentifier: "Main", sender: nil)
-    
+        
     }
     
     @IBAction func pressMusicButton(_ sender: Any) {
         
         musicOption.toggle()
         
-        if musicOption{
-            musicOptionStr = "On"
-        }else{
-            musicOptionStr = "Off"
+        if NSLocalizedString("homeText", comment: "") == "Home"{
+            if musicOption{
+                musicOptionStr = "On"
+                musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
+            }else{
+                musicOptionStr = "Off"
+                musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
+            }
+        } else{
+            if musicOption{
+                musicOptionStr = "On"
+                musicButton.setImage(UIImage(named: "musicaOn"), for: .normal)
+            }else{
+                musicOptionStr = "Off"
+                musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
+            }
         }
         
-        print(musicOption)
-        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment:""))                \(musicOptionStr)", for: .normal)
+
         
     }
     
@@ -151,12 +204,14 @@ class SettingsViewController: UIViewController {
         
         if languageOption{
             languageOptionStr = "EN"
+            languageButton.setImage(UIImage(named: "IdiomaEN"), for: .normal)
         }else{
             languageOptionStr = "BR"
+            languageButton.setImage(UIImage(named: "IdiomaPT"), for: .normal)
         }
         
         self.languageButton.setTitle("\(NSLocalizedString("languageText", comment: ""))                \(languageOptionStr)", for: .normal)
     }
-
+    
     
 }

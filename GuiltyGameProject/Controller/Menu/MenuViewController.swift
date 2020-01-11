@@ -15,8 +15,7 @@ class MenuViewController: UIViewController {
     
     @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
-    private var focusGuideSelected = UIFocusGuide()
+    @IBOutlet weak var settingsButton: UIButton!    
     
     
     override func viewWillAppear(_ animated: Bool) {
