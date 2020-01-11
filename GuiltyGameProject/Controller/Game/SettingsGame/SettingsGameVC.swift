@@ -178,8 +178,8 @@ class SettingsGameViewController: UIViewController {
             }
         default:
             UIView.animate(withDuration: 0.3) {
-                self.normalButton.frame.size.width += 30
-                self.normalButton.frame.size.height += 30
+                self.homeButton.frame.size.width += 30
+                self.homeButton.frame.size.height += 30
             }
             
         }
