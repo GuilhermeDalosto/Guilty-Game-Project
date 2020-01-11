@@ -66,6 +66,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     /// reporter of control actions
     var report = Report()
+    ///Menu button
+    let menuPressRecognizer = UITapGestureRecognizer()
+    
     
     
     // auxiliar var
@@ -115,6 +118,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuPressRecognizer)
         
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
