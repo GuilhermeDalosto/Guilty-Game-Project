@@ -19,9 +19,18 @@ class MenuViewController: UIViewController {
     private var focusGuideSelected = UIFocusGuide()
     
     
-    override func viewWillAppear(_ animated: Bool) {        
-        //  startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
-        //  settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
+    override func viewWillAppear(_ animated: Bool) {
+        if NSLocalizedString("startText", comment: "") == "Play"{
+            startButton.imageView?.image = UIImage(named:  "playMenu")
+            settingsButton.imageView?.image = UIImage(named: "settingsMenu")
+            shopButton.imageView?.image = UIImage(named: "shop")
+        } else {
+            startButton.imageView?.image = UIImage(named: "jogarMenu")
+            settingsButton.imageView?.image = UIImage(named: "configuracoes")
+            shopButton.imageView?.image = UIImage(named: "loja")
+        }
+       //   startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+         // settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
     }
     
     @IBAction func PressStart(_ sender: Any) {

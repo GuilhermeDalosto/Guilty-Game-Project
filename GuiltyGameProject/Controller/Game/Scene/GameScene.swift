@@ -329,8 +329,8 @@ class GameScene: SKScene{
         firstSelectedEvent = first
         secondSelectedEvent = second
         
-        pinsSprite[first - 1].run(SKAction.scale(by: 2, duration: 1))
-        pinsSprite[second - 1].run(SKAction.scale(by: 2, duration: 1))
+    //    pinsSprite[first - 1].run(SKAction.scale(by: 2, duration: 1))
+     //   pinsSprite[second - 1].run(SKAction.scale(by: 2, duration: 1))
           
     }
     
