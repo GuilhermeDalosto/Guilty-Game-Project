@@ -63,7 +63,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     // controls
     /// functions of the controll
-    var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
+    
+    // Gui: Alterei o UpArrow para select pois estava gerando problemas na identificacao do simulador
+    var funcoesControle = ["PlayPause","Menu","Select","Select","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     /// reporter of control actions
     var report = Report()
     ///Menu button

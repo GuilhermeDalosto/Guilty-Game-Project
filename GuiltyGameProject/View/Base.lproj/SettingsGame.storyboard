@@ -126,11 +126,33 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brK-xt-tXj">
+                                <rect key="frame" x="185" y="302" width="351" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" red="0.85338622330000002" green="0.86521351339999997" blue="0.8241543174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOl-1w-CQo">
+                                <rect key="frame" x="1346" y="302" width="351" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" red="0.85338622330000002" green="0.86521351339999997" blue="0.8241543174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exr-xy-tCC">
+                                <rect key="frame" x="786" y="302" width="351" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="48"/>
+                                <color key="textColor" red="0.85338622330000002" green="0.86521351339999997" blue="0.8241543174" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UYk-IN-ioI"/>
                     </view>
                     <connections>
                         <outlet property="difficultButton" destination="Ra1-vY-zjT" id="Ewa-G8-1rp"/>
+                        <outlet property="difficultLabel" destination="brK-xt-tXj" id="fEe-ec-DcI"/>
                         <outlet property="freeButton" destination="cyT-MX-dSX" id="sCa-Rc-0Kg"/>
                         <outlet property="homeButton" destination="f2f-hb-bAs" id="4cW-l4-nSz"/>
                         <outlet property="labelError" destination="mzg-f7-IBW" id="IWG-K1-RAG"/>
@@ -139,7 +161,9 @@
                         <outlet property="number3" destination="QwT-bf-BRY" id="iCd-B6-6nP"/>
                         <outlet property="number5" destination="xVz-mA-85x" id="arZ-1e-ajp"/>
                         <outlet property="number7" destination="Tz0-ox-WBM" id="iEm-Wm-rYq"/>
+                        <outlet property="peopleLabel" destination="Exr-xy-tCC" id="OsH-DQ-Oiv"/>
                         <outlet property="randomButton" destination="5tH-rr-WgG" id="zrd-Id-4Ns"/>
+                        <outlet property="themeLabel" destination="jOl-1w-CQo" id="nF3-OD-Ah9"/>
                         <segue destination="MYv-yA-wzu" kind="show" identifier="judge" id="yl1-5a-ZX6"/>
                     </connections>
                 </viewController>
