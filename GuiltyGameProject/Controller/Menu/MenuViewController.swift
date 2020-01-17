@@ -47,7 +47,7 @@ class MenuViewController: UIViewController {
         
         switch focus{
         case self.startButton:
-            UIView.animate(withDuration: 0.3) {
+            UIView.animate(withDuration: 0.3) {                
                 self.startButton.frame.size.height += 15
                 self.startButton.frame.size.width += 15
             }
