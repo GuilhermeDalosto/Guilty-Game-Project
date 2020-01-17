@@ -328,10 +328,6 @@ class GameScene: SKScene{
     func sendSortedEvent(_ first: Int, _ second: Int){
         firstSelectedEvent = first
         secondSelectedEvent = second
-        
-        pinsSprite[first - 1].run(SKAction.scale(by: 2, duration: 1))
-        pinsSprite[second - 1].run(SKAction.scale(by: 2, duration: 1))
-          
     }
     
     

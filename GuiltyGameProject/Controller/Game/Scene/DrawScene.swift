@@ -30,6 +30,8 @@ class DrawScene: SKScene{
     
     var arrayDiceImage: [String] = ["Dice1","Dice2","Dice3","Dice4","Dice5","Dice6"]
     
+    var backgroundImage = SKSpriteNode()
+    
     init(size: CGSize,players: [Person] ) {
         super.init(size: size)
         numPlayers = players.count
@@ -41,6 +43,14 @@ class DrawScene: SKScene{
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
         self.addChild(randomLabel)
+        
+        
+        backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
+        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.zPosition = 1
+        backgroundImage.size = size
+        
+        self.addChild(backgroundImage)
     }
     
     func drawDice(){
@@ -54,8 +64,15 @@ class DrawScene: SKScene{
     func drawDice(players: Int){
         
         
-        var numberOne = UInt32(1)
-        var numbertwo = UInt32(1)
+        var numberOne = UInt32(2)
+        var numbertwo = UInt32(2)
+        
+        if players == 2{
+            numberOne = arc4random_uniform(UInt32(2)) + 1
+            numbertwo = numberOne
+            //+1
+            print("VALUE = \(numberOne)")
+        }
         
         if players == 4{
             numberOne = arc4random_uniform(UInt32(2)) + 1
@@ -66,14 +83,15 @@ class DrawScene: SKScene{
             numberOne = arc4random_uniform(UInt32(3)) + 1
             numbertwo = arc4random_uniform(UInt32(3)) + 4
         }
-        
+
         randomDelegate?.sendRandom(one : Int(numberOne),two: Int(numbertwo))
         
-        self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
-        self.diceTeam1.size = CGSize(width: 300, height: 200)
+
         
-        self.diceTeam2.position = CGPoint(x: size.width/2, y: size.height/2 + 50)
-        self.diceTeam2.size = CGSize(width: 300, height: 300)
+        self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
+        self.diceTeam1.size = CGSize(width: 300, height: 200)        
+        self.diceTeam2.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
+        self.diceTeam2.size = CGSize(width: 500, height: 400)
         
         
         let diceAnimateAtlas = SKTextureAtlas(named: "Dices")
@@ -82,17 +100,21 @@ class DrawScene: SKScene{
         let numImages = diceAnimateAtlas.textureNames.count
         
         if players == 2 {
-            for i in 1...numImages - 4 {
+            self.diceTeam2.isHidden = true
+            for i in 1...2 {
                 let diceTextureName = "Dice\(i)"
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
                 
             }
+            print("...\(numberOne)")
         } else if players == 4{
             for i in 1...numImages - 2 {
                 let diceTextureName = "Dice\(i)"
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
                 
             }
+            
+
         } else {            
             for i in 1...numImages {
                 
@@ -102,25 +124,48 @@ class DrawScene: SKScene{
             }
         }
         
-        self.diceRotate = rotateFrame
         
+        
+        if players != 2 {
+            self.diceRotate = rotateFrame
+            firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
+            firstFrameTextureDice2 = diceRotate[Int(numbertwo) - 1]
+                   
+                   
+           self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+           self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+           diceTeam1.position.x = size.width/1.5
+           diceTeam1.position.y = size.height/2
+           
+           
+           diceTeam2.position.x = size.width/2
+           diceTeam2.position.y = size.height/2
+           
+           addChild(diceTeam1)
+           addChild(diceTeam2)
+           animateDice()
+        } else {
+            self.diceRotate = rotateFrame
+            firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
+            firstFrameTextureDice2 = diceRotate[Int(numbertwo) - 1]
+            print("....\(numberOne)")
+            self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+//            self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+
+            diceTeam1.position.x = size.width/2
+            diceTeam1.position.y = size.height/2
+            self.diceTeam1.size = CGSize(width: 500, height: 500)
+
+//            diceTeam2.position.x = size.width/2
+//            diceTeam2.position.y = size.height/2
+
+            addChild(diceTeam1)
+            numbertwo = 0
+//            addChild(diceTeam2)
+            animateNode([diceTeam1])
+        }
         print("1 -> \(numberOne) 2-> \(numbertwo)" )
-          firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
-          firstFrameTextureDice2 = diceRotate[Int(numbertwo) - 1]
-        
-        
-        self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
-        self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
-        diceTeam1.position.x = size.width/1.5
-        diceTeam1.position.y = size.height/2
-        
-        
-        diceTeam2.position.x = size.width/2
-        diceTeam2.position.y = size.height/2
-        
-        addChild(diceTeam1)
-        addChild(diceTeam2)
-        animateDice()
+         
         
         
         

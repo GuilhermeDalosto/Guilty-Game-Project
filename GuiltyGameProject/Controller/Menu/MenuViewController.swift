@@ -3,7 +3,7 @@
 //  GuiltyGameProject
 //
 //  Created by Igor de Castro on 26/11/19.
-//  Copyright © 2019 Guilherme Martins Dalosto de Oliveira. All rights reserved.
+//  Copyright © 1519 Guilherme Martins Dalosto de Oliveira. All rights reserved.
 //
 
 import Foundation
@@ -12,16 +12,26 @@ import StoreKit
 
 class MenuViewController: UIViewController {
     
-
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var shopButton: UIButton!
     
-    override func viewWillAppear(_ animated: Bool) {        
-        startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
-        settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
+    @IBOutlet weak var shopButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!    
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if NSLocalizedString("startText", comment: "") == "Play"{
+            startButton.imageView?.image = UIImage(named:  "playMenu")
+            settingsButton.imageView?.image = UIImage(named: "settingsMenu")
+            shopButton.imageView?.image = UIImage(named: "shop")
+        } else {
+            startButton.imageView?.image = UIImage(named: "jogarMenu")
+            settingsButton.imageView?.image = UIImage(named: "configuracoes")
+            shopButton.imageView?.image = UIImage(named: "loja")
+        }
+       //   startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+         // settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
     }
-
+    
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
@@ -30,6 +40,58 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: "Settings", sender: nil)
     }
     
+    
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focus = context.nextFocusedView else {return}
+        
+        switch focus{
+        case self.startButton:
+            UIView.animate(withDuration: 0.3) {
+                self.startButton.frame.size.height += 15
+                self.startButton.frame.size.width += 15
+            }
+        case self.settingsButton:
+            UIView.animate(withDuration: 0.3) {
+                self.settingsButton.frame.size.height += 15
+                self.settingsButton.frame.size.width += 15
+            }
+        default:
+            UIView.animate(withDuration: 0.3) {
+                self.shopButton.frame.size.height += 15
+                self.shopButton.frame.size.width += 15
+            }
+            
+        }
+        
+        if startButton.frame.size.width > 350 && focus != self.startButton {
+            UIView.animate(withDuration: 0.3) {
+                self.startButton.frame.size.height -= 15
+                self.startButton.frame.size.width -= 15
+            }
+        }
+        
+        if settingsButton.frame.size.width > 350 && focus != self.settingsButton{
+            UIView.animate(withDuration: 0.3) {
+                self.settingsButton.frame.size.height -= 15
+                self.settingsButton.frame.size.width -= 15
+            }
+        }
+        
+        if shopButton.frame.size.width > 250 && focus != self.shopButton {
+            UIView.animate(withDuration: 0.3) {
+                self.shopButton.frame.size.height -= 15
+                self.shopButton.frame.size.width -= 15
+            }
+        }
+        
+        
+        
+        
+        
+        updateFocusIfNeeded()
+        
+    }
     
     @IBAction func PressShop(_ sender: Any) {
         

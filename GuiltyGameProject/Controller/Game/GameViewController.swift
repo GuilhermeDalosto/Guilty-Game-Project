@@ -66,6 +66,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var funcoesControle = ["PlayPause","Menu","Select","UpArrow","LeftArrow","DownArrow","RightArrow","SwipeUp","SwipeLeft","SwipeDown","SwipeRight"];
     /// reporter of control actions
     var report = Report()
+    ///Menu button
+    let menuPressRecognizer = UITapGestureRecognizer()
+    
     
     
     // auxiliar var
@@ -115,6 +118,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
+        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        self.view.addGestureRecognizer(menuPressRecognizer)
         
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
@@ -279,11 +285,10 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      functions of the controller (Select)
      */
     @objc func Select(){
-        print("select")
-        print(choosenTeam.lifes)
-        if gameScene?.scene == themeScene{
+        
+        //if gameScene?.scene == themeScene{
             changeScene()
-        }
+        //}
     }
     
     @objc func UpArrow(){
@@ -441,7 +446,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     func changeScene(){
         let size = view.bounds.size
         
-        if GameScene.turn > 0 {
+        if GameScene.turn >= 0 {
             randomStuff()
         }
         
