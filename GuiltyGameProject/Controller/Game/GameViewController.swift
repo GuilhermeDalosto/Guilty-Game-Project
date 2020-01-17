@@ -196,42 +196,68 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     /**
      Function to add words
      */
+    
+    var ninjaDeck = UserDefaults.standard.bool(forKey: "boolNinja")
+    var foodDeck = UserDefaults.standard.bool(forKey: "boolFood")
+    var magicDeck = UserDefaults.standard.bool(forKey: "boolMagic")
+    var westDeck = UserDefaults.standard.bool(forKey: "boolOldWest")
+    var christmasDeck = UserDefaults.standard.bool(forKey: "boolNatal")
+    var animalDeck = UserDefaults.standard.bool(forKey: "boolAnimal")
+    
+    var hardDeck = false
+    var normalDeck = false
+    
+    var actualDeck = [String]()
+    
     func addWords(){
         let words = Words()
+        let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
+        let theme = UserDefaults.standard.integer(forKey: "theme")
         
-        // Fazer a condicao de selecao de deck
-        for element in words.str{
-            wordsRandom.append(element)
+        if difficulty == 1{
+            for i in words.strNormalWords{
+                actualDeck.append(i)
+            }
+        } else{
+            for i in words.strHardWords{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strFood{
-            wordsFood.append(element)
+        
+        if ninjaDeck{
+            for i in words.strNinja{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strHardFood{
-            wordsFoodHard.append(element)
+        
+        if foodDeck{
+            for i in words.strFood{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strMagic{
-            wordsMagic.append(element)
+        
+        if magicDeck{
+            for i in words.strMagic{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strAnimal{
-            wordsRandom.append(element)
+        
+        if westDeck{
+            for i in words.strOldWest{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strHardAnimal{
-            wordsAnimalHard.append(element)
+        
+        if christmasDeck{
+            for i in words.strNatal{
+                actualDeck.append(i)
+            }
         }
-        for element in words.strOldWest{
-            wordsOldWest.append(element)
-        }
-        for element in words.strNinja{
-            wordsNinja.append(element)
-        }
-        for element in words.strNormalWords{
-            wordsRandom.append(element)
-        }
-        for element in words.strHardWords{
-            wordsHard.append(element)
-        }
-        for element in words.strNatal{
-            wordsChristmas.append(element)
+        
+        if animalDeck{
+            for i in words.strAnimal{
+                actualDeck.append(i)
+            }
         }
     }
     
@@ -240,9 +266,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      */
     func addEvents(){
         let events = allEventsSigned()
+        
         for element in  events.events{
             allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
         }
+        //if english
+//        for element in events.eventsEnglish{
+//            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+//        }
     }
     
     /**
@@ -395,22 +426,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     
     func randomStuff(){
-        if difficulty == 0{
-            switch Int.random(in: 0...5){
-            case 0:
-                currentWord = wordsRandom.randomElement()!
-            case 1:
-                currentWord = wordsFood.randomElement()!
-            case 2:
-                currentWord = wordsMagic.randomElement()!
-            case 3:
-                currentWord = wordsRandom.randomElement()!
-            default:
-                currentWord = wordsChristmas.randomElement()!
-            }
-        } else{
-            currentWord = wordsHard.randomElement()!
-        }
+        currentWord = actualDeck.randomElement()
         
         if GameScene.turn % 4 == 0{
             currentEvent = allEvents.randomElement()?.descriptionEvent
