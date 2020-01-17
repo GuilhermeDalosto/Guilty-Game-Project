@@ -197,12 +197,12 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      Function to add words
      */
     
-    var ninjaDeck = UserDefaults.standard.bool(forKey: "boolNinja")
-    var foodDeck = UserDefaults.standard.bool(forKey: "boolFood")
-    var magicDeck = UserDefaults.standard.bool(forKey: "boolMagic")
-    var westDeck = UserDefaults.standard.bool(forKey: "boolOldWest")
-    var christmasDeck = UserDefaults.standard.bool(forKey: "boolNatal")
-    var animalDeck = UserDefaults.standard.bool(forKey: "boolAnimal")
+    var ninjaDeck = UserDefaults.standard.bool(forKey: "ninjaDeckOn")
+    var foodDeck = UserDefaults.standard.bool(forKey: "foodDeckOn")
+    var magicDeck = UserDefaults.standard.bool(forKey: "magicDeckOn")
+    var westDeck = UserDefaults.standard.bool(forKey: "oldWestDeckOn")
+    var christmasDeck = UserDefaults.standard.bool(forKey: "natalDeckOn")
+    var animalDeck = UserDefaults.standard.bool(forKey: "animalDeckOn")
     
     var hardDeck = false
     var normalDeck = false
@@ -210,19 +210,20 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var actualDeck = [String]()
     
     func addWords(){
+        print(ninjaDeck)
         let words = Words()
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
         let theme = UserDefaults.standard.integer(forKey: "theme")
-        
-        if difficulty == 1{
-            for i in words.strNormalWords{
-                actualDeck.append(i)
-            }
-        } else{
-            for i in words.strHardWords{
-                actualDeck.append(i)
-            }
-        }
+//
+//        if difficulty == 1{
+//            for i in words.strNormalWords{
+//                actualDeck.append(i)
+//            }
+//        } else{
+//            for i in words.strHardWords{
+//                actualDeck.append(i)
+//            }
+//        }
         
         if ninjaDeck{
             for i in words.strNinja{

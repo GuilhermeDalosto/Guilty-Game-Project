@@ -29,7 +29,7 @@ class CustomizeJudgeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    let boolNinja = false
+    let boolNinja = true
     let boolFood = false
     let boolOldWest = false
     let boolMagic = false
