@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3RO-AK-ixi">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3RO-AK-ixi">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,8 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="from software" translatesAutoresizingMaskIntoConstraints="NO" id="UCI-No-Grc">
-                                <rect key="frame" x="176" y="268" width="1568" height="545"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoTribunal" translatesAutoresizingMaskIntoConstraints="NO" id="giE-sG-VeN">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="telaMenu_Prancheta 1" translatesAutoresizingMaskIntoConstraints="NO" id="zyT-e7-sJn">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -28,7 +32,8 @@
                         <viewLayoutGuide key="safeArea" id="MfD-3u-XAs"/>
                     </view>
                     <connections>
-                        <outlet property="fromSoftware" destination="UCI-No-Grc" id="6xI-eL-9ZL"/>
+                        <outlet property="backgroundImage" destination="giE-sG-VeN" id="BRb-zB-Cpm"/>
+                        <outlet property="frontImage" destination="zyT-e7-sJn" id="vKo-OZ-3W1"/>
                         <segue destination="ovZ-9F-hLP" kind="show" identifier="segueMain" id="jdP-I0-8l9"/>
                     </connections>
                 </viewController>
@@ -48,6 +53,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="from software" width="800" height="311"/>
+        <image name="fundoTribunal" width="8000" height="4500"/>
+        <image name="telaMenu_Prancheta 1" width="8000" height="4500"/>
     </resources>
 </document>

@@ -20,6 +20,7 @@
 		78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */; };
 		78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB723A31DE7003E4F41 /* Adonay.ttf */; };
 		78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */; };
+		7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B18E03023D259B4008B230D /* introGuilty1.wav */; };
 		7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */; };
 		7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */; };
 		7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */; };
@@ -93,6 +94,7 @@
 		78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDLC.swift; sourceTree = "<group>"; };
 		78F4CBB723A31DE7003E4F41 /* Adonay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adonay.ttf; sourceTree = "<group>"; };
 		78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "myriad-pro-8.otf"; sourceTree = "<group>"; };
+		7B18E03023D259B4008B230D /* introGuilty1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introGuilty1.wav; sourceTree = "<group>"; };
 		7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserOnboardingScreen.storyboard; sourceTree = "<group>"; };
 		7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingVC.swift; sourceTree = "<group>"; };
 		7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudgeOnboarding.storyboard; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				78F4CBB623A31DA1003E4F41 /* Fonts */,
 				7BCF5BFD23A2B1DE00955590 /* GameSong.wav */,
+				7B18E03023D259B4008B230D /* introGuilty1.wav */,
 				7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */,
 				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
 				7B9B078323A02404001375BB /* ChooseOption.wav */,
@@ -488,6 +491,7 @@
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
 				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
+				7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
 				7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */,
 				7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */,
