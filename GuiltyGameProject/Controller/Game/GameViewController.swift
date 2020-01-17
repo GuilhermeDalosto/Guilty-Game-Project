@@ -509,6 +509,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             gameView.presentScene(gameScene)
             break
         case drawScene:
+            randomStuff()
+            randomWord = currentWord
             defineEventPlayer()
             turnScene = TurnScene(size: size,player: playerTurn,word: randomWord,event: randomEvent!)
             gameView.scene?.removeFromParent()
