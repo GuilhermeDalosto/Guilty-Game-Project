@@ -491,7 +491,6 @@
 				78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
 				78F4CBAE239ACE36003E4F41 /* StoreTableViewCell.swift in Sources */,
-				7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
 				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
 				95F8C8FE238F159900E8ACAB /* Movement.m in Sources */,

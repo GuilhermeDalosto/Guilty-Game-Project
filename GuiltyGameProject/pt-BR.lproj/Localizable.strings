@@ -26,6 +26,7 @@
 "freeText" = "Livre";
 "randomText" = "Aleatório";
 "nextText" = "Próximo";
+"timeOver" = "O tempo acabou!";
 
 "backText" = "Voltar";
 "startText" = "Começar";

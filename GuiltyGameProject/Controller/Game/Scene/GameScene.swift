@@ -41,8 +41,11 @@ class GameScene: SKScene{
     /// Event Label at Game Scene
     var eventLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
+    var timeOver = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    
     var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
     var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
+    var balaoJuiz = SKSpriteNode(imageNamed: "balaoAnjo")
     
     var balaoComentario = SKLabelNode(fontNamed: "MyriadPro-Regular")
     var balaoComentario2 = SKLabelNode(fontNamed: "MyriadPro-Regular")
@@ -137,7 +140,7 @@ class GameScene: SKScene{
             timerLabel.alpha = 1
             time = 60
         } else{
-            time = 30
+            time = 5
         }
         
         // set word label
@@ -178,8 +181,11 @@ class GameScene: SKScene{
     /**
      Setup sprites of background, pins in game and npc pins in Nodes
      */
+    
+    var playersqtd = 0
     func setupSprites(numberOfPlayers: Int, judge: Judge, players: [Person]){
         // Background Sprite
+        playersqtd = numberOfPlayers
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundSprite.size = size
         backgroundSprite.alpha = 1
@@ -193,6 +199,9 @@ class GameScene: SKScene{
         balaoAnjo.position = CGPoint(x: size.width * 0.80, y: size.height*0.62)
         balaoCapeta.position = CGPoint(x: size.width * 0.21, y: size.height*0.64)
         
+        timeOver.setScale(0.6)
+        balaoJuiz.setScale(1.5)
+        
         balaoComentario.position = balaoAnjo.position
         balaoComentario.fontColor = .black
         balaoComentario.fontSize -= 10
@@ -205,10 +214,22 @@ class GameScene: SKScene{
         balaoComentario2.zPosition += 1
         balaoComentario2.text = "Perdeu vidinha"
         
+
+        
+        timeOver.fontSize = 50
+        timeOver.fontColor = .red
+        timeOver.text = NSLocalizedString("timeOver", comment: "")
+        timeOver.position = CGPoint(x: size.width*0.63, y: size.height*0.8)
+        timeOver.position.y += 50
+        
+        balaoJuiz.position = timeOver.position
+            
         balaoAnjo.alpha = 0
         balaoCapeta.alpha = 0
         balaoComentario.alpha = 0
         balaoComentario2.alpha = 0
+        balaoJuiz.alpha = 0
+        timeOver.alpha = 0
         
         // Judge Sprite
         judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.77)
@@ -261,6 +282,9 @@ class GameScene: SKScene{
         addChild(backgroundLayerSprite)
         addChild(balaoAnjo)
         addChild(balaoCapeta)
+        addChild(balaoJuiz)
+        addChild(timeOver)
+        
         for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
@@ -268,11 +292,56 @@ class GameScene: SKScene{
          //   addChild(pinsNPCSprite[i])
         }
     }
+    var positionTeamA = CGPoint()
+    var positionTeamB = CGPoint()
+    
+    
     
     func movePlayer(playerNumber : Int){
+        if playersqtd == 2{
+            if playerNumber < 1{
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+            } else{
+                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+            }
+        }
+            
+        else if playersqtd == 4{
+            switch playerNumber{
+            case 0:
+                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+            case 1:
+                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+            case 2:
+                  pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+            default:
+                  pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                
+            }
+        } else {
+                switch playerNumber{
+                case 0:
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                case 1:
+                     pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                case 2:
+                      pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                case 3:
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                case 4:
+                        pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                default:
+                          pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                    
+                }
+            
+            
+        }
         
-        print(playerNumber)
-        actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height*0.4), interval: 2)        
+        let balancar = SKAction.sequence([SKAction.rotate(byAngle: 0.3, duration: 0.125),SKAction.rotate(byAngle: -0.6, duration: 0.25),SKAction.rotate(byAngle: 0.3, duration: 0.125)])
+        
+        pinsSprite[playerNumber].run(SKAction.repeat(balancar, count: 4))
+        
     }
     
     var flag = UserDefaults.standard.bool(forKey: "flag")
@@ -348,6 +417,8 @@ class GameScene: SKScene{
             self.timerLabel.text = "\(self.time)"
         }
         if time <= 0{
+            timeOver.alpha = 1
+            balaoJuiz.alpha = 1
             delegateSend?.timeIsOver()
             timer?.invalidate()
         }

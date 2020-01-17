@@ -22,7 +22,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     func timeIsOver() {
         print("tempo acabou")
-        changeScene()
+        //changeScene()
     }
     
     @IBOutlet weak var gameView: SKView!
