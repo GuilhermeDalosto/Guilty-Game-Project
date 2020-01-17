@@ -426,7 +426,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     
     func randomStuff(){
-        currentWord = actualDeck.randomElement()
+        currentWord = actualDeck.randomElement()!
         
         if GameScene.turn % 4 == 0{
             currentEvent = allEvents.randomElement()?.descriptionEvent
