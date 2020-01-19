@@ -47,7 +47,7 @@ class DrawScene: SKScene{
         
         backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
-        backgroundImage.zPosition = 1
+        backgroundImage.zPosition = -1
         backgroundImage.size = size
         
         self.addChild(backgroundImage)
@@ -89,9 +89,9 @@ class DrawScene: SKScene{
 
         
         self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
-        self.diceTeam1.size = CGSize(width: 300, height: 200)        
+        self.diceTeam1.size = CGSize(width: 500, height: 500)
         self.diceTeam2.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
-        self.diceTeam2.size = CGSize(width: 500, height: 400)
+        self.diceTeam2.size = CGSize(width: 500, height: 500)
         
         
         let diceAnimateAtlas = SKTextureAtlas(named: "Dices")
@@ -130,20 +130,22 @@ class DrawScene: SKScene{
             self.diceRotate = rotateFrame
             firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
             firstFrameTextureDice2 = diceRotate[Int(numbertwo) - 1]
-                   
-                   
-           self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
-           self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
-           diceTeam1.position.x = size.width/1.5
-           diceTeam1.position.y = size.height/2
-           
-           
-           diceTeam2.position.x = size.width/2
-           diceTeam2.position.y = size.height/2
-           
-           addChild(diceTeam1)
-           addChild(diceTeam2)
-           animateDice()
+               
+               
+            self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+            self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+            diceTeam1.position.x = size.width/2 + 200
+            diceTeam1.position.y = size.height/2
+            diceTeam1.size = CGSize(width: 300, height: 300)
+
+            diceTeam2.position.x = size.width/2 - 200
+            diceTeam2.position.y = size.height/2
+            diceTeam2.size = CGSize(width: 300, height: 300)
+            
+            
+            addChild(diceTeam1)
+            addChild(diceTeam2)
+            animateDice()
         } else {
             self.diceRotate = rotateFrame
             firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]

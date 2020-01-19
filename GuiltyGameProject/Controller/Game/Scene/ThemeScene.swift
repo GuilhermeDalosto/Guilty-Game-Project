@@ -50,7 +50,7 @@ class ThemeScene: SKScene{
         
         addChild(localTheme)
         addChild(actionTheme)
-        addChild(titleLabel)
+//        addChild(titleLabel)
         addChild(backgroundImage)
     }
     

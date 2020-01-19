@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class SettingsViewController: UIViewController {
     
     var languageOption = true
     var languageOptionStr = "EN"
+    let music = AVAudioPlayer()
     
     @IBOutlet weak var musicButton: UIButton!
     
@@ -180,17 +182,22 @@ class SettingsViewController: UIViewController {
             if musicOption{
                 musicOptionStr = "On"
                 musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
+                music.play()
             }else{
                 musicOptionStr = "Off"
                 musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
+                music.pause()
             }
         } else{
             if musicOption{
                 musicOptionStr = "On"
                 musicButton.setImage(UIImage(named: "musicaOn"), for: .normal)
+                music.play()
             }else{
                 musicOptionStr = "Off"
                 musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
+                music.pause()
+
             }
         }
         

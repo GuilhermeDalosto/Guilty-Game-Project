@@ -68,9 +68,39 @@ class TurnScene: SKScene{
         titleLabel.position = CGPoint(x: size.width/2 * 0.55, y: size.height/12)
         
         eventLabel.text = eventDisplay
-        eventLabel.fontSize = 65
-        eventLabel.fontColor = .blue
-        eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
+        eventLabel.fontColor = .black
+//        eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.5)
+//        eventLabel.lineBreakMode = .byWordWrapping
+       
+        wordLabel.text = wordDisplay
+        wordLabel.fontColor = .black
+        
+        baloonEvent.size = CGSize(width: 420, height: 280)
+        
+        if ((eventLabel.text! as NSString).length) > 14 && ((eventLabel.text! as NSString).length) < 30{
+            if ((eventLabel.text! as NSString).length) < 25 {
+                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
+            } else{
+                  eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
+            }
+            eventLabel.lineBreakMode = .byCharWrapping
+            eventLabel.numberOfLines = 0
+            eventLabel.preferredMaxLayoutWidth = 275
+            eventLabel.fontSize = 50
+        } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
+            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
+            eventLabel.lineBreakMode = .byCharWrapping
+            eventLabel.numberOfLines = 0
+            eventLabel.preferredMaxLayoutWidth = 300
+            eventLabel.fontSize = 45
+        }else if ((eventLabel.text! as NSString).length) >= 40 {
+            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
+            eventLabel.lineBreakMode = .byCharWrapping
+            eventLabel.numberOfLines = 0
+            eventLabel.preferredMaxLayoutWidth = 400
+            eventLabel.fontSize = 35
+            baloonEvent.size = CGSize(width: 450, height: 280)
+        }
         
         backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
         backgroundImage?.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -78,11 +108,7 @@ class TurnScene: SKScene{
         backgroundImage?.size = size
         
         if eventDisplay.isEmpty{
-            
-            
-            wordLabel.text = wordDisplay
-            wordLabel.fontSize = 75
-            wordLabel.fontColor = .red
+            wordLabel.fontSize = 65
             wordLabel.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
             
             npcAngel.position = CGPoint(x: size.width/2 * 1.82, y: size.height/3.7)
@@ -91,6 +117,10 @@ class TurnScene: SKScene{
             baloonWord.position = wordLabel.position
             baloonWord.zPosition = 0
             baloonWord.size = CGSize(width: 400, height: 350)
+            
+            if ((wordLabel.text! as NSString).length) >= 12 {
+                baloonWord.size = CGSize(width: 450, height: 350)
+            }
             
             addChild(npcAngel)
             addChild(baloonWord)
@@ -101,13 +131,11 @@ class TurnScene: SKScene{
             npcDevil.position = CGPoint(x: size.width/2 * 1.65, y: size.height/5)
             npcDevil.size = CGSize(width: 200, height: 400)
 
-            baloonEvent.position = eventLabel.position
+            baloonEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
             baloonEvent.zPosition = 0
-            baloonEvent.size = CGSize(width: 400, height: 280)
+           
 
-            wordLabel.text = wordDisplay
-            wordLabel.fontSize = 65
-            wordLabel.fontColor = .red
+            wordLabel.fontSize = 50
             wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
 
             baloonWord.position = wordLabel.position

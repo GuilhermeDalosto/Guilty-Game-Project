@@ -28,6 +28,7 @@ class CustomizeJudgeViewController: UIViewController {
     @IBOutlet weak var imageHammer: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
+    var decks = Deck()
     
     let boolNinja = true
     let boolFood = false
@@ -263,5 +264,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
     
     
 }
+
+
 
 

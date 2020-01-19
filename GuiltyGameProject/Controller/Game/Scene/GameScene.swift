@@ -165,10 +165,26 @@ class GameScene: SKScene{
         // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
-            eventLabel.fontSize = 50
+            eventLabel.fontSize = 35
             eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
-            eventLabel.position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.85))
+            eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.83))
+            eventLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+            
+//            eventLabel.verticalAlignmentMode = .baseline
+            
+            if ((eventLabel.text! as NSString).length) >= 30 &&  ((eventLabel.text! as NSString).length) < 40{
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.8))
+                eventLabel.numberOfLines = 0
+                eventLabel.lineBreakMode = .byCharWrapping
+                eventLabel.preferredMaxLayoutWidth = 500
+                
+            } else if ((eventLabel.text! as NSString).length) >= 40 {
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.8))
+                eventLabel.numberOfLines = 0
+                eventLabel.lineBreakMode = .byCharWrapping
+                eventLabel.preferredMaxLayoutWidth = 500
+            }
             addChild(eventLabel)
         }
         
