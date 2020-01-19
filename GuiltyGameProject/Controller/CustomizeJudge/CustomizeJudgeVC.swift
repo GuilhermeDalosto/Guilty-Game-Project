@@ -29,6 +29,12 @@ class CustomizeJudgeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    let boolNinja = true
+    let boolFood = false
+    let boolOldWest = false
+    let boolMagic = false
+    let boolAnimal = false
+    let boolNatal = false
     
     var characterSelected : UIImage?
     
@@ -64,6 +70,12 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(boolNinja, forKey: "ninjaDeckOn")
+        UserDefaults.standard.set(boolFood, forKey: "foodDeckOn")
+        UserDefaults.standard.set(boolOldWest, forKey: "oldWestDeckOn")
+        UserDefaults.standard.set(boolMagic, forKey: "magicDeckOn")
+        UserDefaults.standard.set(boolAnimal, forKey: "animalDeckOn")
+        UserDefaults.standard.set(boolNatal, forKey: "natalDeckOn")
         UserDefaults.standard.set(_judgeIndex, forKey: "positionCollection")
         characterSelected = judge[_judgeIndex]
     }

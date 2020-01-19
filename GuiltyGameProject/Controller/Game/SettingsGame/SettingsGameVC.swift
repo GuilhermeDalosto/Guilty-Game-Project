@@ -55,10 +55,12 @@ class SettingsGameViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//
-//                self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
-//                self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
-//                self.themeLabel.text = NSLocalizedString("themeText", comment: "")
+
+                self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
+                self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
+                self.themeLabel.text = NSLocalizedString("themeText", comment: "")
+        
+        
         
         
         
@@ -327,7 +329,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressed3(){
-        self.number3.backgroundColor = .red
+        self.number3.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.number5.backgroundColor = .clear
         self.number7.backgroundColor = .clear
         typeOfPeople = 3
@@ -336,7 +338,7 @@ class SettingsGameViewController: UIViewController {
     }
     func pressed5(){
         self.number3.backgroundColor = .clear
-        self.number5.backgroundColor = .red
+        self.number5.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.number7.backgroundColor = .clear
         typeOfPeople = 5
         numberSelected = true
@@ -345,21 +347,21 @@ class SettingsGameViewController: UIViewController {
     func pressed7(){
         self.number3.backgroundColor = .clear
         self.number5.backgroundColor = .clear
-        self.number7.backgroundColor = .red
+        self.number7.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         typeOfPeople = 7
         numberSelected = true
         selectedPeople = 6
     }
     
     func pressedNormal(){
-        self.normalButton.backgroundColor = .red
+        self.normalButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.difficultButton.backgroundColor = .clear
         typeDifficulty = 1
         difficultySelected = true
         selectedDifficulty = 1
     }
     func pressedHard(){
-        self.difficultButton.backgroundColor = .red
+        self.difficultButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.normalButton.backgroundColor = .clear
         typeDifficulty = 2
         difficultySelected = true
@@ -367,7 +369,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedFree(){
-        self.freeButton.backgroundColor = .red
+        self.freeButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
         typeTheme = 1
         themeSelected = true
@@ -375,7 +377,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedRandom(){
-        self.randomButton.backgroundColor = .red
+        self.randomButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
         self.freeButton.backgroundColor = .clear
         typeTheme = 2
         themeSelected = true

@@ -16,6 +16,7 @@
 "difficultText" = "Dificuldade";
 "peopleText" = "Nº de jogadores";
 "themeText" = "Tema";
+
 "homeText" = "Menu";
 "normalText" = "Normal";
 "hardText" = "Díficil";
@@ -25,6 +26,7 @@
 "freeText" = "Livre";
 "randomText" = "Aleatório";
 "nextText" = "Próximo";
+"timeOver" = "O tempo acabou!";
 
 "backText" = "Voltar";
 "startText" = "Começar";

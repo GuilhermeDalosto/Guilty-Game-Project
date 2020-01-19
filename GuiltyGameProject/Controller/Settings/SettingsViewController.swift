@@ -45,7 +45,6 @@ class SettingsViewController: UIViewController {
         
         if NSLocalizedString("homeText", comment: "") == "Home"{
             homeButton.imageView?.image = UIImage(named: "homeConf")
-            if musicOption{
                 if musicOption{
                     musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
                 }else{
@@ -59,9 +58,9 @@ class SettingsViewController: UIViewController {
                     musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
                 }
             }
-        }
-        
     }
+        
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(musicOption, forKey: "musicOption")
