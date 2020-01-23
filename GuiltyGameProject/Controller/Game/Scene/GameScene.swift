@@ -180,7 +180,7 @@ class GameScene: SKScene{
                 eventLabel.preferredMaxLayoutWidth = 500
                 
             } else if ((eventLabel.text! as NSString).length) >= 40 {
-                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.8))
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.76))
                 eventLabel.numberOfLines = 0
                 eventLabel.lineBreakMode = .byCharWrapping
                 eventLabel.preferredMaxLayoutWidth = 500

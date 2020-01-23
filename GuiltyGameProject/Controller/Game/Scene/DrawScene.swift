@@ -32,6 +32,8 @@ class DrawScene: SKScene{
     
     var backgroundImage = SKSpriteNode()
     
+    var aux = false
+    
     init(size: CGSize,players: [Person] ) {
         super.init(size: size)
         numPlayers = players.count
@@ -148,23 +150,33 @@ class DrawScene: SKScene{
             animateDice()
         } else {
             self.diceRotate = rotateFrame
-            firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
-            firstFrameTextureDice2 = diceRotate[Int(numbertwo) - 1]
+
+            firstFrameTextureDice1 = diceRotate[Int(0)]
+            firstFrameTextureDice2 = diceRotate[Int(1)]
             print("....\(numberOne)")
-            self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+           
 //            self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
 
+
+            if aux {
+                self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+                aux = false
+                addChild(diceTeam2)
+                numbertwo = 0
+                animateNode([diceTeam2])
+            } else {
+                 self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+                aux = true
+                addChild(diceTeam1)
+                numbertwo = 2
+                animateNode([diceTeam1])
+            }
+           
             diceTeam1.position.x = size.width/2
             diceTeam1.position.y = size.height/2
             self.diceTeam1.size = CGSize(width: 500, height: 500)
-
-//            diceTeam2.position.x = size.width/2
-//            diceTeam2.position.y = size.height/2
-
-            addChild(diceTeam1)
-            numbertwo = 0
-//            addChild(diceTeam2)
-            animateNode([diceTeam1])
+            diceTeam2.position = diceTeam1.position
+            diceTeam2.size = diceTeam1.size
         }
         print("1 -> \(numberOne) 2-> \(numbertwo)" )
          
@@ -188,10 +200,10 @@ class DrawScene: SKScene{
             
             let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
             
-            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.3)
-            let scaleDownAction = SKAction.scale(to: 1, duration: 0.3)
+            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7) //0.3
+            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8) //0.3
             
-            let waitAction = SKAction.wait(forDuration: 2)
+            let waitAction = SKAction.wait(forDuration: 0.5) //2
             
             let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
              rotateFrame.shuffle()
@@ -207,8 +219,7 @@ class DrawScene: SKScene{
             let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.1)
             
             
-            
-            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 0.6)
+            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
             
             let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
             

@@ -60,8 +60,6 @@ class CustomizeJudgeViewController: UIViewController {
         judgeCollectionVIew.dataSource = self
         judgeCollectionVIew.backgroundColor = .clear
         
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -207,10 +205,14 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
-            rightButton.backgroundColor = .clear
+            rightButton.setImage(UIImage(named: "setaDireitaSelecionado"), for: .normal)
+            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
         }
         else{
-            rightButton.backgroundColor = .red
+////            rightButton.backgroundColor = .red
+//            leftButton.backgroundColor = .white
+//            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
+            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
         }
     }
     
@@ -218,10 +220,14 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
-            leftButton.backgroundColor = .clear
+            leftButton.setImage(UIImage(named: "setaEsquerdaSelecionado"), for: .normal)
+            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
         }
         else{
-            leftButton.backgroundColor = .red
+//            leftButton.backgroundColor = .red
+//            rightButton.backgroundColor = .white
+            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
+//            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
         }
     }
     
@@ -258,10 +264,13 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
         cell.imageJudge.contentMode = .center
+        
+        
         return cell
         
     }
     
+
     
 }
 
