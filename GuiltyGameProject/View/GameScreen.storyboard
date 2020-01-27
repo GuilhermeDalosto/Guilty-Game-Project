@@ -32,23 +32,45 @@
                     </view>
                     <connections>
                         <outlet property="gameView" destination="VgG-44-4A6" id="oPR-pt-dDF"/>
+                        <segue destination="xAb-xw-dih" kind="show" identifier="endGame3" destinationCreationSelector="segue:" id="n9y-Au-V7R"/>
+                        <segue destination="S2k-4y-Syi" kind="show" identifier="endGame5" id="Ta8-TD-Xrk"/>
+                        <segue destination="QuZ-AW-db6" kind="show" identifier="endGame7" id="WPx-5U-hTL"/>
                         <outlet property="pauseView" destination="gaS-zV-rKH" id="heW-JD-jT6"/>
-                        <segue destination="xAb-xw-dih" kind="show" identifier="endGame" destinationCreationSelector="segue:" id="n9y-Au-V7R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-X6-v9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-276" y="-548"/>
         </scene>
-        <!--Report-->
+        <!--Report3-->
         <scene sceneID="bUD-WI-tB3">
             <objects>
-                <viewControllerPlaceholder storyboardName="Report" id="xAb-xw-dih" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Report3" id="xAb-xw-dih" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="blo-xs-LRJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dbp-Kl-EaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="-640"/>
+            <point key="canvasLocation" x="1512" y="-666"/>
+        </scene>
+        <!--Report5-->
+        <scene sceneID="jcX-zH-22Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report5" id="S2k-4y-Syi" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Nwn-fK-Z9F"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wNm-No-BR7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="-547"/>
+        </scene>
+        <!--Report7-->
+        <scene sceneID="QYD-Hi-WnA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Report7" id="QuZ-AW-db6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="o8B-Vr-4gd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F7I-my-nuL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="-452"/>
         </scene>
     </scenes>
 </document>

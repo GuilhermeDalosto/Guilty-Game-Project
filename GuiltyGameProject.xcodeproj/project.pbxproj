@@ -21,6 +21,11 @@
 		78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB723A31DE7003E4F41 /* Adonay.ttf */; };
 		78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */; };
 		7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B18E03023D259B4008B230D /* introGuilty1.wav */; };
+		7B18E03323DF606F008B230D /* Report5.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B18E03223DF606F008B230D /* Report5.storyboard */; };
+		7B18E03523DF6086008B230D /* Report7.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B18E03423DF6086008B230D /* Report7.storyboard */; };
+		7B18E03823DF63C7008B230D /* Report3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B18E03723DF63C7008B230D /* Report3VC.swift */; };
+		7B18E03A23DF63D5008B230D /* Report5VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B18E03923DF63D5008B230D /* Report5VC.swift */; };
+		7B18E03C23DF63E6008B230D /* Report7VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B18E03B23DF63E6008B230D /* Report7VC.swift */; };
 		7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */; };
 		7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */; };
 		7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */; };
@@ -64,7 +69,7 @@
 		ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACF5935F239978C7001C1B94 /* Localizable.strings */; };
 		ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5936B23998679001C1B94 /* SettingsGame.storyboard */; };
 		ACF5936C2399867E001C1B94 /* CustomizeJudge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */; };
-		ACF5936F23998682001C1B94 /* Report.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5937123998682001C1B94 /* Report.storyboard */; };
+		ACF5936F23998682001C1B94 /* Report3.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF5937123998682001C1B94 /* Report3.storyboard */; };
 		ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6C238C472600876A0B /* AppDelegate.swift */; };
 		ACF93C6F238C472700876A0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C6E238C472700876A0B /* ViewController.swift */; };
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
@@ -96,6 +101,11 @@
 		78F4CBB723A31DE7003E4F41 /* Adonay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adonay.ttf; sourceTree = "<group>"; };
 		78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "myriad-pro-8.otf"; sourceTree = "<group>"; };
 		7B18E03023D259B4008B230D /* introGuilty1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introGuilty1.wav; sourceTree = "<group>"; };
+		7B18E03223DF606F008B230D /* Report5.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report5.storyboard; sourceTree = "<group>"; };
+		7B18E03423DF6086008B230D /* Report7.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Report7.storyboard; sourceTree = "<group>"; };
+		7B18E03723DF63C7008B230D /* Report3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report3VC.swift; sourceTree = "<group>"; };
+		7B18E03923DF63D5008B230D /* Report5VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report5VC.swift; sourceTree = "<group>"; };
+		7B18E03B23DF63E6008B230D /* Report7VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report7VC.swift; sourceTree = "<group>"; };
 		7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserOnboardingScreen.storyboard; sourceTree = "<group>"; };
 		7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingVC.swift; sourceTree = "<group>"; };
 		7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudgeOnboarding.storyboard; sourceTree = "<group>"; };
@@ -148,7 +158,7 @@
 		ACF59365239979A1001C1B94 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		ACF5936A23998679001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsGame.storyboard; sourceTree = "<group>"; };
 		ACF5936D2399867E001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CustomizeJudge.storyboard; sourceTree = "<group>"; };
-		ACF5937023998682001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report.storyboard; sourceTree = "<group>"; };
+		ACF5937023998682001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report3.storyboard; sourceTree = "<group>"; };
 		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -231,6 +241,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		7B18E03623DF63A3008B230D /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				7B18E03723DF63C7008B230D /* Report3VC.swift */,
+				7B18E03923DF63D5008B230D /* Report5VC.swift */,
+				7B18E03B23DF63E6008B230D /* Report7VC.swift */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
 		7B28DF902390377200B41070 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +286,7 @@
 		ACBB918C23906B540060FF8B /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				7B18E03623DF63A3008B230D /* Reports */,
 				781C58DA238E030400957CCE /* SettingsGame */,
 				7B28DF902390377200B41070 /* Scene */,
 				ACF93C6E238C472700876A0B /* ViewController.swift */,
@@ -359,7 +380,9 @@
 				7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */,
 				ACF5936B23998679001C1B94 /* SettingsGame.storyboard */,
 				ACF5936E2399867E001C1B94 /* CustomizeJudge.storyboard */,
-				ACF5937123998682001C1B94 /* Report.storyboard */,
+				ACF5937123998682001C1B94 /* Report3.storyboard */,
+				7B18E03223DF606F008B230D /* Report5.storyboard */,
+				7B18E03423DF6086008B230D /* Report7.storyboard */,
 				78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */,
 				AC667561239A933A00DC5D65 /* Launch.storyboard */,
 				7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */,
@@ -479,10 +502,11 @@
 				7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
 				7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */,
-				ACF5936F23998682001C1B94 /* Report.storyboard in Resources */,
+				ACF5936F23998682001C1B94 /* Report3.storyboard in Resources */,
 				7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */,
 				7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */,
 				7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */,
+				7B18E03523DF6086008B230D /* Report7.storyboard in Resources */,
 				7B9B078823A02404001375BB /* PassOption.wav in Resources */,
 				7B9B078723A02404001375BB /* ChooseOption.wav in Resources */,
 				ACF5936923998679001C1B94 /* SettingsGame.storyboard in Resources */,
@@ -495,6 +519,7 @@
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
 				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
 				7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */,
+				7B18E03323DF606F008B230D /* Report5.storyboard in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
 				7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */,
 				7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */,
@@ -529,10 +554,13 @@
 				7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */,
 				AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */,
 				ACF93CB5238EE83F00876A0B /* allWordsSigned.swift in Sources */,
+				7B18E03823DF63C7008B230D /* Report3VC.swift in Sources */,
+				7B18E03A23DF63D5008B230D /* Report5VC.swift in Sources */,
 				78F4CBAC239ACDE3003E4F41 /* ConfigurationStore.swift in Sources */,
 				ACF93C92238D8F7800876A0B /* Event.m in Sources */,
 				78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
+				7B18E03C23DF63E6008B230D /* Report7VC.swift in Sources */,
 				78F4CBAE239ACE36003E4F41 /* StoreTableViewCell.swift in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
 				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
@@ -581,12 +609,12 @@
 			name = CustomizeJudge.storyboard;
 			sourceTree = "<group>";
 		};
-		ACF5937123998682001C1B94 /* Report.storyboard */ = {
+		ACF5937123998682001C1B94 /* Report3.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				ACF5937023998682001C1B94 /* Base */,
 			);
-			name = Report.storyboard;
+			name = Report3.storyboard;
 			sourceTree = "<group>";
 		};
 		ACF93C70238C472700876A0B /* Main.storyboard */ = {
