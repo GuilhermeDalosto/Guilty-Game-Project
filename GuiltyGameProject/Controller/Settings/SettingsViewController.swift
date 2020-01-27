@@ -12,13 +12,38 @@ import AVFoundation
 
 class SettingsViewController: UIViewController {
     
+    let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    var olhandoCima = UIImage(named: "telaMusica")
+    var olhandoBaixo = UIImage(named: "telaIdioma")
+    
+    var homeDes = UIImage(named: "homeConfSelecionado")
+    var menuDes = UIImage(named: "menuConfSelecionado")
+    
+    
+    var musicaOffDes = UIImage(named: "musicaOffSelecionado")
+    var musicaOnDes = UIImage(named: "musicaOnSelecionado")
+    
+    var musicOffDes = UIImage(named: "musicOffSelecionado")
+    var musicOnDes = UIImage(named: "musicOnSelecionado")
+    
+    
+    var homeSel = UIImage(named: "homeConf")
+    var menuSel = UIImage(named: "menuConf")
+    
+    var musicaOnSel = UIImage(named: "musicaOn")
+    var musicaOffSel = UIImage(named: "musicaOff")
+    
+    var musicOnSel = UIImage(named: "musicOn")
+    var musicOffSel = UIImage(named: "musicOff")
+    
+    
     var focusedGuideUp = UIFocusGuide()
     var focusedGuideLeft = UIFocusGuide()
     var focusedGuideLeftDown = UIFocusGuide()    
     
     var musicOption = true
     var musicOptionStr = "On"
-    
+    var language = ""
     var languageOption = true
     var languageOptionStr = "EN"
     let music = AVAudioPlayer()
@@ -30,38 +55,31 @@ class SettingsViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        backgroundImage.image = UIImage(named: "RubberMat")
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         setLayoutGuide()
         
         musicOption = UserDefaults.standard.bool(forKey: "musicOption")
         languageOption = UserDefaults.standard.bool(forKey: "languageOption")
         
-        
-        
         if languageOption{
             languageOptionStr = "EN"
-            
         }
         else{
             languageOptionStr = "BR"
         }
         
         if NSLocalizedString("homeText", comment: "") == "Home"{
-            homeButton.imageView?.image = UIImage(named: "homeConf")
-                if musicOption{
-                    musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
-                }else{
-                    musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
-                }
-            } else{
-                homeButton.imageView?.image = UIImage(named: "menuConf")
-                if musicOption{
-                    musicButton.setImage(UIImage(named: "musicaOn"), for: .normal)
-                }else{
-                    musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
-                }
-            }
-    }
+            language = "EN"
+        } else{
+            language = "PT"
+        }
         
+    }
+    
     
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,29 +96,61 @@ class SettingsViewController: UIViewController {
         
         switch focus{
         case self.musicButton:
-            UIView.animate(withDuration: 0.3) {
-                self.musicButton.frame.size.height += 15
-                self.musicButton.frame.size.width += 15
+            self.backgroundImage.image = olhandoBaixo
+            if language == "PT"{
+                
+                self.homeButton.setImage(menuDes, for: .normal)
+                if musicOption{
+                    self.musicButton.setImage(musicaOnSel, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicaOffSel, for: .normal)
+                
+            }
+            }
+            else{
+                
+                self.homeButton.setImage(homeDes, for: .normal)
+                    if musicOption{
+                         self.musicButton.setImage(musicOnSel, for: .normal)
+                    } else{
+                         self.musicButton.setImage(musicOffSel, for: .normal)
+                                        
+                }
+                
             }
         default:
-            UIView.animate(withDuration: 0.3) {
-                self.homeButton.frame.size.height += 15
-                self.homeButton.frame.size.width += 15
+            self.backgroundImage.image = olhandoCima
+            if language == "PT"{
+                self.homeButton.setImage(menuSel, for: .normal)
+                if musicOption{
+                    self.musicButton.setImage(musicaOnDes, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicaOffDes, for: .normal)
+                }
+            } else{
+                self.homeButton.setImage(homeSel, for: .normal)
+                if musicOption{
+                     self.musicButton.setImage(musicOnDes, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicOffDes, for: .normal)
+                }
             }
         }
             
             
-            if self.musicButton.frame.size.width > 530 && focus != self.musicButton{
-                UIView.animate(withDuration: 0.3) {
-                    self.musicButton.frame.size.height -= 15
-                    self.musicButton.frame.size.width -= 15
+            if  focus != self.musicButton{
+                if language == "PT"{
+                    
+                } else{
+                    
                 }
             }
             
-            if self.homeButton.frame.size.width > 255 && focus != self.homeButton{
-                UIView.animate(withDuration: 0.3) {
-                    self.homeButton.frame.size.height -= 15
-                    self.homeButton.frame.size.width -= 15
+            if focus != self.homeButton{
+                if language == "PT"{
+                    
+                } else{
+                    
                 }
             
         }
@@ -178,7 +228,7 @@ class SettingsViewController: UIViewController {
         
         musicOption.toggle()
         
-        if NSLocalizedString("homeText", comment: "") == "Home"{
+        if language == "EN"{
             if musicOption{
                 musicOptionStr = "On"
                 musicButton.setImage(UIImage(named: "musicOn"), for: .normal)

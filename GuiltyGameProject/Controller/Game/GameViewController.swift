@@ -26,6 +26,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     }
     
     @IBOutlet weak var gameView: SKView!
+    @IBOutlet weak var pauseView: SKView!
     
     
     let music = Sound()
@@ -119,11 +120,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var randomWord = ""
     
     override func viewDidLoad() {
+//        gameView.addSubview(pauseView)
+//        pauseView.sendSubviewToBack(gameView)
+        pauseView.alpha = 0.0
         super.viewDidLoad()
-        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
-        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-        self.view.addGestureRecognizer(menuPressRecognizer)
-        
+//        pauseView.
+//        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
+//        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+//        self.view.addGestureRecognizer(menuPressRecognizer)
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
         
@@ -271,10 +275,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         for element in  events.events{
             allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
         }
-        //if english
-//        for element in events.eventsEnglish{
-//            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
-//        }
+       
     }
     
     /**
@@ -305,14 +306,36 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     /**
      Function to pause game
      */
-    @objc func Menu(){
+    @objc func Menu(/*recognizer: UITapGestureRecognizer*/){
         print("menu")
         //Pause o tempo
         //Pausa a cena
         //Se não estiver no menu
-        gameScene?.endTimer()
-        gameScene?.isPaused = true
-        gameView.presentScene(pauseScene)
+        if pauseScene == nil{
+            pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
+            gameScene?.endTimer()
+            gameScene?.isPaused = true
+            pauseView.alpha = 1.0
+            pauseView.presentScene(pauseScene)
+            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+            quitGameView.backgroundColor = .systemPink
+            pauseView.addSubview(quitGameView)
+            
+        }else{
+            //O que fazer quando ele apertar no botão
+            pauseScene = nil
+            gameScene?.startTimer()
+            gameScene?.isPaused = false
+            pauseView.alpha = 0.0
+        }
+        /*
+         else{
+            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+            quitGameView.backgroundColor = .systemPink
+            pauseView.addSubview(quitGameView)
+         qui
+         }
+         */
     }
     
     /**
@@ -542,6 +565,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             
             gameView.presentScene(turnScene)
             drawPassed = true
+            
+            break
+        case pauseScene:
             
             break
         default:

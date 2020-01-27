@@ -12,24 +12,37 @@ import StoreKit
 
 class MenuViewController: UIViewController {
     
+    var configSel = UIImage(named: "configuracoes")
+    var configuracoesSel = UIImage(named: "settingsMenu")
+    var jogarSel = UIImage(named: "jogarMenu")
+    var playSel = UIImage(named: "playMenu")
+    var shopSel = UIImage(named: "shop")
+    var lojaSel = UIImage(named: "loja")
+    
+    
+    
+    var configDes = UIImage(named: "configDes")
+    var configuracoesDes = UIImage(named: "configuracoesDes")
+    var jogarDes = UIImage(named: "jogarDes")
+    var playDes = UIImage(named: "playMenuSelecionado")
+    var shopDes = UIImage(named: "shopDes")
+    var lojaDes = UIImage(named: "lojaDes")
+    
     
     @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!    
     
+    var language = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        if NSLocalizedString("startText", comment: "") == "Play"{
-            startButton.imageView?.image = UIImage(named:  "playMenu")
-            settingsButton.imageView?.image = UIImage(named: "settingsMenu")
-            shopButton.imageView?.image = UIImage(named: "shop")
+        
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            language = "EN"            
         } else {
-            startButton.imageView?.image = UIImage(named: "jogarMenu")
-            settingsButton.imageView?.image = UIImage(named: "configuracoes")
-            shopButton.imageView?.image = UIImage(named: "loja")
+            language = "PT"
         }
-       //   startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
-         // settingsButton.setTitle(NSLocalizedString("settingsText", comment: ""), for: .normal)
+
     }
     
     @IBAction func PressStart(_ sender: Any) {
@@ -44,44 +57,50 @@ class MenuViewController: UIViewController {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        
+        print(language)
         switch focus{
         case self.startButton:
-            UIView.animate(withDuration: 0.3) {                
-                self.startButton.frame.size.height += 15
-                self.startButton.frame.size.width += 15
+            if language == "PT"{
+                self.startButton.setImage(jogarSel,for: .normal)
+            } else{
+                self.startButton.setImage(playSel,for: .normal)
             }
         case self.settingsButton:
-            UIView.animate(withDuration: 0.3) {
-                self.settingsButton.frame.size.height += 15
-                self.settingsButton.frame.size.width += 15
+            if language == "PT"{
+                self.settingsButton.setImage(configSel,for: .normal)
+            } else{
+                self.settingsButton.setImage(configuracoesSel,for: .normal)
             }
         default:
-            UIView.animate(withDuration: 0.3) {
-                self.shopButton.frame.size.height += 15
-                self.shopButton.frame.size.width += 15
+            if language == "PT"{
+                self.shopButton.setImage(lojaSel,for: .normal)
+            } else{
+                self.shopButton.setImage(shopSel,for: .normal)
             }
             
         }
         
-        if startButton.frame.size.width > 350 && focus != self.startButton {
-            UIView.animate(withDuration: 0.3) {
-                self.startButton.frame.size.height -= 15
-                self.startButton.frame.size.width -= 15
+        if  focus != self.startButton {
+          if language == "PT"{
+            self.startButton.setImage(jogarDes,for: .normal)
+            } else{
+                self.startButton.setImage(playDes,for: .normal)
             }
         }
         
-        if settingsButton.frame.size.width > 350 && focus != self.settingsButton{
-            UIView.animate(withDuration: 0.3) {
-                self.settingsButton.frame.size.height -= 15
-                self.settingsButton.frame.size.width -= 15
+        if focus != self.settingsButton{
+           if language == "PT"{
+                self.settingsButton.setImage(configuracoesDes,for: .normal)
+            } else{
+                self.settingsButton.setImage(configDes,for: .normal)
             }
         }
         
-        if shopButton.frame.size.width > 250 && focus != self.shopButton {
-            UIView.animate(withDuration: 0.3) {
-                self.shopButton.frame.size.height -= 15
-                self.shopButton.frame.size.width -= 15
+        if  focus != self.shopButton {
+            if language == "PT"{
+                self.shopButton.setImage(lojaDes,for: .normal)
+            } else{
+                self.shopButton.setImage(shopDes,for: .normal)
             }
         }
         

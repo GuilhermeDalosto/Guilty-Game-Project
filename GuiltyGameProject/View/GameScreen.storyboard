@@ -23,6 +23,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </skView>
+                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaS-zV-rKH" userLabel="Pause View">
+                                <rect key="frame" x="272" y="202" width="1376" height="677"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </skView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="apM-AA-JgP"/>
                     </view>
@@ -31,6 +35,7 @@
                         <segue destination="xAb-xw-dih" kind="show" identifier="endGame3" destinationCreationSelector="segue:" id="n9y-Au-V7R"/>
                         <segue destination="S2k-4y-Syi" kind="show" identifier="endGame5" id="Ta8-TD-Xrk"/>
                         <segue destination="QuZ-AW-db6" kind="show" identifier="endGame7" id="WPx-5U-hTL"/>
+                        <outlet property="pauseView" destination="gaS-zV-rKH" id="heW-JD-jT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-X6-v9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -443,11 +443,12 @@ class GameScene: SKScene{
     
     func endTimer(){
         // start timer
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerStop), userInfo: nil, repeats: false)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerStop), userInfo: nil, repeats: true)
     }
     
     /**
-     Function to decrease time to the label timer
+     Function to stop time to the label timer
      */
     @objc func timerStop(){
         time -= 0
