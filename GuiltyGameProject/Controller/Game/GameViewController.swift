@@ -26,6 +26,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     }
     
     @IBOutlet weak var gameView: SKView!
+    @IBOutlet weak var pauseView: SKView!
     
     
     let music = Sound()
@@ -117,11 +118,13 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var randomWord = ""
     
     override func viewDidLoad() {
+        pauseView.sendSubviewToBack(gameView)
+        pauseView.alpha = 0.0
         super.viewDidLoad()
-        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
-        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-        self.view.addGestureRecognizer(menuPressRecognizer)
-        
+//        pauseView.
+//        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
+//        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+//        self.view.addGestureRecognizer(menuPressRecognizer)
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
         
@@ -266,19 +269,26 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      */
     @objc func PlayPause(){
         print("pause")
+        pauseView.alpha = 0.0
+        pauseView.sendSubviewToBack(pauseView)
     }
     
     /**
      Function to pause game
      */
-    @objc func Menu(){
+    @objc func Menu(/*recognizer: UITapGestureRecognizer*/){
         print("menu")
         //Pause o tempo
         //Pausa a cena
         //Se não estiver no menu
+        if pauseScene == nil{
+            pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
+        }
         gameScene?.endTimer()
         gameScene?.isPaused = true
-        gameView.presentScene(pauseScene)
+        pauseView.alpha = 1.0
+        gameView.sendSubviewToBack(pauseView)
+        pauseView.presentScene(pauseScene)
     }
     
     /**
@@ -513,6 +523,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             
             gameView.presentScene(turnScene)
             drawPassed = true
+            
+            break
+        case pauseScene:
             
             break
         default:

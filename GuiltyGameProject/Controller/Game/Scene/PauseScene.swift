@@ -19,9 +19,9 @@ class PauseScene: SKScene {
     
     override init(size: CGSize) {
         super.init(size: size)
-        buttonToBackToTheGame = generateButton(x: 0, y: 0, width: 0, height: 0)
-        buttonToBackToTheScreen = generateButton(x: 0, y: 0, width: 0, height: 0)
-        backgroundColor = UIColor.black
+        buttonToBackToTheGame = generateButton(x: UIScreen.main.bounds.width*0.125, y: UIScreen.main.bounds.height*0.125, width: 100, height: 100)
+        buttonToBackToTheScreen = generateButton(x: UIScreen.main.bounds.width*0.375, y: UIScreen.main.bounds.height*0.125, width: 100, height: 100)
+        backgroundColor = UIColor.green
         addChild(buttonToBackToTheGame!)
         addChild(buttonToBackToTheScreen!)
     }
@@ -31,9 +31,9 @@ class PauseScene: SKScene {
     }
     
     func generateButton(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> SKSpriteNode?{
-        let btn = SKSpriteNode(fileNamed: "")
-        btn?.position = CGPoint(x: x, y: y)
-        btn?.size = CGSize(width: width, height: height)
+        let btn = SKSpriteNode(imageNamed: "")
+        btn.position = CGPoint(x: x, y: y)
+        btn.size = CGSize(width: width, height: height)
         return btn
     }
     
