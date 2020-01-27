@@ -363,8 +363,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
                     vencedor = "Time 1"
                 }
                 
-                
-                self.performSegue(withIdentifier: "endGame", sender: nil)
+                switch(qtPlayer){
+                case 2:
+                    self.performSegue(withIdentifier: "endGame3", sender: nil)
+                    break
+                case 4:
+                    self.performSegue(withIdentifier: "endGame5", sender: nil)
+                    break
+                default:
+                    self.performSegue(withIdentifier: "endGame7", sender: nil)
+                }
                 
             }else{
                 changeScene()
