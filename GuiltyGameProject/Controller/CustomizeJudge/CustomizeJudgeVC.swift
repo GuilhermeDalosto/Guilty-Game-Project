@@ -18,6 +18,24 @@ class CustomizeJudgeViewController: UIViewController {
     var focusedGuideRightUp = UIFocusGuide()
     var focusedGuideLeftDownDown = UIFocusGuide()
     
+    var setaDireitaDes = UIImage(named: "setaDireitaSelecionado")
+    var setaEsquerdaDes = UIImage(named: "setaEsquerdaSelecionado")
+    
+    var setaDireitaSel = UIImage(named: "setaDireita")
+    var setaEsquerdaSel = UIImage(named: "setaEsquerda")
+    
+    var homeSel = UIImage(named: "home")
+    var homeDes = UIImage(named: "homeSelecionado")
+    
+    var menuSel = UIImage(named: "menu")
+    var menuDes = UIImage(named: "menuSelecionado")
+    
+    var jogarSel = UIImage(named: "jogar")
+    var jogarDes = UIImage(named: "jogarSelecionado")
+    
+    var startSel = UIImage(named: "start")
+    var startDes = UIImage(named: "startSelecionado")
+    
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -49,6 +67,19 @@ class CustomizeJudgeViewController: UIViewController {
     var typeDifficulty: Int?
     var typePeople: Int?
     
+    
+    func escureceTodos(){
+        if language == "EN"{
+        self.backButton.setImage(homeDes, for: .normal)
+        self.startButton.setImage(startDes, for: .normal)
+       
+        } else{
+            self.backButton.setImage(menuDes, for: .normal)
+                  self.startButton.setImage(jogarDes, for: .normal)
+        }
+        self.leftButton.setImage(setaEsquerdaDes, for: .normal)
+               self.rightButton.setImage(setaDireitaDes, for: .normal)
+    }
     override func viewDidLoad() {
         // judge = judgeIdentifier.map{UIImage(named: $0)!}
         super.viewDidLoad()
@@ -62,7 +93,16 @@ class CustomizeJudgeViewController: UIViewController {
         
     }
     
+    var language = ""
+    
     override func viewWillAppear(_ animated: Bool) {
+        escureceTodos()
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            language = "EN"
+        } else{
+            language = "PT"
+        }
+        self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
         judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
         backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
@@ -81,13 +121,35 @@ class CustomizeJudgeViewController: UIViewController {
     
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        escureceTodos()
+        guard let focus = context.nextFocusedView else {return}
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
         guard let focusedGuideGuideRightDown = context.nextFocusedView else {return}
         guard let focusedGuideGuideRightUp = context.nextFocusedView else {return}
         guard let focusedGuideGuideDownDown = context.nextFocusedView else {return}
-        print(context.nextFocusedView)
+        
+        switch focus{
+        case self.backButton:
+            if language == "PT"{
+                self.backButton.setImage(menuSel, for: .normal)
+            } else{
+                self.backButton.setImage(homeSel, for: .normal)
+            }
+        case self.leftButton:
+            self.leftButton.setImage(setaEsquerdaSel, for: .normal)
+        case self.rightButton:
+            self.rightButton.setImage(setaDireitaSel, for: .normal)
+        default:
+            if language == "PT"{
+                self.startButton.setImage(jogarSel, for: .normal)
+                       } else{
+                           self.startButton.setImage(startSel, for: .normal)
+                       }
+        }
+        
+        
         
         switch focusedGuideUp{
         case self.leftButton:
@@ -205,14 +267,12 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
-            rightButton.setImage(UIImage(named: "setaDireitaSelecionado"), for: .normal)
-            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
         }
         else{
 ////            rightButton.backgroundColor = .red
 //            leftButton.backgroundColor = .white
 //            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
-            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
+
         }
     }
     
@@ -220,13 +280,11 @@ class CustomizeJudgeViewController: UIViewController {
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
-            leftButton.setImage(UIImage(named: "setaEsquerdaSelecionado"), for: .normal)
-            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
+
         }
         else{
 //            leftButton.backgroundColor = .red
 //            rightButton.backgroundColor = .white
-            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
 //            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
         }
     }
