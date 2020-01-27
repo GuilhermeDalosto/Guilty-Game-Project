@@ -216,7 +216,7 @@ class DrawScene: SKScene{
                 i = 0
             }
      
-            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.1)
+            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.3)
             
             
             let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)

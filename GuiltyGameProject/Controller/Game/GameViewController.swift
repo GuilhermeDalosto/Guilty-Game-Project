@@ -321,7 +321,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     @objc func Select(){
         
         //if gameScene?.scene == themeScene{
-            changeScene()
+            //changeScene()
         //}
     }
     
