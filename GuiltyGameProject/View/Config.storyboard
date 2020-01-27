@@ -29,16 +29,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundo_Prancheta 1" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-7M-FU5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tela settings_Prancheta 1" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-7M-FU5">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="anjoTurno" translatesAutoresizingMaskIntoConstraints="NO" id="M53-Pe-CnU">
-                                <rect key="frame" x="1263" y="434" width="354" height="621"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-kG-oQY">
-                                <rect key="frame" x="702" y="745" width="517" height="186"/>
+                                <rect key="frame" x="657" y="741" width="517" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="IdiomaPT"/>
@@ -46,22 +42,22 @@
                                     <action selector="pressLanguageButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="rEe-Qa-y1W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
-                                <rect key="frame" x="113" y="62" width="254" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" image="menuConf"/>
-                                <connections>
-                                    <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-Xa-wNl">
-                                <rect key="frame" x="696" y="448" width="517" height="186"/>
+                                <rect key="frame" x="657" y="447" width="517" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="musicOff"/>
                                 <connections>
                                     <action selector="pressMusicButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="DLd-ks-NIv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
+                                <rect key="frame" x="76" y="90" width="254" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" image="menuConf"/>
+                                <connections>
+                                    <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,8 +78,7 @@
     </scenes>
     <resources>
         <image name="IdiomaPT" width="437" height="146"/>
-        <image name="anjoTurno" width="201" height="409"/>
-        <image name="fundo_Prancheta 1" width="8000" height="4500"/>
+        <image name="Tela settings_Prancheta 1" width="8000" height="4500"/>
         <image name="menuConf" width="174" height="59"/>
         <image name="musicOff" width="437" height="146"/>
     </resources>

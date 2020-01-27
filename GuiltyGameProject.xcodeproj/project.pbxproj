@@ -20,6 +20,16 @@
 		78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */; };
 		78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB723A31DE7003E4F41 /* Adonay.ttf */; };
 		78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */; };
+		7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B18E03023D259B4008B230D /* introGuilty1.wav */; };
+		7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */; };
+		7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */; };
+		7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */; };
+		7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */; };
+		7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */; };
+		7B6F9F6D23CA4FA4000D4775 /* TurnOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */; };
+		7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */; };
+		7B6F9F7123CA4FDB000D4775 /* ControlOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */; };
+		7B6F9F7323CA71DF000D4775 /* AllUserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F7223CA71DF000D4775 /* AllUserOnboardingVC.swift */; };
 		7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */; };
 		7B9B078523A02404001375BB /* SwipeRight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078123A02404001375BB /* SwipeRight.wav */; };
 		7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078223A02404001375BB /* SwipeLeft.wav */; };
@@ -84,6 +94,16 @@
 		78F4CBB4239FCB33003E4F41 /* ProductsDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsDLC.swift; sourceTree = "<group>"; };
 		78F4CBB723A31DE7003E4F41 /* Adonay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Adonay.ttf; sourceTree = "<group>"; };
 		78F4CBB923A3239E003E4F41 /* myriad-pro-8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "myriad-pro-8.otf"; sourceTree = "<group>"; };
+		7B18E03023D259B4008B230D /* introGuilty1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = introGuilty1.wav; sourceTree = "<group>"; };
+		7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserOnboardingScreen.storyboard; sourceTree = "<group>"; };
+		7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingVC.swift; sourceTree = "<group>"; };
+		7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudgeOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DefendantOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TurnOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ControlOnboarding.storyboard; sourceTree = "<group>"; };
+		7B6F9F7223CA71DF000D4775 /* AllUserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserOnboardingVC.swift; sourceTree = "<group>"; };
 		7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GuiltyProjectSong.wav; sourceTree = "<group>"; };
 		7B9B078123A02404001375BB /* SwipeRight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeRight.wav; sourceTree = "<group>"; };
 		7B9B078223A02404001375BB /* SwipeLeft.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeLeft.wav; sourceTree = "<group>"; };
@@ -226,6 +246,8 @@
 			children = (
 				781C58D4238DC74C00957CCE /* MenuViewController.swift */,
 				AC66755F239A924200DC5D65 /* LaunchViewController.swift */,
+				7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */,
+				7B6F9F7223CA71DF000D4775 /* AllUserOnboardingVC.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -272,6 +294,7 @@
 			children = (
 				78F4CBB623A31DA1003E4F41 /* Fonts */,
 				7BCF5BFD23A2B1DE00955590 /* GameSong.wav */,
+				7B18E03023D259B4008B230D /* introGuilty1.wav */,
 				7BCF5BFE23A2B1DE00955590 /* TutorialSong.wav */,
 				7B9B078923A02EB8001375BB /* DiceRoll.wav */,
 				7B9B078323A02404001375BB /* ChooseOption.wav */,
@@ -336,6 +359,13 @@
 				ACF5937123998682001C1B94 /* Report.storyboard */,
 				78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */,
 				AC667561239A933A00DC5D65 /* Launch.storyboard */,
+				7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */,
+				7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */,
+				7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */,
+				7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */,
+				7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */,
+				7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */,
+				7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -436,14 +466,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B6F9F6D23CA4FA4000D4775 /* TurnOnboarding.storyboard in Resources */,
 				7B9B078523A02404001375BB /* SwipeRight.wav in Resources */,
 				78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
 				7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */,
+				7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
+				7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */,
 				ACF5936F23998682001C1B94 /* Report.storyboard in Resources */,
+				7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */,
 				7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */,
 				7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */,
 				7B9B078823A02404001375BB /* PassOption.wav in Resources */,
@@ -453,10 +487,14 @@
 				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
 				78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
+				7B6F9F7123CA4FDB000D4775 /* ControlOnboarding.storyboard in Resources */,
 				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
 				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
+				7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
+				7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */,
+				7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */,
 				7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */,
 				AC66756C239ACAD500DC5D65 /* darksouls2.mp4 in Resources */,
 			);
@@ -477,6 +515,7 @@
 				ACBB919823918C180060FF8B /* TurnScene.swift in Sources */,
 				ACBB9187239042AF0060FF8B /* Deck.m in Sources */,
 				95F8C901239039CE00E8ACAB /* Music.m in Sources */,
+				7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */,
 				ACBB918323903A6E0060FF8B /* Hammer.m in Sources */,
 				7BCF5C0423A2C39B00955590 /* StatisticsInfo.swift in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
@@ -491,7 +530,6 @@
 				78F4CBB5239FCB33003E4F41 /* ProductsDLC.swift in Sources */,
 				ACF93CA0238DABDA00876A0B /* Judge.m in Sources */,
 				78F4CBAE239ACE36003E4F41 /* StoreTableViewCell.swift in Sources */,
-				7BCF5C0223A2BF0600955590 /* TableViewCell.swift in Sources */,
 				ACF93CA9238EB07000876A0B /* Skin.m in Sources */,
 				ACF93CB7238EE86F00876A0B /* allEventsSigned.swift in Sources */,
 				95F8C8FE238F159900E8ACAB /* Movement.m in Sources */,
@@ -503,6 +541,7 @@
 				ACBB919623918C180060FF8B /* GameScene.swift in Sources */,
 				ACBB918423903A6E0060FF8B /* SiriRemote.m in Sources */,
 				95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */,
+				7B6F9F7323CA71DF000D4775 /* AllUserOnboardingVC.swift in Sources */,
 				ACF59359239976C5001C1B94 /* UserDefault.swift in Sources */,
 				ACF93C6D238C472600876A0B /* AppDelegate.swift in Sources */,
 				7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */,

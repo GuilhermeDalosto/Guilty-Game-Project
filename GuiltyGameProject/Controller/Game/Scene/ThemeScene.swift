@@ -23,6 +23,8 @@ class ThemeScene: SKScene{
     
     var backgroundImage = SKSpriteNode()
     
+    var actionTitle = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    
     override init(size: CGSize){
         super.init(size: size)
         // chamar a funcao aleatoria para retornar os temas aleatorios
@@ -37,10 +39,10 @@ class ThemeScene: SKScene{
         actionTheme.fontSize = 50
         actionTheme.position = CGPoint(x: size.width * 0.75, y: size.height/2)
         
-        titleLabel.text = words.randomElement()
+        titleLabel.text = "Local"
         titleLabel.color = .blue
         titleLabel.fontSize = 70
-        titleLabel.position = CGPoint(x: size.width/2, y: size.height * 0.85)
+        titleLabel.position = CGPoint(x: size.width * 0.25, y: size.height * 0.75)
         print("passou aq")
         
         backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
@@ -48,10 +50,17 @@ class ThemeScene: SKScene{
         backgroundImage.zPosition = -1
         backgroundImage.size = size
         
+        
+        actionTitle.text = "Ação"
+        actionTitle.color = .white
+        actionTitle.fontSize = 70
+        actionTitle.position = CGPoint(x: size.width * 0.75, y: size.height * 0.75)
+        
         addChild(localTheme)
         addChild(actionTheme)
         addChild(titleLabel)
         addChild(backgroundImage)
+        addChild(actionTitle)
     }
     
     required init?(coder aDecoder: NSCoder) {
