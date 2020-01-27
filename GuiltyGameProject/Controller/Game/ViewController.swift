@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol StatisticsProtocol: NSObject{
-    var playersInfo: [StatisticsInfo] { get set }
-}
+//protocol StatisticsProtocol: NSObject{
+//    var playersInfo: [StatisticsInfo] { get set }
+//}
 
 class ViewController: UIViewController  {
     
