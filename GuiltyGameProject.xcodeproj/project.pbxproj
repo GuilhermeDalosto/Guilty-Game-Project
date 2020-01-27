@@ -42,6 +42,7 @@
 		7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
+		9580FEA723DF72B000284E7A /* QuitGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580FEA623DF72B000284E7A /* QuitGameScene.swift */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
 		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
@@ -116,6 +117,7 @@
 		7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
+		9580FEA623DF72B000284E7A /* QuitGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitGameScene.swift; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		95F8C8FC238F159900E8ACAB /* Movement.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movement.h; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				ACBB919323918C180060FF8B /* ThemeScene.swift */,
 				ACBB919423918C180060FF8B /* TurnScene.swift */,
 				95F8C902239978DD00E8ACAB /* PauseScene.swift */,
+				9580FEA623DF72B000284E7A /* QuitGameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				ACBB9187239042AF0060FF8B /* Deck.m in Sources */,
 				95F8C901239039CE00E8ACAB /* Music.m in Sources */,
 				7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */,
+				9580FEA723DF72B000284E7A /* QuitGameScene.swift in Sources */,
 				ACBB918323903A6E0060FF8B /* Hammer.m in Sources */,
 				7BCF5C0423A2C39B00955590 /* StatisticsInfo.swift in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,

@@ -120,7 +120,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var randomWord = ""
     
     override func viewDidLoad() {
-        pauseView.sendSubviewToBack(gameView)
+//        gameView.addSubview(pauseView)
+//        pauseView.sendSubviewToBack(gameView)
         pauseView.alpha = 0.0
         super.viewDidLoad()
 //        pauseView.
@@ -303,8 +304,6 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      */
     @objc func PlayPause(){
         print("pause")
-        pauseView.alpha = 0.0
-        pauseView.sendSubviewToBack(pauseView)
     }
     
     /**
@@ -317,12 +316,29 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         //Se não estiver no menu
         if pauseScene == nil{
             pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
+            gameScene?.endTimer()
+            gameScene?.isPaused = true
+            pauseView.alpha = 1.0
+            pauseView.presentScene(pauseScene)
+            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+            quitGameView.backgroundColor = .systemPink
+            pauseView.addSubview(quitGameView)
+            
+        }else{
+            //O que fazer quando ele apertar no botão
+            pauseScene = nil
+            gameScene?.startTimer()
+            gameScene?.isPaused = false
+            pauseView.alpha = 0.0
         }
-        gameScene?.endTimer()
-        gameScene?.isPaused = true
-        pauseView.alpha = 1.0
-        gameView.sendSubviewToBack(pauseView)
-        pauseView.presentScene(pauseScene)
+        /*
+         else{
+            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+            quitGameView.backgroundColor = .systemPink
+            pauseView.addSubview(quitGameView)
+         qui
+         }
+         */
     }
     
     /**
