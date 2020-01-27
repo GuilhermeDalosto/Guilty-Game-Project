@@ -271,10 +271,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         for element in  events.events{
             allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
         }
-        //if english
-//        for element in events.eventsEnglish{
-//            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
-//        }
+       
     }
     
     /**
