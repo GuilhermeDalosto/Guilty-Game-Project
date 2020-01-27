@@ -29,22 +29,22 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-wG-foO">
-                                <rect key="frame" x="252" y="482" width="347" height="116"/>
+                                <rect key="frame" x="212" y="462" width="427" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="38"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" backgroundImage="play"/>
+                                <state key="normal" image="play"/>
                                 <connections>
                                     <action selector="PressStart:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="EgU-08-zFO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-Tu-R3N">
-                                <rect key="frame" x="253" y="663" width="347" height="116"/>
+                                <rect key="frame" x="214" y="644" width="427" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" backgroundImage="settings"/>
+                                <state key="normal" image="settings"/>
                                 <connections>
                                     <action selector="PressSettings:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="lff-Gn-mgn"/>
                                 </connections>
@@ -110,7 +110,7 @@
     <resources>
         <image name="play" width="347" height="116"/>
         <image name="settings" width="347" height="115"/>
-        <image name="shop" width="220" height="81"/>
+        <image name="shop" width="244" height="81"/>
         <image name="telaMenu_Prancheta 1" width="8000" height="4500"/>
     </resources>
 </document>
