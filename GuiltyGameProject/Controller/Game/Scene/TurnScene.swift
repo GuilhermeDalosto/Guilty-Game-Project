@@ -20,6 +20,9 @@ class TurnScene: SKScene{
     var wordLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     var eventLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
+    var titleEvent = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var titleWord = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    
     /// Aux for display text
     var wordDisplay = ""
     var eventDisplay = ""
@@ -77,18 +80,29 @@ class TurnScene: SKScene{
         
         baloonEvent.size = CGSize(width: 420, height: 280)
         
+        
+        titleEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2)
+        titleEvent.fontColor = .black
+        titleEvent.text = "Evento"
+        titleEvent.fontSize = 60
+        
+        titleWord.text = "Palavra"
+        titleWord.fontColor = .black
+        titleWord.fontSize = 60
+        
+        
         if ((eventLabel.text! as NSString).length) > 14 && ((eventLabel.text! as NSString).length) < 30{
             if ((eventLabel.text! as NSString).length) < 25 {
                 eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
             } else{
-                  eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
+                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
             }
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
             eventLabel.preferredMaxLayoutWidth = 275
             eventLabel.fontSize = 50
         } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
-            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
+            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
             eventLabel.preferredMaxLayoutWidth = 300
@@ -108,7 +122,10 @@ class TurnScene: SKScene{
         backgroundImage?.size = size
         
         if eventDisplay.isEmpty{
-            wordLabel.fontSize = 65
+            
+            titleWord.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.63)
+            
+            wordLabel.fontSize = 50
             wordLabel.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
             
             npcAngel.position = CGPoint(x: size.width/2 * 1.82, y: size.height/3.7)
@@ -134,7 +151,11 @@ class TurnScene: SKScene{
             baloonEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
             baloonEvent.zPosition = 0
            
-
+            titleWord.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.5)
+            titleWord.fontSize = 50
+            
+            titleEvent.fontSize = 55
+            
             wordLabel.fontSize = 50
             wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
 
@@ -146,7 +167,7 @@ class TurnScene: SKScene{
             addChild(npcDevil)
             addChild(baloonEvent)
             addChild(baloonWord)
-            
+//            addChild(titleEvent)
         }
         
         
@@ -155,6 +176,7 @@ class TurnScene: SKScene{
         addChild(titleLabel)
         addChild(wordLabel)
         addChild(eventLabel)
+//        addChild(titleWord)
         
     }
 }

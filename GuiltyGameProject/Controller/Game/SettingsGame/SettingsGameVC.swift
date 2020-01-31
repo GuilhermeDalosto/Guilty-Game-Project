@@ -101,6 +101,7 @@ class SettingsGameViewController: UIViewController {
         letPressed()
         labelError.isHidden = true
         nextButton.isEnabled = true
+        backgroundImage.image = UIImage(named: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {

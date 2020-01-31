@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
     var languageOption = true
     var languageOptionStr = "EN"
     let music = AVAudioPlayer()
-    
+    var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
     
     @IBOutlet weak var homeButton: UIButton!
@@ -233,6 +233,7 @@ class SettingsViewController: UIViewController {
                 musicOptionStr = "On"
                 musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
                 music.play()
+                
             }else{
                 musicOptionStr = "Off"
                 musicButton.setImage(UIImage(named: "musicOff"), for: .normal)

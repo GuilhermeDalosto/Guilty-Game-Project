@@ -12,6 +12,8 @@
 		781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D8238E023C00957CCE /* SettingsGameVC.swift */; };
 		781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */; };
 		781C58E1238E1A3900957CCE /* CustomizeJudgeCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */; };
+		7898E44523DA24840046D21F /* Shadows.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7898E44323DA24840046D21F /* Shadows.sks */; };
+		7898E44623DA24840046D21F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7898E44423DA24840046D21F /* Assets.xcassets */; };
 		78F4CBA52399A53F003E4F41 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F4CBA42399A53F003E4F41 /* StoreKit.framework */; };
 		78F4CBA72399A8B3003E4F41 /* StoreDLC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBA62399A8B3003E4F41 /* StoreDLC.swift */; };
 		78F4CBAC239ACDE3003E4F41 /* ConfigurationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F4CBAB239ACDE3003E4F41 /* ConfigurationStore.swift */; };
@@ -92,6 +94,8 @@
 		781C58D8238E023C00957CCE /* SettingsGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameVC.swift; sourceTree = "<group>"; };
 		781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeVC.swift; sourceTree = "<group>"; };
 		781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeCV.swift; sourceTree = "<group>"; };
+		7898E44323DA24840046D21F /* Shadows.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Shadows.sks; sourceTree = "<group>"; };
+		7898E44423DA24840046D21F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78F4CBA42399A53F003E4F41 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		78F4CBA62399A8B3003E4F41 /* StoreDLC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDLC.swift; sourceTree = "<group>"; };
 		78F4CBAB239ACDE3003E4F41 /* ConfigurationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationStore.swift; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 				95F8C900239039CE00E8ACAB /* Music.m */,
 				7BCF5C0323A2C39B00955590 /* StatisticsInfo.swift */,
 				7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */,
+				7898E44323DA24840046D21F /* Shadows.sks */,
+				7898E44423DA24840046D21F /* Assets.xcassets */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				7B6F9F6D23CA4FA4000D4775 /* TurnOnboarding.storyboard in Resources */,
 				7B9B078523A02404001375BB /* SwipeRight.wav in Resources */,
 				78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */,
+				7898E44523DA24840046D21F /* Shadows.sks in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
@@ -504,6 +511,7 @@
 				7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */,
 				ACF5936F23998682001C1B94 /* Report3.storyboard in Resources */,
 				7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */,
+				7898E44623DA24840046D21F /* Assets.xcassets in Resources */,
 				7BCF5C0023A2B1DE00955590 /* TutorialSong.wav in Resources */,
 				7B9B078A23A02EB8001375BB /* DiceRoll.wav in Resources */,
 				7B18E03523DF6086008B230D /* Report7.storyboard in Resources */,

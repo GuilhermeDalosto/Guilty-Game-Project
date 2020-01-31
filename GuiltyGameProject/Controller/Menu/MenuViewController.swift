@@ -45,6 +45,11 @@ class MenuViewController: UIViewController {
 
     }
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
+//    }
+//    
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
