@@ -59,13 +59,13 @@ class TurnScene: SKScene{
      Add elements (player's pin and title label) to the scene
      */
     func setupScene(player: Person){
-        
+        print(player.color)
         playerTimeSprite = SKSpriteNode(imageNamed: "\(player.color)Turn")
         playerTimeSprite?.position = CGPoint(x: size.width/2 * 0.55, y: size.height * 0.4)
         playerTimeSprite?.size = CGSize(width: 250, height: 475)
         
         titleLabel.text = String(format: NSLocalizedString("turnComment", comment: ""), player.color)
-        titleLabel.text = "It's \(player.color)'s turn"
+        
         titleLabel.fontSize = 75
         titleLabel.fontColor = .white
         titleLabel.position = CGPoint(x: size.width/2 * 0.55, y: size.height/12)
