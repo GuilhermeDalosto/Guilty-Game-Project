@@ -16,6 +16,7 @@
 "difficultText" = "Dificuldade";
 "peopleText" = "Nº de jogadores";
 "themeText" = "Tema";
+
 "homeText" = "Menu";
 "normalText" = "Normal";
 "hardText" = "Díficil";
@@ -25,7 +26,17 @@
 "freeText" = "Livre";
 "randomText" = "Aleatório";
 "nextText" = "Próximo";
+"timeOver" = "O tempo acabou!";
 
 "backText" = "Voltar";
 "startText" = "Começar";
 "errorSelect" = "Alguma(as) das opções não foi(ram) selecionada(s). Selecione alguma das opções!";
+
+"turnComment" = "É a vez do %@";
+
+"yellow" = "Amarelo";
+"blue" = "Azul";
+"orange" = "Laranja";
+"black" = "Preto";
+"pink" = "Rosa";
+"green" = "Verde";

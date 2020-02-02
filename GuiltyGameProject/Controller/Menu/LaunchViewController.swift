@@ -10,21 +10,23 @@ import UIKit
 
 class LaunchViewController: UIViewController {
     
-    @IBOutlet weak var fromSoftware: UIImageView!
+    @IBOutlet weak var frontImage: UIImageView!
+    @IBOutlet weak var backgroundImage: UIImageView!
     let music = Sound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fromSoftware.alpha = 0
-        music.play("darksouls2", type: ".mp4")
+        self.backgroundImage.layer.zPosition = -1
+        self.frontImage.alpha = 0
+        music.play("introGuilty1", type: ".wav",repeat: 0)
         
         
         
-        UIView.animate(withDuration: 1) {
-            self.fromSoftware.alpha = 1
+        UIView.animate(withDuration: 1.7) {
+            self.frontImage.alpha = 1
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
             self.performSegue(withIdentifier: "segueMain", sender: self)
         }
             

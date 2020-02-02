@@ -21,6 +21,7 @@ class GameScene: SKScene{
     var firstSelectedEvent : Int?
     var secondSelectedEvent : Int?
     /// Background Sprite at Game Scene
+    let backgroundLayerSprite = SKSpriteNode(imageNamed: "fundoTribunal")
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
     /// Pins Sprites at Game Scene
     var pinsSprite = [SKSpriteNode]()
@@ -32,13 +33,22 @@ class GameScene: SKScene{
     var pinsNPCSprite = [SKSpriteNode]()
     
     /// Word Label at Game Scene
-    var wordLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var wordLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Timer Label at Game Scene
-    var timerLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var timerLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Round Label at Game Scene
-    var roundLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var roundLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     /// Event Label at Game Scene
-    var eventLabel = SKLabelNode(fontNamed: "Chalkduster")
+    var eventLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    
+    var timeOver = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    
+    var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
+    var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
+    var balaoJuiz = SKSpriteNode(imageNamed: "balaoAnjo")
+    
+    var balaoComentario = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var balaoComentario2 = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     /// Array of Images to Sprites
     var imagesSprite: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
@@ -58,9 +68,14 @@ class GameScene: SKScene{
     /// Number of Rounds
     static var round: Int = 0
     
+    ///Emitter
+    var emitter = SKEmitterNode(fileNamed: "Shadows")
+    
     /**
      Init Scene if there is not a event to the current player
     */
+    
+    var sound = Sound()
 
     init(size: CGSize, word: String, team1: Team, team2: Team, judge: Judge, players: [Person]) {
 
@@ -98,11 +113,12 @@ class GameScene: SKScene{
         
         // setups
         addTurn(numberOfPlayers: numberOfPlayers)
-        setupLifes(team: team)
+        
         
         setupLabel(word: word, event: event)
 
         setupSprites(numberOfPlayers: numberOfPlayers, judge: judge, players: players)
+        setupLifes(team: team)
         startTimer()
     }
         
@@ -136,13 +152,14 @@ class GameScene: SKScene{
         wordLabel.text = word
         wordLabel.fontSize = 40
         wordLabel.fontColor = .white
-        wordLabel.position = CGPoint(x: size.width/2, y: size.height/1.65)
+        wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.9))
+        
         
         // set timer label
         timerLabel.text = "\(time)"
         timerLabel.fontSize = 100
-        timerLabel.fontColor = .white
-        timerLabel.position = CGPoint(x: size.width/1.15, y: size.height/1.25)
+        timerLabel.fontColor = .systemYellow
+        timerLabel.position = CGPoint(x: size.width/2, y: size.height/1.75)
         
         // set round label
         roundLabel.text = "\(GameScene.round)"
@@ -153,31 +170,92 @@ class GameScene: SKScene{
         // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
-            eventLabel.fontSize = 50
+            eventLabel.fontSize = 35
             eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
+            eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.83))
+            eventLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+            
+//            eventLabel.verticalAlignmentMode = .baseline
+            
+            if ((eventLabel.text! as NSString).length) >= 30 &&  ((eventLabel.text! as NSString).length) < 40{
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.8))
+                eventLabel.numberOfLines = 0
+                eventLabel.lineBreakMode = .byCharWrapping
+                eventLabel.preferredMaxLayoutWidth = 500
+                
+            } else if ((eventLabel.text! as NSString).length) >= 40 {
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.76))
+                eventLabel.numberOfLines = 0
+                eventLabel.lineBreakMode = .byCharWrapping
+                eventLabel.preferredMaxLayoutWidth = 500
+            }
             addChild(eventLabel)
         }
         
         // add label to the scene
         addChild(wordLabel)
         addChild(timerLabel)
-        addChild(roundLabel)
+     //   addChild(roundLabel)
     }
     
     /**
      Setup sprites of background, pins in game and npc pins in Nodes
      */
+    
+    var playersqtd = 0    
     func setupSprites(numberOfPlayers: Int, judge: Judge, players: [Person]){
         // Background Sprite
+        playersqtd = numberOfPlayers
         backgroundSprite.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundSprite.size = size
         backgroundSprite.alpha = 1
         backgroundSprite.zPosition = -1.0
         
+        backgroundLayerSprite.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundLayerSprite.size = size
+        backgroundLayerSprite.alpha = 1
+        backgroundLayerSprite.zPosition = -2.0
+        
+        balaoAnjo.position = CGPoint(x: size.width * 0.80, y: size.height*0.62)
+        balaoCapeta.position = CGPoint(x: size.width * 0.21, y: size.height*0.64)
+        
+        timeOver.setScale(0.6)
+        balaoJuiz.setScale(1.5)
+        
+        balaoComentario.position = balaoAnjo.position
+        balaoComentario.fontColor = .black
+        balaoComentario.fontSize -= 10
+        balaoComentario.zPosition += 1
+        balaoComentario.text = "Perdeu mano"
+        
+        balaoComentario2.position = balaoCapeta.position
+        balaoComentario2.fontColor = .white
+        balaoComentario2.fontSize -= 10
+        balaoComentario2.zPosition += 1
+        balaoComentario2.text = "Perdeu vidinha"
+        
+
+        
+        timeOver.fontSize = 50
+        timeOver.fontColor = .red
+        timeOver.text = NSLocalizedString("timeOver", comment: "")
+        timeOver.position = CGPoint(x: size.width*0.63, y: size.height*0.8)
+        timeOver.position.y += 50
+        
+        balaoJuiz.position = timeOver.position
+            
+        balaoAnjo.alpha = 0
+        balaoCapeta.alpha = 0
+        balaoComentario.alpha = 0
+        balaoComentario2.alpha = 0
+        balaoJuiz.alpha = 0
+        timeOver.alpha = 0
         
         // Judge Sprite
-        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.75)
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.77)
+        judgeSprite.zPosition -= 1
+        
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
@@ -189,22 +267,25 @@ class GameScene: SKScene{
         // set player position in base of how many players have
         switch numberOfPlayers {
         case 2:
-            pinsSprite[0].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width*0.75, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            emitter?.position = CGPoint(x: size.width*0.385, y: size.height/5)
             break
         case 4:
-            pinsSprite[0].position = CGPoint(x: size.width/8, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width*0.75, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width*0.875, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
+            emitter?.position = CGPoint(x: size.width*0.31, y: size.height/5)
             break
         default:
-            pinsSprite[0].position = CGPoint(x: size.width/16, y: size.height/4)
-            pinsSprite[1].position = CGPoint(x: size.width/8, y: size.height/4)
-            pinsSprite[2].position = CGPoint(x: size.width/4, y: size.height/4)
-            pinsSprite[3].position = CGPoint(x: size.width*0.75, y: size.height/4)
-            pinsSprite[4].position = CGPoint(x: size.width*0.875, y: size.height/4)
-            pinsSprite[5].position = CGPoint(x: size.width*0.925, y: size.height/4)
+            pinsSprite[0].position = CGPoint(x: size.width*0.235, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            pinsSprite[4].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
+            pinsSprite[5].position = CGPoint(x: size.width*0.77, y: size.height/3.6)
+            emitter?.position = CGPoint(x: size.width*0.235, y: size.height/5)
         }
         
         // NPC Pin Sprite
@@ -215,12 +296,21 @@ class GameScene: SKScene{
         // set NPC Pin position
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
+        emitter?.zPosition = pinsSprite[0].zPosition - 1
         
   
-        
         // add Child
+        addChild(balaoComentario)
+        addChild(balaoComentario2)
         addChild(judgeSprite)
         addChild(backgroundSprite)
+        addChild(backgroundLayerSprite)
+        addChild(balaoAnjo)
+        addChild(balaoCapeta)
+        addChild(balaoJuiz)
+        addChild(timeOver)
+        addChild(emitter!)
+
         for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
@@ -228,12 +318,83 @@ class GameScene: SKScene{
          //   addChild(pinsNPCSprite[i])
         }
     }
+    var positionTeamA = CGPoint()
+    var positionTeamB = CGPoint()
+    
+    
     
     func movePlayer(playerNumber : Int){
+        if playersqtd == 2{
+            if playerNumber < 1{
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+            } else{
+                emitter?.position = CGPoint(x: size.width*0.61, y: size.height/5)
+                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+            }
+        }
+            
+        else if playersqtd == 4{
+            switch playerNumber{
+            case 0:
+                
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                
+            case 1:
+                emitter?.position = CGPoint(x: size.width*0.385, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                
+            case 2:
+                emitter?.position = CGPoint(x: size.width*0.61, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+            default:
+                emitter?.position = CGPoint(x: size.width*0.69, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+            }
+        } else {
+                switch playerNumber{
+                case 0:
+                    
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 1.6)]))
+                    emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 1.6)]))
+                case 1:
+                     emitter?.position = CGPoint(x: size.width*0.31, y: size.height/5)
+                     pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                     emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                case 2:
+                    emitter?.position = CGPoint(x: size.width*0.385, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                    emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                case 3:
+                    emitter?.position = CGPoint(x: size.width*0.61, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                    emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+                case 4:
+                    emitter?.position = CGPoint(x: size.width*0.69, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                    emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+                default:
+                    emitter?.position = CGPoint(x: size.width*0.77, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 1.6)]))
+                    emitter?.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 1.6)]))
+                }
+            
+            
+        }
         
-        print(playerNumber)
-        actions.movePOINT(pinsSprite[playerNumber], point: CGPoint(x: size.width/2, y: size.height/2), interval: 2)
+        let balancar = SKAction.sequence([SKAction.rotate(byAngle: 0.3, duration: 0.125),SKAction.rotate(byAngle: -0.6, duration: 0.25),SKAction.rotate(byAngle: 0.3, duration: 0.125)])
+        
+        pinsSprite[playerNumber].run(SKAction.repeat(balancar, count: 4))
+        
     }
+    
+    var flag = UserDefaults.standard.bool(forKey: "flag")
+    var flag2 = UserDefaults.standard.bool(forKey: "flag2")
     
     /**
      Setup lifes sprites by team number of lifes in Nodes
@@ -256,12 +417,23 @@ class GameScene: SKScene{
                 lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart3"))
             }
         }
-        print(team[0].lifes)
-        print(team[1].lifes)
+        
+        if team[0].lifes == 2 && flag{
+            balaoComentario.alpha = 1
+            balaoAnjo.alpha = 1
+            UserDefaults.standard.set(false, forKey: "flag")
+        }
+        
+        if team[1].lifes == 1 && flag2{
+            balaoComentario2.alpha = 1
+            balaoCapeta.alpha = 1
+            UserDefaults.standard.set(false, forKey: "flag2")
+        }
+        
         
         // set life position of each team
-        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.25), y: size.height * CGFloat(0.75))
-        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.75), y: size.height * CGFloat(0.75))
+        lifeTeamSprite[0].position = CGPoint(x: size.width * CGFloat(0.415), y: size.height * CGFloat(0.71))
+        lifeTeamSprite[1].position = CGPoint(x: size.width * CGFloat(0.585), y: size.height * CGFloat(0.71))
         
         // add to the scene
         
@@ -274,12 +446,6 @@ class GameScene: SKScene{
     func sendSortedEvent(_ first: Int, _ second: Int){
         firstSelectedEvent = first
         secondSelectedEvent = second
-        
-        if firstSelectedEvent != 9 && secondSelectedEvent != 9{
-            pinsSprite[first - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
-            pinsSprite[second - 1].run(SKAction.repeatForever(SKAction.sequence([SKAction.fadeIn(withDuration: 0.3),SKAction.fadeOut(withDuration: 0.3)])))
-          }
-          
     }
     
     
@@ -300,6 +466,8 @@ class GameScene: SKScene{
             self.timerLabel.text = "\(self.time)"
         }
         if time <= 0{
+            timeOver.alpha = 1
+            balaoJuiz.alpha = 1
             delegateSend?.timeIsOver()
             timer?.invalidate()
         }
@@ -308,11 +476,12 @@ class GameScene: SKScene{
     
     func endTimer(){
         // start timer
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerStop), userInfo: nil, repeats: false)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerStop), userInfo: nil, repeats: true)
     }
     
     /**
-     Function to decrease time to the label timer
+     Function to stop time to the label timer
      */
     @objc func timerStop(){
         time -= 0
@@ -321,5 +490,4 @@ class GameScene: SKScene{
         }
     }
     
-   
 }

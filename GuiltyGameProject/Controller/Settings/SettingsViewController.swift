@@ -8,20 +8,46 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class SettingsViewController: UIViewController {
     
+    let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    var olhandoCima = UIImage(named: "telaMusica")
+    var olhandoBaixo = UIImage(named: "telaIdioma")
+    
+    var homeDes = UIImage(named: "homeConfSelecionado")
+    var menuDes = UIImage(named: "menuConfSelecionado")
+    
+    
+    var musicaOffDes = UIImage(named: "musicaOffSelecionado")
+    var musicaOnDes = UIImage(named: "musicaOnSelecionado")
+    
+    var musicOffDes = UIImage(named: "musicOffSelecionado")
+    var musicOnDes = UIImage(named: "musicOnSelecionado")
+    
+    
+    var homeSel = UIImage(named: "homeConf")
+    var menuSel = UIImage(named: "menuConf")
+    
+    var musicaOnSel = UIImage(named: "musicaOn")
+    var musicaOffSel = UIImage(named: "musicaOff")
+    
+    var musicOnSel = UIImage(named: "musicOn")
+    var musicOffSel = UIImage(named: "musicOff")
+    
+    
     var focusedGuideUp = UIFocusGuide()
     var focusedGuideLeft = UIFocusGuide()
-    var focusedGuideLeftDown = UIFocusGuide()
-    
+    var focusedGuideLeftDown = UIFocusGuide()    
     
     var musicOption = true
     var musicOptionStr = "On"
-    
+    var language = ""
     var languageOption = true
     var languageOptionStr = "EN"
-    
+    let music = AVAudioPlayer()
+    var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
     
     @IBOutlet weak var homeButton: UIButton!
@@ -29,16 +55,15 @@ class SettingsViewController: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        backgroundImage.image = UIImage(named: "RubberMat")
+        backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
         setLayoutGuide()
         
         musicOption = UserDefaults.standard.bool(forKey: "musicOption")
         languageOption = UserDefaults.standard.bool(forKey: "languageOption")
-        
-        if musicOption{
-            musicOptionStr = "On"
-        }else{
-            musicOptionStr = "Off"
-        }
         
         if languageOption{
             languageOptionStr = "EN"
@@ -46,10 +71,16 @@ class SettingsViewController: UIViewController {
         else{
             languageOptionStr = "BR"
         }
-        self.homeButton.setTitle("\(NSLocalizedString("homeText", comment: ""))", for: .normal)
-        self.languageButton.setTitle("\(NSLocalizedString("languageText",comment: ""))                \(languageOptionStr)", for: .normal)
-        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment: ""))                \(musicOptionStr)", for: .normal)
+        
+        if NSLocalizedString("homeText", comment: "") == "Home"{
+            language = "EN"
+        } else{
+            language = "PT"
+        }
+        
     }
+    
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(musicOption, forKey: "musicOption")
@@ -61,24 +92,76 @@ class SettingsViewController: UIViewController {
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
+        guard let focus = context.nextFocusedView else {return}
+        
+        switch focus{
+        case self.musicButton:
+            self.backgroundImage.image = olhandoBaixo
+            if language == "PT"{
+                
+                self.homeButton.setImage(menuDes, for: .normal)
+                if musicOption{
+                    self.musicButton.setImage(musicaOnSel, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicaOffSel, for: .normal)
+                
+            }
+            }
+            else{
+                
+                self.homeButton.setImage(homeDes, for: .normal)
+                    if musicOption{
+                         self.musicButton.setImage(musicOnSel, for: .normal)
+                    } else{
+                         self.musicButton.setImage(musicOffSel, for: .normal)
+                                        
+                }
+                
+            }
+        default:
+            self.backgroundImage.image = olhandoCima
+            if language == "PT"{
+                self.homeButton.setImage(menuSel, for: .normal)
+                if musicOption{
+                    self.musicButton.setImage(musicaOnDes, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicaOffDes, for: .normal)
+                }
+            } else{
+                self.homeButton.setImage(homeSel, for: .normal)
+                if musicOption{
+                     self.musicButton.setImage(musicOnDes, for: .normal)
+                } else{
+                     self.musicButton.setImage(musicOffDes, for: .normal)
+                }
+            }
+        }
+            
+            
+            if  focus != self.musicButton{
+                if language == "PT"{
+                    
+                } else{
+                    
+                }
+            }
+            
+            if focus != self.homeButton{
+                if language == "PT"{
+                    
+                } else{
+                    
+                }
+            
+        }
         
         switch focusedGuideUp{
         case self.musicButton:            
             self.focusedGuideUp.preferredFocusedView = self.homeButton
-            self.musicButton.backgroundColor = .brown
-            self.languageButton.backgroundColor = .clear
-            self.homeButton.backgroundColor = .clear
             
         case self.homeButton:
             self.focusedGuideUp.preferredFocusedView = self.musicButton
-            self.musicButton.backgroundColor = .clear
-                       self.languageButton.backgroundColor = .clear
-                self.homeButton.backgroundColor = .brown
             
-        case self.languageButton:
-            self.musicButton.backgroundColor = .clear
-                          self.languageButton.backgroundColor = .brown
-                   self.homeButton.backgroundColor = .clear
         default:
             self.focusedGuideUp.preferredFocusedView = nil
         }
@@ -126,10 +209,10 @@ class SettingsViewController: UIViewController {
         
         self.focusedGuideLeftDown.rightAnchor.constraint(equalTo: self.homeButton.rightAnchor).isActive = true
         self.focusedGuideLeftDown.widthAnchor.constraint(equalTo: self.homeButton.widthAnchor).isActive = true
-              
+        
         self.focusedGuideLeftDown.heightAnchor.constraint(equalTo: self.musicButton.heightAnchor).isActive = true
         self.focusedGuideLeftDown.topAnchor.constraint(equalTo: self.languageButton.topAnchor).isActive = true
-              
+        
         
         
         
@@ -138,21 +221,39 @@ class SettingsViewController: UIViewController {
     
     @IBAction func PressHome(_ sender: Any) {
         performSegue(withIdentifier: "Main", sender: nil)
-    
+        
     }
     
     @IBAction func pressMusicButton(_ sender: Any) {
         
         musicOption.toggle()
         
-        if musicOption{
-            musicOptionStr = "On"
-        }else{
-            musicOptionStr = "Off"
+        if language == "EN"{
+            if musicOption{
+                musicOptionStr = "On"
+                musicButton.setImage(UIImage(named: "musicOn"), for: .normal)
+                music.play()
+                
+            }else{
+                musicOptionStr = "Off"
+                musicButton.setImage(UIImage(named: "musicOff"), for: .normal)
+                music.pause()
+            }
+        } else{
+            if musicOption{
+                musicOptionStr = "On"
+                musicButton.setImage(UIImage(named: "musicaOn"), for: .normal)
+                music.play()
+            }else{
+                musicOptionStr = "Off"
+                musicButton.setImage(UIImage(named: "musicaOff"), for: .normal)
+                music.pause()
+
+            }
         }
         
-        print(musicOption)
-        self.musicButton.setTitle("\(NSLocalizedString("musicText",comment:""))                \(musicOptionStr)", for: .normal)
+
+        
     }
     
     @IBAction func pressLanguageButton(_ sender: Any) {
@@ -160,12 +261,14 @@ class SettingsViewController: UIViewController {
         
         if languageOption{
             languageOptionStr = "EN"
+            languageButton.setImage(UIImage(named: "IdiomaEN"), for: .normal)
         }else{
             languageOptionStr = "BR"
+            languageButton.setImage(UIImage(named: "IdiomaPT"), for: .normal)
         }
         
         self.languageButton.setTitle("\(NSLocalizedString("languageText", comment: ""))                \(languageOptionStr)", for: .normal)
     }
-
+    
     
 }

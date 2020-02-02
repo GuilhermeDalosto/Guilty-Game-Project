@@ -29,4 +29,13 @@
 "backText" = "Back";
 "startText" = "Start";
 "errorSelect" = "Some options wasn't selected.";
+"timeOver" = "Time is over!";
 
+"turnComment" = "It's %@'s turn";
+
+"yellow" = "Yellow";
+"blue" = "Blue";
+"orange" = "Orange";
+"black" = "Black";
+"pink" = "Pink";
+"green" = "Green";

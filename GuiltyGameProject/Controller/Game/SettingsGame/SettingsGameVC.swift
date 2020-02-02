@@ -15,10 +15,63 @@ class SettingsGameViewController: UIViewController {
     private var focusGuideLeft = UIFocusGuide()
     private var focusGuideUp = UIFocusGuide()
     private var focusGuideUpRight = UIFocusGuide()
+    private var focusUnder7 = UIFocusGuide()
+    private var focus = UIFocusGuide()
     
     var selectedDifficulty = 0
     var selectedPeople = 0
     var selectedTheme = 0
+    
+    let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+    
+    var fundoPT = UIImage(named: "fundoPT")
+    var fundoEN = UIImage(named: "fundoEN")
+    
+    var nextDes = UIImage(named: "nextSelecionado")
+    var nextSel = UIImage(named: "nextSel")
+    
+    var proximoDes = UIImage(named: "proximoSelecionado")
+    var proximoSel = UIImage(named: "proximoSel")
+    
+    var homeDes = UIImage(named: "homeConfSelecionado")
+    var menuDes = UIImage(named: "menuConfSelecionado")
+    
+    var homeSel = UIImage(named: "homeSel")
+    var menuSel  = UIImage(named: "menuSel")
+    
+    var normalDes = UIImage(named: "normalSelecionado")
+    var HardDes = UIImage(named: "hardSelecionado")
+    var dificilDes = UIImage(named: "dificilSelecionado")
+    
+    var normalSel = UIImage(named: "normalSel")
+    var hardSel = UIImage(named: "hardSel")
+    var dificilSel = UIImage(named: "dificilSel")
+    
+    
+    var a3Des = UIImage(named: "tresSelecionado")
+    var a5Des = UIImage(named: "cincoSelecionado")
+    var a7Des = UIImage(named: "seteSelecionado")
+    
+    var a3Sel = UIImage(named: "3Sel")
+    var a5Sel = UIImage(named: "5Sel")
+    var a7Sel = UIImage(named: "7Sel")
+    
+    
+    
+    var freeSel = UIImage(named: "freeSel")
+    var livreSel = UIImage(named: "livreSel")
+    var randomSel = UIImage(named: "randomSel")
+    var aleatorioSel = UIImage(named: "aleatorioSel")
+    
+    var freeDes = UIImage(named: "freeSelecionado")
+    var livreDes = UIImage(named: "livreSelecionado")
+    var randomDes = UIImage(named: "randomSelecionado")
+    var aleatorioDes = UIImage(named: "aleatorioSelecionado")
+    
+    
+    
+    
+    
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
@@ -30,9 +83,6 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
-    @IBOutlet weak var difficultLabel: UILabel!
-    @IBOutlet weak var peopleLabel: UILabel!
-    @IBOutlet weak var themeLabel: UILabel!
     
     
     var typeTheme = 0
@@ -44,39 +94,33 @@ class SettingsGameViewController: UIViewController {
     var difficultyDeselected = false
     var themeSelected = false
     var themeDeselected = false
-    
+    var language = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayoutGuide()
         letPressed()
         labelError.isHidden = true
         nextButton.isEnabled = true
+        backgroundImage.image = UIImage(named: "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
         
-        self.difficultLabel.text = NSLocalizedString("difficultText", comment: "")
-        self.peopleLabel.text = NSLocalizedString("peopleText", comment: "")
-        self.themeLabel.text = NSLocalizedString("themeText", comment: "")
-        
+        self.backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         
         
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            language = "EN"
+            self.backgroundImage.image = fundoEN
+        } else{
+            language = "PT"
+            self.backgroundImage.image = fundoPT
+        }
         
-        self.homeButton.setTitle(NSLocalizedString("homeText", comment: ""), for: .normal)
-        self.normalButton.setTitle(NSLocalizedString("normalText", comment: ""), for: .normal)
-        self.difficultButton.setTitle(NSLocalizedString("hardText", comment: ""), for: .normal)
-        
-        self.number3.setTitle(NSLocalizedString("number3", comment: ""), for: .normal)
-        self.number5.setTitle(NSLocalizedString("number5", comment: ""), for: .normal)
-        self.number7.setTitle(NSLocalizedString("number7", comment: ""), for: .normal)
-        
-        self.freeButton.setTitle(NSLocalizedString("freeText", comment: ""), for: .normal)
-        self.randomButton.setTitle(NSLocalizedString("randomText", comment: ""), for: .normal)
-        
-        self.nextButton.setTitle(NSLocalizedString("nextText", comment: ""), for: .normal)
-        
-        
+        self.view.insertSubview(backgroundImage, at: 0)
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(selectedDifficulty, forKey: "difficulty")
         UserDefaults.standard.set(selectedPeople, forKey: "numberOfPlayers")
@@ -87,10 +131,6 @@ class SettingsGameViewController: UIViewController {
         let dif = UserDefaults.standard.integer(forKey: "difficulty")
         let number = UserDefaults.standard.integer(forKey: "numberOfPlayers")
         let theme = UserDefaults.standard.integer(forKey: "theme")
-        
-        print(dif)
-        print(number)
-        print(theme)
         
         switch number{
         case 2:
@@ -120,9 +160,34 @@ class SettingsGameViewController: UIViewController {
         default:
             print()
         }
+        
+        
+        
+    }
     
-        
-        
+    func escureceTodos(){
+        if language == "EN"{
+            self.homeButton.setImage(homeDes, for: .normal)
+            self.normalButton.setImage(normalDes, for: .normal)
+            self.difficultButton.setImage(HardDes, for: .normal)
+            self.number3.setImage(a3Des, for: .normal)
+            self.number5.setImage(a5Des, for: .normal)
+            self.number7.setImage(a7Des, for: .normal)
+            self.freeButton.setImage(freeDes, for: .normal)
+            self.randomButton.setImage(randomDes, for: .normal)
+            self.nextButton.setImage(nextDes, for: .normal)
+        }
+        else{
+            self.homeButton.setImage(menuDes, for: .normal)
+            self.normalButton.setImage(normalDes, for: .normal)
+            self.difficultButton.setImage(dificilDes, for: .normal)
+            self.number3.setImage(a3Des, for: .normal)
+            self.number5.setImage(a5Des, for: .normal)
+            self.number7.setImage(a7Des, for: .normal)
+            self.freeButton.setImage(livreDes, for: .normal)
+            self.randomButton.setImage(aleatorioDes, for: .normal)
+            self.nextButton.setImage(proximoDes, for: .normal)
+        }
     }
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
@@ -130,6 +195,54 @@ class SettingsGameViewController: UIViewController {
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideUpRight = context.nextFocusedView else {return}
+        guard let focused = context.nextFocusedView else {return}
+        guard let focus7 = context.nextFocusedView else {return}
+        
+        escureceTodos()
+        
+        switch focused{
+        case self.normalButton:
+            
+            self.normalButton.setImage(normalSel, for: .normal)
+        case self.difficultButton:
+            if language == "PT"{
+                          self.difficultButton.setImage(dificilSel, for: .normal)
+                       } else{
+                           self.difficultButton.setImage(hardSel, for: .normal)
+                       }
+        case self.number3:
+            self.number3.setImage(a3Sel, for: .normal)
+        case self.number5:
+       self.number5.setImage(a5Sel, for: .normal)
+        case self.number7:
+            self.number7.setImage(a7Sel, for: .normal)
+        case self.freeButton:
+            if language == "PT"{
+                           self.freeButton.setImage(livreSel, for: .normal)
+                       } else{
+                          self.freeButton.setImage(freeSel, for: .normal)
+                       }
+        case self.randomButton:
+            if language == "PT"{
+                           self.randomButton.setImage(aleatorioSel, for: .normal)
+                       } else{
+                           self.randomButton.setImage(randomSel, for: .normal)
+                       }
+        case self.nextButton:
+            if language == "PT"{
+                          self.nextButton.setImage(proximoSel, for: .normal)
+                       } else{
+                           self.nextButton.setImage(nextSel, for: .normal)
+                       }
+        default:
+            if language == "PT"{
+                           self.homeButton.setImage(menuSel, for: .normal)
+                       } else{
+                            self.homeButton.setImage(homeSel, for: .normal)
+                       }
+            
+        }
+        
         
         switch focusedGuideRight{
         case self.randomButton:
@@ -159,8 +272,14 @@ class SettingsGameViewController: UIViewController {
         default:
             self.focusGuideLeft.preferredFocusedView = self.nextButton
             
+                        
+        }
+        switch focus7{
+        case self.number7:
+            self.focusUnder7.preferredFocusedView = self.nextButton
+        default:
+             self.focusUnder7.preferredFocusedView = nil
             
-            print(focusedGuideUp)
         }
         
         switch focusedGuideUpRight {
@@ -180,6 +299,13 @@ class SettingsGameViewController: UIViewController {
         self.view.addLayoutGuide(focusGuideLeft)
         self.view.addLayoutGuide(focusGuideUp)
         self.view.addLayoutGuide(focusGuideUpRight)
+        self.view.addLayoutGuide(focusUnder7)
+        
+        self.focusUnder7.leftAnchor.constraint(equalTo: self.number7.leftAnchor).isActive = true
+        self.focusUnder7.widthAnchor.constraint(equalTo: self.number7.widthAnchor).isActive = true
+         self.focusUnder7.heightAnchor.constraint(equalTo: self.number7.heightAnchor).isActive = true
+        self.focusUnder7.topAnchor.constraint(equalTo: self.nextButton.topAnchor).isActive = true
+        
         
         self.focusGuideRight.leftAnchor.constraint(equalTo: self.randomButton.leftAnchor).isActive = true
         self.focusGuideRight.widthAnchor.constraint(equalTo: self.randomButton.widthAnchor).isActive = true
@@ -210,56 +336,56 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressed3(){
-        self.number3.backgroundColor = .red
-        self.number5.backgroundColor = .gray
-        self.number7.backgroundColor = .gray
+        self.number3.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number5.backgroundColor = .clear
+        self.number7.backgroundColor = .clear
         typeOfPeople = 3
         numberSelected = true
         selectedPeople = 2
     }
     func pressed5(){
-        self.number3.backgroundColor = .gray
-        self.number5.backgroundColor = .red
-        self.number7.backgroundColor = .gray
+        self.number3.backgroundColor = .clear
+        self.number5.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number7.backgroundColor = .clear
         typeOfPeople = 5
         numberSelected = true
         selectedPeople = 4
     }
     func pressed7(){
-        self.number3.backgroundColor = .gray
-               self.number5.backgroundColor = .gray
-               self.number7.backgroundColor = .red
-               typeOfPeople = 7
-               numberSelected = true
+        self.number3.backgroundColor = .clear
+        self.number5.backgroundColor = .clear
+        self.number7.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        typeOfPeople = 7
+        numberSelected = true
         selectedPeople = 6
     }
     
     func pressedNormal(){
-        self.normalButton.backgroundColor = .red
-               self.difficultButton.backgroundColor = .gray
-               typeDifficulty = 1
-               difficultySelected = true
+        self.normalButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.difficultButton.backgroundColor = .clear
+        typeDifficulty = 1
+        difficultySelected = true
         selectedDifficulty = 1
     }
     func pressedHard(){
-        self.difficultButton.backgroundColor = .red
-        self.normalButton.backgroundColor = .gray
+        self.difficultButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.normalButton.backgroundColor = .clear
         typeDifficulty = 2
         difficultySelected = true
         selectedDifficulty = 2
     }
     
     func pressedFree(){
-        self.freeButton.backgroundColor = .red
-        self.randomButton.backgroundColor = .gray
+        self.freeButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.randomButton.backgroundColor = .clear
         typeTheme = 1
         themeSelected = true
         selectedTheme = 1
     }
     
     func pressedRandom(){
-        self.randomButton.backgroundColor = .red
-        self.freeButton.backgroundColor = .gray
+        self.randomButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.freeButton.backgroundColor = .clear
         typeTheme = 2
         themeSelected = true
         selectedTheme = 2
@@ -274,12 +400,12 @@ class SettingsGameViewController: UIViewController {
     }
     
     @IBAction func press7(_ sender: Any) {
-       pressed7()
+        pressed7()
     }
     
     
     @IBAction func pressNormal(_ sender: Any) {
-       pressedNormal()
+        pressedNormal()
     }
     @IBAction func pressDiffitcult(_ sender: Any) {
         pressedHard()

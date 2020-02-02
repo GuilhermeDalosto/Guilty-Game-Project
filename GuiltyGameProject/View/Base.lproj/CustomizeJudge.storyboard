@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15505" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I7h-7K-wrd">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I7h-7K-wrd">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,83 +20,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="telaSelecao" translatesAutoresizingMaskIntoConstraints="NO" id="4un-J4-f6O">
+                                <rect key="frame" x="-19" y="-87" width="1959" height="1248"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0ry-wP-D65">
-                                <rect key="frame" x="776" y="226" width="376" height="558"/>
+                                <rect key="frame" x="772" y="226" width="376" height="558"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rMi-j9-eY6">
-                                    <size key="itemSize" width="321" height="545"/>
+                                    <size key="itemSize" width="364" height="545"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="sdk-2t-H6u" customClass="CustomizeJudgeCollectionViewCell" customModule="GuiltyGameProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="6.5" width="321" height="545"/>
+                                        <rect key="frame" x="0.0" y="6.5" width="364" height="545"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gr5-iq-l8T">
-                                            <rect key="frame" x="0.0" y="0.0" width="321" height="545"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="364" height="545"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P69-FI-CiX">
-                                                    <rect key="frame" x="14" y="20" width="286" height="508"/>
+                                                    <rect key="frame" x="14" y="20" width="342" height="508"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="321" height="545"/>
+                                        <size key="customSize" width="364" height="545"/>
                                         <connections>
                                             <outlet property="imageJudge" destination="P69-FI-CiX" id="ucn-9v-htj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cao-MN-v6l">
-                                <rect key="frame" x="649" y="462" width="104" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36w-Db-i6p">
+                                <rect key="frame" x="1549" y="920" width="254" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="scrollLeftJudge:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="m9h-yj-nlj"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36w-Db-i6p">
-                                <rect key="frame" x="1538" y="926" width="276" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Start"/>
+                                <state key="normal" image="start"/>
                                 <connections>
                                     <action selector="pressStart:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="QSJ-cN-Vyv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgA-DA-tw6">
-                                <rect key="frame" x="1174" y="462" width="104" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgA-DA-tw6">
+                                <rect key="frame" x="1238" y="456" width="148" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="&gt;"/>
+                                <state key="normal" image="setaDireita"/>
                                 <connections>
                                     <action selector="scrollRightJudge:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="jEo-Qa-6bB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-pE-O79">
-                                <rect key="frame" x="81" y="68" width="233" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8J6-pE-O79">
+                                <rect key="frame" x="71" y="62" width="254" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="pressBack:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="fje-hU-OVu"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jAq-MB-LET">
-                                <rect key="frame" x="1257" y="770" width="169" height="242"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cao-MN-v6l">
+                                <rect key="frame" x="538" y="456" width="148" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" image="setaEsquerda"/>
+                                <connections>
+                                    <action selector="scrollLeftJudge:" destination="I7h-7K-wrd" eventType="primaryActionTriggered" id="m9h-yj-nlj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b9z-CJ-TVR"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="8J6-pE-O79" id="05M-vV-Rvt"/>
-                        <outlet property="imageHammer" destination="jAq-MB-LET" id="ctQ-HR-dng"/>
                         <outlet property="judgeCollectionVIew" destination="0ry-wP-D65" id="ldP-zN-Ynb"/>
                         <outlet property="leftButton" destination="cao-MN-v6l" id="SEx-f8-yCD"/>
                         <outlet property="rightButton" destination="xgA-DA-tw6" id="vdh-xn-dAx"/>
@@ -130,4 +129,11 @@
             <point key="canvasLocation" x="1725" y="264"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="174" height="59"/>
+        <image name="setaDireita" width="68" height="59"/>
+        <image name="setaEsquerda" width="68" height="59"/>
+        <image name="start" width="174" height="59"/>
+        <image name="telaSelecao" width="1976" height="1121"/>
+    </resources>
 </document>
