@@ -237,6 +237,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
 //            }
 //        }
         
+        ninjaDeck = true
+        foodDeck = true
         if ninjaDeck{
             for i in words.strNinja{
                 actualDeck.append(i)

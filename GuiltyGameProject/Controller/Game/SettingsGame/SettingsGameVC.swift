@@ -69,9 +69,8 @@ class SettingsGameViewController: UIViewController {
     var aleatorioDes = UIImage(named: "aleatorioSelecionado")
     
     
-    
-    
-    
+    var deckImages = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
+    var cont = 0
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
@@ -244,6 +243,7 @@ class SettingsGameViewController: UIViewController {
         }
         
         
+        
         switch focusedGuideRight{
         case self.randomButton:
             self.focusGuideRight.preferredFocusedView = self.nextButton
@@ -289,9 +289,7 @@ class SettingsGameViewController: UIViewController {
             self.focusGuideUpRight.preferredFocusedView = self.homeButton
         }
         
-        
-        
-        
+
     }
     
     func setLayoutGuide(){
@@ -336,17 +334,19 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressed3(){
-        self.number3.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number3.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.number5.backgroundColor = .clear
         self.number7.backgroundColor = .clear
+        self.number3.layer.cornerRadius = 10.0
         typeOfPeople = 3
         numberSelected = true
         selectedPeople = 2
     }
     func pressed5(){
         self.number3.backgroundColor = .clear
-        self.number5.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number5.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.number7.backgroundColor = .clear
+        self.number5.layer.cornerRadius = 10.0
         typeOfPeople = 5
         numberSelected = true
         selectedPeople = 4
@@ -354,29 +354,33 @@ class SettingsGameViewController: UIViewController {
     func pressed7(){
         self.number3.backgroundColor = .clear
         self.number5.backgroundColor = .clear
-        self.number7.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number7.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
+        self.number7.layer.cornerRadius = 10.0
         typeOfPeople = 7
         numberSelected = true
         selectedPeople = 6
     }
     
     func pressedNormal(){
-        self.normalButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.normalButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.difficultButton.backgroundColor = .clear
+        self.normalButton.layer.cornerRadius = 10.0
         typeDifficulty = 1
         difficultySelected = true
         selectedDifficulty = 1
     }
     func pressedHard(){
-        self.difficultButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.difficultButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.normalButton.backgroundColor = .clear
+        self.difficultButton.layer.cornerRadius = 10.0
         typeDifficulty = 2
         difficultySelected = true
         selectedDifficulty = 2
     }
     
     func pressedFree(){
-        self.freeButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+
+        self.freeButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
         typeTheme = 1
         themeSelected = true
@@ -384,8 +388,9 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedRandom(){
-        self.randomButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.randomButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.freeButton.backgroundColor = .clear
+        self.randomButton.layer.cornerRadius = 10.0
         typeTheme = 2
         themeSelected = true
         selectedTheme = 2
@@ -412,7 +417,15 @@ class SettingsGameViewController: UIViewController {
     }
     
     @IBAction func pressFree(_ sender: Any) {
+
+        if deckImages.count >= cont{
+            self.freeButton.imageView?.image = UIImage(named: "botaozinho")
+            self.freeButton.titleLabel?.text = deckImages[cont]
+            self.cont += 1
+        }
+        
         pressedFree()
+        
     }
     
     @IBAction func pressRandom(_ sender: Any) {
@@ -437,6 +450,8 @@ class SettingsGameViewController: UIViewController {
     }
     
     //perguntar se vai mexer com delegate ou passar as informacoes por storyboard
+    
+    
     
 }
 
