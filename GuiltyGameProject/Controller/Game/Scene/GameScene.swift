@@ -140,7 +140,7 @@ class GameScene: SKScene{
             timerLabel.alpha = 1
             time = 60
         } else{
-            time = 5
+            time = 30
         }
         
         // set word label
