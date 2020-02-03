@@ -420,8 +420,10 @@ class GameScene: SKScene{
      Start timer for player speak
      */
     func startTimer(){
-        // start timer     
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerDecrease), userInfo: nil, repeats: true)
+        // start timer
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.timerDecrease), userInfo: nil, repeats: true)
+            }
     }
     
     /**

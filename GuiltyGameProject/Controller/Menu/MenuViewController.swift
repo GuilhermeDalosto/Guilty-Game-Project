@@ -20,13 +20,20 @@ class MenuViewController: UIViewController {
     var lojaSel = UIImage(named: "loja")
     
     
+        var configDes = UIImage(named: "settingsMenu")
+       var configuracoesDes = UIImage(named: "configuracoes")
+       var jogarDes = UIImage(named: "jogarMenu")
+       var playDes = UIImage(named: "playMenu")
+       var shopDes = UIImage(named: "shop")
+       var lojaDes = UIImage(named: "loja")
     
-    var configDes = UIImage(named: "configDes")
-    var configuracoesDes = UIImage(named: "configuracoesDes")
-    var jogarDes = UIImage(named: "jogarDes")
-    var playDes = UIImage(named: "playMenuSelecionado")
-    var shopDes = UIImage(named: "shopDes")
-    var lojaDes = UIImage(named: "lojaDes")
+    
+//    var configDes = UIImage(named: "configDes")
+//    var configuracoesDes = UIImage(named: "configuracoesDes")
+//    var jogarDes = UIImage(named: "jogarDes")
+//    var playDes = UIImage(named: "playMenuSelecionado")
+//    var shopDes = UIImage(named: "shopDes")
+//    var lojaDes = UIImage(named: "lojaDes")
     
     
     @IBOutlet weak var shopButton: UIButton!
@@ -38,9 +45,13 @@ class MenuViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         if NSLocalizedString("startText", comment: "") == "Start"{
-            language = "EN"            
+            language = "EN"
+            self.startButton.setImage(playSel,for: .normal)
+            self.settingsButton.setImage(configuracoesSel,for:.normal)
         } else {
             language = "PT"
+            self.startButton.setImage(jogarSel,for: .normal)
+            self.settingsButton.setImage(configSel,for:.normal)
         }
 
     }

@@ -111,7 +111,7 @@ class SettingsGameViewController: UIViewController {
         
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
-            self.backgroundImage.image = fundoEN
+            self.backgroundImage.image = fundoEN            
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT

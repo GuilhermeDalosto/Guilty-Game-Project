@@ -421,10 +421,12 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     @objc func SwipeRight(){
         if gameView.scene == gameScene && GameScene.turn > 0{
             sound.play("SwipeRight", type: ".wav",repeat: 0)
-            print("swiperight")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.changeScene()
+            }
+        } else{
+            changeScene()
         }
-        
-        changeScene()
         
     }
     

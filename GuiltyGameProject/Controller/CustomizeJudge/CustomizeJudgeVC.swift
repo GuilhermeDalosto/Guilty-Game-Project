@@ -99,8 +99,10 @@ class CustomizeJudgeViewController: UIViewController {
         escureceTodos()
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
+            self.backButton.setImage(homeSel, for: .normal)
         } else{
             language = "PT"
+            self.backButton.setImage(menuSel, for: .normal)
         }
         self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
         judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
