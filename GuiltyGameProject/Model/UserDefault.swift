@@ -8,10 +8,11 @@
 
 import Foundation
 
-class UserDefault{
-    var musicOption : Bool?
-    var languageOption : Bool?
-    var difficulty : Int?
-    var people : Int?
-    var theme : Int?    
-}
+//class UserDefault{
+//    var musicOption : Bool?
+//    var languageOption : Bool?
+//    var difficulty : Int?
+//    var people : Int?
+//    var theme : Int?
+//    var typeDeck : Int?
+//}

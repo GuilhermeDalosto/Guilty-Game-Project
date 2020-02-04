@@ -258,8 +258,7 @@ class CustomizeJudgeViewController: UIViewController {
         self.focusedGuideLeftDownDown.heightAnchor.constraint(equalTo: self.startButton.heightAnchor).isActive = true
         self.focusedGuideLeftDownDown.topAnchor.constraint(equalTo: self.startButton.topAnchor).isActive = true
         
-        
-        
+ 
         
     }
     

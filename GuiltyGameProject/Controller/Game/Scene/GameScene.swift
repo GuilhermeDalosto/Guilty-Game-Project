@@ -72,9 +72,17 @@ class GameScene: SKScene{
     /// Number of Rounds
     static var round: Int = 0
     
+    ///Emitter
+    var emitter = SKEmitterNode(fileNamed: "Shadows")
+    
+    ///Image Selection Pino
+    var selPin = SKSpriteNode(imageNamed: "seleçãoPino")
+    
     /**
      Init Scene if there is not a event to the current player
     */
+    
+    var sound = Sound()
 
     init(size: CGSize, word: String, team1: Team, team2: Team, judge: Judge, players: [Person]) {
 
@@ -255,8 +263,10 @@ class GameScene: SKScene{
         judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.80)
         judgeSprite.zPosition -= 1
         
+
         maozinhaJuiz.position = CGPoint(x: size.width/2.15, y: size.height * 0.744)
         maozinhaJuiz.zPosition += 10
+
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
@@ -270,20 +280,23 @@ class GameScene: SKScene{
         case 2:
             pinsSprite[0].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
             pinsSprite[1].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
+            selPin.position = CGPoint(x: size.width*0.385, y: size.height/5)
             break
         case 4:
-            pinsSprite[0].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
-            pinsSprite[1].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
-            pinsSprite[2].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
-            pinsSprite[3].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
+            pinsSprite[0].position = CGPoint(x: size.width*0.305, y: size.height/3.6)
+            pinsSprite[1].position = CGPoint(x: size.width*0.386, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.62, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.695, y: size.height/3.6)
+            selPin.position = CGPoint(x: size.width*0.305, y: size.height/5)
             break
         default:
             pinsSprite[0].position = CGPoint(x: size.width*0.235, y: size.height/3.6)
             pinsSprite[1].position = CGPoint(x: size.width*0.31, y: size.height/3.6)
-            pinsSprite[2].position = CGPoint(x: size.width*0.385, y: size.height/3.6)
-            pinsSprite[3].position = CGPoint(x: size.width*0.61, y: size.height/3.6)
-            pinsSprite[4].position = CGPoint(x: size.width*0.69, y: size.height/3.6)
+            pinsSprite[2].position = CGPoint(x: size.width*0.386, y: size.height/3.6)
+            pinsSprite[3].position = CGPoint(x: size.width*0.615, y: size.height/3.6)
+            pinsSprite[4].position = CGPoint(x: size.width*0.695, y: size.height/3.6)
             pinsSprite[5].position = CGPoint(x: size.width*0.77, y: size.height/3.6)
+             selPin.position = CGPoint(x: size.width*0.235, y: size.height/5)
         }
         
         // NPC Pin Sprite
@@ -294,9 +307,9 @@ class GameScene: SKScene{
         // set NPC Pin position
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
+        selPin.zPosition = pinsSprite[0].zPosition - 1
         
   
-        
         // add Child
         addChild(balaoComentario)
         addChild(balaoComentario2)
@@ -307,8 +320,11 @@ class GameScene: SKScene{
         addChild(balaoCapeta)
         addChild(balaoJuiz)
         addChild(timeOver)
+
         addChild(maozinhaJuiz)
         
+        addChild(selPin)
+
         for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
         }
@@ -325,38 +341,61 @@ class GameScene: SKScene{
         if playersqtd == 2{
             if playerNumber < 1{
                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
             } else{
+                 selPin.position = CGPoint(x: size.width*0.61, y: size.height/5)
                  pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
             }
         }
             
         else if playersqtd == 4{
             switch playerNumber{
             case 0:
-                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
-            case 1:
-                 pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
-            case 2:
-                  pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
-            default:
-                  pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
                 
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                
+            case 1:
+                 selPin.position = CGPoint(x: size.width*0.385, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                
+            case 2:
+                 selPin.position = CGPoint(x: size.width*0.61, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+            default:
+                selPin.position = CGPoint(x: size.width*0.69, y: size.height/5)
+                pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                 selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
             }
         } else {
                 switch playerNumber{
                 case 0:
-                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 1.6)]))
-                case 1:
-                     pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
-                case 2:
-                      pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
-                case 3:
-                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
-                case 4:
-                        pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
-                default:
-                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 1.6)]))
                     
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 1.6)]))
+                     selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.210, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 1.6)]))
+                case 1:
+                      selPin.position = CGPoint(x: size.width*0.31, y: size.height/5)
+                     pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                      selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.290, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                case 2:
+                     selPin.position = CGPoint(x: size.width*0.385, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.37), duration: 0.8)]))
+                     selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.370, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.46, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.47, y: size.height*0.29), duration: 0.8)]))
+                case 3:
+                     selPin.position = CGPoint(x: size.width*0.61, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                     selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.620, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+                case 4:
+                     selPin.position = CGPoint(x: size.width*0.69, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 0.8)]))
+                     selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.700, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 0.8)]))
+                default:
+                     selPin.position = CGPoint(x: size.width*0.77, y: size.height/5)
+                    pinsSprite[playerNumber].run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.168),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.160), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.37), duration: 1.6)]))
+                     selPin.run(SKAction.sequence([SKAction.move(to: CGPoint(x: size.width*0.790, y: size.height*0.100),duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.54, y: size.height*0.095), duration: 0.6),SKAction.move(to: CGPoint(x: size.width*0.53, y: size.height*0.29), duration: 1.6)]))
                 }
             
             
@@ -374,6 +413,16 @@ class GameScene: SKScene{
     /**
      Setup lifes sprites by team number of lifes in Nodes
      */
+    func mostrarBalao0(){
+        balaoComentario.alpha = 1
+        balaoAnjo.alpha = 1
+    }
+    
+    func mostrarBalao1(){
+        balaoComentario2.alpha = 1
+        balaoCapeta.alpha = 1
+    }
+    
     func setupLifes(team: [Team]){
         // set number of hearts of each team
         for i in 0...1{
@@ -392,18 +441,7 @@ class GameScene: SKScene{
                 lifeTeamSprite.append(SKSpriteNode(imageNamed: "heart3"))
             }
         }
-        
-        if team[0].lifes == 2 && flag{
-            balaoComentario.alpha = 1
-            balaoAnjo.alpha = 1
-            UserDefaults.standard.set(false, forKey: "flag")
-        }
-        
-        if team[1].lifes == 1 && flag2{
-            balaoComentario2.alpha = 1
-            balaoCapeta.alpha = 1
-            UserDefaults.standard.set(false, forKey: "flag2")
-        }
+     
         
         
         // set life position of each team
@@ -486,5 +524,4 @@ class GameScene: SKScene{
         }
     }
     
-   
 }

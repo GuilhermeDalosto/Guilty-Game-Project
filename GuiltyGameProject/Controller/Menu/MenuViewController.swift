@@ -42,8 +42,64 @@ class MenuViewController: UIViewController {
     
     var language = ""
     
+    var defaults = AllUserDefault()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let launchView = UIView(frame: view.frame)
+        launchView.layer.zPosition = 10
+        view.addSubview(launchView)
+
+        let frontImage = UIImageView()
+        let backgroundImage = UIImageView()
+        let music = Sound()
+        
+        backgroundImage.image = UIImage(named: "fundoTribunal")
+        frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
+        
+        backgroundImage.layer.zPosition = -1
+        backgroundImage.frame = view.frame
+        frontImage.alpha = 0
+        frontImage.frame = view.frame
+        music.play("introGuilty1", type: ".wav",repeat: 0)
+        
+        launchView.addSubview(backgroundImage)
+        launchView.addSubview(frontImage)
+        
+        
+        UIView.animate(withDuration: 1.7) {
+            frontImage.alpha = 1
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
+            
+            UIView.animate(withDuration: 1.7, animations: {
+                 launchView.alpha = 0
+            }) { _ in
+                backgroundImage.removeFromSuperview()
+                frontImage.removeFromSuperview()
+                launchView.removeFromSuperview()
+            }
+            
+        }
+        defaults.screenNumber = 1
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         
+        if NSLocalizedString("startText", comment: "") != "Start"{
+            language = "PT"
+        } else{
+            language = "EN"
+        }
+        if language == "PT"{
+            startButton.setImage(jogarSel, for: .normal)
+            settingsButton.setImage(configuracoesDes, for: .normal)
+        } else{
+            startButton.setImage(playSel, for: .normal)
+            settingsButton.setImage(configDes, for: .normal)
+        }
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
             self.startButton.setImage(playSel,for: .normal)
@@ -56,6 +112,12 @@ class MenuViewController: UIViewController {
 
     }
     
+    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
+//    }
+//    
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
@@ -64,11 +126,16 @@ class MenuViewController: UIViewController {
         performSegue(withIdentifier: "Settings", sender: nil)
     }
     
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+        
+    }
+    
     
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        print(language)
+        
         switch focus{
         case self.startButton:
             if language == "PT"{

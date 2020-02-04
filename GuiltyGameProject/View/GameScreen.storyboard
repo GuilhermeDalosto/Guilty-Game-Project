@@ -27,15 +27,20 @@
                                 <rect key="frame" x="272" y="202" width="1376" height="677"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </skView>
+                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sX-lc-A3j" userLabel="QuitGame View">
+                                <rect key="frame" x="569" y="331" width="817" height="439"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </skView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="apM-AA-JgP"/>
                     </view>
                     <connections>
                         <outlet property="gameView" destination="VgG-44-4A6" id="oPR-pt-dDF"/>
+                        <outlet property="pauseView" destination="gaS-zV-rKH" id="heW-JD-jT6"/>
+                        <outlet property="quitGameView" destination="2sX-lc-A3j" id="hPz-mR-NJa"/>
                         <segue destination="xAb-xw-dih" kind="show" identifier="endGame3" destinationCreationSelector="segue:" id="n9y-Au-V7R"/>
                         <segue destination="S2k-4y-Syi" kind="show" identifier="endGame5" id="Ta8-TD-Xrk"/>
                         <segue destination="QuZ-AW-db6" kind="show" identifier="endGame7" id="WPx-5U-hTL"/>
-                        <outlet property="pauseView" destination="gaS-zV-rKH" id="heW-JD-jT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-X6-v9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

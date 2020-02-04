@@ -10,8 +10,13 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, StatisticsProtocol{
-    
+protocol StatisticsProtocol: NSObject{
+//    var playersInfo: [StatisticsInfo] { get set }
+    func sendPlayersInfo(playersInfo: [StatisticsInfo])
+}
+
+class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
+    // secondViewController
     var playersInfo: [StatisticsInfo] = []
     
     func sendRandom(one: Int, two: Int) {
@@ -27,6 +32,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     @IBOutlet weak var gameView: SKView!
     @IBOutlet weak var pauseView: SKView!
+    @IBOutlet weak var quitGameView: SKView!
     
     
     let music = Sound()
@@ -45,6 +51,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var gameScene: GameScene? = nil
     /// scene of pause
     var pauseScene: PauseScene? = nil
+    /// scene of quit game
+    var quitGameScene: QuitGameScene? = nil
     
     
     // characters of the game (without judge)
@@ -99,6 +107,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var gameRunning = true
     /// sound player
     let sound = Sound()
+    var delegate: StatisticsProtocol?
     
     // words and events
     // all words
@@ -119,10 +128,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var randomEvent : String? = ""
     var randomWord = ""
     
+    //User Defaults
+    let defaults = AllUserDefault()
+    
     override func viewDidLoad() {
 //        gameView.addSubview(pauseView)
 //        pauseView.sendSubviewToBack(gameView)
+        defaults.isOnGame = true
+        defaults.screenNumber = 2
         pauseView.alpha = 0.0
+        quitGameView.alpha = 0.0
         super.viewDidLoad()
 //        pauseView.
 //        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
@@ -148,8 +163,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      Setup the game (colors, players, judge, words, team, controller)
      */
     func setupGame(){
-        // pegar as cores e adicionar ao array colors
-        // PROVISORIO
+        
         
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
@@ -168,13 +182,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         // instantiate
         judge = Judge(team)        
         addAll()
+        //Add gesture
         
         // create class to stored players info
         for i in 0...qtPlayer - 1{
+            print(players[i].color)
             playersInfo.append(StatisticsInfo(color: players[i].color))
-            for _ in 0...9{
-                playersInfo[i].addWord(word: "")
-            }
+//            for _ in 0...9{
+//                playersInfo[i].addWord(word: "")
+//            }
         }
     }
     
@@ -194,6 +210,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         var _ = SiriRemote(self.view)
         for i in 0..<funcoesControle.count{
             self.view.gestureRecognizers?[i].addTarget(self, action: Selector(funcoesControle[i]))
+        }
+    }
+    
+    /**
+     Function to remove the controller
+     */
+    func rmvController(){
+        var _ = SiriRemote(self.view)
+        for i in 0..<funcoesControle.count{
+            self.view.gestureRecognizers?[i].removeTarget(self, action: Selector(funcoesControle[i]))
         }
     }
     
@@ -229,6 +255,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
 //            }
 //        }
         
+        ninjaDeck = true
+        foodDeck = true
         if ninjaDeck{
             for i in words.strNinja{
                 actualDeck.append(i)
@@ -282,6 +310,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      Function to end game by team life or by the judge
      */
     func finishGame(team: Team, judge: Judge){
+        defaults.isOnGame = false
         if team.lifes != 0{
             judge.deny(team)
         }else{
@@ -311,31 +340,34 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         //Pause o tempo
         //Pausa a cena
         //Se não estiver no menu
-        if pauseScene == nil{
+        if defaults.isPaused == false{
+            defaults.isPaused = true
             pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
             gameScene?.endTimer()
             gameScene?.isPaused = true
             pauseView.alpha = 1.0
             pauseView.presentScene(pauseScene)
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
             
         }else{
-            //O que fazer quando ele apertar no botão
-            pauseScene = nil
-            gameScene?.startTimer()
-            gameScene?.isPaused = false
-            pauseView.alpha = 0.0
+            if defaults.isQuitable == true{
+                defaults.isPaused = false
+                defaults.isQuitable = false
+//                quitGameView.removeFromSuperview()
+                pauseScene = nil
+                quitGameScene = nil
+                gameScene?.startTimer()
+                gameScene?.isPaused = false
+                pauseView.alpha = 0.0
+                quitGameView.alpha = 0.0
+            }else{
+                quitGameScene = QuitGameScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+//               pauseView.addSubview(quitGameView)
+                defaults.isQuitable = true
+                quitGameView.alpha = 1.0
+                quitGameView.presentScene(quitGameScene)
+            }
+            
         }
-        /*
-         else{
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
-         qui
-         }
-         */
     }
     
     /**
@@ -371,11 +403,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var vencedor = ""
     @objc func SwipeLeft(){
         
-        if (GameScene.turn > 0) && gameView.scene == gameScene{
-            sound.play("SwipeLeft", type: ".wav",repeat: 0)
+        if (GameScene.turn > 0) && gameView.scene == gameScene {
+            if !chooseOption{
+                sound.play("SwipeLeft", type: ".wav",repeat: 0)
+                chooseOption.toggle()
+            }
             if choosenTeam == team[0]{
+                self.gameScene!.mostrarBalao1()
                 judge?.deny(team[1])
             } else{
+                self.gameScene!.mostrarBalao0()
                 judge?.deny(team[0])
             }
             
@@ -404,6 +441,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.chooseOption = false
                 self.changeScene()
             }
         }
@@ -412,11 +450,29 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "endGame"{
-            if let vc = segue.destination as? ViewController{
-                vc.vencedor = vencedor
-                vc.delegate = self
+//            if let vc = segue.destination as? ViewController{
+//                vc.vencedor = vencedor
+//                vc.delegate = self
+//            }
+        }
+        switch segue.identifier {
+        case "endGame3":
+            if let vc = segue.destination as? Report3ViewController{
+                print("endGame3")
+                self.delegate = vc
+            }
+            break
+        case "endGame5":
+            if let vc = segue.destination as? Report5ViewController{
+                self.delegate = vc
+            }
+            break
+        default:
+            if let vc = segue.destination as? Report7ViewController{
+                self.delegate = vc
             }
         }
+        self.delegate?.sendPlayersInfo(playersInfo: playersInfo)
     }
     
     
@@ -424,11 +480,19 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         print("swipedown")
     }
     
+    var chooseOption = false
+    
     @objc func SwipeRight(){
-        if gameView.scene == gameScene && GameScene.turn > 0{
-            sound.play("SwipeRight", type: ".wav",repeat: 0)
+        
+        if gameView.scene == gameScene && GameScene.turn > 0  {
+            if !chooseOption{
+                sound.play("SwipeRight", type: ".wav",repeat: 0)
+                chooseOption.toggle()
+            }
+            
             self.gameScene?.juizFeliz()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.chooseOption = false
                 // FAZ O TEMPO PARAR AQUI GABS PLS
                 //self.gameScene?.endTimer()
                 
@@ -594,6 +658,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     func addWordInfo(color: String, word: String){
         for player in playersInfo{
             if player.pinColor == color{
+                print(word)
                 player.addWord(word: word)
             }
         }
