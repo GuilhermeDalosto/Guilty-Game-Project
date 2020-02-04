@@ -441,6 +441,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        GameScene.turn = -1
+        GameScene.round = 0
         if segue.identifier == "endGame"{
 //            if let vc = segue.destination as? ViewController{
 //                vc.vencedor = vencedor
