@@ -32,6 +32,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     
     @IBOutlet weak var gameView: SKView!
     @IBOutlet weak var pauseView: SKView!
+    @IBOutlet weak var quitGameView: SKView!
     
     
     let music = Sound()
@@ -50,6 +51,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var gameScene: GameScene? = nil
     /// scene of pause
     var pauseScene: PauseScene? = nil
+    /// scene of quit game
+    var quitGameScene: QuitGameScene? = nil
     
     
     // characters of the game (without judge)
@@ -125,10 +128,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var randomEvent : String? = ""
     var randomWord = ""
     
+    //User Defaults
+    let defaults = AllUserDefault()
+    
     override func viewDidLoad() {
 //        gameView.addSubview(pauseView)
 //        pauseView.sendSubviewToBack(gameView)
+        defaults.isOnGame = true
         pauseView.alpha = 0.0
+        quitGameView.alpha = 0.0
         super.viewDidLoad()
 //        pauseView.
 //        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
@@ -235,6 +243,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
 //            }
 //        }
         
+        ninjaDeck = true
+        foodDeck = true
         if ninjaDeck{
             for i in words.strNinja{
                 actualDeck.append(i)
@@ -288,6 +298,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
      Function to end game by team life or by the judge
      */
     func finishGame(team: Team, judge: Judge){
+        defaults.isOnGame = false
         if team.lifes != 0{
             judge.deny(team)
         }else{
@@ -317,29 +328,40 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         //Pause o tempo
         //Pausa a cena
         //Se não estiver no menu
-        if pauseScene == nil{
+        if defaults.isPaused == false{
+            defaults.isPaused = true
             pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
             gameScene?.endTimer()
             gameScene?.isPaused = true
             pauseView.alpha = 1.0
             pauseView.presentScene(pauseScene)
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
             
         }else{
+            if defaults.isQuitable == true{
+                defaults.isPaused = false
+                defaults.isQuitable = false
+//                quitGameView.removeFromSuperview()
+                pauseScene = nil
+                quitGameScene = nil
+                gameScene?.startTimer()
+                gameScene?.isPaused = false
+                pauseView.alpha = 0.0
+                quitGameView.alpha = 0.0
+            }else{
+                quitGameScene = QuitGameScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
+//               pauseView.addSubview(quitGameView)
+                defaults.isQuitable = true
+                quitGameView.alpha = 1.0
+                quitGameView.presentScene(quitGameScene)
+            }
             //O que fazer quando ele apertar no botão
-            pauseScene = nil
-            gameScene?.startTimer()
-            gameScene?.isPaused = false
-            pauseView.alpha = 0.0
+            
         }
         /*
          else{
             let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
             quitGameView.backgroundColor = .systemPink
             pauseView.addSubview(quitGameView)
-         qui
          }
          */
     }

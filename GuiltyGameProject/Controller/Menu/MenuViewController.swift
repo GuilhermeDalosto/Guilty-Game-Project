@@ -36,7 +36,18 @@ class MenuViewController: UIViewController {
     var language = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        if NSLocalizedString("startText", comment: "") != "Start"{
+            language = "PT"
+        } else{
+            language = "EN"
+        }
+        if language == "PT"{
+            startButton.setImage(jogarSel, for: .normal)
+            settingsButton.setImage(configuracoesDes, for: .normal)
+        } else{
+            startButton.setImage(playSel, for: .normal)
+            settingsButton.setImage(configDes, for: .normal)
+        }
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"            
         } else {
@@ -45,6 +56,11 @@ class MenuViewController: UIViewController {
 
     }
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
+//    }
+//    
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
@@ -57,7 +73,7 @@ class MenuViewController: UIViewController {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        print(language)
+        
         switch focus{
         case self.startButton:
             if language == "PT"{
