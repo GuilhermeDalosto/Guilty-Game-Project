@@ -35,7 +35,49 @@ class MenuViewController: UIViewController {
     
     var language = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let launchView = UIView(frame: view.frame)
+        launchView.layer.zPosition = 10
+        view.addSubview(launchView)
+
+        let frontImage = UIImageView()
+        let backgroundImage = UIImageView()
+        let music = Sound()
+        
+        backgroundImage.image = UIImage(named: "fundoTribunal")
+        frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
+        
+        backgroundImage.layer.zPosition = -1
+        backgroundImage.frame = view.frame
+        frontImage.alpha = 0
+        frontImage.frame = view.frame
+        music.play("introGuilty1", type: ".wav",repeat: 0)
+        
+        launchView.addSubview(backgroundImage)
+        launchView.addSubview(frontImage)
+        
+        
+        UIView.animate(withDuration: 1.7) {
+            frontImage.alpha = 1
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
+            
+            UIView.animate(withDuration: 1.7, animations: {
+                 launchView.alpha = 0
+            }) { _ in
+                backgroundImage.removeFromSuperview()
+                frontImage.removeFromSuperview()
+                launchView.removeFromSuperview()
+            }
+            
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
         if NSLocalizedString("startText", comment: "") != "Start"{
             language = "PT"
         } else{
@@ -56,6 +98,7 @@ class MenuViewController: UIViewController {
 
     }
     
+    
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 ////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
@@ -67,6 +110,11 @@ class MenuViewController: UIViewController {
     
     @IBAction func PressSettings(_ sender: Any) {
         performSegue(withIdentifier: "Settings", sender: nil)
+    }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+        
     }
     
     

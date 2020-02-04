@@ -10,7 +10,7 @@
         <!--Report7 View Controller-->
         <scene sceneID="Ktr-pF-jJf">
             <objects>
-                <viewController id="PcQ-j0-ipl" customClass="Report7ViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PcQ-j0-ipl" customClass="Report7ViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fnX-ez-bve"/>
                         <viewControllerLayoutGuide type="bottom" id="PiU-FN-gxW"/>
@@ -182,9 +182,11 @@
                         <outlet property="word51" destination="aSh-Ys-aR1" id="s4a-sR-f8U"/>
                         <outlet property="word52" destination="YX6-Av-egC" id="acJ-6p-Nig"/>
                         <segue destination="xHV-4a-OzE" kind="show" identifier="goMenu" id="XU3-fG-Zhg"/>
+                        <segue destination="sIO-or-UrG" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="pXS-r7-lRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtG-Gl-a7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sIO-or-UrG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-25" y="19"/>
         </scene>
