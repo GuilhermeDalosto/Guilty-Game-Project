@@ -99,7 +99,7 @@ class TurnScene: SKScene{
             }
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
-            eventLabel.preferredMaxLayoutWidth = 300 //275
+            eventLabel.preferredMaxLayoutWidth = 275
             eventLabel.fontSize = 45
         } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
             eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
