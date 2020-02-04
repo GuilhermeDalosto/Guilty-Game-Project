@@ -53,4 +53,11 @@ class AllUserDefault {
         
         
     }
+    
+    var musicOption : Bool?
+    var languageOption : Bool?
+    var difficulty : Int?
+    var people : Int?
+    var theme : Int?
+    var typeDeck : Int?
 }

@@ -84,7 +84,7 @@ class TurnScene: SKScene{
         titleEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2)
         titleEvent.fontColor = .black
         titleEvent.text = "Evento"
-        titleEvent.fontSize = 60
+        titleEvent.fontSize = 50
         
         titleWord.text = "Palavra"
         titleWord.fontColor = .black
@@ -100,13 +100,13 @@ class TurnScene: SKScene{
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
             eventLabel.preferredMaxLayoutWidth = 275
-            eventLabel.fontSize = 50
+            eventLabel.fontSize = 45
         } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
             eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
-            eventLabel.preferredMaxLayoutWidth = 300
-            eventLabel.fontSize = 45
+            eventLabel.preferredMaxLayoutWidth = 400 //300
+            eventLabel.fontSize = 40
         }else if ((eventLabel.text! as NSString).length) >= 40 {
             eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
             eventLabel.lineBreakMode = .byCharWrapping

@@ -69,9 +69,7 @@ class SettingsGameViewController: UIViewController {
     var aleatorioDes = UIImage(named: "aleatorioSelecionado")
     
     
-    
-    
-    
+    var deckNames = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
@@ -83,11 +81,13 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var labelDecks: UILabel!
     
     
     var typeTheme = 0
     var typeDifficulty = 0
     var typeOfPeople = 0
+    var typeOfDeck = 0
     var numberSelected = false
     var numberDeselected = false
     var difficultySelected = false
@@ -102,6 +102,8 @@ class SettingsGameViewController: UIViewController {
         labelError.isHidden = true
         nextButton.isEnabled = true
         backgroundImage.image = UIImage(named: "")
+        self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 50)
+        self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,9 +115,11 @@ class SettingsGameViewController: UIViewController {
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
             self.backgroundImage.image = fundoEN
+            self.labelDecks.text = "Free"
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT
+            self.labelDecks.text = "Livre"
         }
         
         self.view.insertSubview(backgroundImage, at: 0)
@@ -173,7 +177,7 @@ class SettingsGameViewController: UIViewController {
             self.number3.setImage(a3Des, for: .normal)
             self.number5.setImage(a5Des, for: .normal)
             self.number7.setImage(a7Des, for: .normal)
-            self.freeButton.setImage(freeDes, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
             self.randomButton.setImage(randomDes, for: .normal)
             self.nextButton.setImage(nextDes, for: .normal)
         }
@@ -184,7 +188,7 @@ class SettingsGameViewController: UIViewController {
             self.number3.setImage(a3Des, for: .normal)
             self.number5.setImage(a5Des, for: .normal)
             self.number7.setImage(a7Des, for: .normal)
-            self.freeButton.setImage(livreDes, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
             self.randomButton.setImage(aleatorioDes, for: .normal)
             self.nextButton.setImage(proximoDes, for: .normal)
         }
@@ -217,11 +221,13 @@ class SettingsGameViewController: UIViewController {
         case self.number7:
             self.number7.setImage(a7Sel, for: .normal)
         case self.freeButton:
-            if language == "PT"{
-                           self.freeButton.setImage(livreSel, for: .normal)
-                       } else{
-                          self.freeButton.setImage(freeSel, for: .normal)
-                       }
+            self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
+//            if language == "PT"{
+//                            self.freeButton.setImage(livreSel, for: .normal)
+//                       } else{
+//                          self.freeButton.setImage(freeSel, for: .normal)
+//                       }
+           
         case self.randomButton:
             if language == "PT"{
                            self.randomButton.setImage(aleatorioSel, for: .normal)
@@ -242,6 +248,7 @@ class SettingsGameViewController: UIViewController {
                        }
             
         }
+        
         
         
         switch focusedGuideRight{
@@ -289,9 +296,7 @@ class SettingsGameViewController: UIViewController {
             self.focusGuideUpRight.preferredFocusedView = self.homeButton
         }
         
-        
-        
-        
+
     }
     
     func setLayoutGuide(){
@@ -336,17 +341,19 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressed3(){
-        self.number3.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number3.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.number5.backgroundColor = .clear
         self.number7.backgroundColor = .clear
+        self.number3.layer.cornerRadius = 10.0
         typeOfPeople = 3
         numberSelected = true
         selectedPeople = 2
     }
     func pressed5(){
         self.number3.backgroundColor = .clear
-        self.number5.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number5.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.number7.backgroundColor = .clear
+        self.number5.layer.cornerRadius = 10.0
         typeOfPeople = 5
         numberSelected = true
         selectedPeople = 4
@@ -354,29 +361,33 @@ class SettingsGameViewController: UIViewController {
     func pressed7(){
         self.number3.backgroundColor = .clear
         self.number5.backgroundColor = .clear
-        self.number7.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.number7.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
+        self.number7.layer.cornerRadius = 10.0
         typeOfPeople = 7
         numberSelected = true
         selectedPeople = 6
     }
     
     func pressedNormal(){
-        self.normalButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.normalButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.difficultButton.backgroundColor = .clear
+        self.normalButton.layer.cornerRadius = 10.0
         typeDifficulty = 1
         difficultySelected = true
         selectedDifficulty = 1
     }
     func pressedHard(){
-        self.difficultButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.difficultButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.normalButton.backgroundColor = .clear
+        self.difficultButton.layer.cornerRadius = 10.0
         typeDifficulty = 2
         difficultySelected = true
         selectedDifficulty = 2
     }
     
     func pressedFree(){
-        self.freeButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+
+        self.freeButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
         typeTheme = 1
         themeSelected = true
@@ -384,8 +395,9 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedRandom(){
-        self.randomButton.backgroundColor = .init(red: 1, green: 0, blue: 0, alpha: 0.4)
+        self.randomButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.freeButton.backgroundColor = .clear
+        self.randomButton.layer.cornerRadius = 10.0
         typeTheme = 2
         themeSelected = true
         selectedTheme = 2
@@ -412,7 +424,21 @@ class SettingsGameViewController: UIViewController {
     }
     
     @IBAction func pressFree(_ sender: Any) {
+        
+        if deckNames.count > typeOfDeck{
+            
+            self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
+            self.labelDecks.text = "\(deckNames[typeOfDeck])"
+            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 45)
+            self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
+            self.typeOfDeck += 1
+            if typeOfDeck >= deckNames.count {
+                self.typeOfDeck = 0
+            }
+        }
+        
         pressedFree()
+        
     }
     
     @IBAction func pressRandom(_ sender: Any) {
@@ -430,6 +456,7 @@ class SettingsGameViewController: UIViewController {
             UserDefaults.standard.set(typeTheme, forKey: "theme")
             UserDefaults.standard.set(typeOfPeople, forKey: "people")
             UserDefaults.standard.set(typeDifficulty, forKey: "difficulty")
+            UserDefaults.standard.set(typeOfDeck, forKey: "deck")
             self.performSegue(withIdentifier: "judge", sender: nil)
         }
         
@@ -437,6 +464,8 @@ class SettingsGameViewController: UIViewController {
     }
     
     //perguntar se vai mexer com delegate ou passar as informacoes por storyboard
+    
+    
     
 }
 

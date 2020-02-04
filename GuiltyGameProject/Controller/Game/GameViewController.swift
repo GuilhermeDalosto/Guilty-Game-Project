@@ -10,8 +10,13 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, StatisticsProtocol{
-    
+protocol StatisticsProtocol: NSObject{
+//    var playersInfo: [StatisticsInfo] { get set }
+    func sendPlayersInfo(playersInfo: [StatisticsInfo])
+}
+
+class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
+    // secondViewController
     var playersInfo: [StatisticsInfo] = []
     
     func sendRandom(one: Int, two: Int) {
@@ -102,6 +107,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var gameRunning = true
     /// sound player
     let sound = Sound()
+    var delegate: StatisticsProtocol?
     
     // words and events
     // all words
@@ -156,8 +162,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      Setup the game (colors, players, judge, words, team, controller)
      */
     func setupGame(){
-        // pegar as cores e adicionar ao array colors
-        // PROVISORIO
+        
         
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
@@ -180,10 +185,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         
         // create class to stored players info
         for i in 0...qtPlayer - 1{
+            print(players[i].color)
             playersInfo.append(StatisticsInfo(color: players[i].color))
-            for _ in 0...9{
-                playersInfo[i].addWord(word: "")
-            }
+//            for _ in 0...9{
+//                playersInfo[i].addWord(word: "")
+//            }
         }
     }
     
@@ -248,6 +254,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
 //            }
 //        }
         
+        ninjaDeck = true
+        foodDeck = true
         if ninjaDeck{
             for i in words.strNinja{
                 actualDeck.append(i)
@@ -429,11 +437,29 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "endGame"{
-            if let vc = segue.destination as? ViewController{
-                vc.vencedor = vencedor
-                vc.delegate = self
+//            if let vc = segue.destination as? ViewController{
+//                vc.vencedor = vencedor
+//                vc.delegate = self
+//            }
+        }
+        switch segue.identifier {
+        case "endGame3":
+            if let vc = segue.destination as? Report3ViewController{
+                print("endGame3")
+                self.delegate = vc
+            }
+            break
+        case "endGame5":
+            if let vc = segue.destination as? Report5ViewController{
+                self.delegate = vc
+            }
+            break
+        default:
+            if let vc = segue.destination as? Report7ViewController{
+                self.delegate = vc
             }
         }
+        self.delegate?.sendPlayersInfo(playersInfo: playersInfo)
     }
     
     
@@ -605,6 +631,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     func addWordInfo(color: String, word: String){
         for player in playersInfo{
             if player.pinColor == color{
+                print(word)
                 player.addWord(word: word)
             }
         }
