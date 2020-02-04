@@ -54,7 +54,7 @@ class MenuViewController: UIViewController {
         let frontImage = UIImageView()
         let backgroundImage = UIImageView()
         let music = Sound()
-        
+        music.play("GuiltyProjectSong", type: "wav", repeat: 2)
         backgroundImage.image = UIImage(named: "fundoTribunal")
         frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
         
@@ -112,12 +112,7 @@ class MenuViewController: UIViewController {
 
     }
     
-    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
-//    }
-//    
+      
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
     }

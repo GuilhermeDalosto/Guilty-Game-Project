@@ -111,16 +111,6 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     
     // words and events
     // all words
-    var wordsRandom =  [String]()
-    var wordsHard = [String]()
-    var wordsFood = [String]()
-    var wordsFoodHard = [String]()
-    var wordsMagic = [String]()
-    var wordsAnimal = [String]()
-    var wordsAnimalHard = [String]()
-    var wordsOldWest = [String]()
-    var wordsNinja = [String]()
-    var wordsChristmas = [String]()
     
     /// all events
     var allEvents = [Event]()
@@ -162,9 +152,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     /**
      Setup the game (colors, players, judge, words, team, controller)
      */
+    
+    var language = ""
     func setupGame(){
         
-        
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            language = "EN"
+        } else{
+            language = "PT"
+        }
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
@@ -227,71 +223,61 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
      Function to add words
      */
     
-    var ninjaDeck = UserDefaults.standard.bool(forKey: "ninjaDeckOn")
-    var foodDeck = UserDefaults.standard.bool(forKey: "foodDeckOn")
-    var magicDeck = UserDefaults.standard.bool(forKey: "magicDeckOn")
-    var westDeck = UserDefaults.standard.bool(forKey: "oldWestDeckOn")
-    var christmasDeck = UserDefaults.standard.bool(forKey: "natalDeckOn")
-    var animalDeck = UserDefaults.standard.bool(forKey: "animalDeckOn")
-    
     var hardDeck = false
     var normalDeck = false
     
     var actualDeck = [String]()
     
     func addWords(){
-        print(ninjaDeck)
         let words = Words()
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
-        let theme = UserDefaults.standard.integer(forKey: "theme")
-//
-//        if difficulty == 1{
-//            for i in words.strNormalWords{
-//                actualDeck.append(i)
-//            }
-//        } else{
-//            for i in words.strHardWords{
-//                actualDeck.append(i)
-//            }
-//        }
-        
-//        ninjaDeck = true
-//        foodDeck = true
-        if ninjaDeck{
-            for i in words.strNinja{
-                actualDeck.append(i)
+
+        let theme = UserDefaults.standard.integer(forKey: "deck")
+        switch theme - 1{
+        case 0:
+            if language == "EN"{
+            actualDeck = words.strNinjaEN
+            } else{
+                actualDeck = words.strNinja
+            }
+        case 1:
+            if language == "EN"{
+            actualDeck = words.strFood
+                } else{
+                actualDeck = words.strFood
+            }
+        case 2:
+            if language == "EN"{
+                actualDeck = words.strMagicEng
+            } else{
+                actualDeck = words.strMagic
+            }
+        case 3:
+            if language == "EN"{
+                actualDeck = words.strAnimalEng
+            } else{
+                actualDeck = words.strAnimal
+            }
+        case 4:
+            if language == "EN"{
+                actualDeck = words.strOldWest
+            } else{
+                actualDeck = words.strOldWest
+            }
+        case 5:
+            if language == "EN"{
+                actualDeck = words.strNatal
+            } else{
+                actualDeck = words.strNatal
+            }
+        default:
+            if language == "EN"{
+                actualDeck = words.normalStrEng
+            } else{
+                actualDeck = words.strNormal
             }
         }
         
-        if foodDeck{
-            for i in words.strFood{
-                actualDeck.append(i)
-            }
-        }
-        
-        if magicDeck{
-            for i in words.strMagic{
-                actualDeck.append(i)
-            }
-        }
-        
-        if westDeck{
-            for i in words.strOldWest{
-                actualDeck.append(i)
-            }
-        }
-        
-        if christmasDeck{
-            for i in words.strNatal{
-                actualDeck.append(i)
-            }
-        }
-        
-        if animalDeck{
-            for i in words.strAnimal{
-                actualDeck.append(i)
-            }
-        }
     }
     
     /**
@@ -299,9 +285,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
      */
     func addEvents(){
         let events = allEventsSigned()
-        
+        if language == "PT"{
         for element in  events.events{
             allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+            }
+            
+        } else{
+            for element in  events.eventsEnglish{
+                       allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+                       }
         }
        
     }

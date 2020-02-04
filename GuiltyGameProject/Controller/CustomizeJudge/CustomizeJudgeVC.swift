@@ -270,9 +270,7 @@ class CustomizeJudgeViewController: UIViewController {
             _judgeIndex += 1
         }
         else{
-////            rightButton.backgroundColor = .red
-//            leftButton.backgroundColor = .white
-//            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
+            rightButton.setImage(setaDireitaDes, for: .normal)
 
         }
     }
@@ -284,9 +282,7 @@ class CustomizeJudgeViewController: UIViewController {
 
         }
         else{
-//            leftButton.backgroundColor = .red
-//            rightButton.backgroundColor = .white
-//            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
+            leftButton.setImage(setaEsquerdaDes, for: .normal)
         }
     }
     
@@ -300,8 +296,11 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     func populateJudge(){
-        judge.append(UIImage(named: "judge0")!)
-        judge.append(UIImage(named: "judge1")!)
+        judge.append(UIImage(named: "bigjudge0")!)
+        judge.append(UIImage(named: "bigjudge1")!)
+        judge.append(UIImage(named: "bigjudge2")!)
+        judge.append(UIImage(named: "bigjudge3")!)
+        judge.append(UIImage(named: "bigjudge4")!)
     }
     
 }

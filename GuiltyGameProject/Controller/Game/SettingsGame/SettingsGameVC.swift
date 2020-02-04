@@ -464,6 +464,7 @@ class SettingsGameViewController: UIViewController {
             UserDefaults.standard.set(typeOfPeople, forKey: "people")
             UserDefaults.standard.set(typeDifficulty, forKey: "difficulty")
             UserDefaults.standard.set(typeOfDeck, forKey: "deck")
+            print(typeOfDeck)
             self.performSegue(withIdentifier: "judge", sender: nil)
         }
         
