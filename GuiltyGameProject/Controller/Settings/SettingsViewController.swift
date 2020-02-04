@@ -16,15 +16,25 @@ class SettingsViewController: UIViewController {
     var olhandoCima = UIImage(named: "telaMusica")
     var olhandoBaixo = UIImage(named: "telaIdioma")
     
-    var homeDes = UIImage(named: "homeConfSelecionado")
-    var menuDes = UIImage(named: "menuConfSelecionado")
+    
+    var homeDes = UIImage(named: "homeConf")
+     var menuDes = UIImage(named: "menuConf")
+    
+//    var homeDes = UIImage(named: "homeConfSelecionado")
+//    var menuDes = UIImage(named: "menuConfSelecionado")
     
     
-    var musicaOffDes = UIImage(named: "musicaOffSelecionado")
-    var musicaOnDes = UIImage(named: "musicaOnSelecionado")
+//    var musicaOffDes = UIImage(named: "musicaOffSelecionado")
+//    var musicaOnDes = UIImage(named: "musicaOnSelecionado")
+//
+//    var musicOffDes = UIImage(named: "musicOffSelecionado")
+//    var musicOnDes = UIImage(named: "musicOnSelecionado")
     
-    var musicOffDes = UIImage(named: "musicOffSelecionado")
-    var musicOnDes = UIImage(named: "musicOnSelecionado")
+    var musicaOffDes = UIImage(named: "musicaOff")
+     var musicaOnDes = UIImage(named: "musicaOn")
+     
+     var musicOffDes = UIImage(named: "musicOff")
+     var musicOnDes = UIImage(named: "musicOn")
     
     
     var homeSel = UIImage(named: "homeConf")
@@ -74,8 +84,21 @@ class SettingsViewController: UIViewController {
         
         if NSLocalizedString("homeText", comment: "") == "Home"{
             language = "EN"
+            self.homeButton.setImage(homeSel, for: .normal)
+            
+            if musicOption{
+                self.musicButton.setImage(musicOnSel, for: .normal)
+            } else{
+                self.musicButton.setImage(musicOffSel, for: .normal)
+            }
         } else{
             language = "PT"
+            self.homeButton.setImage(menuSel, for: .normal)
+            if musicOption {
+                self.musicButton.setImage(musicaOnSel, for: .normal)
+            } else{
+                self.musicButton.setImage(musicaOffSel, for: .normal)
+            }
         }
         
     }

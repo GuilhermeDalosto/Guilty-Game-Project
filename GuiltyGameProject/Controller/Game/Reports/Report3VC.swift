@@ -16,6 +16,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
         print("add info")
         print(playersInfo.count)
         print(playersInfo[0].words)
+        print(playersInfo[1].words)
         self.playersInfo = playersInfo
     }
     
@@ -39,6 +40,27 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("AAAAAA")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setAll()
+        print("BBBBBBB")
+    }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
+    }
+    
+    func setAll(){
+        setSpaceLabel()
+        labelArrayCreate()
+        setBackGround()
+        setWords()
+    }
+    
+    func setSpaceLabel(){
         word00.text = ""
         word01.text = ""
         word02.text = ""
@@ -51,37 +73,20 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
         word13.text = ""
         word14.text = ""
         word15.text = ""
-        setAll()
-        print("AAAAAA")
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("BBBBBBB")
-    }
-    
-    @IBAction func backBtn(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToMenu", sender: nil)
-    }
-    
-    func setAll(){
-        labelArrayCreate()
-        setBackGround()
-        setWords()
     }
     
     func labelArrayCreate(){
         arrayLabel.append(word00)
-        arrayLabel.append(word10)
         arrayLabel.append(word01)
-        arrayLabel.append(word11)
         arrayLabel.append(word02)
-        arrayLabel.append(word12)
         arrayLabel.append(word03)
-        arrayLabel.append(word13)
         arrayLabel.append(word04)
-        arrayLabel.append(word14)
         arrayLabel.append(word05)
+        arrayLabel.append(word10)
+        arrayLabel.append(word11)
+        arrayLabel.append(word12)
+        arrayLabel.append(word13)
+        arrayLabel.append(word14)
         arrayLabel.append(word15)
     }
     
@@ -131,6 +136,9 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
             for word in player.words{
                 arrayLabel[aux].text = word
                 aux += 1
+                if aux % 6 == 0{
+                    break
+                }
             }
             print("=======")
         }

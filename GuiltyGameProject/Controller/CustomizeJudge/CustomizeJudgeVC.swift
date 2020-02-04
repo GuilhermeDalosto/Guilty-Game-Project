@@ -99,8 +99,10 @@ class CustomizeJudgeViewController: UIViewController {
         escureceTodos()
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
+            self.backButton.setImage(homeSel, for: .normal)
         } else{
             language = "PT"
+            self.backButton.setImage(menuSel, for: .normal)
         }
         self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
         judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
@@ -268,9 +270,7 @@ class CustomizeJudgeViewController: UIViewController {
             _judgeIndex += 1
         }
         else{
-////            rightButton.backgroundColor = .red
-//            leftButton.backgroundColor = .white
-//            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
+            rightButton.setImage(setaDireitaDes, for: .normal)
 
         }
     }
@@ -282,9 +282,7 @@ class CustomizeJudgeViewController: UIViewController {
 
         }
         else{
-//            leftButton.backgroundColor = .red
-//            rightButton.backgroundColor = .white
-//            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
+            leftButton.setImage(setaEsquerdaDes, for: .normal)
         }
     }
     
@@ -298,8 +296,11 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     func populateJudge(){
-        judge.append(UIImage(named: "judge0")!)
-        judge.append(UIImage(named: "judge1")!)
+        judge.append(UIImage(named: "bigjudge0")!)
+        judge.append(UIImage(named: "bigjudge1")!)
+        judge.append(UIImage(named: "bigjudge2")!)
+        judge.append(UIImage(named: "bigjudge3")!)
+        judge.append(UIImage(named: "bigjudge4")!)
     }
     
 }
@@ -316,10 +317,13 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         return self.judgeCollectionVIew.frame.size
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
+      //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         
         
