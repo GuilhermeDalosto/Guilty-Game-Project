@@ -18,7 +18,7 @@ class MenuViewController: UIViewController {
     var playSel = UIImage(named: "playMenu")
     var shopSel = UIImage(named: "shop")
     var lojaSel = UIImage(named: "loja")
-    
+    var sound = AVAudioPlayer()
     
         var configDes = UIImage(named: "settingsMenu")
        var configuracoesDes = UIImage(named: "configuracoes")
@@ -43,6 +43,7 @@ class MenuViewController: UIViewController {
     var language = ""
     
     var defaults = AllUserDefault()
+    let music = Sound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +54,8 @@ class MenuViewController: UIViewController {
 
         let frontImage = UIImageView()
         let backgroundImage = UIImageView()
-        let music = Sound()
-        music.play("GuiltyProjectSong", type: "wav", repeat: 2)
+        
+       
         backgroundImage.image = UIImage(named: "fundoTribunal")
         frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
         
@@ -62,7 +63,6 @@ class MenuViewController: UIViewController {
         backgroundImage.frame = view.frame
         frontImage.alpha = 0
         frontImage.frame = view.frame
-        music.play("introGuilty1", type: ".wav",repeat: 0)
         
         launchView.addSubview(backgroundImage)
         launchView.addSubview(frontImage)
@@ -70,19 +70,25 @@ class MenuViewController: UIViewController {
         
         UIView.animate(withDuration: 1.7) {
             frontImage.alpha = 1
+            if UserDefaults.standard.bool(forKey: "musicOption"){
+                self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: 2)
+            }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
             
             UIView.animate(withDuration: 1.7, animations: {
                  launchView.alpha = 0
+                
             }) { _ in
                 backgroundImage.removeFromSuperview()
                 frontImage.removeFromSuperview()
                 launchView.removeFromSuperview()
+                
             }
             
         }
+        
         defaults.screenNumber = 1
     }
     
@@ -112,6 +118,13 @@ class MenuViewController: UIViewController {
 
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Settings"{
+             let vc = segue.destination as! SettingsViewController
+                vc.music = sound
+            
+        }
+    }
       
     @IBAction func PressStart(_ sender: Any) {
         performSegue(withIdentifier: "SetGame", sender: nil)
