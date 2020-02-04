@@ -106,7 +106,7 @@ class DrawScene: SKScene{
             for i in 1...2 {
                 let diceTextureName = "Dice\(i)"
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
-                
+                print(i)
             }
             print("...\(numberOne)")
         } else if players == 4{
@@ -163,13 +163,15 @@ class DrawScene: SKScene{
                 aux = false
                 addChild(diceTeam2)
                 numbertwo = 0
-                animateNode([diceTeam2])
+//                animateNode([diceTeam2])
+//                animateDice()
             } else {
                  self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
                 aux = true
                 addChild(diceTeam1)
                 numbertwo = 2
-                animateNode([diceTeam1])
+//                animateNode([diceTeam1])
+//                animateDice()
             }
            
             diceTeam1.position.x = size.width/2
@@ -194,9 +196,9 @@ class DrawScene: SKScene{
     var i = 0
     
     func animateNode(_ nodes: [SKSpriteNode]){
-        i = Int.random(in: 0...1)
         
         for nodePassed in nodes {
+            i = Int.random(in: 0...1)
             
             let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
             
@@ -206,7 +208,7 @@ class DrawScene: SKScene{
             let waitAction = SKAction.wait(forDuration: 0.5) //2
             
             let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
-             rotateFrame.shuffle()
+            rotateFrame.shuffle()
             
             if i == 0{
                 rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
@@ -224,13 +226,24 @@ class DrawScene: SKScene{
             let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
             
             nodePassed.run(actionSequence)
-            
         }
         
         
     }
     
     func animateDice(){
-        animateNode([self.diceTeam1,self.diceTeam2])
+//        if numPlayers == 2{
+//            if aux{
+//                animateNode([self.diceTeam2, self.diceTeam1], i)
+//            } else {
+//                animateNode([self.diceTeam1, self.diceTeam2], i)
+//            }
+//        } else {
+            animateNode([self.diceTeam1,self.diceTeam2])
+//        }
+    }
+    
+    func animateDice2Players(){
+        
     }
 }

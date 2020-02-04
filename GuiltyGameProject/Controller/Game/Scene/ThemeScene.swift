@@ -25,19 +25,44 @@ class ThemeScene: SKScene{
     
     var actionTitle = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
+    
     override init(size: CGSize){
         super.init(size: size)
         // chamar a funcao aleatoria para retornar os temas aleatorios
         
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            backgroundImage = SKSpriteNode(imageNamed: "telaEN")
+        }else{
+            backgroundImage = SKSpriteNode(imageNamed: "telaPT")
+        }
+        
         localTheme.text = local.randomElement()
-        localTheme.color = .red
+        localTheme.fontColor = .black
         localTheme.fontSize = 50
-        localTheme.position = CGPoint(x: size.width * 0.25, y: size.height/2)
+        localTheme.position = CGPoint(x: size.width * 0.35, y: size.height/2 * 1.2)
+        
+        
+        if (localTheme.text! as NSString).length >= 14 {
+            localTheme.fontSize = 40
+            localTheme.preferredMaxLayoutWidth = 300
+            localTheme.lineBreakMode = .byCharWrapping
+            localTheme.numberOfLines = 0
+            localTheme.position = CGPoint(x: size.width * 0.35, y: size.height/2 * 1.1)
+        }
+
         
         actionTheme.text = action.randomElement()
-        actionTheme.color = .red
+        actionTheme.fontColor = .black
         actionTheme.fontSize = 50
-        actionTheme.position = CGPoint(x: size.width * 0.75, y: size.height/2)
+        actionTheme.position = CGPoint(x: size.width * 0.64, y: size.height/2 * 1.2)
+        
+        if (actionTheme.text! as NSString).length >= 14 {
+            actionTheme.fontSize = 40
+            actionTheme.preferredMaxLayoutWidth = 300
+            actionTheme.lineBreakMode = .byCharWrapping
+            actionTheme.numberOfLines = 0
+            actionTheme.position = CGPoint(x: size.width * 0.64, y: size.height/2 * 1.1)
+        }
         
         titleLabel.text = "Local"
         titleLabel.color = .blue
@@ -45,7 +70,7 @@ class ThemeScene: SKScene{
         titleLabel.position = CGPoint(x: size.width * 0.25, y: size.height * 0.75)
         print("passou aq")
         
-        backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
+        
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundImage.zPosition = -1
         backgroundImage.size = size
@@ -58,9 +83,9 @@ class ThemeScene: SKScene{
         
         addChild(localTheme)
         addChild(actionTheme)
-        addChild(titleLabel)
+//        addChild(titleLabel)
         addChild(backgroundImage)
-        addChild(actionTitle)
+//        addChild(actionTitle)
     }
     
     required init?(coder aDecoder: NSCoder) {
