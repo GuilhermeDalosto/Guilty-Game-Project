@@ -16,6 +16,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
         print("add info")
         print(playersInfo.count)
         print(playersInfo[0].words)
+        print(playersInfo[1].words)
         self.playersInfo = playersInfo
     }
     
@@ -76,16 +77,16 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     
     func labelArrayCreate(){
         arrayLabel.append(word00)
-        arrayLabel.append(word10)
         arrayLabel.append(word01)
-        arrayLabel.append(word11)
         arrayLabel.append(word02)
-        arrayLabel.append(word12)
         arrayLabel.append(word03)
-        arrayLabel.append(word13)
         arrayLabel.append(word04)
-        arrayLabel.append(word14)
         arrayLabel.append(word05)
+        arrayLabel.append(word10)
+        arrayLabel.append(word11)
+        arrayLabel.append(word12)
+        arrayLabel.append(word13)
+        arrayLabel.append(word14)
         arrayLabel.append(word15)
     }
     
@@ -135,6 +136,9 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
             for word in player.words{
                 arrayLabel[aux].text = word
                 aux += 1
+                if aux % 6 == 0{
+                    break
+                }
             }
             print("=======")
         }
