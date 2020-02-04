@@ -676,11 +676,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         }
     }
     
+    
+    
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
         
+        
         switch  defaults.positionOnTheGameScreen{
-        case 2:
+        case 2:        
             switch focus{
             case pauseScene?.buttonToBackToTheGame:
 //                if language == "PT"{
