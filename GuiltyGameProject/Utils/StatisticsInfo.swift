@@ -9,7 +9,7 @@
 import Foundation
 
 class StatisticsInfo{
-    var words = [String]()
+    var words: [String?] = [String]()
     var pinColor: String
     
     init(color: String){
