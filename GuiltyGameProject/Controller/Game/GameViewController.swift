@@ -231,6 +231,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     func addWords(){
         let words = Words()
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
+
         let theme = UserDefaults.standard.integer(forKey: "deck")
         switch theme - 1{
         case 0:

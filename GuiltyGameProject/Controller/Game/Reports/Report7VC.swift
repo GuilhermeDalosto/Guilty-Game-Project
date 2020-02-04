@@ -14,6 +14,12 @@ class Report7ViewController: UIViewController, StatisticsProtocol{
     var playersInfo: [StatisticsInfo] = [StatisticsInfo]()
     
     func sendPlayersInfo(playersInfo: [StatisticsInfo]) {
+        print(playersInfo[0].words)
+        print(playersInfo[1].words)
+        print(playersInfo[2].words)
+        print(playersInfo[3].words)
+        print(playersInfo[4].words)
+        print(playersInfo[5].words)
         self.playersInfo = playersInfo
     }
     
@@ -149,6 +155,20 @@ class Report7ViewController: UIViewController, StatisticsProtocol{
             for word in player.words{
                 arrayLabel[aux].text = word
                 aux += 1
+                if aux % 3 == 0{
+                    break
+                }
+            }
+            if aux <= 3 {
+                aux = 3
+            } else if aux <= 6 {
+                aux = 6
+            } else if aux <= 9 {
+                aux = 9
+            } else if aux <= 12 {
+                aux = 12
+            } else if aux <= 15 {
+                aux = 15
             }
             print("=======")
         }
