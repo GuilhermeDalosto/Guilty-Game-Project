@@ -342,6 +342,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         //Se não estiver no menu
         if defaults.isPaused == false{
             defaults.isPaused = true
+//            pauseScene?.buttonToBackToTheGame.addTarget(self, action: #selector(pressPauseBackToTheGameBtn), for: .touchUpInside)
+            defaults.positionOnTheGameScreen = 2
             pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
             gameScene?.endTimer()
             gameScene?.isPaused = true
@@ -352,6 +354,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
             if defaults.isQuitable == true{
                 defaults.isPaused = false
                 defaults.isQuitable = false
+                defaults.positionOnTheGameScreen = 1
 //                quitGameView.removeFromSuperview()
                 pauseScene = nil
                 quitGameScene = nil
@@ -363,6 +366,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 quitGameScene = QuitGameScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
 //               pauseView.addSubview(quitGameView)
                 defaults.isQuitable = true
+                defaults.positionOnTheGameScreen = 3
                 quitGameView.alpha = 1.0
                 quitGameView.presentScene(quitGameScene)
             }
@@ -539,6 +543,22 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         
     }
     
+//    @objc func pressPauseBackToTheGameBtn(_ sender: AnyObject?){
+//
+//    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
+        let touch: UITouch = touches.first as! UITouch
+        
+        if (touch.view == pauseScene?.buttonToBackToTheGame){
+            print("touchesBegan | This is an ImageView")
+        }else{
+            print("touchesBegan | This is not an ImageView")
+        }
+    }
+    
     
     /**
      Function to change scenes
@@ -636,5 +656,91 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 player.addWord(word: word)
             }
         }
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focus = context.nextFocusedView else {return}
+        
+        switch  defaults.positionOnTheGameScreen{
+        case 2:
+            switch focus{
+            case pauseScene?.buttonToBackToTheGame:
+//                if language == "PT"{
+//                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+//                } else{
+//                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+//                }
+                break
+            default:
+//                if language == "PT"{
+//                    self.shopButton.setImage(lojaSel,for: .normal)
+//                } else{
+//                    self.shopButton.setImage(shopSel,for: .normal)
+//                }
+                break
+                
+            }
+            
+//            if  focus != self.pauseScene?.buttonToBackToTheGame {
+//              if language == "PT"{
+//                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
+//                } else{
+//                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
+//                }
+//            }
+            
+//            if focus != self.settingsButton{
+//               if language == "PT"{
+//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+//                } else{
+//                    self.settingsButton.setImage(configDes,for: .normal)
+//                }
+//            }
+            break
+        case 3:
+            switch focus{
+            case quitGameScene?.buttonToBackToTheGame:
+//                if language == "PT"{
+//                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+//                } else{
+//                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+//                }
+                break
+            default:
+//                if language == "PT"{
+//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
+//                } else{
+//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
+//                }
+                break
+                
+            }
+            
+//            if  focus != self.startButton {
+//              if language == "PT"{
+//                self.startButton.setImage(jogarDes,for: .normal)
+//                } else{
+//                    self.startButton.setImage(playDes,for: .normal)
+//                }
+//            }
+            
+//            if focus != self.settingsButton{
+//               if language == "PT"{
+//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+//                } else{
+//                    self.settingsButton.setImage(configDes,for: .normal)
+//                }
+//            }
+            break
+        default:
+            break
+            
+        }
+        
+        
+        
+        
+        updateFocusIfNeeded()
+        
     }
 }

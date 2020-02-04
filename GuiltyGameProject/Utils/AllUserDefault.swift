@@ -54,7 +54,21 @@ class AllUserDefault {
         
     }
     
-    ///Verificação para saber em qual tela o jogo está
+    ///Verificação para saber em qual tela, dentro do jogo, ele está
+    var positionOnTheGameScreen : Int {
+        
+        get {
+            return user_default.value(forKey: "positionOnTheGameScreen") as? Int ?? 1
+        }
+        
+        set {
+            user_default.set(newValue, forKey: "positionOnTheGameScreen")
+        }
+        
+        
+    }
+    
+    ///Verificação para saber em qual conjunto de telas do fluxo ela está
     var screenNumber : Int {
         
         get {
