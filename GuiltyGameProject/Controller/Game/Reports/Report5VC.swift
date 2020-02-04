@@ -66,7 +66,7 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        performSegue(withIdentifier: "goMenu", sender: nil)
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
     }
     
     func setAll(){

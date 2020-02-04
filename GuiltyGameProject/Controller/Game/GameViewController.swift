@@ -135,6 +135,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
 //        gameView.addSubview(pauseView)
 //        pauseView.sendSubviewToBack(gameView)
         defaults.isOnGame = true
+        defaults.screenNumber = 2
         pauseView.alpha = 0.0
         quitGameView.alpha = 0.0
         super.viewDidLoad()
@@ -181,6 +182,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         // instantiate
         judge = Judge(team)        
         addAll()
+        //Add gesture
         
         // create class to stored players info
         for i in 0...qtPlayer - 1{
@@ -208,6 +210,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         var _ = SiriRemote(self.view)
         for i in 0..<funcoesControle.count{
             self.view.gestureRecognizers?[i].addTarget(self, action: Selector(funcoesControle[i]))
+        }
+    }
+    
+    /**
+     Function to remove the controller
+     */
+    func rmvController(){
+        var _ = SiriRemote(self.view)
+        for i in 0..<funcoesControle.count{
+            self.view.gestureRecognizers?[i].removeTarget(self, action: Selector(funcoesControle[i]))
         }
     }
     
@@ -354,16 +366,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 quitGameView.alpha = 1.0
                 quitGameView.presentScene(quitGameScene)
             }
-            //O que fazer quando ele apertar no botão
             
         }
-        /*
-         else{
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
-         }
-         */
     }
     
     /**

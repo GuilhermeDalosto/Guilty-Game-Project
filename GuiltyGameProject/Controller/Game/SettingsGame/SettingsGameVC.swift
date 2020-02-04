@@ -69,8 +69,7 @@ class SettingsGameViewController: UIViewController {
     var aleatorioDes = UIImage(named: "aleatorioSelecionado")
     
     
-    var deckImages = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
-    var cont = 0
+    var deckNames = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
@@ -82,11 +81,13 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var labelError: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
+    @IBOutlet weak var labelDecks: UILabel!
     
     
     var typeTheme = 0
     var typeDifficulty = 0
     var typeOfPeople = 0
+    var typeOfDeck = 0
     var numberSelected = false
     var numberDeselected = false
     var difficultySelected = false
@@ -94,6 +95,8 @@ class SettingsGameViewController: UIViewController {
     var themeSelected = false
     var themeDeselected = false
     var language = ""
+    var blackScreen: SKSpriteNode?
+    var defaults = AllUserDefault()
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayoutGuide()
@@ -101,6 +104,15 @@ class SettingsGameViewController: UIViewController {
         labelError.isHidden = true
         nextButton.isEnabled = true
         backgroundImage.image = UIImage(named: "")
+        self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 50)
+        self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
+        blackScreen = SKSpriteNode(color: .black, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        if defaults.screenNumber != 1{
+            blackScreen?.zPosition = 10
+        }else{
+            blackScreen?.zPosition = -1
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -112,9 +124,11 @@ class SettingsGameViewController: UIViewController {
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
             self.backgroundImage.image = fundoEN
+            self.labelDecks.text = "Free"
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT
+            self.labelDecks.text = "Livre"
         }
         
         self.view.insertSubview(backgroundImage, at: 0)
@@ -172,7 +186,7 @@ class SettingsGameViewController: UIViewController {
             self.number3.setImage(a3Des, for: .normal)
             self.number5.setImage(a5Des, for: .normal)
             self.number7.setImage(a7Des, for: .normal)
-            self.freeButton.setImage(freeDes, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
             self.randomButton.setImage(randomDes, for: .normal)
             self.nextButton.setImage(nextDes, for: .normal)
         }
@@ -183,7 +197,7 @@ class SettingsGameViewController: UIViewController {
             self.number3.setImage(a3Des, for: .normal)
             self.number5.setImage(a5Des, for: .normal)
             self.number7.setImage(a7Des, for: .normal)
-            self.freeButton.setImage(livreDes, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
             self.randomButton.setImage(aleatorioDes, for: .normal)
             self.nextButton.setImage(proximoDes, for: .normal)
         }
@@ -216,11 +230,13 @@ class SettingsGameViewController: UIViewController {
         case self.number7:
             self.number7.setImage(a7Sel, for: .normal)
         case self.freeButton:
-            if language == "PT"{
-                           self.freeButton.setImage(livreSel, for: .normal)
-                       } else{
-                          self.freeButton.setImage(freeSel, for: .normal)
-                       }
+            self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
+//            if language == "PT"{
+//                            self.freeButton.setImage(livreSel, for: .normal)
+//                       } else{
+//                          self.freeButton.setImage(freeSel, for: .normal)
+//                       }
+           
         case self.randomButton:
             if language == "PT"{
                            self.randomButton.setImage(aleatorioSel, for: .normal)
@@ -417,11 +433,17 @@ class SettingsGameViewController: UIViewController {
     }
     
     @IBAction func pressFree(_ sender: Any) {
-
-        if deckImages.count >= cont{
-            self.freeButton.imageView?.image = UIImage(named: "botaozinho")
-            self.freeButton.titleLabel?.text = deckImages[cont]
-            self.cont += 1
+        
+        if deckNames.count > typeOfDeck{
+            
+            self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
+            self.labelDecks.text = "\(deckNames[typeOfDeck])"
+            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 45)
+            self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
+            self.typeOfDeck += 1
+            if typeOfDeck >= deckNames.count {
+                self.typeOfDeck = 0
+            }
         }
         
         pressedFree()
@@ -443,6 +465,7 @@ class SettingsGameViewController: UIViewController {
             UserDefaults.standard.set(typeTheme, forKey: "theme")
             UserDefaults.standard.set(typeOfPeople, forKey: "people")
             UserDefaults.standard.set(typeDifficulty, forKey: "difficulty")
+            UserDefaults.standard.set(typeOfDeck, forKey: "deck")
             self.performSegue(withIdentifier: "judge", sender: nil)
         }
         

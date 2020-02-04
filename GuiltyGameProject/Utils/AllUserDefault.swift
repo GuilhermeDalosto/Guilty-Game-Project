@@ -40,7 +40,7 @@ class AllUserDefault {
         
     }
     
-    ///Verificação se está  saindo ou não do jogo
+    ///Verificação se está saindo ou não do jogo
     var isQuitable : Bool {
         
         get {
@@ -53,4 +53,25 @@ class AllUserDefault {
         
         
     }
+    
+    ///Verificação para saber em qual tela o jogo está
+    var screenNumber : Int {
+        
+        get {
+            return user_default.value(forKey: "screenNumber") as? Int ?? 1
+        }
+        
+        set {
+            user_default.set(newValue, forKey: "screenNumber")
+        }
+        
+        
+    }
+    
+    var musicOption : Bool?
+    var languageOption : Bool?
+    var difficulty : Int?
+    var people : Int?
+    var theme : Int?
+    var typeDeck : Int?
 }

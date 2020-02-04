@@ -165,7 +165,7 @@
 		ACF5936A23998679001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SettingsGame.storyboard; sourceTree = "<group>"; };
 		ACF5936D2399867E001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CustomizeJudge.storyboard; sourceTree = "<group>"; };
 		ACF5937023998682001C1B94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Report3.storyboard; sourceTree = "<group>"; };
-		ACF93C69238C472600876A0B /* GuiltyGameProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuiltyGameProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF93C69238C472600876A0B /* Final Court.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Court.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF93C6C238C472600876A0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF93C6E238C472700876A0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ACF93C71238C472700876A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -314,7 +314,7 @@
 		ACF93C6A238C472600876A0B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93C69238C472600876A0B /* GuiltyGameProject.app */,
+				ACF93C69238C472600876A0B /* Final Court.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -458,7 +458,7 @@
 			);
 			name = GuiltyGameProject;
 			productName = GuiltyGameProject;
-			productReference = ACF93C69238C472600876A0B /* GuiltyGameProject.app */;
+			productReference = ACF93C69238C472600876A0B /* Final Court.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -776,7 +776,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Final Court";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -796,7 +796,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Final Court";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;

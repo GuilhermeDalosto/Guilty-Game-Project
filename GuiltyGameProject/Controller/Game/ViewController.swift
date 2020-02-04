@@ -17,6 +17,7 @@ class ViewController: UIViewController  {
     ///Menu button
     let menuPressRecognizer = UITapGestureRecognizer()
     var vencedor = "Ninguém"
+    var defaults = AllUserDefault()
     private var focusGuideSelected = UIFocusGuide()
     @IBOutlet weak var backBTN: UIButton!
     weak var delegate: StatisticsProtocol?
@@ -29,9 +30,10 @@ class ViewController: UIViewController  {
         staticsCollection.delegate = self
         staticsCollection.dataSource = self
         
-        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
-        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-        self.view.addGestureRecognizer(menuPressRecognizer)
+//        menuPressRecognizer.addTarget(self, action: "menuButtonAction:")
+//        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+//        self.view.addGestureRecognizer(menuPressRecognizer)
+        defaults.screenNumber = 3
         
     }
     

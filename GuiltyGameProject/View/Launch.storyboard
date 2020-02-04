@@ -10,7 +10,7 @@
         <!--Launch View Controller-->
         <scene sceneID="TyP-4N-ARc">
             <objects>
-                <viewController id="3RO-AK-ixi" customClass="LaunchViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3RO-AK-ixi" customClass="LaunchViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aZ5-MD-naK"/>
                         <viewControllerLayoutGuide type="bottom" id="ZSs-ig-4U9"/>

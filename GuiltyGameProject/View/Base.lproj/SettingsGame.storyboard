@@ -126,6 +126,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StP-hx-vP7">
+                                <rect key="frame" x="1404" y="456" width="248" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UYk-IN-ioI"/>
                     </view>
@@ -133,6 +140,7 @@
                         <outlet property="difficultButton" destination="Ra1-vY-zjT" id="Ewa-G8-1rp"/>
                         <outlet property="freeButton" destination="cyT-MX-dSX" id="sCa-Rc-0Kg"/>
                         <outlet property="homeButton" destination="f2f-hb-bAs" id="4cW-l4-nSz"/>
+                        <outlet property="labelDecks" destination="StP-hx-vP7" id="q0u-FX-cqS"/>
                         <outlet property="labelError" destination="mzg-f7-IBW" id="IWG-K1-RAG"/>
                         <outlet property="nextButton" destination="H2N-11-4GU" id="noo-af-gIP"/>
                         <outlet property="normalButton" destination="Mk7-g3-971" id="1e8-aQ-TeF"/>
