@@ -16,7 +16,7 @@ class SettingsViewController: UIViewController {
     var olhandoCima = UIImage(named: "telaMusica")
     var olhandoBaixo = UIImage(named: "telaIdioma")
     
-    
+    let music2 = Sound()
     var homeDes = UIImage(named: "homeConf")
      var menuDes = UIImage(named: "menuConf")
     
@@ -56,7 +56,7 @@ class SettingsViewController: UIViewController {
     var language = ""
     var languageOption = true
     var languageOptionStr = "EN"
-    let music = AVAudioPlayer()
+    var music = AVAudioPlayer()
     var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
     
@@ -250,6 +250,7 @@ class SettingsViewController: UIViewController {
     @IBAction func pressMusicButton(_ sender: Any) {
         
         musicOption.toggle()
+      
         
         if language == "EN"{
             if musicOption{

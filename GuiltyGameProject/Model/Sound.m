@@ -13,7 +13,7 @@
 
 
 
-- (void) playSound : (NSString*) soundName type: (NSString*) soundType repeat: (NSInteger) repeat
+- (AVAudioPlayer *) playSound : (NSString*) soundName type: (NSString*) soundType repeat: (NSInteger) repeat
 {
     
     NSString *url = [[NSBundle mainBundle]pathForResource:soundName ofType:soundType];
@@ -25,12 +25,11 @@
     _audioPlayer.numberOfLoops = repeat;
     }
     [_audioPlayer play];
+    return _audioPlayer;
     
     
     
 }
-
-
 
 
 @end

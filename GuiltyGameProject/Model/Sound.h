@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property AVAudioPlayer *audioPlayer;
 
-- (void) playSound : (NSString*) soundName type: (NSString*) soundType repeat: (NSInteger) repeat;
-
+- (AVAudioPlayer *) playSound : (NSString*) soundName type: (NSString*) soundType repeat: (NSInteger) repeat;
 
 @end
 
