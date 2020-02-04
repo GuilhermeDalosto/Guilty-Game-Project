@@ -135,6 +135,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
 //        gameView.addSubview(pauseView)
 //        pauseView.sendSubviewToBack(gameView)
         defaults.isOnGame = true
+        defaults.screenNumber = 2
         pauseView.alpha = 0.0
         quitGameView.alpha = 0.0
         super.viewDidLoad()

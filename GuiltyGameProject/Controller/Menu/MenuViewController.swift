@@ -35,6 +35,8 @@ class MenuViewController: UIViewController {
     
     var language = ""
     
+    var defaults = AllUserDefault()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +76,7 @@ class MenuViewController: UIViewController {
             }
             
         }
+        defaults.screenNumber = 1
     }
     
     override func viewWillAppear(_ animated: Bool) {

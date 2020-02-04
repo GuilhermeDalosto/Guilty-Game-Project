@@ -95,6 +95,8 @@ class SettingsGameViewController: UIViewController {
     var themeSelected = false
     var themeDeselected = false
     var language = ""
+    var blackScreen: SKSpriteNode?
+    var defaults = AllUserDefault()
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayoutGuide()
@@ -104,6 +106,13 @@ class SettingsGameViewController: UIViewController {
         backgroundImage.image = UIImage(named: "")
         self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 50)
         self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
+        blackScreen = SKSpriteNode(color: .black, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        if defaults.screenNumber != 1{
+            blackScreen?.zPosition = 10
+        }else{
+            blackScreen?.zPosition = -1
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
