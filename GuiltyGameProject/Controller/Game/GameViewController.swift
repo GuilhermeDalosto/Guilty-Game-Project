@@ -397,8 +397,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
                     self.performSegue(withIdentifier: "endGame7", sender: nil)
                 }
                 
-            }else{
-                changeScene()
+            }
+            self.gameScene?.juizBravo()
+            self.gameScene?.endTimer()
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.changeScene()
             }
         }
         
@@ -421,7 +427,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     @objc func SwipeRight(){
         if gameView.scene == gameScene && GameScene.turn > 0{
             sound.play("SwipeRight", type: ".wav",repeat: 0)
+            self.gameScene?.juizFeliz()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                // FAZ O TEMPO PARAR AQUI GABS PLS
+                //self.gameScene?.endTimer()
+                
                 self.changeScene()
             }
         } else{

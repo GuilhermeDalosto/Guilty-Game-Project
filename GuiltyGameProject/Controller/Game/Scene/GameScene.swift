@@ -28,7 +28,9 @@ class GameScene: SKScene{
     /// Lifes Sprites at Game Scene
     var lifeTeamSprite = [SKSpriteNode]()
     /// Judge Sprite at Game Scene
+    var positionJudge = UserDefaults.standard.integer(forKey: "positionCollection")
     var judgeSprite = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
+    
     /// NPC Pins Sprites at Game Scene
     var pinsNPCSprite = [SKSpriteNode]()
     
@@ -46,6 +48,8 @@ class GameScene: SKScene{
     var balaoAnjo = SKSpriteNode(imageNamed: "balaoAnjo")
     var balaoCapeta = SKSpriteNode(imageNamed: "balaoCapeta")
     var balaoJuiz = SKSpriteNode(imageNamed: "balaoAnjo")
+    
+    var maozinhaJuiz = SKSpriteNode(imageNamed:"mao\(UserDefaults.standard.integer(forKey: "positionCollection"))Normal")
     
     var balaoComentario = SKLabelNode(fontNamed: "MyriadPro-Regular")
     var balaoComentario2 = SKLabelNode(fontNamed: "MyriadPro-Regular")
@@ -222,13 +226,13 @@ class GameScene: SKScene{
         balaoComentario.fontColor = .black
         balaoComentario.fontSize -= 10
         balaoComentario.zPosition += 1
-        balaoComentario.text = "Perdeu mano"
+        balaoComentario.text = NSLocalizedString("balaoAnjinho\(Int.random(in:0...4))", comment: "")
         
         balaoComentario2.position = balaoCapeta.position
         balaoComentario2.fontColor = .white
         balaoComentario2.fontSize -= 10
         balaoComentario2.zPosition += 1
-        balaoComentario2.text = "Perdeu vidinha"
+        balaoComentario2.text = NSLocalizedString("balaoDemonio\(Int.random(in:0...4))", comment: "")
         
 
         
@@ -248,8 +252,11 @@ class GameScene: SKScene{
         timeOver.alpha = 0
         
         // Judge Sprite
-        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.77)
+        judgeSprite.position = CGPoint(x: size.width/2, y: size.height * 0.80)
         judgeSprite.zPosition -= 1
+        
+        maozinhaJuiz.position = CGPoint(x: size.width/2.15, y: size.height * 0.744)
+        maozinhaJuiz.zPosition += 10
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
@@ -300,6 +307,7 @@ class GameScene: SKScene{
         addChild(balaoCapeta)
         addChild(balaoJuiz)
         addChild(timeOver)
+        addChild(maozinhaJuiz)
         
         for i in 0...numberOfPlayers - 1{
             addChild(pinsSprite[i])
@@ -434,14 +442,34 @@ class GameScene: SKScene{
         DispatchQueue.main.async {
             self.timerLabel.text = "\(self.time)"
         }
+        
+        if time == 15{
+            self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Desconfiado")
+            self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Desconfiado")
+            self.maozinhaJuiz.run(SKAction.rotate(byAngle: 0.2, duration: 1))
+        }
         if time <= 0{
             timeOver.alpha = 1
             balaoJuiz.alpha = 1
+            self.juizBravo()
             delegateSend?.timeIsOver()
             timer?.invalidate()
         }
     }
     
+    
+    func juizFeliz(){
+        self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Feliz")
+        //self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Feliz")
+    }
+    
+    func juizBravo(){
+        self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Bravo")
+        self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Bravo")
+        let group = SKAction.group([SKAction.rotate(byAngle: 0.5, duration: 0.3),SKAction.moveBy(x: 0, y: -20, duration: 0.3)])
+        let animacao = SKAction.sequence([SKAction.wait(forDuration: 0.5),group])
+        maozinhaJuiz.run(animacao)
+    }
     
     func endTimer(){
         // start timer
@@ -453,7 +481,6 @@ class GameScene: SKScene{
      Function to stop time to the label timer
      */
     @objc func timerStop(){
-        time -= 0
         DispatchQueue.main.async {
             self.timerLabel.text = "\(self.time)"
         }
