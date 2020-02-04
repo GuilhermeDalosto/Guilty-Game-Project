@@ -59,6 +59,7 @@ class TurnScene: SKScene{
      Add elements (player's pin and title label) to the scene
      */
     func setupScene(player: Person){
+        
         print(player.color)
         playerTimeSprite = SKSpriteNode(imageNamed: "\(player.color)Turn")
         playerTimeSprite?.position = CGPoint(x: size.width/2 * 0.55, y: size.height * 0.4)

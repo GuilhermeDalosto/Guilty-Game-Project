@@ -99,8 +99,10 @@ class CustomizeJudgeViewController: UIViewController {
         escureceTodos()
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
+            self.backButton.setImage(homeSel, for: .normal)
         } else{
             language = "PT"
+            self.backButton.setImage(menuSel, for: .normal)
         }
         self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
         judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
@@ -316,10 +318,13 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         return self.judgeCollectionVIew.frame.size
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
+      //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         
         

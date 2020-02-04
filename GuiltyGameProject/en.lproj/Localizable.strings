@@ -13,6 +13,18 @@
 "musicText" = "Music";
 "homeText" = "Home";
 
+"balaoAnjinho0" = "You lost";
+"balaoAnjinho1" = "Don't lie pls";
+"balaoAnjinho2" = "Stop lying";
+"balaoAnjinho3" = "He's Guilty";
+"balaoAnjinho4" = "LOL";
+
+"balaoDemonio0" = "GUILTY";
+"balaoDemonio1" = "CASE CLOSED";
+"balaoDemonio2" = "Hahahah";
+"balaoDemonio3" = "Lie moree";
+"balaoDemonio4" = "Why you lie man";
+
 "difficultText" = "Difficulty";
 "peopleText" = "Nº of Players";
 "themeText" = "Theme";

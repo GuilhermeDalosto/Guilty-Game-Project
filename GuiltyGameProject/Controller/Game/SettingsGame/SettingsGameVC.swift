@@ -56,8 +56,6 @@ class SettingsGameViewController: UIViewController {
     var a5Sel = UIImage(named: "5Sel")
     var a7Sel = UIImage(named: "7Sel")
     
-    
-    
     var freeSel = UIImage(named: "freeSel")
     var livreSel = UIImage(named: "livreSel")
     var randomSel = UIImage(named: "randomSel")

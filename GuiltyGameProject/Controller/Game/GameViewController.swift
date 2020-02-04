@@ -403,11 +403,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var vencedor = ""
     @objc func SwipeLeft(){
         
-        if (GameScene.turn > 0) && gameView.scene == gameScene{
-            sound.play("SwipeLeft", type: ".wav",repeat: 0)
+        if (GameScene.turn > 0) && gameView.scene == gameScene {
+            if !chooseOption{
+                sound.play("SwipeLeft", type: ".wav",repeat: 0)
+                chooseOption.toggle()
+            }
             if choosenTeam == team[0]{
+                self.gameScene!.mostrarBalao1()
                 judge?.deny(team[1])
             } else{
+                self.gameScene!.mostrarBalao0()
                 judge?.deny(team[0])
             }
             
@@ -429,8 +434,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                     self.performSegue(withIdentifier: "endGame7", sender: nil)
                 }
                 
-            }else{
-                changeScene()
+            }
+            self.gameScene?.juizBravo()
+            self.gameScene?.endTimer()
+            
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.chooseOption = false
+                self.changeScene()
             }
         }
         
@@ -468,13 +480,27 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         print("swipedown")
     }
     
+    var chooseOption = false
+    
     @objc func SwipeRight(){
-        if gameView.scene == gameScene && GameScene.turn > 0{
-            sound.play("SwipeRight", type: ".wav",repeat: 0)
-            print("swiperight")
-        }
         
-        changeScene()
+        if gameView.scene == gameScene && GameScene.turn > 0  {
+            if !chooseOption{
+                sound.play("SwipeRight", type: ".wav",repeat: 0)
+                chooseOption.toggle()
+            }
+            
+            self.gameScene?.juizFeliz()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.chooseOption = false
+                // FAZ O TEMPO PARAR AQUI GABS PLS
+                //self.gameScene?.endTimer()
+                
+                self.changeScene()
+            }
+        } else{
+            changeScene()
+        }
         
     }
     

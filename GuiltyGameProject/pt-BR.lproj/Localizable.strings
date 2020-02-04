@@ -13,6 +13,20 @@
 "musicText" = "Música";
 "homeText" = "Menu";
 
+
+"balaoAnjinho0" = "Você perdeu";
+"balaoAnjinho1" = "Não minta por favor";
+"balaoAnjinho2" = "Pare de mentir";
+"balaoAnjinho3" = "Ele é culpado";
+"balaoAnjinho4" = "LOL";
+
+"balaoDemonio0" = "CULPADO!";
+"balaoDemonio1" = "Caso encerrado";
+"balaoDemonio2" = "Hahahah";
+"balaoDemonio3" = "Mente mais";
+"balaoDemonio4" = "Por que você mente cara";
+
+
 "difficultText" = "Dificuldade";
 "peopleText" = "Nº de jogadores";
 "themeText" = "Tema";
