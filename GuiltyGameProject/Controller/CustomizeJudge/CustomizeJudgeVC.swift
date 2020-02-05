@@ -67,6 +67,18 @@ class CustomizeJudgeViewController: UIViewController {
     var typeDifficulty: Int?
     var typePeople: Int?
     
+    var firstLaunch = true
+      override weak var preferredFocusedView: UIView? {
+          if (self.firstLaunch) {
+              self.firstLaunch = false;
+              return self.rightButton;
+          }  else {
+              let view  = super.preferredFocusedView
+              return view;
+              
+          }
+      }
+      
     
     func escureceTodos(){
         if language == "EN"{
