@@ -47,7 +47,8 @@ class Words{
     
     var strOldWest : [String] = ["Leis","Armas","Caubóis", "Tiro","Oponente","Duelo","Faroeste","Ouro", "Atirador","Pistoleiro","Fama", "Histórias","Países", "Culpado","Controlar","Autoridade", "Terra", "Cavalo","Bebida","Chapéu","Água","Duelo","Selvagem","Fogo","Gado"]
     
-    var strOldWestEN = [""]
+    var strOldWestEN = ["Laws","Guns","Cowboy","Shot","Opponent","Duel","Old West","Gold","Shooter","Gunslinger","Honor","Stories","Countries","Guilty"
+        ,"Horse","Drink","Spit","Outlaw","Wild","Cow","Fire","Water","Hat","Sheriff","Star","Thief","Steal"]
     
     var strNinja : [String] = ["Traidor", "Ninja", "Samurai", "Katana", "Kunai", "Shuriken", "Assassino", "Mestre", "Mascarado", "Templo", "Tempo", "Pergaminho", "Batalha", "Guerra", "Tatame", "Ninjutsu", "Kendo", "Artimanhas", "Técnica", "Japão","Luta", "Kimono", "Artefato", "Honra", "Tradição", "Família", "Tradicional", "Aventura", "Guerra", "Destruição", "Arma", "Máscara", "Esperança", "Sacrifício", "Dragão", "Treinamento", "Mestre", "Rivalidade", "Tamanco", "Silêncio", "Orgulho", "Vida", "Equilíbrio", "Arte", "Marcial", "Sobrevivência", "Vontade", "Conhecimento", "Perseguir", "Julgamento"]
     

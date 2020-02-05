@@ -430,6 +430,18 @@ class SettingsGameViewController: UIViewController {
         pressedHard()
     }
     
+    var firstLaunch = true
+    override weak var preferredFocusedView: UIView? {
+        if (self.firstLaunch) {
+            self.firstLaunch = false;
+            return self.normalButton;
+        }  else {
+            let view  = super.preferredFocusedView
+            return view;
+            
+        }
+    }
+    
     @IBAction func pressFree(_ sender: Any) {
         
         if deckNames.count > typeOfDeck{

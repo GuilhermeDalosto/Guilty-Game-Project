@@ -11,7 +11,7 @@ import SpriteKit
 import UIKit
 
 protocol StatisticsProtocol: NSObject{
-//    var playersInfo: [StatisticsInfo] { get set }
+    //    var playersInfo: [StatisticsInfo] { get set }
     func sendPlayersInfo(playersInfo: [StatisticsInfo])
 }
 
@@ -122,17 +122,17 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     let defaults = AllUserDefault()
     
     override func viewDidLoad() {
-//        gameView.addSubview(pauseView)
-//        pauseView.sendSubviewToBack(gameView)
+        //        gameView.addSubview(pauseView)
+        //        pauseView.sendSubviewToBack(gameView)
         defaults.isOnGame = true
         defaults.screenNumber = 2
         pauseView.alpha = 0.0
         quitGameView.alpha = 0.0
         super.viewDidLoad()
-//        pauseView.
-//        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
-//        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-//        self.view.addGestureRecognizer(menuPressRecognizer)
+        //        pauseView.
+        //        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
+        //        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        //        self.view.addGestureRecognizer(menuPressRecognizer)
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
         
@@ -145,7 +145,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
      */
     func startTheme(){
         let size: CGSize = view.bounds.size
-        themeScene = ThemeScene(size: size)
+        themeScene = ThemeScene(size: size)     
         gameView.presentScene(themeScene)
     }
     
@@ -184,9 +184,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         for i in 0...qtPlayer - 1{
             print(players[i].color)
             playersInfo.append(StatisticsInfo(color: players[i].color))
-//            for _ in 0...9{
-//                playersInfo[i].addWord(word: "")
-//            }
+            //            for _ in 0...9{
+            //                playersInfo[i].addWord(word: "")
+            //            }
         }
     }
     
@@ -231,45 +231,52 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     func addWords(){
         let words = Words()
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
-
+        
         let theme = UserDefaults.standard.integer(forKey: "deck")
-        switch theme - 1{
-        case 0:
+        switch theme{
+        case 1:
             if language == "EN"{
-            actualDeck = words.strNinjaEN
+                actualDeck = words.strNinjaEN
             } else{
                 actualDeck = words.strNinja
             }
-        case 1:
+        case 2:
             if language == "EN"{
-            actualDeck = words.strFood
-                } else{
+                actualDeck = words.strFoodEng
+            } else{
                 actualDeck = words.strFood
             }
-        case 2:
+        case 3:
             if language == "EN"{
                 actualDeck = words.strMagicEng
             } else{
                 actualDeck = words.strMagic
             }
-        case 3:
+        case 4:
             if language == "EN"{
                 actualDeck = words.strAnimalEng
             } else{
                 actualDeck = words.strAnimal
             }
-        case 4:
-            if language == "EN"{
-                actualDeck = words.strOldWest
-            } else{
-                actualDeck = words.strOldWest
-            }
         case 5:
             if language == "EN"{
+                actualDeck = words.strOldWestEN
+            } else{
+                actualDeck = words.strOldWest
+            }
+        case 6:
+            if language == "EN"{
                 actualDeck = words.strNatal
             } else{
                 actualDeck = words.strNatal
             }
+        case 0:
+            if language == "EN"{
+                actualDeck = words.normalStrEng
+            } else{
+                actualDeck = words.strNormal
+            }
+            
         default:
             if language == "EN"{
                 actualDeck = words.normalStrEng
@@ -286,16 +293,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     func addEvents(){
         let events = allEventsSigned()
         if language == "PT"{
-        for element in  events.events{
-            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+            for element in  events.events{
+                allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
             }
             
         } else{
             for element in  events.eventsEnglish{
-                       allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
-                       }
+                allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+            }
         }
-       
+        
     }
     
     /**
@@ -334,7 +341,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         //Se não estiver no menu
         if defaults.isPaused == false{
             defaults.isPaused = true
-//            pauseScene?.buttonToBackToTheGame.addTarget(self, action: #selector(pressPauseBackToTheGameBtn), for: .touchUpInside)
+            //            pauseScene?.buttonToBackToTheGame.addTarget(self, action: #selector(pressPauseBackToTheGameBtn), for: .touchUpInside)
             defaults.positionOnTheGameScreen = 2
             pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
             gameScene?.endTimer()
@@ -347,7 +354,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 defaults.isPaused = false
                 defaults.isQuitable = false
                 defaults.positionOnTheGameScreen = 1
-//                quitGameView.removeFromSuperview()
+                //                quitGameView.removeFromSuperview()
                 pauseScene = nil
                 quitGameScene = nil
                 if gameScene?.time ?? 30 > 0{
@@ -358,7 +365,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 quitGameView.alpha = 0.0
             }else{
                 quitGameScene = QuitGameScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-//               pauseView.addSubview(quitGameView)
+                //               pauseView.addSubview(quitGameView)
                 defaults.isQuitable = true
                 defaults.positionOnTheGameScreen = 3
                 quitGameView.alpha = 1.0
@@ -374,7 +381,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     @objc func Select(){
         
         //if gameScene?.scene == themeScene{
-            //changeScene()
+        //changeScene()
         //}
     }
     
@@ -450,10 +457,10 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         GameScene.turn = 0
         GameScene.round = 0
         if segue.identifier == "endGame"{
-//            if let vc = segue.destination as? ViewController{
-//                vc.vencedor = vencedor
-//                vc.delegate = self
-//            }
+            //            if let vc = segue.destination as? ViewController{
+            //                vc.vencedor = vencedor
+            //                vc.delegate = self
+            //            }
         }
         switch segue.identifier {
         case "endGame3":
@@ -565,9 +572,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         
     }
     
-//    @objc func pressPauseBackToTheGameBtn(_ sender: AnyObject?){
-//
-//    }
+    //    @objc func pressPauseBackToTheGameBtn(_ sender: AnyObject?){
+    //
+    //    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -644,7 +651,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
                 gameScene = GameScene(size: size, word: randomWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 
             }
-
+            
             if auxFirst == 5{
                 gameScene!.sendSortedEvent(auxFirst,auxSecond)
             }
@@ -695,72 +702,72 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         case 2:        
             switch focus{
             case pauseScene?.buttonToBackToTheGame:
-//                if language == "PT"{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
+                //                if language == "PT"{
+                //                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+                //                } else{
+                //                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+                //                }
                 break
             default:
-//                if language == "PT"{
-//                    self.shopButton.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.shopButton.setImage(shopSel,for: .normal)
-//                }
+                //                if language == "PT"{
+                //                    self.shopButton.setImage(lojaSel,for: .normal)
+                //                } else{
+                //                    self.shopButton.setImage(shopSel,for: .normal)
+                //                }
                 break
                 
             }
             
-//            if  focus != self.pauseScene?.buttonToBackToTheGame {
-//              if language == "PT"{
-//                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
-//                }
-//            }
+            //            if  focus != self.pauseScene?.buttonToBackToTheGame {
+            //              if language == "PT"{
+            //                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
+            //                } else{
+            //                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
+            //                }
+            //            }
             
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
+            //            if focus != self.settingsButton{
+            //               if language == "PT"{
+            //                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+            //                } else{
+            //                    self.settingsButton.setImage(configDes,for: .normal)
+            //                }
+            //            }
             break
         case 3:
             switch focus{
             case quitGameScene?.buttonToBackToTheGame:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
+                //                if language == "PT"{
+                //                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+                //                } else{
+                //                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+                //                }
                 break
             default:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
-//                }
+                //                if language == "PT"{
+                //                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
+                //                } else{
+                //                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
+                //                }
                 break
                 
             }
             
-//            if  focus != self.startButton {
-//              if language == "PT"{
-//                self.startButton.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.startButton.setImage(playDes,for: .normal)
-//                }
-//            }
+            //            if  focus != self.startButton {
+            //              if language == "PT"{
+            //                self.startButton.setImage(jogarDes,for: .normal)
+            //                } else{
+            //                    self.startButton.setImage(playDes,for: .normal)
+            //                }
+            //            }
             
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
+            //            if focus != self.settingsButton{
+            //               if language == "PT"{
+            //                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+            //                } else{
+            //                    self.settingsButton.setImage(configDes,for: .normal)
+            //                }
+            //            }
             break
         default:
             break

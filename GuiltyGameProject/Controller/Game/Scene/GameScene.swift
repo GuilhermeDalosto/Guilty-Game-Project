@@ -483,7 +483,6 @@ class GameScene: SKScene{
         
         if time == 15{
             self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Desconfiado")
-            self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Desconfiado")
             self.maozinhaJuiz.run(SKAction.rotate(byAngle: 0.2, duration: 1))
         }
         if time <= 0{
@@ -498,7 +497,7 @@ class GameScene: SKScene{
     
     func juizFeliz(){
         self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Feliz")
-        //self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Feliz")
+        self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Feliz")
     }
     
     func juizBravo(){

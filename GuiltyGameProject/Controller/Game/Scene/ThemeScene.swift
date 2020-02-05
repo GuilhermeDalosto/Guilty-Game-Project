@@ -15,7 +15,14 @@ class ThemeScene: SKScene{
     
     var local: [String] = ["Festa", "Casa", "Ponte", "Trabalho", "Predio", "Hotel", "Presídio", "Mar", "Céu", "Ilha", "Praia", "Parque", "Praça", "Banco", "Casa Branca", "Garagem", "Universidade", "Cemitério", "Esgoto", "Bar", "Show", "Festival", "Hospital", "Escola", "Lanchonete", "Shopping", "Laboratório", "Triangulo das Bermudas", "Cinema", "Espaço Sideral", "Montanha", "Deserto", "Área Militar", "Casa do Papai Noel", "Taverna", "Vila"]
     
+     var localEng: [String] = ["Party", "House", "Prison", "Building", "Hotel", "Sea", "Heaven", "Island", "Beach", "Garden", "Playground", "Bank", "White House",
+                               "Garage", "High School", "Cemitery", "Sewer", "Bar", "Show", "Festival", "Hospital", "Stars", "Mall", "Brazil", "Mexico", "Cinema",
+                               "Space", "Alaska", "Desert", "Militar Area", "Santa Claus' House", "Tavern", "Village","Hell"]
+    
     var action: [String] = ["Assassinado", "Roubo", "Fuga", "Sequestro", "Jogou lixo no chão", "Apedrejou", "Perseguição", "Invasão", "Briga", "Rinha de Galo", "Sonegar", "Destruição", "Infecção", "Venda Ilegal", "Mentir", "Protesto", "Atirar", "Bateu", "Esfaqueou", "Peidou", "Perdeu"]
+    
+     var actionEng: [String] = ["Murder", "Steal", "Escape", "Kidnapping", "Threw trash on the floor", "Shot", "Pursue", "Invasion", "Fight", "Dog Fight", "Withhold Money", "Destruction", "Infection",
+                                "Black market", "Lie", "Protest", "Chicken Fight", "Stabbed", "Farted", "Lost"]
     
     var localTheme = SKLabelNode(fontNamed: "MyriadPro-Regular")
     var actionTheme = SKLabelNode(fontNamed: "MyriadPro-Regular")
@@ -32,11 +39,15 @@ class ThemeScene: SKScene{
         
         if NSLocalizedString("startText", comment: "") == "Start"{
             backgroundImage = SKSpriteNode(imageNamed: "telaEN")
+            actionTheme.text = actionEng.randomElement()
+            localTheme.text = localEng.randomElement()
         }else{
             backgroundImage = SKSpriteNode(imageNamed: "telaPT")
+            actionTheme.text = action.randomElement()
+            localTheme.text = local.randomElement()
         }
         
-        localTheme.text = local.randomElement()
+        
         localTheme.fontColor = .black
         localTheme.fontSize = 50
         localTheme.position = CGPoint(x: size.width * 0.35, y: size.height/2 * 1.2)
@@ -51,7 +62,7 @@ class ThemeScene: SKScene{
         }
 
         
-        actionTheme.text = action.randomElement()
+        
         actionTheme.fontColor = .black
         actionTheme.fontSize = 50
         actionTheme.position = CGPoint(x: size.width * 0.64, y: size.height/2 * 1.2)
@@ -68,7 +79,6 @@ class ThemeScene: SKScene{
         titleLabel.color = .blue
         titleLabel.fontSize = 70
         titleLabel.position = CGPoint(x: size.width * 0.25, y: size.height * 0.75)
-        print("passou aq")
         
         
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
