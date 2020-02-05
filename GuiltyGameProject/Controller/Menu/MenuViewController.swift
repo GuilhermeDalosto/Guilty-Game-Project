@@ -44,7 +44,8 @@ class MenuViewController: UIViewController {
     
     var defaults = AllUserDefault()
     let music = Sound()
-    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
+    var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,22 +71,21 @@ class MenuViewController: UIViewController {
         
         UIView.animate(withDuration: 1.7) {
             frontImage.alpha = 1
-            if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
-                self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
-                UserDefaults.standard.set(true, forKey: "musicPlaying")
-            }
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
             
             UIView.animate(withDuration: 1.7, animations: {
-                 launchView.alpha = 0
-                
+                launchView.alpha = 0
+                self.music.play("introGuilty1", type: ".wav", repeat: 0)
             }) { _ in
                 backgroundImage.removeFromSuperview()
                 frontImage.removeFromSuperview()
                 launchView.removeFromSuperview()
-                
+                if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
+                    self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                    UserDefaults.standard.set(true, forKey: "musicPlaying")
+                }
             }
             
         }

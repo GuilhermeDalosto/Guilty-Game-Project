@@ -140,6 +140,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
                     break
                 }
             }
+            aux = 6
             print("=======")
         }
     }

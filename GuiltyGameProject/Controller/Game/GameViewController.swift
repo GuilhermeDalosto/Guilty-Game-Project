@@ -350,7 +350,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
 //                quitGameView.removeFromSuperview()
                 pauseScene = nil
                 quitGameScene = nil
-                gameScene?.startTimer()
+                if gameScene?.time ?? 30 > 0{
+                    gameScene?.startTimer()
+                }
                 gameScene?.isPaused = false
                 pauseView.alpha = 0.0
                 quitGameView.alpha = 0.0
@@ -445,7 +447,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        GameScene.turn = -1
+        GameScene.turn = 0
         GameScene.round = 0
         if segue.identifier == "endGame"{
 //            if let vc = segue.destination as? ViewController{
@@ -593,11 +595,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         print("Random event -> \(randomEvent!)")
         switch gameView.scene {
         case themeScene:
-            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+//            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameScene?.delegateSend = self
+//            print("Piru")
+//            gameView.presentScene(gameScene)
+            definePlayerTurn()
+            defineEventPlayer()
+            turnScene = TurnScene(size: size, player: playerTurn, word: currentWord, event: randomEvent!)
+            randomWord = currentWord
             gameView.scene?.removeFromParent()
-            print("Piru")
-            gameView.presentScene(gameScene)
+            gameView.presentScene(turnScene)
             break
         case gameScene:
             gameScene?.timer?.invalidate()

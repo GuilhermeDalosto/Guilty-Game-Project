@@ -68,7 +68,7 @@ class GameScene: SKScene{
     var time: Int = 30
     
     /// Number of Turns
-    static var turn: Int = -1
+    static var turn: Int = 0
     /// Number of Rounds
     static var round: Int = 0
     
