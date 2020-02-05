@@ -145,7 +145,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
      */
     func startTheme(){
         let size: CGSize = view.bounds.size
-        themeScene = ThemeScene(size: size)
+        themeScene = ThemeScene(size: size)     
         gameView.presentScene(themeScene)
     }
     
@@ -233,43 +233,50 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
         
         let theme = UserDefaults.standard.integer(forKey: "deck")
-        switch theme - 1{
-        case 0:
+        switch theme{
+        case 1:
             if language == "EN"{
                 actualDeck = words.strNinjaEN
             } else{
                 actualDeck = words.strNinja
             }
-        case 1:
+        case 2:
             if language == "EN"{
                 actualDeck = words.strFoodEng
             } else{
                 actualDeck = words.strFood
             }
-        case 2:
+        case 3:
             if language == "EN"{
                 actualDeck = words.strMagicEng
             } else{
                 actualDeck = words.strMagic
             }
-        case 3:
+        case 4:
             if language == "EN"{
                 actualDeck = words.strAnimalEng
             } else{
                 actualDeck = words.strAnimal
             }
-        case 4:
-            if language == "EN"{
-                actualDeck = words.strOldWest
-            } else{
-                actualDeck = words.strOldWest
-            }
         case 5:
             if language == "EN"{
+                actualDeck = words.strOldWestEN
+            } else{
+                actualDeck = words.strOldWest
+            }
+        case 6:
+            if language == "EN"{
                 actualDeck = words.strNatal
             } else{
                 actualDeck = words.strNatal
             }
+        case 0:
+            if language == "EN"{
+                actualDeck = words.normalStrEng
+            } else{
+                actualDeck = words.strNormal
+            }
+            
         default:
             if language == "EN"{
                 actualDeck = words.normalStrEng
