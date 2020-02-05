@@ -44,7 +44,7 @@ class MenuViewController: UIViewController {
     
     var defaults = AllUserDefault()
     let music = Sound()
-    
+    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,8 +70,9 @@ class MenuViewController: UIViewController {
         
         UIView.animate(withDuration: 1.7) {
             frontImage.alpha = 1
-            if UserDefaults.standard.bool(forKey: "musicOption"){
-                self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: 2)
+            if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
+                self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                UserDefaults.standard.set(true, forKey: "musicPlaying")
             }
         }
         
