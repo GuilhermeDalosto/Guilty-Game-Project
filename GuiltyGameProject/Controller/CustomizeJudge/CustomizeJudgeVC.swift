@@ -58,6 +58,7 @@ class CustomizeJudgeViewController: UIViewController {
     var characterSelected : UIImage?
     
     var judge = [UIImage]()
+    var infoJudge = [UIImage]()
     var judgeIdentifier = [""]
     var hammer = [UIImage]()
     var hammerIdentifier = [""]
@@ -314,6 +315,20 @@ class CustomizeJudgeViewController: UIViewController {
         judge.append(UIImage(named: "bigjudge2")!)
         judge.append(UIImage(named: "bigjudge3")!)
         judge.append(UIImage(named: "bigjudge4")!)
+        
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        } else {
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        }
     }
     
 }

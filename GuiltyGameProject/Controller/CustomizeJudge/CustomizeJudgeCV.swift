@@ -12,4 +12,5 @@ import UIKit
 class CustomizeJudgeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageJudge: UIImageView!
+    @IBOutlet weak var infoImage: UIImageView!
 }
