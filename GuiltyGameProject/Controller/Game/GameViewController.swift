@@ -120,10 +120,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     
     //User Defaults
     let defaults = AllUserDefault()
+//
+//    override var preferredFocusEnvironments: [UIFocusEnvironment]{
+//
+//    }
+//
     
     override func viewDidLoad() {
 //        gameView.addSubview(pauseView)
 //        pauseView.sendSubviewToBack(gameView)
+        print(preferredFocusEnvironments)
         defaults.isOnGame = true
         defaults.screenNumber = 2
         pauseView.alpha = 0.0
@@ -341,6 +347,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
             gameScene?.isPaused = true
             pauseView.alpha = 1.0
             pauseView.presentScene(pauseScene)
+            print(preferredFocusEnvironments)
+            self.setNeedsFocusUpdate()
+            self.updateFocusIfNeeded()
             
         }else{
             if defaults.isQuitable == true{
@@ -678,92 +687,96 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         }
     }
     
-    
-    
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        guard let focus = context.nextFocusedView else {return}
-        
-        
-        switch  defaults.positionOnTheGameScreen{
-        case 2:        
-            switch focus{
-            case pauseScene?.buttonToBackToTheGame:
-//                if language == "PT"{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
+}
+
+
+//-:MARK FOCUS
+extension GameViewController{
+     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+            guard let focus = context.nextFocusedView else {return}
+            
+            
+            switch  defaults.positionOnTheGameScreen{
+            case 2:
+                switch focus{
+                case pauseScene?.buttonToBackToTheGame:
+    //                if language == "PT"{
+    //                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+    //                } else{
+    //                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+    //                }
+                    break
+                default:
+    //                if language == "PT"{
+    //                    self.shopButton.setImage(lojaSel,for: .normal)
+    //                } else{
+    //                    self.shopButton.setImage(shopSel,for: .normal)
+    //                }
+                    break
+                    
+                }
+                
+    //            if  focus != self.pauseScene?.buttonToBackToTheGame {
+    //              if language == "PT"{
+    //                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
+    //                } else{
+    //                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
+    //                }
+    //            }
+                
+    //            if focus != self.settingsButton{
+    //               if language == "PT"{
+    //                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+    //                } else{
+    //                    self.settingsButton.setImage(configDes,for: .normal)
+    //                }
+    //            }
+                break
+            case 3:
+                switch focus{
+                case quitGameScene?.buttonToBackToTheGame:
+    //                if language == "PT"{
+    //                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
+    //                } else{
+    //                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
+    //                }
+                    break
+                default:
+    //                if language == "PT"{
+    //                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
+    //                } else{
+    //                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
+    //                }
+                    break
+                    
+                }
+                
+    //            if  focus != self.startButton {
+    //              if language == "PT"{
+    //                self.startButton.setImage(jogarDes,for: .normal)
+    //                } else{
+    //                    self.startButton.setImage(playDes,for: .normal)
+    //                }
+    //            }
+                
+    //            if focus != self.settingsButton{
+    //               if language == "PT"{
+    //                    self.settingsButton.setImage(configuracoesDes,for: .normal)
+    //                } else{
+    //                    self.settingsButton.setImage(configDes,for: .normal)
+    //                }
+    //            }
                 break
             default:
-//                if language == "PT"{
-//                    self.shopButton.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.shopButton.setImage(shopSel,for: .normal)
-//                }
                 break
                 
             }
             
-//            if  focus != self.pauseScene?.buttonToBackToTheGame {
-//              if language == "PT"{
-//                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
-//                }
-//            }
             
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
-            break
-        case 3:
-            switch focus{
-            case quitGameScene?.buttonToBackToTheGame:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
-                break
-            default:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
-//                }
-                break
-                
-            }
             
-//            if  focus != self.startButton {
-//              if language == "PT"{
-//                self.startButton.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.startButton.setImage(playDes,for: .normal)
-//                }
-//            }
             
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
-            break
-        default:
-            break
+            updateFocusIfNeeded()
             
         }
         
-        
-        
-        
-        updateFocusIfNeeded()
-        
-    }
 }

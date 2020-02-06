@@ -19,6 +19,7 @@ class PauseScene: SKScene {
         super.init(size: size)
         buttonToBackToTheGame = generateButton(x: UIScreen.main.bounds.width*0.250, y: UIScreen.main.bounds.height*0.125, width: 100, height: 100)
         backgroundColor = UIColor.green
+        
         addChild(buttonToBackToTheGame!)
     }
    

@@ -13,5 +13,5 @@ class Botaozaum : SKSpriteNode{
     override var canBecomeFocused: Bool {
            return true
        }
-    
+//    focus
 }

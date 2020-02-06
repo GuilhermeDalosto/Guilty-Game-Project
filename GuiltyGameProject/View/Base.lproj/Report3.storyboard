@@ -65,11 +65,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
+                                <rect key="frame" x="1591" y="920" width="254" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="cDf-Cc-Cpa" eventType="primaryActionTriggered" id="fWZ-oG-bcz"/>
                                 </connections>
@@ -154,6 +154,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="174" height="59"/>
         <image name="tresEn" width="1977" height="1113"/>
     </resources>
 </document>

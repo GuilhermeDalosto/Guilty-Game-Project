@@ -21,7 +21,7 @@ class QuitGameScene: SKScene {
         super.init(size: size)
         buttonToBackToTheGame = generateButton(x: UIScreen.main.bounds.width*0.125, y: UIScreen.main.bounds.height*0.125, width: 100, height: 100)
         buttonToBackToTheScreen = generateButton(x: UIScreen.main.bounds.width*0.375, y: UIScreen.main.bounds.height*0.125, width: 100, height: 100)
-        backgroundColor = UIColor.green
+        backgroundColor = UIColor.red
         addChild(buttonToBackToTheGame!)
         addChild(buttonToBackToTheScreen!)
     }
@@ -31,7 +31,7 @@ class QuitGameScene: SKScene {
     }
     
     func generateButton(x: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat) -> SKSpriteNode?{
-        let btn = SKSpriteNode(imageNamed: "")
+        let btn = Botaozaum(imageNamed: "")
         btn.position = CGPoint(x: x, y: y)
         btn.size = CGSize(width: width, height: height)
         return btn

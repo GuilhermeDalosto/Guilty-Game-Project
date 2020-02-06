@@ -23,11 +23,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NoP-37-ENm">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NoP-37-ENm">
+                                <rect key="frame" x="1591" y="920" width="254" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="gl1-qT-t1X" eventType="primaryActionTriggered" id="rms-YA-w8I"/>
                                 </connections>
@@ -187,5 +187,6 @@
     </scenes>
     <resources>
         <image name="cincoEn" width="1977" height="1113"/>
+        <image name="home" width="174" height="59"/>
     </resources>
 </document>
