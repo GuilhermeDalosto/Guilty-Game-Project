@@ -75,7 +75,7 @@ class MenuViewController: UIViewController {
         frontImage.alpha = 0
       
         UIView.animate(withDuration: 1.7) {
-            frontImage.alpha = 1
+            self.frontImage.alpha = 1
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
