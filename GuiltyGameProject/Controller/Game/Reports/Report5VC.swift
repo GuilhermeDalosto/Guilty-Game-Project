@@ -40,6 +40,8 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
     
     @IBOutlet weak var backgroundImage: UIImageView!
 //    weak var delegate: StatisticsProtocol?
+    @IBOutlet weak var winner: UILabel!
+    
     
     var arrayLabel = [UILabel]()
     
@@ -62,11 +64,13 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
         word32.text = ""
         word33.text = ""
         setAll()
-        print("AAAAAA")
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var value = UserDefaults.standard.integer(forKey: "vencedor")
+        winner.text = "\(NSLocalizedString("team", comment: "")) \(value) \(NSLocalizedString("won", comment: ""))"
     }
     
     @IBAction func backBtn(_ sender: Any) {

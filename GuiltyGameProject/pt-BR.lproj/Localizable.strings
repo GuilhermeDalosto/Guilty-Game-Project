@@ -53,6 +53,9 @@
 "errorSelect" = "Alguma(as) das opções não foi(ram) selecionada(s). Selecione alguma das opções!";
 
 "turnComment" = "É a vez do %@";
+"winner" = "O Time %@ venceu";
+"team" = "Time";
+"won" = "venceu";
 
 "yellow" = "Amarelo";
 "blue" = "Azul";

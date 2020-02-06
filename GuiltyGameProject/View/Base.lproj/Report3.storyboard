@@ -114,6 +114,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O time 1 venceu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-21-efL">
+                                <rect key="frame" x="822" y="253" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="dBy-EV-thh" firstAttribute="top" secondItem="9Mg-eC-CH6" secondAttribute="top" id="2cD-J2-Xz9"/>
@@ -129,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="dBy-EV-thh" id="5c1-oR-xRN"/>
+                        <outlet property="winner" destination="Zgc-21-efL" id="Qc2-WA-WBO"/>
                         <outlet property="word00" destination="v4e-VH-e2S" id="WlU-rl-NPw"/>
                         <outlet property="word01" destination="iW3-zV-QTU" id="sIj-r9-6xO"/>
                         <outlet property="word02" destination="2qQ-Pd-qbZ" id="UeZ-YT-Ou3"/>
@@ -148,7 +156,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k1-bZ-umO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="p63-3X-N9H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-7"/>
+            <point key="canvasLocation" x="-531" y="-164"/>
         </scene>
         <!--Main-->
         <scene sceneID="VLh-LP-yFW">

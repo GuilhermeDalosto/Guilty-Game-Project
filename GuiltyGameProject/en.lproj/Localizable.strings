@@ -51,6 +51,8 @@
 "timeOver" = "Time is over!";
 
 "turnComment" = "It's %@'s turn";
+"team" = "Team";
+"won" = "won";
 
 "yellow" = "Yellow";
 "blue" = "Blue";
