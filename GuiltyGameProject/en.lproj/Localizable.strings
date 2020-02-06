@@ -25,6 +25,13 @@
 "balaoDemonio3" = "Lie moree";
 "balaoDemonio4" = "Why you lie man";
 
+
+"choosePins" = "Choose your colors";
+"courtSession" = "The court will begin...";
+
+"eventIs" = "Event: ";
+"wordIs" = "Word: ";
+
 "difficultText" = "Difficulty";
 "peopleText" = "Nº of Players";
 "themeText" = "Theme";

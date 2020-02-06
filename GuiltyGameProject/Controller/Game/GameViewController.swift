@@ -53,6 +53,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var pauseScene: PauseScene? = nil
     /// scene of quit game
     var quitGameScene: QuitGameScene? = nil
+    // scene of preparation
+    var preparationScene : PreparationScene? = nil
     
     
     // characters of the game (without judge)
@@ -137,12 +139,22 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
         UserDefaults.standard.set(true, forKey: "flag2")
         
         setupGame()
-        startTheme()
+        
+        startPreparation()
+        
     }
     
+    
+    func startPreparation(){
+        preparationScene = PreparationScene(size: view.bounds.size)
+        preparationScene?.qtdPinos = qtPlayer
+        self.gameView.presentScene(preparationScene)
+            
+    }
     /**
      Function to start the game with theme scene
      */
+    
     func startTheme(){
         let size: CGSize = view.bounds.size
         themeScene = ThemeScene(size: size)     
@@ -490,7 +502,10 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var chooseOption = false
     
     @objc func SwipeRight(){
-        
+        if gameView.scene == preparationScene{
+            startTheme()
+        }
+ 
         if gameView.scene == gameScene && GameScene.turn > 0  {
             if !chooseOption{
                 sound.play("SwipeRight", type: ".wav",repeat: 0)
