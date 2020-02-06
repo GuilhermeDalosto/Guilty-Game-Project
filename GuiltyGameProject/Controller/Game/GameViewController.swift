@@ -15,7 +15,11 @@ protocol StatisticsProtocol: NSObject{
     func sendPlayersInfo(playersInfo: [StatisticsInfo])
 }
 
-class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
+class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, passMusicDelegate{
+    func passMusic(music: AVAudioPlayer) {
+        music1 = music
+    }
+    
     // secondViewController
     var playersInfo: [StatisticsInfo] = []
     
@@ -107,6 +111,8 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     var gameRunning = true
     /// sound player
     let sound = Sound()
+    var music1 : AVAudioPlayer?
+    var musicSound = Sound()
     var delegate: StatisticsProtocol?
     
     // words and events
@@ -124,6 +130,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
     override func viewDidLoad() {
         //        gameView.addSubview(pauseView)
         //        pauseView.sendSubviewToBack(gameView)
+//        musicSound.change(music1!)
         defaults.isOnGame = true
         defaults.screenNumber = 2
         pauseView.alpha = 0.0

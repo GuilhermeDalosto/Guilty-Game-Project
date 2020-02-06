@@ -28,6 +28,7 @@ class ThemeScene: SKScene{
     var actionTheme = SKLabelNode(fontNamed: "MyriadPro-Regular")
     var titleLabel = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
+    var infoImage = SKSpriteNode()
     var backgroundImage = SKSpriteNode()
     
     var actionTitle = SKLabelNode(fontNamed: "MyriadPro-Regular")
@@ -61,7 +62,13 @@ class ThemeScene: SKScene{
             localTheme.position = CGPoint(x: size.width * 0.35, y: size.height/2 * 1.1)
         }
 
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            infoImage = SKSpriteNode(imageNamed: "infoEN_1")
+        } else {
+            infoImage = SKSpriteNode(imageNamed: "infoPT_1")
+        }
         
+        infoImage.position = CGPoint(x: size.width * 0.283, y: size.height * 0.118)
         
         actionTheme.fontColor = .black
         actionTheme.fontSize = 50
@@ -96,6 +103,7 @@ class ThemeScene: SKScene{
 //        addChild(titleLabel)
         addChild(backgroundImage)
 //        addChild(actionTitle)
+        addChild(infoImage)
     }
     
     required init?(coder aDecoder: NSCoder) {

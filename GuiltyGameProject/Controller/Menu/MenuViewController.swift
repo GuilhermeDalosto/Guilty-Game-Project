@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import StoreKit
 
+protocol passMusicDelegate {
+    func passMusic(music: AVAudioPlayer)
+}
+
 class MenuViewController: UIViewController {
     
     var configSel = UIImage(named: "configuracoes")
@@ -45,10 +49,11 @@ class MenuViewController: UIViewController {
 
     let frontImage = UIImageView()
     let backgroundImage = UIImageView()
-    
+    var delegate: passMusicDelegate?
     
     var defaults = AllUserDefault()
     let music = Sound()
+    let sfx = Sound()
     var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
     
     var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
@@ -75,7 +80,7 @@ class MenuViewController: UIViewController {
         frontImage.alpha = 0
       
         UIView.animate(withDuration: 1.7) {
-            frontImage.alpha = 1
+            self.frontImage.alpha = 1
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
@@ -89,6 +94,7 @@ class MenuViewController: UIViewController {
                 launchView.removeFromSuperview()
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
                     self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                    self.delegate?.passMusic(music: self.sound)
                     UserDefaults.standard.set(true, forKey: "musicPlaying")
                 }
             }
@@ -139,10 +145,12 @@ class MenuViewController: UIViewController {
     }
       
     @IBAction func PressStart(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
     
     @IBAction func PressSettings(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "Settings", sender: nil)
     }
     
@@ -155,7 +163,7 @@ class MenuViewController: UIViewController {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.startButton:
             if language == "PT"{

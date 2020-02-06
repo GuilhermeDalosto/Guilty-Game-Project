@@ -66,6 +66,7 @@ class CustomizeJudgeViewController: UIViewController {
     var typeTheme: Int?
     var typeDifficulty: Int?
     var typePeople: Int?
+    let sfx = Sound()
     
     var firstLaunch = true
       override weak var preferredFocusedView: UIView? {
@@ -139,7 +140,7 @@ class CustomizeJudgeViewController: UIViewController {
         guard let focusedGuideGuideRightDown = context.nextFocusedView else {return}
         guard let focusedGuideGuideRightUp = context.nextFocusedView else {return}
         guard let focusedGuideGuideDownDown = context.nextFocusedView else {return}
-        
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.backButton:
             if language == "PT"{
@@ -273,6 +274,7 @@ class CustomizeJudgeViewController: UIViewController {
     
     
     @IBAction func scrollRightJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
@@ -284,6 +286,7 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     @IBAction func scrollLeftJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
@@ -295,11 +298,13 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     @IBAction func pressStart(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goGame", sender: nil)
         
     }
     
     @IBAction func pressBack(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goBack", sender: nil)
     }
     
