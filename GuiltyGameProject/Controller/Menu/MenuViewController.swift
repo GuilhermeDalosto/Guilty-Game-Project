@@ -67,35 +67,13 @@ class MenuViewController: UIViewController {
         backgroundImage.frame = view.frame
         
         frontImage.frame = view.frame
-        launchView.addSubview(backgroundImage)
-        launchView.addSubview(frontImage)
         
-        print("FIRST LAUNCH ->  \(firstLaunch)")
-        if firstLaunch{
-        frontImage.alpha = 0
-      
-        UIView.animate(withDuration: 1.7) {
-            self.frontImage.alpha = 1
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
-            
-            UIView.animate(withDuration: 1.7, animations: {
-                launchView.alpha = 0
-                self.music.play("introGuilty1", type: ".wav", repeat: 0)
-            }) { _ in
                 self.backgroundImage.removeFromSuperview()
                 self.frontImage.removeFromSuperview()
                 launchView.removeFromSuperview()
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
                     self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
                     UserDefaults.standard.set(true, forKey: "musicPlaying")
-                }
-            }
-            
-            }
-        } else{
-            launchView.removeFromSuperview()
         }
         defaults.screenNumber = 1
     }

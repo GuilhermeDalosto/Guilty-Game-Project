@@ -424,7 +424,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
             if !chooseOption{
                 sound.play("SwipeLeft", type: ".wav",repeat: 0)
                 chooseOption.toggle()
-            }
+            
             if choosenTeam == team[0]{
                 self.gameScene!.mostrarBalao1()
                 judge?.deny(team[1])
@@ -457,7 +457,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
             self.gameScene?.juizBravo()
             self.gameScene?.endTimer()
             
-            
+            }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.chooseOption = false
@@ -509,9 +509,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate{
             if !chooseOption{
                 sound.play("SwipeRight", type: ".wav",repeat: 0)
                 chooseOption.toggle()
-            }
             
             self.gameScene?.juizFeliz()
+            }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.chooseOption = false
                 // FAZ O TEMPO PARAR AQUI GABS PLS
