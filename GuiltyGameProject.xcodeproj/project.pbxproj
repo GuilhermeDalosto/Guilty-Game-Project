@@ -12,6 +12,7 @@
 		781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58D8238E023C00957CCE /* SettingsGameVC.swift */; };
 		781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */; };
 		781C58E1238E1A3900957CCE /* CustomizeJudgeCV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */; };
+		784C16E923EC967700316175 /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 784C16E823EC967700316175 /* Config.storyboard */; };
 		7898E44523DA24840046D21F /* Shadows.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7898E44323DA24840046D21F /* Shadows.sks */; };
 		7898E44623DA24840046D21F /* Assets1.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7898E44423DA24840046D21F /* Assets1.xcassets */; };
 		78F4CBA52399A53F003E4F41 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78F4CBA42399A53F003E4F41 /* StoreKit.framework */; };
@@ -79,7 +80,6 @@
 		ACF93C72238C472700876A0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C70238C472700876A0B /* Main.storyboard */; };
 		ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C73238C472B00876A0B /* Assets.xcassets */; };
 		ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */; };
-		ACF93C8B238C775200876A0B /* Config.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACF93C8A238C775200876A0B /* Config.storyboard */; };
 		ACF93C92238D8F7800876A0B /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C91238D8F7800876A0B /* Event.m */; };
 		ACF93C9A238DAB5B00876A0B /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C99238DAB5B00876A0B /* Person.m */; };
 		ACF93C9D238DABA300876A0B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF93C9C238DABA300876A0B /* Team.m */; };
@@ -96,6 +96,7 @@
 		781C58D8238E023C00957CCE /* SettingsGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsGameVC.swift; sourceTree = "<group>"; };
 		781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeVC.swift; sourceTree = "<group>"; };
 		781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeJudgeCV.swift; sourceTree = "<group>"; };
+		784C16E823EC967700316175 /* Config.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		7898E44323DA24840046D21F /* Shadows.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Shadows.sks; sourceTree = "<group>"; };
 		7898E44423DA24840046D21F /* Assets1.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets1.xcassets; sourceTree = "<group>"; };
 		78F4CBA42399A53F003E4F41 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -174,7 +175,6 @@
 		ACF93C73238C472B00876A0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACF93C76238C472B00876A0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACF93C78238C472B00876A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACF93C8A238C775200876A0B /* Config.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Config.storyboard; sourceTree = "<group>"; };
 		ACF93C90238D8F7800876A0B /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		ACF93C91238D8F7800876A0B /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		ACF93C98238DAB5B00876A0B /* Person.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -383,8 +383,8 @@
 		ACF93C7F238C4D7E00876A0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				784C16E823EC967700316175 /* Config.storyboard */,
 				ACF93C70238C472700876A0B /* Main.storyboard */,
-				ACF93C8A238C775200876A0B /* Config.storyboard */,
 				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
 				7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */,
 				ACF5936B23998679001C1B94 /* SettingsGame.storyboard */,
@@ -514,6 +514,7 @@
 				7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */,
 				7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
+				784C16E923EC967700316175 /* Config.storyboard in Resources */,
 				7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */,
 				ACF5936F23998682001C1B94 /* Report3.storyboard in Resources */,
 				7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */,
@@ -529,7 +530,6 @@
 				78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
 				7B6F9F7123CA4FDB000D4775 /* ControlOnboarding.storyboard in Resources */,
-				ACF93C8B238C775200876A0B /* Config.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
 				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
 				7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */,

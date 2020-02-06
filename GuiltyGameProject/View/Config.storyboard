@@ -72,9 +72,7 @@
                                     <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-7M-FU5">
-                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                            </imageView>
+                          
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-Va-RHB">
                                 <rect key="frame" x="635" y="68" width="560" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
