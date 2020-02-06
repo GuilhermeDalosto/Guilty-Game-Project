@@ -10,7 +10,7 @@
         <!--Game View Controller-->
         <scene sceneID="GHm-Ho-fj5">
             <objects>
-                <viewController id="gDs-tw-zEt" customClass="GameViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gDs-tw-zEt" customClass="GameViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ed3-2o-Yrh"/>
                         <viewControllerLayoutGuide type="bottom" id="xEQ-87-NIj"/>
@@ -23,9 +23,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </skView>
-                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaS-zV-rKH" userLabel="Pause View">
-                                <rect key="frame" x="272" y="202" width="1376" height="677"/>
+                            <skView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaS-zV-rKH" userLabel="Pause View">
+                                <rect key="frame" x="388" y="202" width="1181" height="677"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corneRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </skView>
                             <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sX-lc-A3j" userLabel="QuitGame View">
                                 <rect key="frame" x="569" y="331" width="817" height="439"/>

@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="bOw-8H-Tnn">
-                                <rect key="frame" x="188.5" y="331" width="272" height="418"/>
+                                <rect key="frame" x="164" y="331" width="272" height="418"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Judge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWU-V8-Vdy">
                                         <rect key="frame" x="0.0" y="0.0" width="272" height="46"/>
@@ -94,7 +94,7 @@
                             <constraint firstItem="aPA-mz-SBb" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0861111" id="GZP-0Z-Akq"/>
                             <constraint firstItem="crj-d3-IrD" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="1.5" id="H7y-pF-EhG"/>
                             <constraint firstItem="crj-d3-IrD" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.336458" id="I7y-so-7K3"/>
-                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="0.338" id="IKC-ip-G1V"/>
+                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="0.3125" id="IKC-ip-G1V"/>
                             <constraint firstItem="bOw-8H-Tnn" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.387037" id="JO7-di-cnk"/>
                             <constraint firstItem="mlm-WH-W6H" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="1.693" id="Opd-cY-Aep"/>
                             <constraint firstItem="bOw-8H-Tnn" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" id="Owm-42-vKS"/>

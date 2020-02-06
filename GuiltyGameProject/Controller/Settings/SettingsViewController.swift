@@ -237,6 +237,12 @@ class SettingsViewController: UIViewController {
         
     }
     
+    @IBAction func onboard(_ sender: UIButton) {
+        performSegue(withIdentifier: "onBoard", sender: nil)
+    }
+    
+    
+    
     
     @IBAction func PressHome(_ sender: Any) {
         sfx.play("ChooseOption", type: ".wav", repeat: 0)

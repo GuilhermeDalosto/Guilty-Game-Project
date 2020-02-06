@@ -398,6 +398,7 @@ class SettingsGameViewController: UIViewController {
         sfx.play("ChooseOption", type: ".wav", repeat: 0)
         self.freeButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
+        self.freeButton.layer.cornerRadius = 10.0
         typeTheme = 1
         themeSelected = true
         selectedTheme = 1
