@@ -42,6 +42,7 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
 //    weak var delegate: StatisticsProtocol?
     
     var arrayLabel = [UILabel]()
+    let sfx = Sound()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,6 +71,7 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
     }
     
     @IBAction func backBtn(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "unwindToMenu", sender: nil)
     }
     

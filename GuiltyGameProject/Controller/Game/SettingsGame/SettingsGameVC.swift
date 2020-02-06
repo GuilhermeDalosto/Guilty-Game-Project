@@ -95,6 +95,8 @@ class SettingsGameViewController: UIViewController {
     var language = ""
     var blackScreen: SKSpriteNode?
     var defaults = AllUserDefault()
+    let sfx = Sound()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayoutGuide()
@@ -208,7 +210,7 @@ class SettingsGameViewController: UIViewController {
         guard let focusedGuideUpRight = context.nextFocusedView else {return}
         guard let focused = context.nextFocusedView else {return}
         guard let focus7 = context.nextFocusedView else {return}
-        
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         escureceTodos()
         
         switch focused{
@@ -393,7 +395,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedFree(){
-
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         self.freeButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
         self.freeButton.layer.cornerRadius = 10.0
@@ -403,6 +405,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedRandom(){
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         self.randomButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.freeButton.backgroundColor = .clear
         self.randomButton.layer.cornerRadius = 10.0
@@ -412,22 +415,27 @@ class SettingsGameViewController: UIViewController {
     }
     
     @IBAction func press3(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed3()
     }
     
     @IBAction func press5(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed5()
     }
     
     @IBAction func press7(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed7()
     }
     
     
     @IBAction func pressNormal(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressedNormal()
     }
     @IBAction func pressDiffitcult(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressedHard()
     }
     
@@ -467,7 +475,7 @@ class SettingsGameViewController: UIViewController {
     
     
     @IBAction func pressNext(_ sender: Any) {
-        
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if((numberSelected == false ) || (difficultySelected == false) || (themeSelected == false)){
             self.labelError.isHidden = false
             self.labelError.text = NSLocalizedString("errorSelect",comment: "")

@@ -37,6 +37,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     
     @IBOutlet weak var backgroundImage: UIImageView!
     var arrayLabel = [UILabel]()
+    let sfx = Sound()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -50,6 +51,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     }
     
     @IBAction func backBtn(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "unwindToMenu", sender: nil)
     }
     

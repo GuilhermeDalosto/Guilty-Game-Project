@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     var olhandoCima = UIImage(named: "telaMusica")
     var olhandoBaixo = UIImage(named: "telaIdioma")
     
+    let sfx = Sound()
     let music2 = Sound()
     var homeDes = UIImage(named: "homeConf")
      var menuDes = UIImage(named: "menuConf")
@@ -128,6 +129,7 @@ class SettingsViewController: UIViewController {
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
         guard let focus = context.nextFocusedView else {return}
         
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.musicButton:
             self.backgroundImage.image = olhandoBaixo
@@ -243,12 +245,13 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func PressHome(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "Main", sender: nil)
         
     }
     
     @IBAction func pressMusicButton(_ sender: Any) {
-        
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         musicOption.toggle()
       
         

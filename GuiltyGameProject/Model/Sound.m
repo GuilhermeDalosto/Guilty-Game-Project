@@ -21,14 +21,19 @@
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
     _audioPlayer.delegate = self;
-    if (repeat > 0) {
+//    if (repeat >= 1) {
     _audioPlayer.numberOfLoops = repeat;
-    }
+//    }
     [_audioPlayer play];
+//    [_audioPlayer stop];
     return _audioPlayer;
     
     
     
+}
+
+- (void) changeSound : (AVAudioPlayer*) audioPlayer{
+    [audioPlayer stop];
 }
 
 
