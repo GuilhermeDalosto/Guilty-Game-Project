@@ -42,9 +42,16 @@ class MenuViewController: UIViewController {
     
     var language = ""
     
+
+    let frontImage = UIImageView()
+    let backgroundImage = UIImageView()
+    
+    
     var defaults = AllUserDefault()
     let music = Sound()
-    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
+    var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
+    
+    var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,45 +59,49 @@ class MenuViewController: UIViewController {
         launchView.layer.zPosition = 10
         view.addSubview(launchView)
 
-        let frontImage = UIImageView()
-        let backgroundImage = UIImageView()
-        
        
         backgroundImage.image = UIImage(named: "fundoTribunal")
         frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
         
         backgroundImage.layer.zPosition = -1
         backgroundImage.frame = view.frame
-        frontImage.alpha = 0
-        frontImage.frame = view.frame
         
+        frontImage.frame = view.frame
         launchView.addSubview(backgroundImage)
         launchView.addSubview(frontImage)
         
-        
+        print("FIRST LAUNCH ->  \(firstLaunch)")
+        if firstLaunch{
+        frontImage.alpha = 0
+      
         UIView.animate(withDuration: 1.7) {
-            frontImage.alpha = 1
-            if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
-                self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
-                UserDefaults.standard.set(true, forKey: "musicPlaying")
-            }
+            self.frontImage.alpha = 1
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
             
             UIView.animate(withDuration: 1.7, animations: {
-                 launchView.alpha = 0
-                
+                launchView.alpha = 0
+                self.music.play("introGuilty1", type: ".wav", repeat: 0)
             }) { _ in
-                backgroundImage.removeFromSuperview()
-                frontImage.removeFromSuperview()
+                self.backgroundImage.removeFromSuperview()
+                self.frontImage.removeFromSuperview()
                 launchView.removeFromSuperview()
-                
+                if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
+                    self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                    UserDefaults.standard.set(true, forKey: "musicPlaying")
+                }
             }
             
+            }
+        } else{
+            launchView.removeFromSuperview()
         }
-        
         defaults.screenNumber = 1
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "firstLaunch")
     }
     
     override func viewWillAppear(_ animated: Bool) {

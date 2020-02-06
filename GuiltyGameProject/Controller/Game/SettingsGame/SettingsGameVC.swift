@@ -396,6 +396,7 @@ class SettingsGameViewController: UIViewController {
 
         self.freeButton.backgroundColor = .init(red: 198/288, green: 207/288, blue: 201/288, alpha: 0.4)
         self.randomButton.backgroundColor = .clear
+        self.freeButton.layer.cornerRadius = 10.0
         typeTheme = 1
         themeSelected = true
         selectedTheme = 1
@@ -428,6 +429,18 @@ class SettingsGameViewController: UIViewController {
     }
     @IBAction func pressDiffitcult(_ sender: Any) {
         pressedHard()
+    }
+    
+    var firstLaunch = true
+    override weak var preferredFocusedView: UIView? {
+        if (self.firstLaunch) {
+            self.firstLaunch = false;
+            return self.normalButton;
+        }  else {
+            let view  = super.preferredFocusedView
+            return view;
+            
+        }
     }
     
     @IBAction func pressFree(_ sender: Any) {

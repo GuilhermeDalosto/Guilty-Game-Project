@@ -67,6 +67,18 @@ class CustomizeJudgeViewController: UIViewController {
     var typeDifficulty: Int?
     var typePeople: Int?
     
+    var firstLaunch = true
+      override weak var preferredFocusedView: UIView? {
+          if (self.firstLaunch) {
+              self.firstLaunch = false;
+              return self.rightButton;
+          }  else {
+              let view  = super.preferredFocusedView
+              return view;
+              
+          }
+      }
+      
     
     func escureceTodos(){
         if language == "EN"{
@@ -106,19 +118,15 @@ class CustomizeJudgeViewController: UIViewController {
         }
         self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
         judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
+        _judgeIndex = UserDefaults.standard.integer(forKey: "positionCollection")
         backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UserDefaults.standard.set(boolNinja, forKey: "ninjaDeckOn")
-        UserDefaults.standard.set(boolFood, forKey: "foodDeckOn")
-        UserDefaults.standard.set(boolOldWest, forKey: "oldWestDeckOn")
-        UserDefaults.standard.set(boolMagic, forKey: "magicDeckOn")
-        UserDefaults.standard.set(boolAnimal, forKey: "animalDeckOn")
-        UserDefaults.standard.set(boolNatal, forKey: "natalDeckOn")
-        UserDefaults.standard.set(_judgeIndex, forKey: "positionCollection")
+
         characterSelected = judge[_judgeIndex]
+        UserDefaults.standard.set(_judgeIndex,forKey: "positionCollection")
     }
     
     

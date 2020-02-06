@@ -66,7 +66,7 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        backgroundImage.image = UIImage(named: "RubberMat")
+        backgroundImage.image = UIImage(named: "telaIdioma")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
         
@@ -74,7 +74,7 @@ class SettingsViewController: UIViewController {
         
         musicOption = UserDefaults.standard.bool(forKey: "musicOption")
         languageOption = UserDefaults.standard.bool(forKey: "languageOption")
-        
+
         if languageOption{
             languageOptionStr = "EN"
         }
@@ -101,9 +101,20 @@ class SettingsViewController: UIViewController {
             }
         }
         
+        
+        
     }
-    
-    
+    var firstLaunch = true
+    override weak var preferredFocusedView: UIView? {
+        if (self.firstLaunch) {
+            self.firstLaunch = false;
+            return self.musicButton;
+        }  else {
+            let view  = super.preferredFocusedView
+            return view;
+            
+        }
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         UserDefaults.standard.set(musicOption, forKey: "musicOption")
@@ -160,23 +171,6 @@ class SettingsViewController: UIViewController {
             }
         }
             
-            
-            if  focus != self.musicButton{
-                if language == "PT"{
-                    
-                } else{
-                    
-                }
-            }
-            
-            if focus != self.homeButton{
-                if language == "PT"{
-                    
-                } else{
-                    
-                }
-            
-        }
         
         switch focusedGuideUp{
         case self.musicButton:            
@@ -240,6 +234,12 @@ class SettingsViewController: UIViewController {
         
         
     }
+    
+    @IBAction func onboard(_ sender: UIButton) {
+        performSegue(withIdentifier: "onBoard", sender: nil)
+    }
+    
+    
     
     
     @IBAction func PressHome(_ sender: Any) {

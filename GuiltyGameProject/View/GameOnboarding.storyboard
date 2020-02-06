@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U1v-h0-YyZ">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="U1v-h0-YyZ">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--GameUO View Controller-->
         <scene sceneID="rKI-kh-Zxj">
             <objects>
-                <viewController storyboardIdentifier="Game" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U1v-h0-YyZ" customClass="GameUOViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Game" useStoryboardIdentifierAsRestorationIdentifier="YES" id="U1v-h0-YyZ" customClass="GameUOViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sVb-sT-Zbz"/>
                         <viewControllerLayoutGuide type="bottom" id="7tI-Yf-KDl"/>
@@ -19,15 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-de-kpS">
-                                <rect key="frame" x="831" y="68" width="259" height="159"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRG-de-kpS">
+                                <rect key="frame" x="830.5" y="68" width="259" height="159"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="bOw-8H-Tnn">
-                                <rect key="frame" x="254" y="331" width="272" height="418"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="bOw-8H-Tnn">
+                                <rect key="frame" x="164" y="331" width="272" height="418"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Judge" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWU-V8-Vdy">
                                         <rect key="frame" x="0.0" y="0.0" width="272" height="46"/>
@@ -49,39 +48,34 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose who will be the judge and who will be defendant" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sii-ZI-7uy">
-                                <rect key="frame" x="1168" y="331" width="646" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose who will be the judge and who will be defendant" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sii-ZI-7uy">
+                                <rect key="frame" x="1117" y="300.5" width="646" height="101"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Divide all defendant in 2 teams, with equal number of players" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-mz-SBb">
-                                <rect key="frame" x="1168" y="517" width="646" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Divide all defendant in 2 teams, with equal number of players" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-mz-SBb">
+                                <rect key="frame" x="1117" y="493.5" width="646" height="93"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Before the game starts, each defendant must choose your pin color" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crj-d3-IrD">
-                                <rect key="frame" x="1168" y="703" width="646" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before the game starts, each defendant must choose your pin color" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crj-d3-IrD">
+                                <rect key="frame" x="1117" y="679" width="646" height="100"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75A-Dc-jG4">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75A-Dc-jG4">
+                                <rect key="frame" x="1565" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="3ec-9c-YuS" kind="show" id="4tJ-hb-l7N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlm-WH-W6H">
-                                <rect key="frame" x="106" y="926" width="192" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mlm-WH-W6H">
+                                <rect key="frame" x="192" y="871" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -89,6 +83,36 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="crj-d3-IrD" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="1.35" id="582-jd-Oht"/>
+                            <constraint firstItem="crj-d3-IrD" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0925926" id="7S7-Hz-Ijf"/>
+                            <constraint firstItem="mlm-WH-W6H" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.1" id="9rT-5c-uWs"/>
+                            <constraint firstItem="mlm-WH-W6H" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="0.3" id="COK-Rw-LJP"/>
+                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.141667" id="EQj-Z1-43S"/>
+                            <constraint firstItem="aPA-mz-SBb" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="1.5" id="Fae-JC-3Sq"/>
+                            <constraint firstItem="hRG-de-kpS" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.147222" id="FlT-VC-UVj"/>
+                            <constraint firstItem="aPA-mz-SBb" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0861111" id="GZP-0Z-Akq"/>
+                            <constraint firstItem="crj-d3-IrD" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="1.5" id="H7y-pF-EhG"/>
+                            <constraint firstItem="crj-d3-IrD" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.336458" id="I7y-so-7K3"/>
+                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="0.3125" id="IKC-ip-G1V"/>
+                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.387037" id="JO7-di-cnk"/>
+                            <constraint firstItem="mlm-WH-W6H" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="1.693" id="Opd-cY-Aep"/>
+                            <constraint firstItem="bOw-8H-Tnn" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" id="Owm-42-vKS"/>
+                            <constraint firstItem="75A-Dc-jG4" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.1" id="P3K-Rw-2vd"/>
+                            <constraint firstItem="hRG-de-kpS" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.134896" id="T1N-zw-srP"/>
+                            <constraint firstItem="mlm-WH-W6H" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0796296" id="WGk-Hm-q3o"/>
+                            <constraint firstItem="75A-Dc-jG4" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="1.73" id="Z21-tq-KUf"/>
+                            <constraint firstItem="75A-Dc-jG4" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0796296" id="ZIO-Z0-DyO"/>
+                            <constraint firstItem="sii-ZI-7uy" firstAttribute="height" secondItem="o98-AA-c7I" secondAttribute="height" multiplier="0.0935185" id="bM3-hS-mmu"/>
+                            <constraint firstItem="aPA-mz-SBb" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.336458" id="eiA-ba-rCD"/>
+                            <constraint firstItem="sii-ZI-7uy" firstAttribute="width" secondItem="o98-AA-c7I" secondAttribute="width" multiplier="0.336458" id="hrG-f4-n01"/>
+                            <constraint firstItem="aPA-mz-SBb" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" id="k19-m4-OaR"/>
+                            <constraint firstItem="sii-ZI-7uy" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="0.65" id="k5Z-8d-x6F"/>
+                            <constraint firstItem="hRG-de-kpS" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="0.273" id="kh3-Ii-xSr"/>
+                            <constraint firstItem="sii-ZI-7uy" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" multiplier="1.5" id="nfS-GM-NbS"/>
+                            <constraint firstItem="hRG-de-kpS" firstAttribute="centerX" secondItem="Np5-XZ-ye7" secondAttribute="centerX" id="u73-a8-51v"/>
+                            <constraint firstItem="75A-Dc-jG4" firstAttribute="centerY" secondItem="Np5-XZ-ye7" secondAttribute="centerY" multiplier="1.692" id="y9D-1a-93y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Np5-XZ-ye7"/>
                     </view>
                 </viewController>

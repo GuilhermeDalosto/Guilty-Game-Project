@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PcQ-j0-ipl">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PcQ-j0-ipl">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,13 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seteEn" translatesAutoresizingMaskIntoConstraints="NO" id="UW9-MG-uhV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seteEn" translatesAutoresizingMaskIntoConstraints="NO" id="UW9-MG-uhV">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1Y-Bw-eby">
-                                <rect key="frame" x="1591" y="920" width="254" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1Y-Bw-eby">
+                                <rect key="frame" x="1618" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="home"/>
                                 <connections>
@@ -159,6 +157,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="centerX" secondItem="XJt-4u-sJj" secondAttribute="centerX" multiplier="1.7856" id="9qX-fN-lae"/>
+                            <constraint firstAttribute="trailing" secondItem="UW9-MG-uhV" secondAttribute="trailing" id="ACp-5c-FaR"/>
+                            <constraint firstItem="UW9-MG-uhV" firstAttribute="leading" secondItem="rzM-FA-e5m" secondAttribute="leading" id="KgU-W6-Kpq"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="width" secondItem="rzM-FA-e5m" secondAttribute="width" multiplier="0.1" id="LEU-Dw-T3X"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="height" secondItem="rzM-FA-e5m" secondAttribute="height" multiplier="0.0796296" id="aML-wT-v7a"/>
+                            <constraint firstItem="UW9-MG-uhV" firstAttribute="top" secondItem="rzM-FA-e5m" secondAttribute="top" id="e6w-54-zyq"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="centerY" secondItem="XJt-4u-sJj" secondAttribute="centerY" multiplier="1.692" id="gVi-q3-SOd"/>
+                            <constraint firstAttribute="bottom" secondItem="UW9-MG-uhV" secondAttribute="bottom" id="lCC-hZ-JIS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XJt-4u-sJj"/>
                     </view>
                     <connections>

@@ -68,7 +68,7 @@ class GameScene: SKScene{
     var time: Int = 30
     
     /// Number of Turns
-    static var turn: Int = -1
+    static var turn: Int = 0
     /// Number of Rounds
     static var round: Int = 0
     
@@ -77,6 +77,10 @@ class GameScene: SKScene{
     
     ///Image Selection Pino
     var selPin = SKSpriteNode(imageNamed: "seleçãoPino")
+    
+    ///titles for words and events
+    var titlesWords = SKLabelNode(fontNamed: "MyriadPro-Regular")
+    var titleEvents = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
     /**
      Init Scene if there is not a event to the current player
@@ -155,11 +159,22 @@ class GameScene: SKScene{
             time = 30
         }
         
+        if word.isEmpty {
+           
+        }
+        
+        titlesWords.text = "The words is..."
+        titlesWords.fontColor = .white
+        titlesWords.fontSize = 43
+        titlesWords.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.9))
+//        titlesWords.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+        addChild(titlesWords)
+        
         // set word label
         wordLabel.text = word
         wordLabel.fontSize = 40
         wordLabel.fontColor = .white
-        wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.9))
+        wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.85))
         
         
         // set timer label
@@ -174,30 +189,44 @@ class GameScene: SKScene{
         roundLabel.fontColor = .white
         roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
         
+        
+        if !(event!.isEmpty) {
+            titleEvents.text = "The event is..."
+            titleEvents.fontSize = 43
+            titleEvents.fontColor = .white
+            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.78))
+            titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+            
+            addChild(titleEvents)
+        }
+
         // set event if player had it
         if let eventString = event{
             eventLabel.text = eventString
             eventLabel.fontSize = 35
             eventLabel.fontColor = .white
             eventLabel.position = CGPoint(x: size.width/2, y: 40)
-            eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.83))
+            eventLabel.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
             eventLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
             
 //            eventLabel.verticalAlignmentMode = .baseline
             
             if ((eventLabel.text! as NSString).length) >= 30 &&  ((eventLabel.text! as NSString).length) < 40{
-                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.8))
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
                 eventLabel.numberOfLines = 0
                 eventLabel.lineBreakMode = .byCharWrapping
                 eventLabel.preferredMaxLayoutWidth = 500
                 
             } else if ((eventLabel.text! as NSString).length) >= 40 {
-                eventLabel.position = CGPoint(x: size.width * CGFloat(0.95), y: size.height * CGFloat(0.76))
+                eventLabel.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
                 eventLabel.numberOfLines = 0
                 eventLabel.lineBreakMode = .byCharWrapping
                 eventLabel.preferredMaxLayoutWidth = 500
             }
             addChild(eventLabel)
+            
+            
+            
         }
         
         // add label to the scene
@@ -483,7 +512,6 @@ class GameScene: SKScene{
         
         if time == 15{
             self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Desconfiado")
-            self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Desconfiado")
             self.maozinhaJuiz.run(SKAction.rotate(byAngle: 0.2, duration: 1))
         }
         if time <= 0{
@@ -498,7 +526,7 @@ class GameScene: SKScene{
     
     func juizFeliz(){
         self.judgeSprite.texture = SKTexture(imageNamed: "judge\(positionJudge)Feliz")
-        //self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Feliz")
+        self.maozinhaJuiz.texture = SKTexture(imageNamed: "mao\(positionJudge)Feliz")
     }
     
     func juizBravo(){

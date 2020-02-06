@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYb-IG-xlo">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYb-IG-xlo">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="myriad-pro-8.otf">
+            <string>MyriadPro-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Main-->
         <scene sceneID="P8h-jb-YoJ">
@@ -17,10 +22,20 @@
             </objects>
             <point key="canvasLocation" x="379" y="676"/>
         </scene>
+        <!--JudgeOnboarding-->
+        <scene sceneID="GnQ-tC-teK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="JudgeOnboarding" id="8IE-gh-nI8" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hzm-Wi-GYj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AII-Fv-usR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="867" y="639"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="5hh-sh-jdQ">
             <objects>
-                <viewController storyboardIdentifier="Settings" title="Settings" modalPresentationStyle="fullScreen" id="xYb-IG-xlo" customClass="SettingsViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" title="Settings" modalPresentationStyle="fullScreen" id="xYb-IG-xlo" customClass="SettingsViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="azJ-Bm-62W"/>
                         <viewControllerLayoutGuide type="bottom" id="jHe-Xd-e38"/>
@@ -29,9 +44,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tela settings_Prancheta 1" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-7M-FU5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bAb-7M-FU5">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RhT-kG-oQY">
                                 <rect key="frame" x="657" y="741" width="517" height="186"/>
@@ -42,26 +56,55 @@
                                     <action selector="pressLanguageButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="rEe-Qa-y1W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-Xa-wNl">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LB1-Xa-wNl">
                                 <rect key="frame" x="657" y="447" width="517" height="186"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="musicOff"/>
                                 <connections>
                                     <action selector="pressMusicButton:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="DLd-ks-NIv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8y-tJ-alt">
                                 <rect key="frame" x="76" y="90" width="254" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="menuConf"/>
                                 <connections>
                                     <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
                                 </connections>
                             </button>
+                          
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-Va-RHB">
+                                <rect key="frame" x="635" y="68" width="560" height="148"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="74"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxY-3S-53u">
+                                <rect key="frame" x="712" y="712" width="407" height="149"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" image="aleatorioSel"/>
+                                <connections>
+                                    <action selector="onboard:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="lAv-CA-U6R"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k8y-tJ-alt" firstAttribute="height" secondItem="Jix-gG-h10" secondAttribute="height" multiplier="0.0916667" id="22p-uj-npS"/>
+                            <constraint firstItem="LB1-Xa-wNl" firstAttribute="centerX" secondItem="AGK-Nu-LCG" secondAttribute="centerX" multiplier="0.9539" id="64Z-4P-oHP"/>
+                            <constraint firstItem="k8y-tJ-alt" firstAttribute="centerX" secondItem="AGK-Nu-LCG" secondAttribute="centerX" multiplier="0.2115" id="8qe-XT-sd5"/>
+                            <constraint firstAttribute="bottom" secondItem="bAb-7M-FU5" secondAttribute="bottom" id="AjJ-BQ-o0n"/>
+                            <constraint firstItem="bAb-7M-FU5" firstAttribute="top" secondItem="Jix-gG-h10" secondAttribute="top" id="PiY-J0-tmI"/>
+                            <constraint firstItem="k8y-tJ-alt" firstAttribute="width" secondItem="Jix-gG-h10" secondAttribute="width" multiplier="0.132292" id="R9a-ql-2rn"/>
+                            <constraint firstItem="k8y-tJ-alt" firstAttribute="centerY" secondItem="AGK-Nu-LCG" secondAttribute="centerY" multiplier="0.258" id="S2i-hV-snW"/>
+                            <constraint firstItem="LB1-Xa-wNl" firstAttribute="width" secondItem="Jix-gG-h10" secondAttribute="width" multiplier="0.269271" id="T4J-hh-5bf"/>
+                            <constraint firstAttribute="trailing" secondItem="bAb-7M-FU5" secondAttribute="trailing" id="T9p-bM-qKW"/>
+                            <constraint firstItem="LB1-Xa-wNl" firstAttribute="centerY" secondItem="AGK-Nu-LCG" secondAttribute="centerY" id="XR9-wS-R00"/>
+                            <constraint firstItem="LB1-Xa-wNl" firstAttribute="height" secondItem="Jix-gG-h10" secondAttribute="height" multiplier="0.172222" id="Xk9-AT-AKB"/>
+                            <constraint firstItem="bAb-7M-FU5" firstAttribute="leading" secondItem="Jix-gG-h10" secondAttribute="leading" id="yW7-bP-B7L"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="AGK-Nu-LCG"/>
                     </view>
                     <connections>
@@ -69,6 +112,7 @@
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
                         <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="2Ka-xc-eP7"/>
+                        <segue destination="8IE-gh-nI8" kind="show" identifier="onBoard" id="OXO-Ar-gMd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xOD-A5-rhY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -78,7 +122,7 @@
     </scenes>
     <resources>
         <image name="IdiomaPT" width="437" height="146"/>
-        <image name="Tela settings_Prancheta 1" width="8000" height="4500"/>
+        <image name="aleatorioSel" width="327" height="109"/>
         <image name="menuConf" width="174" height="59"/>
         <image name="musicOff" width="437" height="146"/>
     </resources>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tresEn" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-EV-thh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tresEn" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-EV-thh">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-Qh-awN">
                                 <rect key="frame" x="415" y="652" width="325" height="46"/>
@@ -65,9 +64,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
-                                <rect key="frame" x="1591" y="920" width="254" height="99"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
+                                <rect key="frame" x="1618" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" image="home"/>
                                 <connections>
@@ -117,6 +115,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="dBy-EV-thh" firstAttribute="top" secondItem="9Mg-eC-CH6" secondAttribute="top" id="2cD-J2-Xz9"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="centerY" secondItem="R3K-yd-gRl" secondAttribute="centerY" multiplier="1.692" id="771-mg-p8g"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="centerX" secondItem="R3K-yd-gRl" secondAttribute="centerX" multiplier="1.7856" id="84n-89-yAC"/>
+                            <constraint firstAttribute="trailing" secondItem="dBy-EV-thh" secondAttribute="trailing" id="OeK-Jw-kHw"/>
+                            <constraint firstAttribute="bottom" secondItem="dBy-EV-thh" secondAttribute="bottom" id="YI5-2F-gOc"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="height" secondItem="9Mg-eC-CH6" secondAttribute="height" multiplier="0.0796296" id="f8K-Or-Y0M"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="width" secondItem="9Mg-eC-CH6" secondAttribute="width" multiplier="0.1" id="nLh-ZW-L7a"/>
+                            <constraint firstItem="dBy-EV-thh" firstAttribute="leading" secondItem="9Mg-eC-CH6" secondAttribute="leading" id="wpf-5Y-zhU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="R3K-yd-gRl"/>
                     </view>
                     <connections>
