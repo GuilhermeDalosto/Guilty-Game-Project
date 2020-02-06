@@ -235,6 +235,12 @@ class SettingsViewController: UIViewController {
         
     }
     
+    @IBAction func onboard(_ sender: UIButton) {
+        performSegue(withIdentifier: "onBoard", sender: nil)
+    }
+    
+    
+    
     
     @IBAction func PressHome(_ sender: Any) {
         performSegue(withIdentifier: "Main", sender: nil)

@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="30i-qA-xlC">
-                                <rect key="frame" x="176" y="331" width="297" height="418"/>
+                                <rect key="frame" x="164" y="331" width="297" height="418"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Context" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3J-Wh-mPX">
                                         <rect key="frame" x="0.0" y="0.0" width="297" height="46"/>
@@ -66,10 +66,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-Cb-asP">
-                                <rect key="frame" x="1565" y="870.5" width="192" height="86"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-Cb-asP">
+                                <rect key="frame" x="1534" y="864" width="254" height="99"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="nextSel"/>
                                 <connections>
                                     <segue destination="J5s-C1-4IW" kind="show" id="y6H-DD-f41"/>
                                 </connections>
@@ -107,7 +107,7 @@
                             <constraint firstItem="8Hh-xp-2ad" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.115741" id="kAp-H1-hsi"/>
                             <constraint firstItem="Kbb-uw-Ti4" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" id="koH-cv-cAj"/>
                             <constraint firstItem="Kbb-uw-Ti4" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.360938" id="l4W-0e-4CP"/>
-                            <constraint firstItem="30i-qA-xlC" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="0.338" id="ozM-f9-gzZ"/>
+                            <constraint firstItem="30i-qA-xlC" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="0.3255" id="ozM-f9-gzZ"/>
                             <constraint firstItem="8Hh-xp-2ad" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.360938" id="qTb-C2-WOx"/>
                             <constraint firstItem="Kbb-uw-Ti4" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="1.5" id="xRY-ZF-oTc"/>
                         </constraints>
@@ -134,4 +134,7 @@
             <point key="canvasLocation" x="1445" y="94"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nextSel" width="174" height="59"/>
+    </resources>
 </document>

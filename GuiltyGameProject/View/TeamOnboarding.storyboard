@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="QEy-Ua-QIM">
-                                <rect key="frame" x="205.5" y="424" width="261" height="232"/>
+                                <rect key="frame" x="164" y="424" width="261" height="232"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-1P-hu0">
                                         <rect key="frame" x="0.0" y="0.0" width="261" height="46"/>
@@ -77,7 +77,7 @@
                             <constraint firstItem="AjP-ql-F0X" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="1.693" id="76S-SH-F8f"/>
                             <constraint firstItem="JbJ-rW-H0R" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="0.273" id="A5v-oJ-RwO"/>
                             <constraint firstItem="JbJ-rW-H0R" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" id="BhW-e7-olr"/>
-                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="0.35" id="CnR-dZ-qhn"/>
+                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="0.307" id="CnR-dZ-qhn"/>
                             <constraint firstItem="56b-zo-yAA" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="1.2" id="EWl-Te-eIL"/>
                             <constraint firstItem="D7g-qz-96q" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="0.9" id="H1X-Oa-KGm"/>
                             <constraint firstItem="AjP-ql-F0X" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.1" id="Mfd-n9-RAu"/>

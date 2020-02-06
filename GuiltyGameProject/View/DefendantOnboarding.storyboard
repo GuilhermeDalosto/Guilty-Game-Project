@@ -26,7 +26,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="dri-Nd-56Y">
-                                <rect key="frame" x="167.5" y="331" width="314" height="418"/>
+                                <rect key="frame" x="164" y="331" width="314" height="418"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Develop history" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvk-E3-ftd">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="46"/>
@@ -102,7 +102,7 @@
                             <constraint firstItem="2Gi-Bq-lme" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0425926" id="Sxr-lL-9DZ"/>
                             <constraint firstItem="El8-ts-8FG" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="0.273" id="ULg-tP-5C1"/>
                             <constraint firstItem="dri-Nd-56Y" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.387037" id="Z34-vF-4yY"/>
-                            <constraint firstItem="dri-Nd-56Y" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="0.338" id="bah-tU-mBA"/>
+                            <constraint firstItem="dri-Nd-56Y" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="0.3345" id="bah-tU-mBA"/>
                             <constraint firstItem="El8-ts-8FG" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" id="k2k-Xk-0RX"/>
                             <constraint firstItem="Qgk-Rs-bEV" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0796296" id="peU-Wl-Qqu"/>
                             <constraint firstItem="H4j-li-neS" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="1.692" id="rec-mu-MO4"/>
