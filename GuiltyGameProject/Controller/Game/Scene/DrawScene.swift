@@ -160,11 +160,8 @@ class DrawScene: SKScene{
             self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
             
             
-                addChild(diceTeam1)
-                animateDice2Players([diceTeam1])
-            
-            
-            
+               addChild(diceTeam1)
+               animateDice()
             
 //            self.diceRotate = rotateFrame
 //
@@ -276,9 +273,9 @@ class DrawScene: SKScene{
     func animateDice(){
         if numPlayers == 2{
             if aux{
-                animateNode([self.diceTeam2, self.diceTeam1])
+                animateNode([self.diceTeam2])
             } else {
-                animateNode([self.diceTeam1, self.diceTeam2])
+                animateNode([self.diceTeam1])
             }
         } else {
             animateNode([self.diceTeam1,self.diceTeam2])

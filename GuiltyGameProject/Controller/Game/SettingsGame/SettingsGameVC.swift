@@ -120,6 +120,7 @@ class SettingsGameViewController: UIViewController {
         blackScreen = SKSpriteNode(color: .black, size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         if defaults.screenNumber != 1{
             blackScreen?.zPosition = 10
+            defaults.screenNumber = 1
         }else{
             blackScreen?.zPosition = -1
         }
@@ -163,6 +164,10 @@ class SettingsGameViewController: UIViewController {
         UserDefaults.standard.set(selectedDifficulty, forKey: "difficulty")
         UserDefaults.standard.set(selectedPeople, forKey: "numberOfPlayers")
         UserDefaults.standard.set(selectedTheme, forKey: "theme")
+        if defaults.screenNumber != 1{
+            blackScreen?.zPosition = 100
+            defaults.screenNumber = 1
+        }
     }
     
     func letPressed(){
