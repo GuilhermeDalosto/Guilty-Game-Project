@@ -57,6 +57,9 @@ class SettingsViewController: UIViewController {
     var languageOption = true
     var languageOptionStr = "EN"
     var music = AVAudioPlayer()
+    var selecao = UIImageView(image: UIImage(named: "selecaoMusica"))
+    var selecaoPequena2 = UIImageView(image: UIImage(named: "selecaoGrande2"))
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
     
@@ -65,12 +68,30 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var tittleSettings: UILabel!
     @IBOutlet weak var onBoarding: UIButton!
     
-    
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.view.insertSubview(self.selecao, at: 2)
+      //  self.view.insertSubview(self.selecaoPequena, at: 2)
         backgroundImage.image = UIImage(named: "telaIdioma")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
+        self.view.insertSubview(selecao, at: 0)
+        self.view.insertSubview(selecaoPequena, at: 0)
+        self.view.insertSubview(selecaoPequena2, at: 0)
+        
+        self.musicButton.layer.zPosition = 2
+        self.homeButton.layer.zPosition = 2
+        self.onBoarding.layer.zPosition = 2
+        self.selecao.layer.zPosition = 1
+        self.selecaoPequena.layer.zPosition = 1
+        
+        self.selecaoPequena.alpha = 0
+        
+        
+        
+        self.selecaoPequena2.alpha = 0
+              
+        
+        self.selecao.layer.position = self.musicButton.layer.position
         
         setLayoutGuide()
         
@@ -87,8 +108,10 @@ class SettingsViewController: UIViewController {
         if NSLocalizedString("homeText", comment: "") == "Home"{
             language = "EN"
             self.homeButton.setImage(homeSel, for: .normal)
+            
             self.tittleSettings.text = "Settings"
             self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
+            
             if musicOption{
                 self.musicButton.setImage(musicOnSel, for: .normal)
             } else{
@@ -105,7 +128,6 @@ class SettingsViewController: UIViewController {
                 self.musicButton.setImage(musicaOffSel, for: .normal)
             }
         }
-        
         
         
     }
@@ -134,55 +156,61 @@ class SettingsViewController: UIViewController {
         guard let focus = context.nextFocusedView else {return}
         
         sfx.play("PassOption", type: ".wav", repeat: 0)
+        self.selecaoPequena.alpha = 0
+        self.selecaoPequena2.alpha = 0
+        self.selecao.alpha = 1
+        
+        
         switch focus{
+            
         case self.musicButton:
             self.backgroundImage.image = olhandoCima
+            self.selecao.layer.position = self.musicButton.layer.position
+            
             if language == "PT"{
                 
                 self.homeButton.setImage(menuDes, for: .normal)
+                
                 if musicOption{
                     self.musicButton.setImage(musicaOnSel, for: .normal)
                 } else{
-                     self.musicButton.setImage(musicaOffSel, for: .normal)
-                
-            }
+                    self.musicButton.setImage(musicaOffSel, for: .normal)
+                    
+                }
             }
             else{
                 
-                self.homeButton.setImage(homeDes, for: .normal)
                     if musicOption{
                          self.musicButton.setImage(musicOnSel, for: .normal)
                     } else{
                          self.musicButton.setImage(musicOffSel, for: .normal)
                                         
+                    
                 }
-                
             }
+        
         case self.onBoarding:
             self.backgroundImage.image = olhandoBaixo
+            self.selecaoPequena2.layer.position = self.onBoarding.layer.position
+            self.selecao.alpha = 0
+            self.selecaoPequena2.alpha = 1
             if language == "PT" {
                 self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
             }else{
                 self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
             }
         default:
-            if language == "PT"{
-                self.homeButton.setImage(menuSel, for: .normal)
-                if musicOption{
-                    self.musicButton.setImage(musicaOnDes, for: .normal)
-                } else{
-                     self.musicButton.setImage(musicaOffDes, for: .normal)
-                }
-            } else{
-                self.homeButton.setImage(homeSel, for: .normal)
-                if musicOption{
-                     self.musicButton.setImage(musicOnDes, for: .normal)
-                } else{
-                     self.musicButton.setImage(musicOffDes, for: .normal)
-                }
-            }
-        }
+            self.selecao.alpha = 0
+            self.selecaoPequena.alpha = 1
+            self.selecaoPequena.layer.position = self.homeButton.layer.position
+           
             
+            
+            
+        
+        }
+        
+        
         
         switch focusedGuideUp{
         case self.musicButton:            
