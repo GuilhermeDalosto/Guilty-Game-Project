@@ -10,6 +10,8 @@ import UIKit
 
 class JudgeUOViewController: UIViewController{
     
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
     @IBOutlet weak var text00: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text02: UILabel!
@@ -17,6 +19,29 @@ class JudgeUOViewController: UIViewController{
     @IBOutlet weak var text10: UILabel!
     @IBOutlet weak var text11: UILabel!
     @IBOutlet weak var text12: UILabel!
+    
+    @IBOutlet weak var previousButton: UIButton!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.addSubview(selecaoPequena)
+        self.selecaoPequena.layer.position = previousButton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+        self.previousButton.layer.zPosition = 2
+        self.nextButton.layer.zPosition = 2
+        
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        switch context.nextFocusedView{
+        case previousButton:
+            self.selecaoPequena.layer.position = previousButton.layer.position
+        default:
+            self.selecaoPequena.layer.position = nextButton.layer.position
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,12 +75,37 @@ class JudgeUOViewController: UIViewController{
 }
 
 class DefendantUOViewController: UIViewController{
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var text10: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text02: UILabel!
     @IBOutlet weak var text11: UILabel!
     @IBOutlet weak var text12: UILabel!
     @IBOutlet weak var text00: UILabel!
+    
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.view.addSubview(selecaoPequena)
+        self.selecaoPequena.layer.position = previousButton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+               self.previousButton.layer.zPosition = 2
+               self.nextButton.layer.zPosition = 2
+        
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        switch context.nextFocusedView{
+        case previousButton:
+            self.selecaoPequena.layer.position = previousButton.layer.position
+        default:
+            self.selecaoPequena.layer.position = nextButton.layer.position
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         text00.layer.borderColor = UIColor.cyan.cgColor
@@ -88,6 +138,13 @@ class DefendantUOViewController: UIViewController{
 }
 
 class GameUOViewController: UIViewController{
+    
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
+    
     @IBOutlet weak var text00: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text02: UILabel!
@@ -95,6 +152,26 @@ class GameUOViewController: UIViewController{
     @IBOutlet weak var text10: UILabel!
     @IBOutlet weak var text11: UILabel!
     @IBOutlet weak var text12: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+          self.view.addSubview(selecaoPequena)
+          self.selecaoPequena.layer.position = previousButton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+               self.previousButton.layer.zPosition = 2
+               self.nextButton.layer.zPosition = 2
+          
+      }
+      
+      override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+          switch context.nextFocusedView{
+          case previousButton:
+              self.selecaoPequena.layer.position = previousButton.layer.position
+          default:
+              self.selecaoPequena.layer.position = nextButton.layer.position
+          }
+      }
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         text00.layer.borderColor = UIColor.cyan.cgColor
@@ -127,12 +204,37 @@ class GameUOViewController: UIViewController{
 }
 
 class TurnUOViewController: UIViewController{
+    
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousbutton: UIButton!
     @IBOutlet weak var text00: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text02: UILabel!
     @IBOutlet weak var text10: UILabel!
     @IBOutlet weak var text11: UILabel!
     @IBOutlet weak var text12: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+          self.view.addSubview(selecaoPequena)
+          self.selecaoPequena.layer.position = previousbutton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+               self.previousbutton.layer.zPosition = 2
+               self.nextButton.layer.zPosition = 2
+          
+      }
+      
+      override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+          switch context.nextFocusedView{
+          case previousbutton:
+              self.selecaoPequena.layer.position = previousbutton.layer.position
+          default:
+              self.selecaoPequena.layer.position = nextButton.layer.position
+          }
+      }
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         text00.layer.borderColor = UIColor.cyan.cgColor
@@ -165,10 +267,35 @@ class TurnUOViewController: UIViewController{
 }
 
 class TeamUOViewController: UIViewController{
+    
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var text00: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text10: UILabel!
     @IBOutlet weak var text11: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+          self.view.addSubview(selecaoPequena)
+          self.selecaoPequena.layer.position = previousButton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+               self.previousButton.layer.zPosition = 2
+               self.nextButton.layer.zPosition = 2
+          
+      }
+      
+      override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+          switch context.nextFocusedView{
+          case previousButton:
+              self.selecaoPequena.layer.position = previousButton.layer.position
+          default:
+              self.selecaoPequena.layer.position = nextButton.layer.position
+          }
+      }
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         text00.layer.borderColor = UIColor.cyan.cgColor
@@ -193,10 +320,35 @@ class TeamUOViewController: UIViewController{
 }
 
 class ControlUOViewController: UIViewController{
+    
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var previousButton: UIButton!
     @IBOutlet weak var text03: UILabel!
     @IBOutlet weak var labelText: UILabel!
     @IBOutlet weak var text01: UILabel!
     @IBOutlet weak var text00: UILabel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+          self.view.addSubview(selecaoPequena)
+          self.selecaoPequena.layer.position = previousButton.layer.position
+        self.selecaoPequena.layer.zPosition = 1
+               self.previousButton.layer.zPosition = 2
+               self.nextButton.layer.zPosition = 2
+          
+      }
+      
+      override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+          switch context.nextFocusedView{
+          case previousButton:
+              self.selecaoPequena.layer.position = previousButton.layer.position
+          default:
+              self.selecaoPequena.layer.position = nextButton.layer.position
+          }
+      }
+      
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         text00.layer.borderColor = UIColor.cyan.cgColor

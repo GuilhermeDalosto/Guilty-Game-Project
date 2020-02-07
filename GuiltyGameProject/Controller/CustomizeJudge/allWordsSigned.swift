@@ -52,7 +52,7 @@ class Words{
     
     var strNinja : [String] = ["Traidor", "Ninja", "Samurai", "Katana", "Kunai", "Shuriken", "Assassino", "Mestre", "Mascarado", "Templo", "Tempo", "Pergaminho", "Batalha", "Guerra", "Tatame", "Ninjutsu", "Kendo", "Artimanhas", "Técnica", "Japão","Luta", "Kimono", "Artefato", "Honra", "Tradição", "Família", "Tradicional", "Aventura", "Guerra", "Destruição", "Arma", "Máscara", "Esperança", "Sacrifício", "Dragão", "Treinamento", "Mestre", "Rivalidade", "Tamanco", "Silêncio", "Orgulho", "Vida", "Equilíbrio", "Arte", "Marcial", "Sobrevivência", "Vontade", "Conhecimento", "Perseguir", "Julgamento"]
     
-    var strNinjaEN = [""]
+    var strNinjaEN = ["Traitor","Ninja","Samurai","Katana","Kunai","Shuriken","Assassin","Master","Masked","Temple","Time","Scroll","Battle","War","Honor","Tradition","Family","Adventure","Destruction","Weapon","Mask","Hope","Sacrifice","Dragon","Genji","Training","MMusashi","Rivalty","Silence","Pride","Life","Balance","Art","Martial","Survival","Will","Knowledge","Pursue","Follow","Judge"]
     
     var strNinjaHard = [""]
     

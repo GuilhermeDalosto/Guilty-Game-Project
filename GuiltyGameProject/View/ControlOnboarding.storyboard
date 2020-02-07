@@ -48,7 +48,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-fd-8tp">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-fd-8tp">
                                 <rect key="frame" x="1565" y="871" width="192" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -57,7 +57,7 @@
                                     <segue destination="Ojw-bA-6t7" kind="show" id="2sG-T0-9JN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGa-W1-NKb">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGa-W1-NKb">
                                 <rect key="frame" x="192" y="871" width="192" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -99,6 +99,8 @@
                     </view>
                     <connections>
                         <outlet property="labelText" destination="CIu-gS-fxh" id="GJZ-iX-32k"/>
+                        <outlet property="nextButton" destination="3aB-fd-8tp" id="tCr-Df-Ebi"/>
+                        <outlet property="previousButton" destination="kGa-W1-NKb" id="cyr-gk-hyR"/>
                         <outlet property="text00" destination="Gm6-2F-Cqn" id="lyk-wc-aJu"/>
                         <outlet property="text01" destination="T2q-lk-2fc" id="Jlr-OQ-lfk"/>
                         <outlet property="text03" destination="LwO-n5-Nz0" id="Lrm-0I-SNt"/>

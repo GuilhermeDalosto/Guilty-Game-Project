@@ -70,12 +70,6 @@
                                 <action selector="leaveMatch:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="Ykc-Fk-xyO"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fo6-TL-Tde">
-                            <rect key="frame" x="0.0" y="342" width="236" height="89"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                            <state key="normal" title="Button"/>
-                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="Gcn-la-c46"/>
                 </view>
