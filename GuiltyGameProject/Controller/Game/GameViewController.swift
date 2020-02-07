@@ -409,48 +409,52 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     
     var vencedor = ""
     @objc func SwipeLeft(){
-        
-        if (GameScene.turn > 0) && gameView.scene == gameScene {
-            if !chooseOption{
-                sound.play("SwipeLeft", type: ".wav",repeat: 0)
-                chooseOption.toggle()
-            }
-            if choosenTeam == team[0]{
-                self.gameScene!.mostrarBalao1()
-                judge?.deny(team[1])
-            } else{
-                self.gameScene!.mostrarBalao0()
-                judge?.deny(team[0])
-            }
-            
-            if team[0].lifes == 0 || team[1].lifes == 0{
-                if team[0].lifes == 0{
-                    vencedor = "Time 2"
+        if self.pauseUIView.isDescendant(of: self.view) ||  self.quitGameUIView.isDescendant(of: self.view){
+            print("oi")
+        }else{
+            if (GameScene.turn > 0) && gameView.scene == gameScene {
+                if !chooseOption{
+                    sound.play("SwipeLeft", type: ".wav",repeat: 0)
+                    chooseOption.toggle()
+                }
+                if choosenTeam == team[0]{
+                    self.gameScene!.mostrarBalao1()
+                    judge?.deny(team[1])
                 } else{
-                    vencedor = "Time 1"
+                    self.gameScene!.mostrarBalao0()
+                    judge?.deny(team[0])
                 }
                 
-                switch(qtPlayer){
-                case 2:
-                    self.performSegue(withIdentifier: "endGame3", sender: nil)
-                    break
-                case 4:
-                    self.performSegue(withIdentifier: "endGame5", sender: nil)
-                    break
-                default:
-                    self.performSegue(withIdentifier: "endGame7", sender: nil)
+                if team[0].lifes == 0 || team[1].lifes == 0{
+                    if team[0].lifes == 0{
+                        vencedor = "Time 2"
+                    } else{
+                        vencedor = "Time 1"
+                    }
+                    
+                    switch(qtPlayer){
+                    case 2:
+                        self.performSegue(withIdentifier: "endGame3", sender: nil)
+                        break
+                    case 4:
+                        self.performSegue(withIdentifier: "endGame5", sender: nil)
+                        break
+                    default:
+                        self.performSegue(withIdentifier: "endGame7", sender: nil)
+                    }
+                    
                 }
+                self.gameScene?.juizBravo()
+                self.gameScene?.endTimer()
                 
+                
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.chooseOption = false
+                    self.changeScene()
+                }
             }
-            self.gameScene?.juizBravo()
-            self.gameScene?.endTimer()
             
-            
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.chooseOption = false
-                self.changeScene()
-            }
         }
         
     }
@@ -497,24 +501,27 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     
     @objc func SwipeRight(){
         
-        if gameView.scene == gameScene && GameScene.turn > 0  {
-            if !chooseOption{
-                sound.play("SwipeRight", type: ".wav",repeat: 0)
-                chooseOption.toggle()
-            }
-            
-            self.gameScene?.juizFeliz()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.chooseOption = false
-                // FAZ O TEMPO PARAR AQUI GABS PLS
-                //self.gameScene?.endTimer()
-                
-                self.changeScene()
-            }
+        if self.pauseUIView.isDescendant(of: self.view)  ||  self.quitGameUIView.isDescendant(of: self.view) {
+            print("oi")
         } else{
-            changeScene()
+            if gameView.scene == gameScene && GameScene.turn > 0  {
+                if !chooseOption{
+                    sound.play("SwipeRight", type: ".wav",repeat: 0)
+                    chooseOption.toggle()
+                }
+            
+                self.gameScene?.juizFeliz()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.chooseOption = false
+                    // FAZ O TEMPO PARAR AQUI GABS PLS
+                    //self.gameScene?.endTimer()
+                
+                    self.changeScene()
+                }
+            } else{
+                changeScene()
+            }
         }
-        
     }
     
     var teamTurnA = 0
@@ -708,15 +715,21 @@ extension GameViewController{
     ///Essa função é chamada quando se deve entrar no pause
     func pause(){
         defaults.isPaused = true
-//        rmvController()
         gameScene?.endTimer()
         gameScene?.isPaused = true
         defaults.positionOnTheGameScreen = 2
         gameView.addSubview(pauseUIView)
         pauseUIView.center = view.center
+        
+        
+        updateFocusIfNeeded()
+        
+        
         print(backToTheGameBtn.alpha)
         verifyLanguage(btn: backToTheGameBtn, namePT: "voltar", nameEN: "back")
+//        backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
         verifyLanguage(btn: quitGameBtn, namePT: "sair", nameEN: "quit")
+//        quitGameBtn.setBackgroundImage(nil, for: .normal)
         verifyLanguage(pauseScreen: pauseScreen, namePT: "pausePT", nameEN: "pauseEN")
     }
     
@@ -727,7 +740,6 @@ extension GameViewController{
         if gameScene?.time ?? 30 > 0{
             gameScene?.startTimer()
         }
-//        addController()
         gameScene?.isPaused = false
         pauseUIView.removeFromSuperview()
     }
@@ -749,6 +761,7 @@ extension GameViewController{
     func unQuitPause(){
         defaults.isQuitable = false
         defaults.isPaused = true
+        defaults.positionOnTheGameScreen = 2
         quitGameUIView.removeFromSuperview()
         gameView.addSubview(pauseUIView)
         pauseUIView.center = view.center
@@ -785,6 +798,7 @@ extension GameViewController{
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
+        print("<<<--------\(self.preferredFocusedView) <<<--------")
         
         
         switch  defaults.positionOnTheGameScreen{
@@ -836,19 +850,19 @@ extension GameViewController{
             case yesBtn:
                 if language == "PT"{
                     self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
-                    yesBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
                 } else{
                     self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
-                    yesBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
                 }
                 break
             default:
                 if language == "PT"{
                     self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
-                    noBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
                 } else{
                     self.noBtn.setImage(UIImage(named: "no"),for: .normal)
-                    noBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
                 }
                 break
                     
