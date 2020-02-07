@@ -50,13 +50,10 @@
 		7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
-		9570008523EA0A5500146485 /* Botaozaum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9570008423EA0A5500146485 /* Botaozaum.swift */; };
-		9580FEA723DF72B000284E7A /* QuitGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580FEA623DF72B000284E7A /* QuitGameScene.swift */; };
 		95A6524C23E75DE7004A2D93 /* AllUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
 		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
-		95F8C903239978DD00E8ACAB /* PauseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C902239978DD00E8ACAB /* PauseScene.swift */; };
 		AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66755F239A924200DC5D65 /* LaunchViewController.swift */; };
 		AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC667561239A933A00DC5D65 /* Launch.storyboard */; };
 		AC667565239A99AB00DC5D65 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = AC667564239A99AB00DC5D65 /* Sound.m */; };
@@ -134,8 +131,6 @@
 		7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
-		9570008423EA0A5500146485 /* Botaozaum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Botaozaum.swift; sourceTree = "<group>"; };
-		9580FEA623DF72B000284E7A /* QuitGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitGameScene.swift; sourceTree = "<group>"; };
 		95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserDefault.swift; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
@@ -143,7 +138,6 @@
 		95F8C8FD238F159900E8ACAB /* Movement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		95F8C8FF239039CE00E8ACAB /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		95F8C900239039CE00E8ACAB /* Music.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
-		95F8C902239978DD00E8ACAB /* PauseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseScene.swift; sourceTree = "<group>"; };
 		AC66755F239A924200DC5D65 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AC667561239A933A00DC5D65 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		AC667563239A99AB00DC5D65 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
@@ -266,8 +260,6 @@
 				ACBB919223918C180060FF8B /* GameScene.swift */,
 				ACBB919323918C180060FF8B /* ThemeScene.swift */,
 				ACBB919423918C180060FF8B /* TurnScene.swift */,
-				95F8C902239978DD00E8ACAB /* PauseScene.swift */,
-				9580FEA623DF72B000284E7A /* QuitGameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -299,7 +291,6 @@
 				7B28DF902390377200B41070 /* Scene */,
 				ACF93C6E238C472700876A0B /* ViewController.swift */,
 				7BEF4A7A238DA2D400E71689 /* GameViewController.swift */,
-				9570008423EA0A5500146485 /* Botaozaum.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -371,6 +362,7 @@
 				ACF93CA8238EB07000876A0B /* Skin.m */,
 				ACBB9185239042AF0060FF8B /* Deck.h */,
 				ACBB9186239042AF0060FF8B /* Deck.m */,
+				95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */,
 				ACF59358239976C5001C1B94 /* UserDefault.swift */,
 				AC667563239A99AB00DC5D65 /* Sound.h */,
 				AC667564239A99AB00DC5D65 /* Sound.m */,
@@ -432,7 +424,6 @@
 				7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */,
 				7898E44323DA24840046D21F /* Shadows.sks */,
 				7898E44423DA24840046D21F /* Assets1.xcassets */,
-				95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -551,15 +542,12 @@
 			files = (
 				ACF93C9D238DABA300876A0B /* Team.m in Sources */,
 				AC667565239A99AB00DC5D65 /* Sound.m in Sources */,
-				9570008523EA0A5500146485 /* Botaozaum.swift in Sources */,
 				781C58D5238DC74C00957CCE /* MenuViewController.swift in Sources */,
-				95F8C903239978DD00E8ACAB /* PauseScene.swift in Sources */,
 				781C58D7238DFCD000957CCE /* SettingsViewController.swift in Sources */,
 				ACBB919823918C180060FF8B /* TurnScene.swift in Sources */,
 				ACBB9187239042AF0060FF8B /* Deck.m in Sources */,
 				95F8C901239039CE00E8ACAB /* Music.m in Sources */,
 				7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */,
-				9580FEA723DF72B000284E7A /* QuitGameScene.swift in Sources */,
 				ACBB918323903A6E0060FF8B /* Hammer.m in Sources */,
 				7BCF5C0423A2C39B00955590 /* StatisticsInfo.swift in Sources */,
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
@@ -774,12 +762,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
 				PRODUCT_NAME = "Final Court";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";
@@ -796,12 +786,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = R9ZF9XRL8Y;
 				INFOPLIST_FILE = GuiltyGameProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.academy.guiltyGame;
 				PRODUCT_NAME = "Final Court";
 				SWIFT_OBJC_BRIDGING_HEADER = "GuiltyGameProject/Model/GuiltyGameProject-Bridging-Header.h";

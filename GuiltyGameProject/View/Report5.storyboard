@@ -34,7 +34,7 @@
                                 <rect key="frame" x="1622" y="926" width="192" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="gl1-qT-t1X" eventType="primaryActionTriggered" id="rms-YA-w8I"/>
                                 </connections>
@@ -187,5 +187,6 @@
     </scenes>
     <resources>
         <image name="cincoEn" width="1977" height="1113"/>
+        <image name="home" width="174" height="59"/>
     </resources>
 </document>

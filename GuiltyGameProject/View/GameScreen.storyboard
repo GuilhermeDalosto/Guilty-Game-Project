@@ -23,32 +23,85 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </skView>
-                            <skView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gaS-zV-rKH" userLabel="Pause View">
-                                <rect key="frame" x="388" y="202" width="1181" height="677"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.corneRadius">
-                                        <integer key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </skView>
-                            <skView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2sX-lc-A3j" userLabel="QuitGame View">
-                                <rect key="frame" x="569" y="331" width="817" height="439"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </skView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="apM-AA-JgP"/>
                     </view>
                     <connections>
+                        <outlet property="backToTheGameBtn" destination="36i-mX-2TE" id="lrD-6J-JhO"/>
                         <outlet property="gameView" destination="VgG-44-4A6" id="oPR-pt-dDF"/>
-                        <outlet property="pauseView" destination="gaS-zV-rKH" id="heW-JD-jT6"/>
-                        <outlet property="quitGameView" destination="2sX-lc-A3j" id="hPz-mR-NJa"/>
+                        <outlet property="noBtn" destination="GIz-oO-HAH" id="vjK-OS-v2u"/>
+                        <outlet property="pauseScreen" destination="ydY-U2-Mg2" id="57A-eI-ZFN"/>
+                        <outlet property="pauseUIView" destination="cxB-aJ-d19" id="T9h-c6-vYO"/>
+                        <outlet property="quitGameBtn" destination="BCv-YZ-AQc" id="euq-IG-SC5"/>
+                        <outlet property="quitGameScreen" destination="fJo-YD-9ya" id="syT-Ql-0xe"/>
+                        <outlet property="quitGameUIView" destination="H5c-nN-1YQ" id="v1G-N2-Enj"/>
+                        <outlet property="yesBtn" destination="Brq-oa-ar7" id="r8z-KD-HIK"/>
                         <segue destination="xAb-xw-dih" kind="show" identifier="endGame3" destinationCreationSelector="segue:" id="n9y-Au-V7R"/>
                         <segue destination="S2k-4y-Syi" kind="show" identifier="endGame5" id="Ta8-TD-Xrk"/>
                         <segue destination="QuZ-AW-db6" kind="show" identifier="endGame7" id="WPx-5U-hTL"/>
+                        <segue destination="Xsw-VT-kel" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="ucb-Eh-wac"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHK-X6-v9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Xsw-VT-kel" userLabel="Exit" sceneMemberID="exit"/>
+                <view contentMode="scaleToFill" id="cxB-aJ-d19">
+                    <rect key="frame" x="0.0" y="0.0" width="1149" height="635"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="36i-mX-2TE">
+                            <rect key="frame" x="269" y="342" width="300" height="114"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" image="back"/>
+                            <connections>
+                                <action selector="keepPlaying:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="8Bc-0q-yzj"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCv-YZ-AQc">
+                            <rect key="frame" x="562" y="342" width="317" height="114"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" image="quit"/>
+                            <connections>
+                                <action selector="leaveMatch:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="Ykc-Fk-xyO"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pauseEN" translatesAutoresizingMaskIntoConstraints="NO" id="ydY-U2-Mg2">
+                            <rect key="frame" x="206" y="86" width="737" height="462"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="Gcn-la-c46"/>
+                </view>
+                <view contentMode="scaleToFill" id="H5c-nN-1YQ" userLabel="QuitGameUI View">
+                    <rect key="frame" x="0.0" y="0.0" width="905" height="535"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIz-oO-HAH">
+                            <rect key="frame" x="199" y="268" width="272" height="126"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" image="no"/>
+                            <connections>
+                                <action selector="leaveMatchDenied:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="duN-xp-c9v"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Brq-oa-ar7">
+                            <rect key="frame" x="406" y="264" width="336" height="135"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                            <state key="normal" image="yes"/>
+                            <connections>
+                                <action selector="leaveMatchAccepted:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="X0v-Af-3Po"/>
+                            </connections>
+                        </button>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="encerrarEN" translatesAutoresizingMaskIntoConstraints="NO" id="fJo-YD-9ya">
+                            <rect key="frame" x="164" y="63" width="577" height="409"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="ogP-8z-CSQ"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-276" y="-548"/>
         </scene>
@@ -83,4 +136,12 @@
             <point key="canvasLocation" x="1512" y="-452"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="348" height="116"/>
+        <image name="encerrarEN" width="612" height="354"/>
+        <image name="no" width="174" height="59"/>
+        <image name="pauseEN" width="864" height="549"/>
+        <image name="quit" width="348" height="116"/>
+        <image name="yes" width="174" height="59"/>
+    </resources>
 </document>

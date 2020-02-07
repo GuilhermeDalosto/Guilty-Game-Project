@@ -82,6 +82,18 @@ class AllUserDefault {
         
     }
     
+    var firstLaunch : Bool {
+        
+        get {
+            return user_default.value(forKey: "firstLaunch") as? Bool ?? false
+        }
+        set {
+            user_default.set(newValue, forKey: "firstLaunch")
+        }
+    }
+    
+//    var qtPlayer = UserDefaults.standard.integer(forKey: "numberOfPlayers")
+    
     var musicOption : Bool?
     var languageOption : Bool?
     var difficulty : Int?
