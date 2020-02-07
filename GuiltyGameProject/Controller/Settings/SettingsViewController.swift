@@ -47,7 +47,6 @@ class SettingsViewController: UIViewController {
     var musicOnSel = UIImage(named: "musicOn")
     var musicOffSel = UIImage(named: "musicOff")
     
-    
     var focusedGuideUp = UIFocusGuide()
     var focusedGuideLeft = UIFocusGuide()
     var focusedGuideLeftDown = UIFocusGuide()    
@@ -63,6 +62,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var languageButton: UIButton!
+    @IBOutlet weak var tittleSettings: UILabel!
+    @IBOutlet weak var onBoarding: UIButton!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +87,8 @@ class SettingsViewController: UIViewController {
         if NSLocalizedString("homeText", comment: "") == "Home"{
             language = "EN"
             self.homeButton.setImage(homeSel, for: .normal)
-            
+            self.tittleSettings.text = "Settings"
+            self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
             if musicOption{
                 self.musicButton.setImage(musicOnSel, for: .normal)
             } else{
@@ -94,7 +96,9 @@ class SettingsViewController: UIViewController {
             }
         } else{
             language = "PT"
+            self.tittleSettings.text = "Configurações"
             self.homeButton.setImage(menuSel, for: .normal)
+            self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
             if musicOption {
                 self.musicButton.setImage(musicaOnSel, for: .normal)
             } else{
@@ -132,7 +136,7 @@ class SettingsViewController: UIViewController {
         sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.musicButton:
-            self.backgroundImage.image = olhandoBaixo
+            self.backgroundImage.image = olhandoCima
             if language == "PT"{
                 
                 self.homeButton.setImage(menuDes, for: .normal)
@@ -154,8 +158,14 @@ class SettingsViewController: UIViewController {
                 }
                 
             }
+        case self.onBoarding:
+            self.backgroundImage.image = olhandoBaixo
+            if language == "PT" {
+                self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
+            }else{
+                self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
+            }
         default:
-            self.backgroundImage.image = olhandoCima
             if language == "PT"{
                 self.homeButton.setImage(menuSel, for: .normal)
                 if musicOption{
@@ -238,6 +248,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onboard(_ sender: UIButton) {
+        
+        if language == "PT"{
+            self.onBoarding.setImage(UIImage(named: "tutorialSelecionado"), for: .normal)
+        }else {
+            self.onBoarding.setImage(UIImage(named: "guideSelecionado"), for: .normal)
+        }
+
         performSegue(withIdentifier: "onBoard", sender: nil)
     }
     

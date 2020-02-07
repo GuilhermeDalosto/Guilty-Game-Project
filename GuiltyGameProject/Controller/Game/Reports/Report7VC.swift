@@ -108,9 +108,9 @@ class Report7ViewController: UIViewController, StatisticsProtocol{
     
     func setBackGround(){
         if NSLocalizedString("startText", comment: "") != "Start"{
-            backgroundImage.image = UIImage(named: "setePt")
+            backgroundImage.image = UIImage(named: "setePT")
         } else {
-            backgroundImage.image = UIImage(named: "setePt")
+            backgroundImage.image = UIImage(named: "setePT")
         }
     }
     

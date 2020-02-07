@@ -72,7 +72,6 @@
                                     <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
                                 </connections>
                             </button>
-                          
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-Va-RHB">
                                 <rect key="frame" x="635" y="68" width="560" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -111,6 +110,8 @@
                         <outlet property="homeButton" destination="k8y-tJ-alt" id="lJf-54-aBI"/>
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
+                        <outlet property="onBoarding" destination="ZxY-3S-53u" id="5zr-gL-RtM"/>
+                        <outlet property="tittleSettings" destination="uKe-Va-RHB" id="PSi-eF-I0r"/>
                         <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="2Ka-xc-eP7"/>
                         <segue destination="8IE-gh-nI8" kind="show" identifier="onBoard" id="OXO-Ar-gMd"/>
                     </connections>
