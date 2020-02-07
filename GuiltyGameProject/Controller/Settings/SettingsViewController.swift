@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController {
     var olhandoCima = UIImage(named: "telaMusica")
     var olhandoBaixo = UIImage(named: "telaIdioma")
     
+    let sfx = Sound()
     let music2 = Sound()
     var homeDes = UIImage(named: "homeConf")
      var menuDes = UIImage(named: "menuConf")
@@ -46,7 +47,6 @@ class SettingsViewController: UIViewController {
     var musicOnSel = UIImage(named: "musicOn")
     var musicOffSel = UIImage(named: "musicOff")
     
-    
     var focusedGuideUp = UIFocusGuide()
     var focusedGuideLeft = UIFocusGuide()
     var focusedGuideLeftDown = UIFocusGuide()    
@@ -64,8 +64,8 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var languageButton: UIButton!
-    @IBOutlet weak var onBoard: UIButton!
-    
+    @IBOutlet weak var tittleSettings: UILabel!
+    @IBOutlet weak var onBoarding: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.insertSubview(self.selecao, at: 2)
@@ -97,6 +97,8 @@ class SettingsViewController: UIViewController {
             language = "EN"
             self.homeButton.setImage(homeSel, for: .normal)
             
+            self.tittleSettings.text = "Settings"
+            self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
             
             if musicOption{
                 self.musicButton.setImage(musicOnSel, for: .normal)
@@ -105,7 +107,9 @@ class SettingsViewController: UIViewController {
             }
         } else{
             language = "PT"
+            self.tittleSettings.text = "Configurações"
             self.homeButton.setImage(menuSel, for: .normal)
+            self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
             if musicOption {
                 self.musicButton.setImage(musicaOnSel, for: .normal)
             } else{
@@ -138,8 +142,10 @@ class SettingsViewController: UIViewController {
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
-        guard let focus = context.nextFocusedView else {return}
+        
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         self.selecaoPequena.alpha = 0
+        self.selecao.alpha = 1
         self.selecao.alpha = 1
         switch focus{
             
@@ -163,19 +169,22 @@ class SettingsViewController: UIViewController {
             }
             else{
                 
-                self.homeButton.setImage(homeDes, for: .normal)
-                if musicOption{
-                    self.musicButton.setImage(musicOnSel, for: .normal)
-                } else{
-                    self.musicButton.setImage(musicOffSel, for: .normal)
+                    if musicOption{
+                         self.musicButton.setImage(musicOnSel, for: .normal)
+                    } else{
+                         self.musicButton.setImage(musicOffSel, for: .normal)
+                                        
                     
                 }
                 
+        case self.onBoarding:
+            self.backgroundImage.image = olhandoBaixo
+            if language == "PT" {
+                self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
+            }else{
+                self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
             }
-        case self.homeButton:
-            
-            self.selecaoPequena.alpha = 1
-            self.selecao.alpha = 0
+        default:
             self.selecaoPequena.layer.position = self.homeButton.layer.position
             if language == "PT"{
                 if musicOption{
@@ -264,6 +273,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onboard(_ sender: UIButton) {
+        
+        if language == "PT"{
+            self.onBoarding.setImage(UIImage(named: "tutorialSelecionado"), for: .normal)
+        }else {
+            self.onBoarding.setImage(UIImage(named: "guideSelecionado"), for: .normal)
+        }
+
         performSegue(withIdentifier: "onBoard", sender: nil)
     }
     
@@ -271,12 +287,13 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func PressHome(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "Main", sender: nil)
         
     }
     
     @IBAction func pressMusicButton(_ sender: Any) {
-        
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         musicOption.toggle()
       
         

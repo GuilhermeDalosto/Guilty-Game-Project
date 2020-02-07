@@ -61,6 +61,7 @@ class CustomizeJudgeViewController: UIViewController {
     var characterSelected : UIImage?
     
     var judge = [UIImage]()
+    var infoJudge = [UIImage]()
     var judgeIdentifier = [""]
     var hammer = [UIImage]()
     var hammerIdentifier = [""]
@@ -69,6 +70,7 @@ class CustomizeJudgeViewController: UIViewController {
     var typeTheme: Int?
     var typeDifficulty: Int?
     var typePeople: Int?
+    let sfx = Sound()
     
     var firstLaunch = true
     override weak var preferredFocusedView: UIView? {
@@ -146,6 +148,7 @@ class CustomizeJudgeViewController: UIViewController {
         guard let focusedGuideGuideDownDown = context.nextFocusedView else {return}
         self.pequenoAzul.alpha = 0
         self.grandeAzul.alpha = 1
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.backButton:
             self.grandeAzul.alpha = 0
@@ -277,6 +280,7 @@ class CustomizeJudgeViewController: UIViewController {
     
     
     @IBAction func scrollRightJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
@@ -295,6 +299,7 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     @IBAction func scrollLeftJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
@@ -315,11 +320,13 @@ class CustomizeJudgeViewController: UIViewController {
     }
     
     @IBAction func pressStart(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goGame", sender: nil)
         
     }
     
     @IBAction func pressBack(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goBack", sender: nil)
     }
     
@@ -329,6 +336,20 @@ class CustomizeJudgeViewController: UIViewController {
         judge.append(UIImage(named: "bigjudge2")!)
         judge.append(UIImage(named: "bigjudge3")!)
         judge.append(UIImage(named: "bigjudge4")!)
+        
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        } else {
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        }
     }
     
 }
@@ -351,7 +372,8 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
-        //  cell.imageJudge.frame.size = CGSize(
+        cell.infoImage.image = infoJudge[indexPath.row]
+      //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         
         
@@ -359,7 +381,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         
     }
     
-    
+
     
 }
 

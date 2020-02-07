@@ -38,9 +38,12 @@ class DrawScene: SKScene{
         super.init(size: size)
         numPlayers = players.count
         
-       
+        if NSLocalizedString("startText", comment: "") == "Start" {
+            randomLabel.text = "The event will be held by..."
+        }else{
+            randomLabel.text = "O evento será realizado por..."
+        }
         
-        randomLabel.text = "Random Dices"
         randomLabel.fontName = "MyriadPro-Regular"
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
@@ -138,10 +141,12 @@ class DrawScene: SKScene{
             diceTeam1.position.x = size.width/2 + 200
             diceTeam1.position.y = size.height/2
             diceTeam1.size = CGSize(width: 300, height: 300)
-
+            diceTeam1.alpha = 0.0
+            
             diceTeam2.position.x = size.width/2 - 200
             diceTeam2.position.y = size.height/2
             diceTeam2.size = CGSize(width: 300, height: 300)
+            diceTeam2.alpha = 0.0
             
             
             addChild(diceTeam1)
@@ -206,40 +211,65 @@ class DrawScene: SKScene{
     }
     
     var i = 0
-    
+    var j = 0
     func animateNode(_ nodes: [SKSpriteNode]){
         
-        for nodePassed in nodes {
-            i = Int.random(in: 0...1)
-            
-            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
-            
-            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7) //0.3
-            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8) //0.3
-            
-            let waitAction = SKAction.wait(forDuration: 0.5) //2
-            
-            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
-            rotateFrame.shuffle()
-            
-            if i == 0{
-                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
-                i = 1
-            } else{
-                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
-                i = 0
-            }
-     
-            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.3)
-            
-            
-            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
-            
-            let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
-            
-            nodePassed.run(actionSequence)
+        
+        
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 2.0, animations: {
+                
+                for node in nodes{
+                    let alpha = SKAction.fadeAlpha(by: 1, duration: 3.0)
+                    
+                    node.run(alpha)
+                }
+                
+            })
         }
         
+        
+        
+        
+        
+//        for nodePassed in nodes {
+//            i = Int.random(in: 0...1)
+//
+//
+//            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
+//
+//            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7) //0.3
+//            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8) //0.3
+//
+//            let waitAction = SKAction.wait(forDuration: 0.5) //2
+//
+//            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+//            rotateFrame.shuffle()
+//
+//            rotateFrame[0] =  firstFrameTextureDice1
+//            rotateFrame[1] = firstFrameTextureDice2
+//
+//
+//            if i == 0{
+//                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
+//                i = 1
+//            } else{
+//                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
+//                i = 0
+//            }
+//
+//
+//            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.3)
+//
+//
+//            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
+//
+//            let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
+//
+//            nodePassed.run(actionSequence)
+//        }
+//
         
     }
     

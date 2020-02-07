@@ -38,6 +38,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     @IBOutlet weak var winner: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var arrayLabel = [UILabel]()
+    let sfx = Sound()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -52,6 +53,7 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     }
     
     @IBAction func backBtn(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "unwindToMenu", sender: nil)
     }
     
@@ -94,9 +96,9 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     
     func setBackGround(){
         if NSLocalizedString("startText", comment: "") != "Start"{
-            backgroundImage.image = UIImage(named: "tresPt")
+            backgroundImage.image = UIImage(named: "tresPT")
         } else {
-            backgroundImage.image = UIImage(named: "tresEn")
+            backgroundImage.image = UIImage(named: "tresEN")
         }
     }
     

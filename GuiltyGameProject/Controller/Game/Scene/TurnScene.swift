@@ -39,8 +39,8 @@ class TurnScene: SKScene{
     
     var language = ""
     
-    var baloonWord : SKSpriteNode?
-    var baloonEvent : SKSpriteNode?
+    var baloonWord = SKSpriteNode()
+    var baloonEvent = SKSpriteNode()
     /**
      Init the turn scene
      */
@@ -95,7 +95,7 @@ class TurnScene: SKScene{
         wordLabel.text = wordDisplay
         wordLabel.fontColor = .black
         
-        baloonEvent?.size = CGSize(width: 420, height: 280)
+        baloonEvent.size = CGSize(width: 420, height: 280)
         
         
         if ((eventLabel.text! as NSString).length) > 14 && ((eventLabel.text! as NSString).length) < 30{
@@ -137,7 +137,7 @@ class TurnScene: SKScene{
             eventLabel.numberOfLines = 0
             eventLabel.preferredMaxLayoutWidth = 400
             eventLabel.fontSize = 35
-            baloonEvent?.size = CGSize(width: 450, height: 280)
+            baloonEvent.size = CGSize(width: 450, height: 280)
         }
         
         backgroundImage = SKSpriteNode(imageNamed: "fundoSorteio")
@@ -161,16 +161,16 @@ class TurnScene: SKScene{
             npcAngel.position = CGPoint(x: size.width/2 * 1.82, y: size.height/3.7)
             npcAngel.size = CGSize(width: 200, height: 450)
             
-            baloonWord?.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
-            baloonWord?.zPosition = 0
-            baloonWord?.size = CGSize(width: 400, height: 350)
+            baloonWord.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
+            baloonWord.zPosition = 0
+            baloonWord.size = CGSize(width: 400, height: 350)
             
             if ((wordLabel.text! as NSString).length) >= 12 {
-                baloonWord?.size = CGSize(width: 450, height: 350)
+                baloonWord.size = CGSize(width: 450, height: 350)
             }
             
             addChild(npcAngel)
-            addChild(baloonWord!)
+            addChild(baloonWord)
             
         } else {
             
@@ -185,8 +185,8 @@ class TurnScene: SKScene{
             npcDevil.position = CGPoint(x: size.width/2 * 1.65, y: size.height/5)
             npcDevil.size = CGSize(width: 200, height: 400)
 
-            baloonEvent?.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
-            baloonEvent?.zPosition = 0
+            baloonEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
+            baloonEvent.zPosition = 0
             
             if ((wordLabel.text! as NSString).length) >= 18 {
                 wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.8)
@@ -199,14 +199,14 @@ class TurnScene: SKScene{
                 wordLabel.fontSize = 45
             }
 
-            baloonWord?.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
-            baloonWord?.zPosition = 0
-            baloonWord?.size = CGSize(width: 300, height: 250)
+            baloonWord.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
+            baloonWord.zPosition = 0
+            baloonWord.size = CGSize(width: 300, height: 250)
 
             addChild(npcAngel)
             addChild(npcDevil)
-            addChild(baloonEvent!)
-            addChild(baloonWord!)
+            addChild(baloonEvent)
+            addChild(baloonWord)
         }
         
         

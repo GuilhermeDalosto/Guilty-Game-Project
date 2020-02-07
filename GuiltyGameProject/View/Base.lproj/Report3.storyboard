@@ -67,7 +67,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
                                 <rect key="frame" x="1618" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="cDf-Cc-Cpa" eventType="primaryActionTriggered" id="fWZ-oG-bcz"/>
                                 </connections>
@@ -170,6 +170,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="174" height="59"/>
         <image name="tresEn" width="1977" height="1113"/>
     </resources>
 </document>

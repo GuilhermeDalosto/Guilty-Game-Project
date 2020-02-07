@@ -115,6 +115,7 @@ class GameScene: SKScene{
     init(size: CGSize, word: String, event: String, team1: Team, team2: Team, judge: Judge, players: [Person]){
 
         super.init(size: size)
+        sound.play("GameSong", type: ".wav", repeat: 0)
         
         let numberOfPlayers = players.count
         
@@ -299,7 +300,7 @@ class GameScene: SKScene{
         
         // Player Pin Sprite
         for i in 0...numberOfPlayers - 1{
-            pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i])) // temporario!!!!!
+            pinsSprite.append(SKSpriteNode(imageNamed: imagesSprite[i]))
        //     pinsSprite[i].setScale(0.7)
 //            pinsSprite.append(SKSpriteNode(imageNamed: "pin_\(players[i].color)"))
         }
@@ -316,6 +317,8 @@ class GameScene: SKScene{
             pinsSprite[1].position = CGPoint(x: size.width*0.386, y: size.height/3.6)
             pinsSprite[2].position = CGPoint(x: size.width*0.62, y: size.height/3.6)
             pinsSprite[3].position = CGPoint(x: size.width*0.695, y: size.height/3.6)
+            pinsSprite[0].zPosition = 1
+            pinsSprite[3].zPosition = 1
             selPin.position = CGPoint(x: size.width*0.305, y: size.height/4.9)
             break
         default:
@@ -325,6 +328,10 @@ class GameScene: SKScene{
             pinsSprite[3].position = CGPoint(x: size.width*0.615, y: size.height/3.6)
             pinsSprite[4].position = CGPoint(x: size.width*0.695, y: size.height/3.6)
             pinsSprite[5].position = CGPoint(x: size.width*0.77, y: size.height/3.6)
+            pinsSprite[0].zPosition = 2
+            pinsSprite[5].zPosition = 2
+            pinsSprite[1].zPosition = 1
+            pinsSprite[4].zPosition = 1
             selPin.position = CGPoint(x: size.width*0.235, y: size.height/4.9)
         }
         

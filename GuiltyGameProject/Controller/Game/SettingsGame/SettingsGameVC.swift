@@ -66,6 +66,9 @@ class SettingsGameViewController: UIViewController {
     var randomDes = UIImage(named: "randomSelecionado")
     var aleatorioDes = UIImage(named: "aleatorioSelecionado")
     
+    
+    var deckNames = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
+    var imagesSeta = ["direitoSelecionado","setaDireita","setaDireitaSel","setaEsquerda","setaEsquerdaSel","esquerdoSelecionado"]
     var selecaoPequenaAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var selecaoGrandeAzul = UIImageView(image: UIImage(named: "selecaoGrande2"))
     
@@ -86,6 +89,7 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var labelDecks: UILabel!
+    @IBOutlet weak var infoImage: UIImageView!
     
     
     var typeTheme = 0
@@ -102,6 +106,16 @@ class SettingsGameViewController: UIViewController {
     var blackScreen: SKSpriteNode?
     var defaults = AllUserDefault()
     
+    var imageArrowSelectedRight = UIImage(named: "direitoSelecionado")
+    var imageArrowDeselectedRight = UIImage(named: "setaDireita")
+    var imageArrowSelectedLeft = UIImage(named: "esquerdoSelecionado")
+    var imageArrowDeselectedLeft = UIImage(named: "setaEsquerda")
+    
+    var arrowViewRight = UIImageView()
+    var arrowViewLeft = UIImageView()
+    
+    let sfx = Sound()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLayoutGuide()
@@ -117,6 +131,16 @@ class SettingsGameViewController: UIViewController {
         }else{
             blackScreen?.zPosition = -1
         }
+        
+        
+        arrowViewRight.image = imageArrowSelectedRight
+        arrowViewLeft.image = UIImage(named: "")
+        
+        arrowViewLeft.frame = CGRect(x: UIScreen.main.bounds.width/2 * 1.37, y: UIScreen.main.bounds.height/2 * 0.85, width: 50, height: 50)
+        arrowViewRight.frame = CGRect(x: UIScreen.main.bounds.width/2 * 1.88, y: UIScreen.main.bounds.height/2 * 0.85, width: 50, height: 50)
+        
+        view.addSubview(arrowViewLeft)
+        view.addSubview(arrowViewRight)
         
     }
     
@@ -186,6 +210,8 @@ class SettingsGameViewController: UIViewController {
         }
         self.labelDecks.text = ""
         self.view.insertSubview(backgroundImage, at: 0)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -226,6 +252,33 @@ class SettingsGameViewController: UIViewController {
             pressedRandom()
         default:
             print()
+        }
+
+        
+    }
+    
+    func escureceTodos(){
+        if language == "EN"{
+            self.homeButton.setImage(homeDes, for: .normal)
+            self.normalButton.setImage(normalDes, for: .normal)
+            self.difficultButton.setImage(HardDes, for: .normal)
+            self.number3.setImage(a3Des, for: .normal)
+            self.number5.setImage(a5Des, for: .normal)
+            self.number7.setImage(a7Des, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
+            self.randomButton.setImage(randomDes, for: .normal)
+            self.nextButton.setImage(nextDes, for: .normal)
+        }
+        else{
+            self.homeButton.setImage(menuDes, for: .normal)
+            self.normalButton.setImage(normalDes, for: .normal)
+            self.difficultButton.setImage(dificilDes, for: .normal)
+            self.number3.setImage(a3Des, for: .normal)
+            self.number5.setImage(a5Des, for: .normal)
+            self.number7.setImage(a7Des, for: .normal)
+            self.freeButton.setImage(UIImage(named: "botaozinhoDes"), for: .normal)
+            self.randomButton.setImage(aleatorioDes, for: .normal)
+            self.nextButton.setImage(proximoDes, for: .normal)
         }
         
         
@@ -398,6 +451,7 @@ class SettingsGameViewController: UIViewController {
     }
     
     func pressedFree(){
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
        self.selecaoGrandeVermelho3.layer.position = self.freeButton.layer.position
         typeTheme = 1
         themeSelected = true
@@ -408,26 +462,32 @@ class SettingsGameViewController: UIViewController {
       self.selecaoGrandeVermelho3.layer.position = self.randomButton.layer.position
         typeTheme = 2
         themeSelected = true
-        selectedTheme = 2
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
+      self.selecaoGrandeVermelho3.layer.position = self.randomButton.layer.position
     }
     
     @IBAction func press3(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed3()
     }
     
     @IBAction func press5(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed5()
     }
     
     @IBAction func press7(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressed7()
     }
     
     
     @IBAction func pressNormal(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressedNormal()
     }
     @IBAction func pressDiffitcult(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         pressedHard()
     }
     
@@ -447,14 +507,16 @@ class SettingsGameViewController: UIViewController {
     @IBAction func pressFree(_ sender: Any) {
         
         if deckNames.count > typeOfDeck{
-            
             self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
             self.labelDecks.text = "\(deckNames[typeOfDeck])"
-            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 45)
+            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 40)
             self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
             self.typeOfDeck += 1
+            self.arrowViewLeft.image = imageArrowSelectedLeft
+            self.arrowViewRight.image = imageArrowSelectedRight
             if typeOfDeck >= deckNames.count {
                 self.typeOfDeck = 0
+                self.arrowViewRight.image = UIImage(named: "")
             }
         }
         
@@ -468,7 +530,7 @@ class SettingsGameViewController: UIViewController {
     
     
     @IBAction func pressNext(_ sender: Any) {
-        
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if((numberSelected == false ) || (difficultySelected == false) || (themeSelected == false)){
             self.labelError.isHidden = false
             self.labelError.text = NSLocalizedString("errorSelect",comment: "")
