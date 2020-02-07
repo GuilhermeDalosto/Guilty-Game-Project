@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Cz-2S-Mz7">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Cz-2S-Mz7">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,102 +19,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Defendant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El8-ts-8FG">
-                                <rect key="frame" x="787" y="102" width="346" height="91"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoTribunal" translatesAutoresizingMaskIntoConstraints="NO" id="on7-vi-12V">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Defendant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El8-ts-8FG">
+                                <rect key="frame" x="257" y="100" width="346" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="dri-Nd-56Y">
-                                <rect key="frame" x="164" y="331" width="314" height="418"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Develop history" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvk-E3-ftd">
-                                        <rect key="frame" x="0.0" y="0.0" width="314" height="46"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accuse other team" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-RU-1FW">
-                                        <rect key="frame" x="0.0" y="186" width="314" height="46"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take on any role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqS-DZ-jEa">
-                                        <rect key="frame" x="0.0" y="372" width="314" height="46"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a story based on story of judge and others players" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djO-3T-n0S">
-                                <rect key="frame" x="1106.5" y="301.5" width="667" height="99"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Develop history" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvk-E3-ftd">
+                                <rect key="frame" x="1266" y="147" width="314" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your story to disturb other team" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-Bq-lme">
-                                <rect key="frame" x="1106.5" y="517" width="667" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Accuse other team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-RU-1FW">
+                                <rect key="frame" x="1254" y="387" width="339" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="During your story, you can be anything and choose others roles too" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-25-GbI">
-                                <rect key="frame" x="1106.5" y="672.5" width="667" height="113"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Take on any role" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqS-DZ-jEa">
+                                <rect key="frame" x="1266" y="626" width="314" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-li-neS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Create a story based on story of judge and others players" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djO-3T-n0S">
+                                <rect key="frame" x="1090" y="227" width="667" height="99"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.70588235290000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Use your story to disturb other team" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gi-Bq-lme">
+                                <rect key="frame" x="1090" y="467" width="667" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.70588235290000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="During your story, you can be anything and choose others roles too" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-25-GbI">
+                                <rect key="frame" x="1090" y="706" width="667" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.074509803920000006" green="0.70588235290000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-li-neS">
                                 <rect key="frame" x="1565" y="870.5" width="192" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="1sY-FQ-9EM" kind="show" id="8GH-Zc-E1T"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgk-Rs-bEV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgk-Rs-bEV">
                                 <rect key="frame" x="192" y="871" width="192" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="backBtn:" destination="8Cz-2S-Mz7" eventType="primaryActionTriggered" id="gmp-WX-oVr"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinos" translatesAutoresizingMaskIntoConstraints="NO" id="zUB-bX-F5d">
+                                <rect key="frame" x="243" y="408" width="375" height="264"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="djO-3T-n0S" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.347396" id="0UK-ev-rap"/>
-                            <constraint firstItem="2Gi-Bq-lme" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" id="4Ko-YS-ias"/>
-                            <constraint firstItem="H4j-li-neS" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.1" id="8z0-jJ-kkL"/>
-                            <constraint firstItem="dJ0-25-GbI" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="1.35" id="BvY-cb-UoH"/>
-                            <constraint firstItem="H4j-li-neS" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0796296" id="Dl0-Nx-i0O"/>
-                            <constraint firstItem="El8-ts-8FG" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.180208" id="GPl-m0-RrU"/>
-                            <constraint firstItem="Qgk-Rs-bEV" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.1" id="HIO-nU-OS0"/>
-                            <constraint firstItem="djO-3T-n0S" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="0.65" id="KNt-0h-gtz"/>
-                            <constraint firstItem="dri-Nd-56Y" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" id="Mzt-Ne-Ptf"/>
-                            <constraint firstItem="El8-ts-8FG" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0842593" id="OUz-u1-R4o"/>
-                            <constraint firstItem="2Gi-Bq-lme" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="1.5" id="PNp-pW-PwZ"/>
-                            <constraint firstItem="djO-3T-n0S" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0916667" id="Q2S-mo-Apu"/>
-                            <constraint firstItem="H4j-li-neS" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="1.73" id="Q4G-hr-46L"/>
-                            <constraint firstItem="dJ0-25-GbI" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.10463" id="QUF-3i-ol7"/>
-                            <constraint firstItem="2Gi-Bq-lme" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.347396" id="Qc0-5z-LMS"/>
-                            <constraint firstItem="2Gi-Bq-lme" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0425926" id="Sxr-lL-9DZ"/>
-                            <constraint firstItem="El8-ts-8FG" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="0.273" id="ULg-tP-5C1"/>
-                            <constraint firstItem="dri-Nd-56Y" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.387037" id="Z34-vF-4yY"/>
-                            <constraint firstItem="dri-Nd-56Y" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="0.3345" id="bah-tU-mBA"/>
-                            <constraint firstItem="El8-ts-8FG" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" id="k2k-Xk-0RX"/>
-                            <constraint firstItem="Qgk-Rs-bEV" firstAttribute="height" secondItem="165-q6-3Mh" secondAttribute="height" multiplier="0.0796296" id="peU-Wl-Qqu"/>
-                            <constraint firstItem="H4j-li-neS" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="1.692" id="rec-mu-MO4"/>
-                            <constraint firstItem="Qgk-Rs-bEV" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="0.3" id="rgb-te-Gxw"/>
-                            <constraint firstItem="Qgk-Rs-bEV" firstAttribute="centerY" secondItem="8HI-0k-wGE" secondAttribute="centerY" multiplier="1.693" id="u9g-JW-anR"/>
-                            <constraint firstItem="dri-Nd-56Y" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.163542" id="umx-MQ-87X"/>
-                            <constraint firstItem="dJ0-25-GbI" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="1.5" id="wFv-Hl-dMa"/>
-                            <constraint firstItem="djO-3T-n0S" firstAttribute="centerX" secondItem="8HI-0k-wGE" secondAttribute="centerX" multiplier="1.5" id="wJn-MM-nLi"/>
-                            <constraint firstItem="dJ0-25-GbI" firstAttribute="width" secondItem="165-q6-3Mh" secondAttribute="width" multiplier="0.347396" id="xBl-L6-5H0"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8HI-0k-wGE"/>
                     </view>
+                    <connections>
+                        <outlet property="text00" destination="Vvk-E3-ftd" id="uu1-Qy-8Rj"/>
+                        <outlet property="text01" destination="OGx-RU-1FW" id="MDW-kp-Bsp"/>
+                        <outlet property="text02" destination="EqS-DZ-jEa" id="5yi-yO-Xe1"/>
+                        <outlet property="text10" destination="djO-3T-n0S" id="HB3-0t-ccd"/>
+                        <outlet property="text11" destination="2Gi-Bq-lme" id="fsg-yC-9PG"/>
+                        <outlet property="text12" destination="dJ0-25-GbI" id="XZ0-sH-wpw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RyB-UH-kXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -131,4 +124,8 @@
             <point key="canvasLocation" x="977" y="10"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fundoTribunal" width="8000" height="4500"/>
+        <image name="pinos" width="244" height="192"/>
+    </resources>
 </document>

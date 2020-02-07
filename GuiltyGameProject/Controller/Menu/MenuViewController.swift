@@ -54,7 +54,7 @@ class MenuViewController: UIViewController {
     var defaults = AllUserDefault()
     let music = Sound()
     let sfx = Sound()
-    var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
+    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
     
     var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
     override func viewDidLoad() {
@@ -92,6 +92,7 @@ class MenuViewController: UIViewController {
                 self.backgroundImage.removeFromSuperview()
                 self.frontImage.removeFromSuperview()
                 launchView.removeFromSuperview()
+                print(self.musicPlaying)
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
                     self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
                     self.delegate?.passMusic(music: self.sound)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ov5-oX-Tg3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ov5-oX-Tg3">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,86 +19,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbJ-rW-H0R">
-                                <rect key="frame" x="830.5" y="68" width="259" height="159"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="QEy-Ua-QIM">
-                                <rect key="frame" x="164" y="424" width="261" height="232"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Random Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-1P-hu0">
-                                        <rect key="frame" x="0.0" y="0.0" width="261" height="46"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Lifes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLm-yd-dVf">
-                                        <rect key="frame" x="0.0" y="186" width="261" height="46"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="At the beggining of rounds, one player of each team will receive a event, be sure that your team mate are doing his event" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-qz-96q">
-                                <rect key="frame" x="1057.5" y="413" width="765" height="146"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fundoTribunal" translatesAutoresizingMaskIntoConstraints="NO" id="a0p-XF-BdR">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Events" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2g-1P-hu0">
+                                <rect key="frame" x="1270" y="236" width="308" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.074509803920000006" green="0.70588235290000001" blue="0.71764705880000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each team starts with 3 lifes, that can be lost every time the judge do not accept your story" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56b-zo-yAA">
-                                <rect key="frame" x="1057.5" y="591.5" width="765" height="113"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" fixedFrame="YES" text="Team Lifes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLm-yd-dVf">
+                                <rect key="frame" x="1294" y="543" width="261" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Li-5Yw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="At the beggining of rounds, one player of each team will receive a event, be sure that your team mate are doing his event" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7g-qz-96q">
+                                <rect key="frame" x="1042" y="316" width="765" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.70588235294117641" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Each team starts with 3 lifes, that can be lost every time the judge do not accept your story" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56b-zo-yAA">
+                                <rect key="frame" x="1042" y="623" width="765" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.074509803921568626" green="0.70588235294117641" blue="0.71764705882352942" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Li-5Yw">
                                 <rect key="frame" x="192" y="871" width="192" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="backBtn:" destination="ov5-oX-Tg3" eventType="primaryActionTriggered" id="E6g-6P-lx1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-ql-F0X">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-ql-F0X">
                                 <rect key="frame" x="1565" y="871" width="192" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="8hp-sM-J5s" kind="show" id="JZb-L2-oKe"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" id="Doo-Eu-YbK">
+                                <rect key="frame" x="425" y="500" width="10" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="fGn-1O-Q3s"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbJ-rW-H0R">
+                                <rect key="frame" x="301" y="100" width="259" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.214815" id="4gp-bp-fys"/>
-                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.135937" id="5po-H5-wkT"/>
-                            <constraint firstItem="AjP-ql-F0X" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="1.693" id="76S-SH-F8f"/>
-                            <constraint firstItem="JbJ-rW-H0R" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="0.273" id="A5v-oJ-RwO"/>
-                            <constraint firstItem="JbJ-rW-H0R" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" id="BhW-e7-olr"/>
-                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="0.307" id="CnR-dZ-qhn"/>
-                            <constraint firstItem="56b-zo-yAA" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="1.2" id="EWl-Te-eIL"/>
-                            <constraint firstItem="D7g-qz-96q" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="0.9" id="H1X-Oa-KGm"/>
-                            <constraint firstItem="AjP-ql-F0X" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.1" id="Mfd-n9-RAu"/>
-                            <constraint firstItem="QEy-Ua-QIM" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" id="b95-f9-7KP"/>
-                            <constraint firstItem="AjP-ql-F0X" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="1.73" id="dDD-y9-fMo"/>
-                            <constraint firstItem="JJV-Li-5Yw" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.1" id="ft7-S6-Mly"/>
-                            <constraint firstItem="JbJ-rW-H0R" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.147222" id="gKh-Ch-QrT"/>
-                            <constraint firstItem="56b-zo-yAA" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.398438" id="ge4-qO-nhX"/>
-                            <constraint firstItem="D7g-qz-96q" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="1.5" id="h4r-bg-VhZ"/>
-                            <constraint firstItem="JJV-Li-5Yw" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="0.3" id="h9p-g4-L1M"/>
-                            <constraint firstItem="AjP-ql-F0X" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.0796296" id="htq-1u-lMR"/>
-                            <constraint firstItem="56b-zo-yAA" firstAttribute="centerX" secondItem="r6x-7A-e1G" secondAttribute="centerX" multiplier="1.5" id="kgn-7n-OkF"/>
-                            <constraint firstItem="JJV-Li-5Yw" firstAttribute="centerY" secondItem="r6x-7A-e1G" secondAttribute="centerY" multiplier="1.693" id="oF6-0j-o8R"/>
-                            <constraint firstItem="56b-zo-yAA" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.10463" id="sdL-hb-dp5"/>
-                            <constraint firstItem="JJV-Li-5Yw" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.0796296" id="swA-SZ-jm5"/>
-                            <constraint firstItem="D7g-qz-96q" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.398438" id="v2a-Iq-hr8"/>
-                            <constraint firstItem="D7g-qz-96q" firstAttribute="height" secondItem="mUL-h9-hzh" secondAttribute="height" multiplier="0.135185" id="xKk-fA-WYG"/>
-                            <constraint firstItem="JbJ-rW-H0R" firstAttribute="width" secondItem="mUL-h9-hzh" secondAttribute="width" multiplier="0.134896" id="yqw-mK-LaJ"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="r6x-7A-e1G"/>
                     </view>
+                    <connections>
+                        <outlet property="text00" destination="x2g-1P-hu0" id="ROw-kz-Il1"/>
+                        <outlet property="text01" destination="MLm-yd-dVf" id="PQe-QK-wTQ"/>
+                        <outlet property="text10" destination="D7g-qz-96q" id="tWf-Sw-6bw"/>
+                        <outlet property="text11" destination="56b-zo-yAA" id="8yS-Va-MnS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vt-g4-kk9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,4 +111,7 @@
             <point key="canvasLocation" x="1069" y="189"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fundoTribunal" width="8000" height="4500"/>
+    </resources>
 </document>
