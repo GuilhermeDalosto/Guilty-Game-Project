@@ -18,7 +18,7 @@ class PreparationScene : SKScene{
     var courtSession = SKLabelNode()
     var pinos = [SKSpriteNode]()
     var juiz = SKSpriteNode(imageNamed: "judge0")
-    var qtdPinos =  6//UserDefaults.standard.integer(forKey: "numberOfPlayers")
+    var qtdPinos =  UserDefaults.standard.integer(forKey: "numberOfPlayers")
     var colors: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     var positions = [CGPoint(x: 0, y: 0)]
     

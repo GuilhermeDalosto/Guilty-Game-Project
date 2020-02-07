@@ -57,7 +57,8 @@ class SettingsViewController: UIViewController {
     var languageOption = true
     var languageOptionStr = "EN"
     var music = AVAudioPlayer()
-    var selecao = UIImageView(image: UIImage(named: "selecaoGrande2"))
+    var selecao = UIImageView(image: UIImage(named: "selecaoMusica"))
+    var selecaoPequena2 = UIImageView(image: UIImage(named: "selecaoGrande2"))
     var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
@@ -73,13 +74,24 @@ class SettingsViewController: UIViewController {
         backgroundImage.image = UIImage(named: "telaIdioma")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
-        self.selecao.layer.position = self.musicButton.layer.position
+        self.view.insertSubview(selecao, at: 0)
+        self.view.insertSubview(selecaoPequena, at: 0)
+        self.view.insertSubview(selecaoPequena2, at: 0)
+        
         self.musicButton.layer.zPosition = 2
         self.homeButton.layer.zPosition = 2
-        self.onBoard.layer.zPosition = 2
+        self.onBoarding.layer.zPosition = 2
         self.selecao.layer.zPosition = 1
         self.selecaoPequena.layer.zPosition = 1
+        
         self.selecaoPequena.alpha = 0
+        
+        
+        
+        self.selecaoPequena2.alpha = 0
+              
+        
+        self.selecao.layer.position = self.musicButton.layer.position
         
         setLayoutGuide()
         
@@ -118,7 +130,6 @@ class SettingsViewController: UIViewController {
         }
         
         
-        
     }
     var firstLaunch = true
     override weak var preferredFocusedView: UIView? {
@@ -142,20 +153,20 @@ class SettingsViewController: UIViewController {
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
         guard let focusedGuideLeftDown = context.nextFocusedView else {return}
+        guard let focus = context.nextFocusedView else {return}
         
         sfx.play("PassOption", type: ".wav", repeat: 0)
         self.selecaoPequena.alpha = 0
+        self.selecaoPequena2.alpha = 0
         self.selecao.alpha = 1
-        self.selecao.alpha = 1
+        
+        
         switch focus{
             
         case self.musicButton:
             self.backgroundImage.image = olhandoCima
-            
-            self.view.bringSubviewToFront(selecao)
-            self.view.bringSubviewToFront(musicButton)
             self.selecao.layer.position = self.musicButton.layer.position
-            self.backgroundImage.image = olhandoBaixo
+            
             if language == "PT"{
                 
                 self.homeButton.setImage(menuDes, for: .normal)
@@ -176,36 +187,28 @@ class SettingsViewController: UIViewController {
                                         
                     
                 }
-                
+            }
+        
         case self.onBoarding:
             self.backgroundImage.image = olhandoBaixo
+            self.selecaoPequena2.layer.position = self.onBoarding.layer.position
+            self.selecao.alpha = 0
+            self.selecaoPequena2.alpha = 1
             if language == "PT" {
                 self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
             }else{
                 self.onBoarding.setImage(UIImage(named: "guide"), for: .normal)
             }
         default:
+            self.selecao.alpha = 0
+            self.selecaoPequena.alpha = 1
             self.selecaoPequena.layer.position = self.homeButton.layer.position
-            if language == "PT"{
-                if musicOption{
-                    self.musicButton.setImage(musicaOnDes, for: .normal)
-                } else{
-                    self.musicButton.setImage(musicaOffDes, for: .normal)
-                }
-            } else{
-                if musicOption{
-                    self.musicButton.setImage(musicOnDes, for: .normal)
-                } else{
-                    self.musicButton.setImage(musicOffDes, for: .normal)
-                }
-            }
-        default:
-            self.backgroundImage.image = olhandoBaixo
+           
             
             
-            self.selecao.layer.position = self.onBoard.layer.position
-        }
+            
         
+        }
         
         
         

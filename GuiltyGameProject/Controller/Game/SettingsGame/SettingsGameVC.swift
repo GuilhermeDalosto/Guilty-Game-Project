@@ -72,11 +72,10 @@ class SettingsGameViewController: UIViewController {
     var selecaoPequenaAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var selecaoGrandeAzul = UIImageView(image: UIImage(named: "selecaoGrande2"))
     
-    var selecaoGrandeVermelho = UIImageView(image: UIImage(named: "selecaoGrande"))
-    var selecaoGrandeVermelho2 = UIImageView(image: UIImage(named: "selecaoGrande"))
-    var selecaoGrandeVermelho3 = UIImageView(image: UIImage(named: "selecaoGrande"))
+    var selecaoGrandeVermelho = UIImageView(image: UIImage(named: "selecaoVGrande"))
+    var selecaoGrandeVermelho2 = UIImageView(image: UIImage(named: "selecaoVGrande"))
+    var selecaoGrandeVermelho3 = UIImageView(image: UIImage(named: "selecaoVGrande"))
     
-    var deckNames = ["Free Deck","Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
