@@ -369,4 +369,7 @@ class ControlUOViewController: UIViewController{
     @IBAction func backBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func backToMenu(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
+    }
 }
