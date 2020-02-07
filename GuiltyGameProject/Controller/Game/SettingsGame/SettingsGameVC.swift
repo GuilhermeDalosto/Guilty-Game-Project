@@ -160,7 +160,8 @@ class SettingsGameViewController: UIViewController {
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
             self.backgroundImage.image = fundoEN
-            self.labelDecks.text = "Free"
+            deckNames = ["Ninja","Food","Magic","Animal","Old West","Free"]
+            
             
             
             self.difficultButton.setImage(hardSel, for: .normal)
@@ -173,7 +174,7 @@ class SettingsGameViewController: UIViewController {
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT
-            self.labelDecks.text = "Livre"
+           deckNames = ["Ninja","Comida","Mágica","Animal","Velho Oeste","Livre"]
             
             
             
@@ -183,7 +184,7 @@ class SettingsGameViewController: UIViewController {
             self.nextButton.setImage(proximoSel, for: .normal)
             self.homeButton.setImage(menuSel, for: .normal)
         }
-        
+        self.labelDecks.text = ""
         self.view.insertSubview(backgroundImage, at: 0)
     }
     

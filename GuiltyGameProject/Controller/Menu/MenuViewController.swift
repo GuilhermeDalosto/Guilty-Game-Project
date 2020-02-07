@@ -46,7 +46,7 @@ class MenuViewController: UIViewController {
     let frontImage = UIImageView()
     let backgroundImage = UIImageView()
     
-    var selecao = UIImageView(image: UIImage(named: "selecaoGrande"))
+    var selecao = UIImageView(image: UIImage(named: "selecaoGrande2"))
     var defaults = AllUserDefault()
     let music = Sound()
     var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")

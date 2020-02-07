@@ -69,7 +69,7 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.view.insertSubview(self.selecao, at: 2)
-        self.view.insertSubview(self.selecaoPequena, at: 2)
+      //  self.view.insertSubview(self.selecaoPequena, at: 2)
         backgroundImage.image = UIImage(named: "telaIdioma")
         backgroundImage.contentMode =  UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundImage, at: 0)
