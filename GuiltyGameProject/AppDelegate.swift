@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         defaults.isPaused = false
         defaults.firstLaunch = true
         
+        
         return true
     }
 

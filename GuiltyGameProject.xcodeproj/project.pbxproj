@@ -31,12 +31,6 @@
 		7B18E03C23DF63E6008B230D /* Report7VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B18E03B23DF63E6008B230D /* Report7VC.swift */; };
 		7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */; };
 		7B6F9F6523C6E2D7000D4775 /* UserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */; };
-		7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */; };
-		7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */; };
-		7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */; };
-		7B6F9F6D23CA4FA4000D4775 /* TurnOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */; };
-		7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */; };
-		7B6F9F7123CA4FDB000D4775 /* ControlOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */; };
 		7B6F9F7323CA71DF000D4775 /* AllUserOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6F9F7223CA71DF000D4775 /* AllUserOnboardingVC.swift */; };
 		7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */; };
 		7B9B078523A02404001375BB /* SwipeRight.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7B9B078123A02404001375BB /* SwipeRight.wav */; };
@@ -50,10 +44,17 @@
 		7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */; };
 		7BEF4A7B238DA2D400E71689 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7A238DA2D400E71689 /* GameViewController.swift */; };
 		7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */; };
+		957000DF23EE066400146485 /* DefendantOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000E123EE066400146485 /* DefendantOnboarding.storyboard */; };
+		957000E823EE07A300146485 /* GameOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000EA23EE07A300146485 /* GameOnboarding.storyboard */; };
+		957000EF23EE083B00146485 /* TurnOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000F123EE083B00146485 /* TurnOnboarding.storyboard */; };
+		957000F623EE08CF00146485 /* TeamOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000F823EE08CF00146485 /* TeamOnboarding.storyboard */; };
+		957000FD23EE08EE00146485 /* ControlOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000FF23EE08EE00146485 /* ControlOnboarding.storyboard */; };
+		9570010823EE0B9400146485 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */; };
 		95A6524C23E75DE7004A2D93 /* AllUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
 		95F8C901239039CE00E8ACAB /* Music.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C900239039CE00E8ACAB /* Music.m */; };
+		AC48EDC523EC8043009589BD /* PreparationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC48EDC423EC8043009589BD /* PreparationScene.swift */; };
 		AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC66755F239A924200DC5D65 /* LaunchViewController.swift */; };
 		AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC667561239A933A00DC5D65 /* Launch.storyboard */; };
 		AC667565239A99AB00DC5D65 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = AC667564239A99AB00DC5D65 /* Sound.m */; };
@@ -112,12 +113,6 @@
 		7B18E03B23DF63E6008B230D /* Report7VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Report7VC.swift; sourceTree = "<group>"; };
 		7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserOnboardingScreen.storyboard; sourceTree = "<group>"; };
 		7B6F9F6423C6E2D7000D4775 /* UserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingVC.swift; sourceTree = "<group>"; };
-		7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JudgeOnboarding.storyboard; sourceTree = "<group>"; };
-		7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DefendantOnboarding.storyboard; sourceTree = "<group>"; };
-		7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameOnboarding.storyboard; sourceTree = "<group>"; };
-		7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TurnOnboarding.storyboard; sourceTree = "<group>"; };
-		7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TeamOnboarding.storyboard; sourceTree = "<group>"; };
-		7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ControlOnboarding.storyboard; sourceTree = "<group>"; };
 		7B6F9F7223CA71DF000D4775 /* AllUserOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserOnboardingVC.swift; sourceTree = "<group>"; };
 		7B9B077D239EE178001375BB /* GuiltyProjectSong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = GuiltyProjectSong.wav; sourceTree = "<group>"; };
 		7B9B078123A02404001375BB /* SwipeRight.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = SwipeRight.wav; sourceTree = "<group>"; };
@@ -131,6 +126,24 @@
 		7BCF5C0523AAA8D500955590 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		7BEF4A7A238DA2D400E71689 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		7BEF4A7E238DA84E00E71689 /* GameScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameScreen.storyboard; sourceTree = "<group>"; };
+		957000E023EE066400146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DefendantOnboarding.storyboard; sourceTree = "<group>"; };
+		957000E623EE06F700146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/DefendantOnboarding.strings; sourceTree = "<group>"; };
+		957000E723EE06FA00146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/DefendantOnboarding.strings"; sourceTree = "<group>"; };
+		957000E923EE07A300146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/GameOnboarding.storyboard; sourceTree = "<group>"; };
+		957000EC23EE07C500146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/GameOnboarding.strings; sourceTree = "<group>"; };
+		957000EE23EE07CA00146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/GameOnboarding.strings"; sourceTree = "<group>"; };
+		957000F023EE083B00146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TurnOnboarding.storyboard; sourceTree = "<group>"; };
+		957000F323EE084800146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TurnOnboarding.strings; sourceTree = "<group>"; };
+		957000F523EE084E00146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TurnOnboarding.strings"; sourceTree = "<group>"; };
+		957000F723EE08CF00146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TeamOnboarding.storyboard; sourceTree = "<group>"; };
+		957000FA23EE08E100146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TeamOnboarding.strings; sourceTree = "<group>"; };
+		957000FC23EE08E400146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/TeamOnboarding.strings"; sourceTree = "<group>"; };
+		957000FE23EE08EE00146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ControlOnboarding.storyboard; sourceTree = "<group>"; };
+		9570010123EE08F800146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ControlOnboarding.strings; sourceTree = "<group>"; };
+		9570010323EE08FB00146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ControlOnboarding.strings"; sourceTree = "<group>"; };
+		9570010923EE0B9400146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JudgeOnboarding.storyboard; sourceTree = "<group>"; };
+		9570010C23EE0B9E00146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JudgeOnboarding.strings; sourceTree = "<group>"; };
+		9570010E23EE0BA300146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/JudgeOnboarding.strings"; sourceTree = "<group>"; };
 		95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserDefault.swift; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
@@ -138,6 +151,7 @@
 		95F8C8FD238F159900E8ACAB /* Movement.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movement.m; sourceTree = "<group>"; };
 		95F8C8FF239039CE00E8ACAB /* Music.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Music.h; sourceTree = "<group>"; };
 		95F8C900239039CE00E8ACAB /* Music.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Music.m; sourceTree = "<group>"; };
+		AC48EDC423EC8043009589BD /* PreparationScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreparationScene.swift; sourceTree = "<group>"; };
 		AC66755F239A924200DC5D65 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		AC667561239A933A00DC5D65 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		AC667563239A99AB00DC5D65 /* Sound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
@@ -261,6 +275,7 @@
 				ACBB919223918C180060FF8B /* GameScene.swift */,
 				ACBB919323918C180060FF8B /* ThemeScene.swift */,
 				ACBB919423918C180060FF8B /* TurnScene.swift */,
+				AC48EDC423EC8043009589BD /* PreparationScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -376,6 +391,7 @@
 		ACF93C7F238C4D7E00876A0B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */,
 				784C16E823EC967700316175 /* Config.storyboard */,
 				ACF93C70238C472700876A0B /* Main.storyboard */,
 				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
@@ -388,12 +404,11 @@
 				78F4CBAF239AD6C7003E4F41 /* StoreDLC.storyboard */,
 				AC667561239A933A00DC5D65 /* Launch.storyboard */,
 				7B6F9F6223C6DF6F000D4775 /* UserOnboardingScreen.storyboard */,
-				7B6F9F6623CA4F4C000D4775 /* JudgeOnboarding.storyboard */,
-				7B6F9F6823CA4F70000D4775 /* DefendantOnboarding.storyboard */,
-				7B6F9F6A23CA4F8B000D4775 /* GameOnboarding.storyboard */,
-				7B6F9F6C23CA4FA4000D4775 /* TurnOnboarding.storyboard */,
-				7B6F9F6E23CA4FCB000D4775 /* TeamOnboarding.storyboard */,
-				7B6F9F7023CA4FDB000D4775 /* ControlOnboarding.storyboard */,
+				957000E123EE066400146485 /* DefendantOnboarding.storyboard */,
+				957000EA23EE07A300146485 /* GameOnboarding.storyboard */,
+				957000F123EE083B00146485 /* TurnOnboarding.storyboard */,
+				957000F823EE08CF00146485 /* TeamOnboarding.storyboard */,
+				957000FF23EE08EE00146485 /* ControlOnboarding.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -495,18 +510,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B6F9F6D23CA4FA4000D4775 /* TurnOnboarding.storyboard in Resources */,
+				957000EF23EE083B00146485 /* TurnOnboarding.storyboard in Resources */,
 				7B9B078523A02404001375BB /* SwipeRight.wav in Resources */,
 				78F4CBB0239AD6C7003E4F41 /* StoreDLC.storyboard in Resources */,
 				7898E44523DA24840046D21F /* Shadows.sks in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
+				9570010823EE0B9400146485 /* JudgeOnboarding.storyboard in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
 				7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */,
-				7B6F9F6723CA4F4C000D4775 /* JudgeOnboarding.storyboard in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
 				784C16E923EC967700316175 /* Config.storyboard in Resources */,
-				7B6F9F6923CA4F70000D4775 /* DefendantOnboarding.storyboard in Resources */,
+				957000DF23EE066400146485 /* DefendantOnboarding.storyboard in Resources */,
 				ACF5936F23998682001C1B94 /* Report3.storyboard in Resources */,
 				7B6F9F6323C6DF6F000D4775 /* UserOnboardingScreen.storyboard in Resources */,
 				7898E44623DA24840046D21F /* Assets1.xcassets in Resources */,
@@ -520,14 +535,14 @@
 				ACF5935D239978C7001C1B94 /* Localizable.strings in Resources */,
 				78F4CBBA23A3239E003E4F41 /* myriad-pro-8.otf in Resources */,
 				ACF93C74238C472B00876A0B /* Assets.xcassets in Resources */,
-				7B6F9F7123CA4FDB000D4775 /* ControlOnboarding.storyboard in Resources */,
+				957000FD23EE08EE00146485 /* ControlOnboarding.storyboard in Resources */,
 				7B9B078623A02404001375BB /* SwipeLeft.wav in Resources */,
 				78F4CBB823A31DE8003E4F41 /* Adonay.ttf in Resources */,
 				7B18E03123D259B4008B230D /* introGuilty1.wav in Resources */,
 				7B18E03323DF606F008B230D /* Report5.storyboard in Resources */,
 				ACF93C72238C472700876A0B /* Main.storyboard in Resources */,
-				7B6F9F6B23CA4F8B000D4775 /* GameOnboarding.storyboard in Resources */,
-				7B6F9F6F23CA4FCB000D4775 /* TeamOnboarding.storyboard in Resources */,
+				957000E823EE07A300146485 /* GameOnboarding.storyboard in Resources */,
+				957000F623EE08CF00146485 /* TeamOnboarding.storyboard in Resources */,
 				7BEF4A7F238DA84E00E71689 /* GameScreen.storyboard in Resources */,
 				AC66756C239ACAD500DC5D65 /* darksouls2.mp4 in Resources */,
 			);
@@ -553,6 +568,7 @@
 				781C58D9238E023D00957CCE /* SettingsGameVC.swift in Sources */,
 				AC66756F239ACBB800DC5D65 /* Actions.m in Sources */,
 				781C58DF238E1A0800957CCE /* CustomizeJudgeVC.swift in Sources */,
+				AC48EDC523EC8043009589BD /* PreparationScene.swift in Sources */,
 				ACF93C6F238C472700876A0B /* ViewController.swift in Sources */,
 				7BCF5C0623AAA8D500955590 /* CustomCollectionCell.swift in Sources */,
 				AC667560239A924200DC5D65 /* LaunchViewController.swift in Sources */,
@@ -588,6 +604,66 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		957000E123EE066400146485 /* DefendantOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				957000E023EE066400146485 /* Base */,
+				957000E623EE06F700146485 /* en */,
+				957000E723EE06FA00146485 /* pt-BR */,
+			);
+			name = DefendantOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		957000EA23EE07A300146485 /* GameOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				957000E923EE07A300146485 /* Base */,
+				957000EC23EE07C500146485 /* en */,
+				957000EE23EE07CA00146485 /* pt-BR */,
+			);
+			name = GameOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		957000F123EE083B00146485 /* TurnOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				957000F023EE083B00146485 /* Base */,
+				957000F323EE084800146485 /* en */,
+				957000F523EE084E00146485 /* pt-BR */,
+			);
+			name = TurnOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		957000F823EE08CF00146485 /* TeamOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				957000F723EE08CF00146485 /* Base */,
+				957000FA23EE08E100146485 /* en */,
+				957000FC23EE08E400146485 /* pt-BR */,
+			);
+			name = TeamOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		957000FF23EE08EE00146485 /* ControlOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				957000FE23EE08EE00146485 /* Base */,
+				9570010123EE08F800146485 /* en */,
+				9570010323EE08FB00146485 /* pt-BR */,
+			);
+			name = ControlOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9570010923EE0B9400146485 /* Base */,
+				9570010C23EE0B9E00146485 /* en */,
+				9570010E23EE0BA300146485 /* pt-BR */,
+			);
+			name = JudgeOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
 		ACF5935F239978C7001C1B94 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -26,10 +26,16 @@
 "balaoDemonio3" = "Mente mais";
 "balaoDemonio4" = "Por que você mente cara";
 
+"choosePins" = "Escolha seus pinos";
+"courtSession" = "A corte entrará em sessão";
 
 "difficultText" = "Dificuldade";
 "peopleText" = "Nº de jogadores";
 "themeText" = "Tema";
+
+
+"eventIs" = "Evento: ";
+"wordIs" = "Palavra: ";
 
 "homeText" = "Menu";
 "normalText" = "Normal";
@@ -47,6 +53,9 @@
 "errorSelect" = "Alguma(as) das opções não foi(ram) selecionada(s). Selecione alguma das opções!";
 
 "turnComment" = "É a vez do %@";
+"winner" = "O Time %@ venceu";
+"team" = "Time";
+"won" = "venceu";
 
 "yellow" = "Amarelo";
 "blue" = "Azul";

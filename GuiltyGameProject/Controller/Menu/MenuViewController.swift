@@ -51,19 +51,18 @@ class MenuViewController: UIViewController {
     let backgroundImage = UIImageView()
     var delegate: passMusicDelegate?
     
+    var selecao = UIImageView(image: UIImage(named: "selecaoGrande2"))
     var defaults = AllUserDefault()
     let music = Sound()
     let sfx = Sound()
-    var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
+    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
     
     var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        let launchView = UIView(frame: view.frame)
-        launchView.layer.zPosition = 10
-        view.addSubview(launchView)
-
+        
        
         backgroundImage.image = UIImage(named: "fundoTribunal")
         frontImage.image = UIImage(named: "telaInicial")
@@ -72,36 +71,12 @@ class MenuViewController: UIViewController {
         backgroundImage.frame = view.frame
         
         frontImage.frame = view.frame
-        launchView.addSubview(backgroundImage)
-        launchView.addSubview(frontImage)
-        
-        print("FIRST LAUNCH ->  \(firstLaunch)")
-        if firstLaunch{
-        frontImage.alpha = 0
-      
-        UIView.animate(withDuration: 1.7) {
-            self.frontImage.alpha = 1
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.7) {
-            
-            UIView.animate(withDuration: 1.7, animations: {
-                launchView.alpha = 0
-                self.music.play("introGuilty1", type: ".wav", repeat: 0)
-            }) { _ in
                 self.backgroundImage.removeFromSuperview()
                 self.frontImage.removeFromSuperview()
-                launchView.removeFromSuperview()
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
                     self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
                     self.delegate?.passMusic(music: self.sound)
                     UserDefaults.standard.set(true, forKey: "musicPlaying")
-                }
-            }
-            
-            }
-        } else{
-            launchView.removeFromSuperview()
         }
         defaults.screenNumber = 1
         
@@ -113,6 +88,14 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        self.view.insertSubview(selecao, at: 0)
+        self.selecao.layer.zPosition = 1
+        self.startButton.layer.zPosition = 2
+        self.settingsButton.layer.zPosition = 2
+        
+        self.selecao.layer.position = self.startButton.layer.position
         
         if NSLocalizedString("startText", comment: "") != "Start"{
             language = "PT"
@@ -169,12 +152,14 @@ class MenuViewController: UIViewController {
         sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.startButton:
+            self.selecao.layer.position = startButton.layer.position
             if language == "PT"{
                 self.startButton.setImage(jogarSel,for: .normal)
             } else{
                 self.startButton.setImage(playSel,for: .normal)
             }
         case self.settingsButton:
+            self.selecao.layer.position = settingsButton.layer.position
             if language == "PT"{
                 self.settingsButton.setImage(configSel,for: .normal)
             } else{

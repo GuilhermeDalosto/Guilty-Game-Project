@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Make teams"; ObjectID = "3es-vo-v0O"; */
+"3es-vo-v0O.text" = "Make teams";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "75A-Dc-jG4"; */
+"75A-Dc-jG4.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Divide all defendant in 2 teams, with equal number of players"; ObjectID = "aPA-mz-SBb"; */
+"aPA-mz-SBb.text" = "Divide all defendant in 2 teams, with equal number of players";
+
+/* Class = "UILabel"; text = "Before the game starts, each defendant must choose your pin color"; ObjectID = "crj-d3-IrD"; */
+"crj-d3-IrD.text" = "Before the game starts, each defendant must choose your pin color";
+
+/* Class = "UILabel"; text = "Game"; ObjectID = "hRG-de-kpS"; */
+"hRG-de-kpS.text" = "Game";
+
+/* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "mlm-WH-W6H"; */
+"mlm-WH-W6H.normalTitle" = "Previous";
+
+/* Class = "UILabel"; text = "Choose your pin"; ObjectID = "nEW-kd-MN1"; */
+"nEW-kd-MN1.text" = "Choose your pin";
+
+/* Class = "UILabel"; text = "Choose a Judge"; ObjectID = "oWU-V8-Vdy"; */
+"oWU-V8-Vdy.text" = "Choose a Judge";
+
+/* Class = "UILabel"; text = "Choose who will be the judge and who will be defendant"; ObjectID = "sii-ZI-7uy"; */
+"sii-ZI-7uy.text" = "Choose who will be the judge and who will be defendant";

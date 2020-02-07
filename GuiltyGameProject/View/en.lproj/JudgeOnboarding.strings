@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "Judge"; ObjectID = "80F-jU-A30"; */
+"80F-jU-A30.text" = "Judge";
+
+/* Class = "UILabel"; text = "The judge starts the story with (or not) a theme to other continue the story."; ObjectID = "8Hh-xp-2ad"; */
+"8Hh-xp-2ad.text" = "The judge starts the story with (or not) a theme to other continue the story.";
+
+/* Class = "UILabel"; text = "Judge the story"; ObjectID = "9B6-nQ-fRL"; */
+"9B6-nQ-fRL.text" = "Judge the story";
+
+/* Class = "UILabel"; text = "Create Context"; ObjectID = "K3J-Wh-mPX"; */
+"K3J-Wh-mPX.text" = "Create Context";
+
+/* Class = "UILabel"; text = "The judge need to pay attention to the others story"; ObjectID = "Kbb-uw-Ti4"; */
+"Kbb-uw-Ti4.text" = "The judge need to pay attention to the others story";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WvC-NM-gjH"; */
+"WvC-NM-gjH.normalTitle" = "Next";
+
+/* Class = "UILabel"; text = "Analyse the story "; ObjectID = "YGh-uf-207"; */
+"YGh-uf-207.text" = "Analyse the story ";
+
+/* Class = "UILabel"; text = "The judge need to vote if the story told was valid or not"; ObjectID = "hTs-4e-xx7"; */
+"hTs-4e-xx7.text" = "The judge need to vote if the story told was valid or not";

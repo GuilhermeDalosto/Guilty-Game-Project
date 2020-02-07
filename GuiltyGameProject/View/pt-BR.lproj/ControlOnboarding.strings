@@ -1,0 +1,27 @@
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "3aB-fd-8tp"; */
+"3aB-fd-8tp.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "Control"; ObjectID = "CIu-gS-fxh"; */
+"CIu-gS-fxh.text" = "Controle";
+
+/* Class = "UILabel"; text = "Right Swipe: Judge accept defendant story and continue the game"; ObjectID = "Gm6-2F-Cqn"; */
+"Gm6-2F-Cqn.text" = "Deslize para direita: Juiz aceita a estória do jogador para continuar o jogo";
+
+/* Class = "UILabel"; text = "→"; ObjectID = "Hhc-Ux-nSn"; */
+"Hhc-Ux-nSn.text" = "→";
+
+/* Class = "UILabel"; text = "←"; ObjectID = "HqU-TO-h2e"; */
+"HqU-TO-h2e.text" = "←";
+
+/* Class = "UILabel"; text = "Menu: Pause game"; ObjectID = "LwO-n5-Nz0"; */
+"LwO-n5-Nz0.text" = "Menu: Pausa o jogo";
+
+/* Class = "UILabel"; text = "Left Swipe: Judge deny defendant story"; ObjectID = "T2q-lk-2fc"; */
+"T2q-lk-2fc.text" = "Delize para esquerda: Juiz nega a estória do jogador";
+
+/* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "kGa-W1-NKb"; */
+"kGa-W1-NKb.normalTitle" = "Anterior";
+
+/* Class = "UILabel"; text = "↩︎"; ObjectID = "vge-x5-dDN"; */
+"vge-x5-dDN.text" = "↩︎";
