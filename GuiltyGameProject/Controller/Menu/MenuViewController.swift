@@ -55,7 +55,7 @@ class MenuViewController: UIViewController {
     var defaults = AllUserDefault()
     let music = Sound()
     let sfx = Sound()
-    var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
+    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
     
     var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
     override func viewDidLoad() {
