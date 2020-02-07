@@ -34,9 +34,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         //changeScene()
     }
     
+    //Views
     @IBOutlet weak var gameView: SKView!
     @IBOutlet var pauseUIView: UIView!
     @IBOutlet var quitGameUIView: UIView!
+    
+    //Pause Images
+    @IBOutlet weak var pauseScreen: UIImageView!
+    @IBOutlet weak var quitGameScreen: UIImageView!
+    
     
     
     let music = Sound()
@@ -138,16 +144,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     
     
     override func viewDidLoad() {
-        //        gameView.addSubview(pauseView)
-        //        pauseView.sendSubviewToBack(gameView)
 //        musicSound.change(music1!)
         defaults.isOnGame = true
         defaults.screenNumber = 2
         super.viewDidLoad()
         //        pauseView.
-        //        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
-        //        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-        //        self.view.addGestureRecognizer(menuPressRecognizer)
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
         
@@ -333,6 +334,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     }
     
     /**
+     Function to end game by the player
+     */
+    func finishGame(judge: Judge){
+        defaults.isOnGame = false
+        judge.endGame()
+    }
+    
+    /**
      Function to report judge decision by control
      */
     func addToReport(){
@@ -352,14 +361,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
      */
     @objc func Menu(/*recognizer: UITapGestureRecognizer*/){
         print("menu")
-        //Pause o tempo
-        //Pausa a cena
-        //Se não estiver no menu
-        if defaults.isPaused == false{
+        if defaults.isPaused == false, defaults.isQuitable == false{
             //            pauseScene?.buttonToBackToTheGame.addTarget(self, action: #selector(pressPauseBackToTheGameBtn), for: .touchUpInside)
             pause()
-            self.setNeedsFocusUpdate()
-            self.updateFocusIfNeeded()
+//            self.setNeedsFocusUpdate()
+//            self.updateFocusIfNeeded()
             
         }else{
             if defaults.isQuitable == true{
@@ -470,12 +476,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
                 self.delegate = vc
             }
             break
-        default:
+        case "endGame7":
             if let vc = segue.destination as? Report7ViewController{
                 self.delegate = vc
             }
+        default:
+            break
         }
-        self.delegate?.sendPlayersInfo(playersInfo: playersInfo)
+        if segue.identifier != "unwindToMenu"{
+            self.delegate?.sendPlayersInfo(playersInfo: playersInfo)
+        }
     }
     
     
@@ -673,6 +683,23 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         }
     }
     
+    // MARK: - Comandos dos botões de pause
+    @IBAction func keepPlaying(_ sender: Any) {
+        unPause()
+    }
+    
+    @IBAction func leaveMatch(_ sender: Any) {
+        quitPause()
+    }
+    
+    @IBAction func leaveMatchDenied(_ sender: Any) {
+        unQuitPause()
+    }
+    
+    @IBAction func leaveMatchAccepted(_ sender: Any) {
+        quitGame()
+    }
+    
 }
 
 // MARK: - Sub view do pause
@@ -681,11 +708,16 @@ extension GameViewController{
     ///Essa função é chamada quando se deve entrar no pause
     func pause(){
         defaults.isPaused = true
+//        rmvController()
         gameScene?.endTimer()
         gameScene?.isPaused = true
         defaults.positionOnTheGameScreen = 2
         gameView.addSubview(pauseUIView)
         pauseUIView.center = view.center
+        print(backToTheGameBtn.alpha)
+        verifyLanguage(btn: backToTheGameBtn, namePT: "voltar", nameEN: "back")
+        verifyLanguage(btn: quitGameBtn, namePT: "sair", nameEN: "quit")
+        verifyLanguage(pauseScreen: pauseScreen, namePT: "pausePT", nameEN: "pauseEN")
     }
     
     ///Essa função é chamada quando se deve sair do pause
@@ -695,6 +727,7 @@ extension GameViewController{
         if gameScene?.time ?? 30 > 0{
             gameScene?.startTimer()
         }
+//        addController()
         gameScene?.isPaused = false
         pauseUIView.removeFromSuperview()
     }
@@ -707,6 +740,9 @@ extension GameViewController{
         gameView.addSubview(quitGameUIView)
         quitGameUIView.center = view.center
         pauseUIView.removeFromSuperview()
+        verifyLanguage(btn: yesBtn, namePT: "sim", nameEN: "yes")
+        verifyLanguage(btn: noBtn, namePT: "nao", nameEN: "no")
+        verifyLanguage(pauseScreen: quitGameScreen, namePT: "encerrarPT", nameEN: "encerrarEN")
     }
     
     ///Essa função é chamada quando se deve ir para seleção de sair ou não do jogo
@@ -721,9 +757,25 @@ extension GameViewController{
     ///Essa função é chamada quando se deve sair do jogo
     func quitGame(){
         defaults.isQuitable = false
-        defaults.isOnGame = false
+        finishGame(judge: judge!)
         quitGameUIView.removeFromSuperview()
-        judge?.endGame()
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
+    }
+    
+    func verifyLanguage(btn: UIButton, namePT: String, nameEN: String){
+        if language == "PT"{
+            btn.setImage(UIImage(named: namePT),for: .normal)
+        } else{
+            btn.setImage(UIImage(named: nameEN),for: .normal)
+        }
+    }
+    
+    func verifyLanguage(pauseScreen: UIImageView, namePT: String, nameEN: String){
+        if language == "PT"{
+            pauseScreen.image = UIImage(named: namePT)
+        } else{
+            pauseScreen.image = UIImage(named: nameEN)
+        }
     }
     
 }
@@ -739,72 +791,88 @@ extension GameViewController{
         case 2:        
             switch focus{
             case quitGameBtn:
-//                if language == "PT"{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
+                if language == "PT"{
+                    self.quitGameBtn.setImage(UIImage(named: "sair"),for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                } else{
+                    self.quitGameBtn.setImage(UIImage(named: "quit"),for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                }
                 break
             default:
-//                if language == "PT"{
-//                    self.shopButton.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.shopButton.setImage(shopSel,for: .normal)
-//                }
+                if language == "PT"{
+                    self.backToTheGameBtn.setImage(UIImage(named: "voltar"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                } else{
+                    self.backToTheGameBtn.setImage(UIImage(named: "back"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                }
                 break
                 
             }
             
-//            if  focus != self.pauseScene?.buttonToBackToTheGame {
-//              if language == "PT"{
-//                self.pauseScene?.buttonToBackToTheGame.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.pauseScene?.buttonToBackToTheGame.setImage(playDes,for: .normal)
-//                }
-//            }
+            if  focus != self.backToTheGameBtn {
+              if language == "PT"{
+                    self.backToTheGameBtn.setImage(UIImage(named: "voltar"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.backToTheGameBtn.setImage(UIImage(named: "back"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
 
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
+            if focus != self.quitGameBtn{
+               if language == "PT"{
+                    self.quitGameBtn.setImage(UIImage(named: "sair"),for: .normal)
+                    quitGameBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.quitGameBtn.setImage(UIImage(named: "quit"),for: .normal)
+                    quitGameBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
             break
         case 3:
             switch focus{
             case yesBtn:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(jogarSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheGame.setImage(playSel,for: .normal)
-//                }
+                if language == "PT"{
+                    self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                } else{
+                    self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                }
                 break
             default:
-//                if language == "PT"{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(lojaSel,for: .normal)
-//                } else{
-//                    self.quitGameScene?.buttonToBackToTheScreen.setImage(shopSel,for: .normal)
-//                }
+                if language == "PT"{
+                    self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                } else{
+                    self.noBtn.setImage(UIImage(named: "no"),for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                }
                 break
                     
             }
                 
-//            if  focus != self.startButton {
-//              if language == "PT"{
-//                self.startButton.setImage(jogarDes,for: .normal)
-//                } else{
-//                    self.startButton.setImage(playDes,for: .normal)
-//                }
-//            }
+            if  focus != self.yesBtn {
+                if language == "PT"{
+                    self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
+                    yesBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
+                    yesBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
             
-//            if focus != self.settingsButton{
-//               if language == "PT"{
-//                    self.settingsButton.setImage(configuracoesDes,for: .normal)
-//                } else{
-//                    self.settingsButton.setImage(configDes,for: .normal)
-//                }
-//            }
+            if focus != self.noBtn{
+               if language == "PT"{
+                    self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
+                    noBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.noBtn.setImage(UIImage(named: "no"),for: .normal)
+                    noBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
                 break
         default:
             break
