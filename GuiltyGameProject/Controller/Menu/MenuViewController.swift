@@ -104,6 +104,8 @@ class MenuViewController: UIViewController {
             launchView.removeFromSuperview()
         }
         defaults.screenNumber = 1
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -128,6 +130,7 @@ class MenuViewController: UIViewController {
             language = "EN"
             self.startButton.setImage(playSel,for: .normal)
             self.settingsButton.setImage(configuracoesSel,for:.normal)
+            
         } else {
             language = "PT"
             self.startButton.setImage(jogarSel,for: .normal)

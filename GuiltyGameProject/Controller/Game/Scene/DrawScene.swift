@@ -38,9 +38,12 @@ class DrawScene: SKScene{
         super.init(size: size)
         numPlayers = players.count
         
-       
+        if NSLocalizedString("startText", comment: "") == "Start" {
+            randomLabel.text = "The event will be held by..."
+        }else{
+            randomLabel.text = "O evento será realizado por..."
+        }
         
-        randomLabel.text = "Random Dices"
         randomLabel.fontName = "MyriadPro-Regular"
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)

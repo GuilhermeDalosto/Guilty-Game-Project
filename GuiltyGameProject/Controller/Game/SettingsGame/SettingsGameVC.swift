@@ -68,6 +68,7 @@ class SettingsGameViewController: UIViewController {
     
     
     var deckNames = ["Ninja Deck","Food Deck","Magic Deck","Animal Deck","Old West Deck"]
+    var imagesSeta = ["direitoSelecionado","setaDireita","setaDireitaSel","setaEsquerda","setaEsquerdaSel","esquerdoSelecionado"]
     
     @IBOutlet weak var normalButton: UIButton!
     @IBOutlet weak var difficultButton: UIButton!
@@ -80,6 +81,7 @@ class SettingsGameViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var labelDecks: UILabel!
+    @IBOutlet weak var infoImage: UIImageView!
     
     
     var typeTheme = 0
@@ -95,6 +97,15 @@ class SettingsGameViewController: UIViewController {
     var language = ""
     var blackScreen: SKSpriteNode?
     var defaults = AllUserDefault()
+    
+    var imageArrowSelectedRight = UIImage(named: "direitoSelecionado")
+    var imageArrowDeselectedRight = UIImage(named: "setaDireita")
+    var imageArrowSelectedLeft = UIImage(named: "esquerdoSelecionado")
+    var imageArrowDeselectedLeft = UIImage(named: "setaEsquerda")
+    
+    var arrowViewRight = UIImageView()
+    var arrowViewLeft = UIImageView()
+    
     let sfx = Sound()
     
     override func viewDidLoad() {
@@ -113,6 +124,16 @@ class SettingsGameViewController: UIViewController {
             blackScreen?.zPosition = -1
         }
         
+        
+        arrowViewRight.image = imageArrowDeselectedRight
+        arrowViewLeft.image = UIImage(named: "")
+        
+        arrowViewLeft.frame = CGRect(x: UIScreen.main.bounds.width/2 * 1.37, y: UIScreen.main.bounds.height/2 * 0.85, width: 50, height: 50)
+        arrowViewRight.frame = CGRect(x: UIScreen.main.bounds.width/2 * 1.88, y: UIScreen.main.bounds.height/2 * 0.85, width: 50, height: 50)
+        
+        view.addSubview(arrowViewLeft)
+        view.addSubview(arrowViewRight)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,13 +146,17 @@ class SettingsGameViewController: UIViewController {
             language = "EN"
             self.backgroundImage.image = fundoEN
             self.labelDecks.text = "Free"
+            infoImage.image = UIImage(named: "infoEN")
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT
             self.labelDecks.text = "Livre"
+            infoImage.image = UIImage(named: "infoPT")
         }
         
         self.view.insertSubview(backgroundImage, at: 0)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,8 +198,7 @@ class SettingsGameViewController: UIViewController {
         default:
             print()
         }
-        
-        
+
         
     }
     
@@ -231,11 +255,6 @@ class SettingsGameViewController: UIViewController {
             self.number7.setImage(a7Sel, for: .normal)
         case self.freeButton:
             self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
-//            if language == "PT"{
-//                            self.freeButton.setImage(livreSel, for: .normal)
-//                       } else{
-//                          self.freeButton.setImage(freeSel, for: .normal)
-//                       }
            
         case self.randomButton:
             if language == "PT"{
@@ -454,14 +473,16 @@ class SettingsGameViewController: UIViewController {
     @IBAction func pressFree(_ sender: Any) {
         
         if deckNames.count > typeOfDeck{
-            
             self.freeButton.setImage(UIImage(named: "botaozinho"), for: .normal)
             self.labelDecks.text = "\(deckNames[typeOfDeck])"
-            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 45)
+            self.labelDecks.font = UIFont(name: "MyriadPro-Regular", size: 40)
             self.labelDecks.textColor = UIColor(red: 46/288, green: 4/288, blue: 86/288, alpha: 1.0)
             self.typeOfDeck += 1
+            self.arrowViewLeft.image = imageArrowSelectedLeft
+            self.arrowViewRight.image = imageArrowSelectedRight
             if typeOfDeck >= deckNames.count {
                 self.typeOfDeck = 0
+                self.arrowViewRight.image = UIImage(named: "")
             }
         }
         
