@@ -125,7 +125,7 @@ class SettingsGameViewController: UIViewController {
         }
         
         
-        arrowViewRight.image = imageArrowDeselectedRight
+        arrowViewRight.image = imageArrowSelectedRight
         arrowViewLeft.image = UIImage(named: "")
         
         arrowViewLeft.frame = CGRect(x: UIScreen.main.bounds.width/2 * 1.37, y: UIScreen.main.bounds.height/2 * 0.85, width: 50, height: 50)

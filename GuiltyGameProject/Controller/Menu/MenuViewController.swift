@@ -66,7 +66,7 @@ class MenuViewController: UIViewController {
 
        
         backgroundImage.image = UIImage(named: "fundoTribunal")
-        frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
+        frontImage.image = UIImage(named: "telaInicial")
         
         backgroundImage.layer.zPosition = -1
         backgroundImage.frame = view.frame
