@@ -351,6 +351,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
+        cell.infoImage.image = infoJudge[indexPath.row]
       //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         

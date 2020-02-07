@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cinderela.png",
+      "filename" : "infoCinderela.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cinderela@2x.png",
+      "filename" : "infoCinderela@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "cinderela@3x.png",
+      "filename" : "infoCinderela@3x.png",
       "scale" : "3x"
     }
   ],
