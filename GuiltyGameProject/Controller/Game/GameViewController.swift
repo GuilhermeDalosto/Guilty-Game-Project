@@ -60,7 +60,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     /// main scene of the game
     var gameScene: GameScene? = nil
     /// scene of pause
-   
+    
     /// scene of quit game
     
     // scene of preparation
@@ -268,15 +268,21 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         switch theme{
         case 1:
             if language == "EN"{
-                actualDeck = words.strNinjaEN
+                actualDeck = words.strNinja
             } else{
                 actualDeck = words.strNinja
             }
         case 2:
             if language == "EN"{
                 actualDeck = words.strFoodEng
+                if difficulty == 1{
+                    actualDeck = words.strFoodHardEng
+                }
             } else{
                 actualDeck = words.strFood
+                if difficulty == 1{
+                    actualDeck = words.strHardFood
+                }
             }
         case 3:
             if language == "EN"{
@@ -287,8 +293,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         case 4:
             if language == "EN"{
                 actualDeck = words.strAnimalEng
+                if difficulty == 1{
+                    actualDeck = words.strAnimalHardEng
+                }
             } else{
                 actualDeck = words.strAnimal
+                if difficulty == 1{
+                    actualDeck = words.strHardAnimal
+                }
             }
         case 5:
             if language == "EN"{
@@ -305,8 +317,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         case 0:
             if language == "EN"{
                 actualDeck = words.normalStrEng
+                if difficulty == 1{
+                    actualDeck = words.hardStrEng
+                }
             } else{
                 actualDeck = words.strNormal
+                if difficulty == 1{
+                    actualDeck = words.strHardWords
+                }
             }
         default:
             if language == "EN"{
@@ -539,18 +557,18 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
                     }
                 }
             }
-                
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.chooseOption = false
-                       
-                        
-                        self.changeScene()
-                    }
-                } else{
-                    changeScene()
-                }
             
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.chooseOption = false
+                
+                
+                self.changeScene()
+            }
+        } else{
+            changeScene()
         }
+        
+    }
     
     
     var teamTurnA = 0
