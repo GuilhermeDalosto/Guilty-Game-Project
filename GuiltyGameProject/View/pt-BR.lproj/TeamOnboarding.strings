@@ -1,0 +1,21 @@
+
+/* Class = "UILabel"; text = "Each team starts with 3 lifes, that can be lost every time the judge do not accept your story"; ObjectID = "56b-zo-yAA"; */
+"56b-zo-yAA.text" = "Cada time começa com 3 vidas, que podem ser perdidas a cada vez que o juiz não aceitar a estória;
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "AjP-ql-F0X"; */
+"AjP-ql-F0X.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "At the beggining of rounds, one player of each team will receive a event, be sure that your team mate are doing his event"; ObjectID = "D7g-qz-96q"; */
+"D7g-qz-96q.text" = "No começo dos turnos, um jogador de cada time receberá um evento, tenha certeza que você realizará;
+
+/* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "JJV-Li-5Yw"; */
+"JJV-Li-5Yw.normalTitle" = "Anterior";
+
+/* Class = "UILabel"; text = "Team"; ObjectID = "JbJ-rW-H0R"; */
+"JbJ-rW-H0R.text" = "Time";
+
+/* Class = "UILabel"; text = "Team Lifes"; ObjectID = "MLm-yd-dVf"; */
+"MLm-yd-dVf.text" = "Vida do time";
+
+/* Class = "UILabel"; text = "Random Events"; ObjectID = "x2g-1P-hu0"; */
+"x2g-1P-hu0.text" = "Eventos Aleatórios";
