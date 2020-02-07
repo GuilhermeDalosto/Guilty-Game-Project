@@ -93,6 +93,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="coracoes" translatesAutoresizingMaskIntoConstraints="NO" id="pQm-zy-fpr">
+                                <rect key="frame" x="280" y="467" width="301" height="146"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Np5-XZ-ye7"/>
                     </view>
@@ -123,6 +127,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="coracoes" width="485" height="134"/>
         <image name="fundoTribunal" width="8000" height="4500"/>
     </resources>
 </document>

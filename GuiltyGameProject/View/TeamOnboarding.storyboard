@@ -56,29 +56,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Li-5Yw">
-                                <rect key="frame" x="192" y="871" width="192" height="86"/>
+                                <rect key="frame" x="176" y="871" width="225" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Previous"/>
                                 <connections>
                                     <action selector="backBtn:" destination="ov5-oX-Tg3" eventType="primaryActionTriggered" id="E6g-6P-lx1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-ql-F0X">
-                                <rect key="frame" x="1565" y="871" width="192" height="86"/>
+                                <rect key="frame" x="1582" y="871" width="159" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="8hp-sM-J5s" kind="show" id="JZb-L2-oKe"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" id="Doo-Eu-YbK">
-                                <rect key="frame" x="425" y="500" width="10" height="10"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <viewLayoutGuide key="safeArea" id="fGn-1O-Q3s"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbJ-rW-H0R">
                                 <rect key="frame" x="301" y="100" width="259" height="159"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +80,10 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diaboEN" translatesAutoresizingMaskIntoConstraints="NO" id="e59-PL-lJ5">
+                                <rect key="frame" x="219" y="381" width="423" height="397"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="r6x-7A-e1G"/>
                     </view>
@@ -114,6 +112,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="diaboEN" width="562" height="580"/>
         <image name="fundoTribunal" width="8000" height="4500"/>
     </resources>
 </document>
