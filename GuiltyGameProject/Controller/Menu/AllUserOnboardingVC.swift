@@ -351,6 +351,20 @@ class ControlUOViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        text00.layer.borderColor = UIColor.cyan.cgColor
+        text00.layer.masksToBounds = true
+        text00.layer.cornerRadius = 10.0
+        text00.layer.borderWidth = 3.0
+        
+        text01.layer.borderColor = UIColor.cyan.cgColor
+        text01.layer.masksToBounds = true
+        text01.layer.cornerRadius = 10.0
+        text01.layer.borderWidth = 3.0
+        
+        text03.layer.borderColor = UIColor.cyan.cgColor
+        text03.layer.masksToBounds = true
+        text03.layer.cornerRadius = 10.0
+        text03.layer.borderWidth = 3.0
     }
     @IBAction func backBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
