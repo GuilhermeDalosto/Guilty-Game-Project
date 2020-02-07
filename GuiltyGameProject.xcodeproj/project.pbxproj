@@ -49,7 +49,7 @@
 		957000EF23EE083B00146485 /* TurnOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000F123EE083B00146485 /* TurnOnboarding.storyboard */; };
 		957000F623EE08CF00146485 /* TeamOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000F823EE08CF00146485 /* TeamOnboarding.storyboard */; };
 		957000FD23EE08EE00146485 /* ControlOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957000FF23EE08EE00146485 /* ControlOnboarding.storyboard */; };
-		9570010723EE0AA700146485 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9570010623EE0AA700146485 /* JudgeOnboarding.storyboard */; };
+		9570010823EE0B9400146485 /* JudgeOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */; };
 		95A6524C23E75DE7004A2D93 /* AllUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */; };
 		95F8C8FB238DC0AD00E8ACAB /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FA238DC0AD00E8ACAB /* Random.m */; };
 		95F8C8FE238F159900E8ACAB /* Movement.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F8C8FD238F159900E8ACAB /* Movement.m */; };
@@ -141,7 +141,9 @@
 		957000FE23EE08EE00146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ControlOnboarding.storyboard; sourceTree = "<group>"; };
 		9570010123EE08F800146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ControlOnboarding.strings; sourceTree = "<group>"; };
 		9570010323EE08FB00146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/ControlOnboarding.strings"; sourceTree = "<group>"; };
-		9570010623EE0AA700146485 /* JudgeOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = JudgeOnboarding.storyboard; sourceTree = "<group>"; };
+		9570010923EE0B9400146485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/JudgeOnboarding.storyboard; sourceTree = "<group>"; };
+		9570010C23EE0B9E00146485 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/JudgeOnboarding.strings; sourceTree = "<group>"; };
+		9570010E23EE0BA300146485 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/JudgeOnboarding.strings"; sourceTree = "<group>"; };
 		95A6524B23E75DE7004A2D93 /* AllUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserDefault.swift; sourceTree = "<group>"; };
 		95F8C8F9238DC0A300E8ACAB /* Random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Random.h; sourceTree = "<group>"; };
 		95F8C8FA238DC0AD00E8ACAB /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
@@ -389,7 +391,7 @@
 		ACF93C7F238C4D7E00876A0B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9570010623EE0AA700146485 /* JudgeOnboarding.storyboard */,
+				9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */,
 				784C16E823EC967700316175 /* Config.storyboard */,
 				ACF93C70238C472700876A0B /* Main.storyboard */,
 				ACF93C75238C472B00876A0B /* LaunchScreen.storyboard */,
@@ -514,7 +516,7 @@
 				7898E44523DA24840046D21F /* Shadows.sks in Resources */,
 				ACF93C77238C472B00876A0B /* LaunchScreen.storyboard in Resources */,
 				7BCF5BFF23A2B1DE00955590 /* GameSong.wav in Resources */,
-				9570010723EE0AA700146485 /* JudgeOnboarding.storyboard in Resources */,
+				9570010823EE0B9400146485 /* JudgeOnboarding.storyboard in Resources */,
 				AC667562239A933A00DC5D65 /* Launch.storyboard in Resources */,
 				7B9B077E239EE178001375BB /* GuiltyProjectSong.wav in Resources */,
 				AC66756A239AC90F00DC5D65 /* darksouls.mp4 in Resources */,
@@ -650,6 +652,16 @@
 				9570010323EE08FB00146485 /* pt-BR */,
 			);
 			name = ControlOnboarding.storyboard;
+			sourceTree = "<group>";
+		};
+		9570010A23EE0B9400146485 /* JudgeOnboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9570010923EE0B9400146485 /* Base */,
+				9570010C23EE0B9E00146485 /* en */,
+				9570010E23EE0BA300146485 /* pt-BR */,
+			);
+			name = JudgeOnboarding.storyboard;
 			sourceTree = "<group>";
 		};
 		ACF5935F239978C7001C1B94 /* Localizable.strings */ = {
