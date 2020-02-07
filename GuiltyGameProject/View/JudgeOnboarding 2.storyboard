@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVd-E8-Nc3">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--JudgeUO View Controller-->
+        <scene sceneID="p71-Dz-1CJ">
+            <objects>
+                <viewController storyboardIdentifier="JudgeOnboarding" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RVd-E8-Nc3" customClass="JudgeUOViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zes-oV-9SV"/>
+                        <viewControllerLayoutGuide type="bottom" id="86c-qk-EZh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9r-V4-GdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="80F-jU-A30">
+                                <rect key="frame" x="830.5" y="68" width="259" height="159"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="30i-qA-xlC">
+                                <rect key="frame" x="164" y="331" width="297" height="418"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Context" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3J-Wh-mPX">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analyse the story " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGh-uf-207">
+                                        <rect key="frame" x="0.0" y="186" width="297" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Judge the story" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9B6-nQ-fRL">
+                                        <rect key="frame" x="0.0" y="372" width="297" height="46"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The judge starts the story with (or not) a theme to other continue the story." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Hh-xp-2ad">
+                                <rect key="frame" x="1093.5" y="288.5" width="693" height="125"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The judge need to pay attention to the others story" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbb-uw-Ti4">
+                                <rect key="frame" x="1093.5" y="481" width="693" height="118"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The judge need to vote if the story told was valid or not" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTs-4e-xx7">
+                                <rect key="frame" x="1093.5" y="675.5" width="693" height="107"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-Cb-asP">
+                                <rect key="frame" x="1534" y="864" width="254" height="99"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" image="nextSel"/>
+                                <connections>
+                                    <segue destination="J5s-C1-4IW" kind="show" id="y6H-DD-f41"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvC-NM-gjH">
+                                <rect key="frame" x="192" y="870.5" width="192" height="86"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="RVd-E8-Nc3" eventType="primaryActionTriggered" id="vKE-j0-ACo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="80F-jU-A30" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.134896" id="1xl-G1-ppV"/>
+                            <constraint firstItem="hTs-4e-xx7" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="1.5" id="3v0-sy-jda"/>
+                            <constraint firstItem="Kbb-uw-Ti4" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.109259" id="714-ag-Jx6"/>
+                            <constraint firstItem="30i-qA-xlC" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.387037" id="99h-lI-fot"/>
+                            <constraint firstItem="hTs-4e-xx7" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.360938" id="BVt-si-VKj"/>
+                            <constraint firstItem="30i-qA-xlC" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" id="DBb-0A-095"/>
+                            <constraint firstItem="xhz-Cb-asP" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" multiplier="1.692" id="F55-Za-KzC"/>
+                            <constraint firstItem="WvC-NM-gjH" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.1" id="J5k-rM-lGD"/>
+                            <constraint firstItem="WvC-NM-gjH" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" multiplier="1.692" id="JiI-FI-33n"/>
+                            <constraint firstItem="80F-jU-A30" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.147222" id="Kip-JD-XPW"/>
+                            <constraint firstItem="30i-qA-xlC" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.154688" id="M8s-Ja-bvn"/>
+                            <constraint firstItem="8Hh-xp-2ad" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="1.5" id="OYv-Jx-OqD"/>
+                            <constraint firstItem="WvC-NM-gjH" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.0796296" id="SW8-rq-FDw"/>
+                            <constraint firstItem="xhz-Cb-asP" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="1.73" id="U2o-c9-F0C"/>
+                            <constraint firstItem="80F-jU-A30" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" multiplier="0.273" id="Whq-U2-SCH"/>
+                            <constraint firstItem="8Hh-xp-2ad" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" multiplier="0.65" id="XeY-T8-6mZ"/>
+                            <constraint firstItem="hTs-4e-xx7" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.0990741" id="aCl-0L-9hb"/>
+                            <constraint firstItem="80F-jU-A30" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" id="bTP-6Y-wYk"/>
+                            <constraint firstItem="WvC-NM-gjH" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="0.3" id="dxm-a2-vav"/>
+                            <constraint firstItem="hTs-4e-xx7" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" multiplier="1.35" id="ea2-aO-OJ5"/>
+                            <constraint firstItem="8Hh-xp-2ad" firstAttribute="height" secondItem="N9r-V4-GdJ" secondAttribute="height" multiplier="0.115741" id="kAp-H1-hsi"/>
+                            <constraint firstItem="Kbb-uw-Ti4" firstAttribute="centerY" secondItem="T5B-zD-iZf" secondAttribute="centerY" id="koH-cv-cAj"/>
+                            <constraint firstItem="Kbb-uw-Ti4" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.360938" id="l4W-0e-4CP"/>
+                            <constraint firstItem="30i-qA-xlC" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="0.3255" id="ozM-f9-gzZ"/>
+                            <constraint firstItem="8Hh-xp-2ad" firstAttribute="width" secondItem="N9r-V4-GdJ" secondAttribute="width" multiplier="0.360938" id="qTb-C2-WOx"/>
+                            <constraint firstItem="Kbb-uw-Ti4" firstAttribute="centerX" secondItem="T5B-zD-iZf" secondAttribute="centerX" multiplier="1.5" id="xRY-ZF-oTc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T5B-zD-iZf"/>
+                    </view>
+                    <connections>
+                        <outlet property="text1" destination="8Hh-xp-2ad" id="C2D-i2-lyv"/>
+                        <outlet property="text2" destination="Kbb-uw-Ti4" id="ZUX-74-dSK"/>
+                        <outlet property="text3" destination="hTs-4e-xx7" id="E6k-dL-RyA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Od-dc-69l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-29" y="94"/>
+        </scene>
+        <!--DefendantOnboarding-->
+        <scene sceneID="ocS-R0-nEF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DefendantOnboarding" id="J5s-C1-4IW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cH3-CF-6M3"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Te-UX-wNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1445" y="94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nextSel" width="174" height="59"/>
+    </resources>
+</document>
