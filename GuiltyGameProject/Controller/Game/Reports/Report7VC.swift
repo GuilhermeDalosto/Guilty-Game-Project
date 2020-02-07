@@ -42,6 +42,7 @@ class Report7ViewController: UIViewController, StatisticsProtocol{
     @IBOutlet weak var word51: UILabel!
     @IBOutlet weak var word52: UILabel!
     
+    @IBOutlet weak var winner: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var arrayLabel = [UILabel]()
     let sfx = Sound()
@@ -66,8 +67,9 @@ class Report7ViewController: UIViewController, StatisticsProtocol{
         word50.text = ""
         word51.text = ""
         word52.text = ""
-        setAll()
-        print("AAAAAA")
+        setAll()        
+        var value = UserDefaults.standard.integer(forKey: "vencedor")
+               winner.text = "\(NSLocalizedString("team", comment: "")) \(value) \(NSLocalizedString("won", comment: ""))"
     }
     
     override func viewDidLoad() {

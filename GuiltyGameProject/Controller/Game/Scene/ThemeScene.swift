@@ -33,9 +33,17 @@ class ThemeScene: SKScene{
     
     var actionTitle = SKLabelNode(fontNamed: "MyriadPro-Regular")
     
+    var sfx = Sound()
+    var defaults = UserDefaults.standard
     
     override init(size: CGSize){
         super.init(size: size)
+        
+        if defaults.bool(forKey: "musicPlaying") ==  false {
+            sfx.audioPlayer.stop()
+            sfx.play("GameSong", type: ".wav", repeat: -1)
+        }
+        
         // chamar a funcao aleatoria para retornar os temas aleatorios
         
         if NSLocalizedString("startText", comment: "") == "Start"{

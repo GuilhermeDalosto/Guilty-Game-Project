@@ -156,6 +156,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O time 1 venceu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSY-lC-PEP">
+                                <rect key="frame" x="822" y="182" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="x1Y-Bw-eby" firstAttribute="centerX" secondItem="XJt-4u-sJj" secondAttribute="centerX" multiplier="1.7856" id="9qX-fN-lae"/>
@@ -171,6 +178,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="UW9-MG-uhV" id="c1a-NE-6Bu"/>
+                        <outlet property="winner" destination="JSY-lC-PEP" id="tF7-K2-vk7"/>
                         <outlet property="word00" destination="4qP-xO-Ykr" id="TJz-MB-PP4"/>
                         <outlet property="word01" destination="ceH-MU-Fjy" id="yHW-8R-fpV"/>
                         <outlet property="word02" destination="yng-2O-fLs" id="WLQ-Cn-gHc"/>

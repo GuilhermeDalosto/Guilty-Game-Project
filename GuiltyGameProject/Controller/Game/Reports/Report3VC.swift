@@ -35,13 +35,15 @@ class Report3ViewController: UIViewController, StatisticsProtocol{
     @IBOutlet weak var word14: UILabel!
     @IBOutlet weak var word15: UILabel!
     
+    @IBOutlet weak var winner: UILabel!
     @IBOutlet weak var backgroundImage: UIImageView!
     var arrayLabel = [UILabel]()
     let sfx = Sound()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("AAAAAA")
+        var value = UserDefaults.standard.integer(forKey: "vencedor")
+               winner.text = "\(NSLocalizedString("team", comment: "")) \(value) \(NSLocalizedString("won", comment: ""))"
     }
     
     override func viewDidLoad() {
