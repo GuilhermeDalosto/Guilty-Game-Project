@@ -292,7 +292,6 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
             } else{
                 actualDeck = words.strNormal
             }
-            
         default:
             if language == "EN"{
                 actualDeck = words.normalStrEng
@@ -798,8 +797,6 @@ extension GameViewController{
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        print("<<<--------\(self.preferredFocusedView) <<<--------")
-        
         
         switch  defaults.positionOnTheGameScreen{
         case 2:        
@@ -807,19 +804,19 @@ extension GameViewController{
             case quitGameBtn:
                 if language == "PT"{
                     self.quitGameBtn.setImage(UIImage(named: "sair"),for: .normal)
-                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
                 } else{
                     self.quitGameBtn.setImage(UIImage(named: "quit"),for: .normal)
-                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
                 }
                 break
             default:
                 if language == "PT"{
                     self.backToTheGameBtn.setImage(UIImage(named: "voltar"),for: .normal)
-                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
                 } else{
                     self.backToTheGameBtn.setImage(UIImage(named: "back"),for: .normal)
-                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
                 }
                 break
                 
@@ -850,19 +847,19 @@ extension GameViewController{
             case yesBtn:
                 if language == "PT"{
                     self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
-                    yesBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
                 } else{
                     self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
-                    yesBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
                 }
                 break
             default:
                 if language == "PT"{
                     self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
-                    noBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
                 } else{
                     self.noBtn.setImage(UIImage(named: "no"),for: .normal)
-                    noBtn.setBackgroundImage(UIImage(named: "selecaoPequena"), for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
                 }
                 break
                     
