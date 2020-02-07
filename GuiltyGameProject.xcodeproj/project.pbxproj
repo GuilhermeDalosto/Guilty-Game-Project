@@ -209,6 +209,7 @@
 		781C58DD238E19E500957CCE /* CustomizeJudge */ = {
 			isa = PBXGroup;
 			children = (
+				ACF93CB4238EE83F00876A0B /* allWordsSigned.swift */,
 				781C58DE238E1A0700957CCE /* CustomizeJudgeVC.swift */,
 				781C58E0238E1A3900957CCE /* CustomizeJudgeCV.swift */,
 			);
@@ -412,7 +413,6 @@
 		ACF93C8C238C777000876A0B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				ACF93CB4238EE83F00876A0B /* allWordsSigned.swift */,
 				ACF93CB6238EE86F00876A0B /* allEventsSigned.swift */,
 				95F8C8F9238DC0A300E8ACAB /* Random.h */,
 				95F8C8FA238DC0AD00E8ACAB /* Random.m */,
