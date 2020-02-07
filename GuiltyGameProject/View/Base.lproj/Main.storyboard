@@ -124,7 +124,7 @@
     <resources>
         <image name="play" width="347" height="116"/>
         <image name="settings" width="347" height="115"/>
-        <image name="shop" width="244" height="81"/>
+        <image name="shop" width="220" height="81"/>
         <image name="telaInicial" width="1947" height="1083"/>
     </resources>
 </document>
