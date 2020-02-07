@@ -179,6 +179,8 @@ class GameScene: SKScene{
         wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.85))
         
         
+        
+        
         // set timer label
         timerLabel.text = "\(time)"
         timerLabel.fontSize = 100
@@ -273,7 +275,7 @@ class GameScene: SKScene{
         balaoComentario2.zPosition += 1
         balaoComentario2.text = NSLocalizedString("balaoDemonio\(Int.random(in:0...4))", comment: "")
         
-
+        
         
         timeOver.fontSize = 50
         timeOver.fontColor = .red
