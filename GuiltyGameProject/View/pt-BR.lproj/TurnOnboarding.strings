@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Receive a random word"; ObjectID = "KEQ-3r-LhI"; */
+"KEQ-3r-LhI.text" = "Receba uma carta aleatória";
+
+/* Class = "UILabel"; text = "Turn"; ObjectID = "KSt-gk-mRT"; */
+"KSt-gk-mRT.text" = "Turno";
+
+/* Class = "UILabel"; text = "Be careful with you time"; ObjectID = "UeK-xL-43N"; */
+"UeK-xL-43N.text" = "Seja cuidadoso com seu time";
+
+/* Class = "UILabel"; text = "First turn advantage"; ObjectID = "XiN-Y6-vB6"; */
+"XiN-Y6-vB6.text" = "Vantagem do primeiro turno";
+
+/* Class = "UILabel"; text = "You will have 30 seconds to tell your story "; ObjectID = "YVw-5f-pVo"; */
+"YVw-5f-pVo.text" = "Você tem 30 segundos para contar sua história";
+
+/* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "lag-zv-2pQ"; */
+"lag-zv-2pQ.normalTitle" = "Anterior";
+
+/* Class = "UILabel"; text = "At the first turn, you will have 60 seconds"; ObjectID = "pF6-fo-Tel"; */
+"pF6-fo-Tel.text" = "No primeiro turno, você tem 60 segundos";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "q1l-F0-ciZ"; */
+"q1l-F0-ciZ.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "In your story, you must use your random word"; ObjectID = "zuQ-Rs-lye"; */
+"zuQ-Rs-lye.text" = "Na sua estória, você deve usar a sua palavra aleatória";

@@ -76,19 +76,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q1l-F0-ciZ">
-                                <rect key="frame" x="1565" y="870.5" width="192" height="86"/>
+                                <rect key="frame" x="1582" y="870.5" width="159" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="UYf-G2-x88" kind="show" id="ptY-k0-V8n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lag-zv-2pQ">
-                                <rect key="frame" x="192" y="871" width="192" height="86"/>
+                                <rect key="frame" x="176" y="871" width="225" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Previous"/>
                                 <connections>
                                     <action selector="backBtn:" destination="bWw-eU-BHA" eventType="primaryActionTriggered" id="Etr-Rk-Ol7"/>
                                 </connections>

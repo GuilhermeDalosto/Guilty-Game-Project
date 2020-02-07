@@ -49,19 +49,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aB-fd-8tp">
-                                <rect key="frame" x="1565" y="871" width="192" height="86"/>
+                                <rect key="frame" x="1582" y="871" width="159" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Next"/>
                                 <connections>
                                     <segue destination="Ojw-bA-6t7" kind="show" id="2sG-T0-9JN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGa-W1-NKb">
-                                <rect key="frame" x="192" y="871" width="192" height="86"/>
+                                <rect key="frame" x="176" y="871" width="225" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Previous"/>
                                 <connections>
                                     <action selector="backBtn:" destination="t4m-oQ-hL9" eventType="primaryActionTriggered" id="7Ct-RC-Nv8"/>
                                 </connections>
@@ -122,7 +122,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="controle" width="211.5" height="688"/>
+        <image name="controle" width="212" height="688"/>
         <image name="fundoTribunal" width="8000" height="4500"/>
     </resources>
 </document>
