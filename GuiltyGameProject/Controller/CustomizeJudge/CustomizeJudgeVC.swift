@@ -36,6 +36,8 @@ class CustomizeJudgeViewController: UIViewController {
     var startSel = UIImage(named: "start")
     var startDes = UIImage(named: "startSelecionado")
     
+    
+    
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -121,6 +123,7 @@ class CustomizeJudgeViewController: UIViewController {
         _judgeIndex = UserDefaults.standard.integer(forKey: "positionCollection")
         backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

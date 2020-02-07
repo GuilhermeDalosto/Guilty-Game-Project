@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYb-IG-xlo">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xYb-IG-xlo">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,7 +72,6 @@
                                     <action selector="PressHome:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="fDv-6v-YQF"/>
                                 </connections>
                             </button>
-                          
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Configurações" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKe-Va-RHB">
                                 <rect key="frame" x="635" y="68" width="560" height="148"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -81,10 +80,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxY-3S-53u">
-                                <rect key="frame" x="712" y="712" width="407" height="149"/>
+                                <rect key="frame" x="658" y="694" width="517" height="186"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" image="aleatorioSel"/>
+                                <state key="normal" image="idiomaEn"/>
                                 <connections>
                                     <action selector="onboard:" destination="xYb-IG-xlo" eventType="primaryActionTriggered" id="lAv-CA-U6R"/>
                                 </connections>
@@ -111,6 +110,7 @@
                         <outlet property="homeButton" destination="k8y-tJ-alt" id="lJf-54-aBI"/>
                         <outlet property="languageButton" destination="RhT-kG-oQY" id="q8h-bB-4vJ"/>
                         <outlet property="musicButton" destination="LB1-Xa-wNl" id="crI-eS-YmI"/>
+                        <outlet property="onBoard" destination="ZxY-3S-53u" id="34w-3C-11V"/>
                         <segue destination="0tF-A9-xoE" kind="show" identifier="Main" id="2Ka-xc-eP7"/>
                         <segue destination="8IE-gh-nI8" kind="show" identifier="onBoard" id="OXO-Ar-gMd"/>
                     </connections>
@@ -122,7 +122,7 @@
     </scenes>
     <resources>
         <image name="IdiomaPT" width="437" height="146"/>
-        <image name="aleatorioSel" width="327" height="109"/>
+        <image name="idiomaEn" width="437" height="146"/>
         <image name="menuConf" width="174" height="59"/>
         <image name="musicOff" width="437" height="146"/>
     </resources>

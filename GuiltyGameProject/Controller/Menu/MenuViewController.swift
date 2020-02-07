@@ -46,7 +46,7 @@ class MenuViewController: UIViewController {
     let frontImage = UIImageView()
     let backgroundImage = UIImageView()
     
-    
+    var selecao = UIImageView(image: UIImage(named: "selecaoGrande"))
     var defaults = AllUserDefault()
     let music = Sound()
     var musicPlaying = false//UserDefaults.standard.bool(forKey: "musicPlaying")
@@ -54,11 +54,9 @@ class MenuViewController: UIViewController {
     var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        let launchView = UIView(frame: view.frame)
-        launchView.layer.zPosition = 10
-        view.addSubview(launchView)
-
+        
        
         backgroundImage.image = UIImage(named: "fundoTribunal")
         frontImage.image = UIImage(named: "telaMenu_Prancheta 1")
@@ -67,10 +65,8 @@ class MenuViewController: UIViewController {
         backgroundImage.frame = view.frame
         
         frontImage.frame = view.frame
-        
                 self.backgroundImage.removeFromSuperview()
                 self.frontImage.removeFromSuperview()
-                launchView.removeFromSuperview()
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
                     self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
                     UserDefaults.standard.set(true, forKey: "musicPlaying")
@@ -83,6 +79,14 @@ class MenuViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        self.view.insertSubview(selecao, at: 0)
+        self.selecao.layer.zPosition = 1
+        self.startButton.layer.zPosition = 2
+        self.settingsButton.layer.zPosition = 2
+        
+        self.selecao.layer.position = self.startButton.layer.position
         
         if NSLocalizedString("startText", comment: "") != "Start"{
             language = "PT"
@@ -136,12 +140,14 @@ class MenuViewController: UIViewController {
         
         switch focus{
         case self.startButton:
+            self.selecao.layer.position = startButton.layer.position
             if language == "PT"{
                 self.startButton.setImage(jogarSel,for: .normal)
             } else{
                 self.startButton.setImage(playSel,for: .normal)
             }
         case self.settingsButton:
+            self.selecao.layer.position = settingsButton.layer.position
             if language == "PT"{
                 self.settingsButton.setImage(configSel,for: .normal)
             } else{
