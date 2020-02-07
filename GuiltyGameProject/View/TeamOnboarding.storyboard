@@ -55,7 +55,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Li-5Yw">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJV-Li-5Yw">
                                 <rect key="frame" x="192" y="871" width="192" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -64,7 +64,7 @@
                                     <action selector="backBtn:" destination="ov5-oX-Tg3" eventType="primaryActionTriggered" id="E6g-6P-lx1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-ql-F0X">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjP-ql-F0X">
                                 <rect key="frame" x="1565" y="871" width="192" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
@@ -90,6 +90,8 @@
                         <viewLayoutGuide key="safeArea" id="r6x-7A-e1G"/>
                     </view>
                     <connections>
+                        <outlet property="nextButton" destination="AjP-ql-F0X" id="rjd-yW-vzW"/>
+                        <outlet property="previousButton" destination="JJV-Li-5Yw" id="qcZ-8l-8eo"/>
                         <outlet property="text00" destination="x2g-1P-hu0" id="ROw-kz-Il1"/>
                         <outlet property="text01" destination="MLm-yd-dVf" id="PQe-QK-wTQ"/>
                         <outlet property="text10" destination="D7g-qz-96q" id="tWf-Sw-6bw"/>
