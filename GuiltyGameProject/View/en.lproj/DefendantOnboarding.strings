@@ -9,13 +9,13 @@
 "EqS-DZ-jEa.text" = "Take on any role";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "H4j-li-neS"; */
-"H4j-li-neS.normalTitle" = "Button";
+"H4j-li-neS.normalTitle" = "Previous";
 
 /* Class = "UILabel"; text = "Accuse other team"; ObjectID = "OGx-RU-1FW"; */
 "OGx-RU-1FW.text" = "Accuse other team";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qgk-Rs-bEV"; */
-"Qgk-Rs-bEV.normalTitle" = "Button";
+"Qgk-Rs-bEV.normalTitle" = "Next";
 
 /* Class = "UILabel"; text = "Develop history"; ObjectID = "Vvk-E3-ftd"; */
 "Vvk-E3-ftd.text" = "Develop history";
