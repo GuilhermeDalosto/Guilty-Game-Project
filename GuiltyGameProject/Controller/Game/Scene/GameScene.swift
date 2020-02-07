@@ -23,6 +23,7 @@ class GameScene: SKScene{
     /// Background Sprite at Game Scene
     let backgroundLayerSprite = SKSpriteNode(imageNamed: "fundoTribunal")
     let backgroundSprite = SKSpriteNode(imageNamed: "tribunal")
+    
     /// Pins Sprites at Game Scene
     var pinsSprite = [SKSpriteNode]()
     /// Lifes Sprites at Game Scene
@@ -76,7 +77,7 @@ class GameScene: SKScene{
     var emitter = SKEmitterNode(fileNamed: "Shadows")
     
     ///Image Selection Pino
-    var selPin = SKSpriteNode(imageNamed: "seleçãoPino")
+    var selPin = SKSpriteNode(imageNamed: "selecaoPino")
     
     ///titles for words and events
     var titlesWords = SKLabelNode(fontNamed: "MyriadPro-Regular")
@@ -343,7 +344,11 @@ class GameScene: SKScene{
         // set NPC Pin position
         pinsNPCSprite[0].position = CGPoint(x: size.width * CGFloat(0.2), y: size.height * CGFloat(0.5))
         pinsNPCSprite[1].position = CGPoint(x: size.width * CGFloat(0.8), y: size.height * CGFloat(0.5))
-        selPin.zPosition = pinsSprite[0].zPosition - 1
+       
+        for i in 1...pinsSprite.count - 1 {
+            selPin.zPosition = pinsSprite[i].zPosition - 1
+        }
+        
         
   
         // add Child
