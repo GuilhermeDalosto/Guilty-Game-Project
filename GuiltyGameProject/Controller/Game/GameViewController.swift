@@ -329,8 +329,14 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         default:
             if language == "EN"{
                 actualDeck = words.normalStrEng
+                if difficulty == 1{
+                    actualDeck = words.hardStrEng
+                }
             } else{
                 actualDeck = words.strNormal
+                if difficulty == 1{
+                    actualDeck = words.strHardWords
+                }
             }
         }
         
@@ -537,7 +543,9 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         if gameView.scene == preparationScene{
             startTheme()
         }
-        
+        if self.pauseUIView.isDescendant(of: self.view) ||  self.quitGameUIView.isDescendant(of: self.view){
+                   
+               }else{
         if gameView.scene == gameScene && GameScene.turn > 0  {
             if !chooseOption{
                 sound.play("SwipeRight", type: ".wav",repeat: 0)
@@ -566,6 +574,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
             }
         } else{
             changeScene()
+        }
         }
         
     }
