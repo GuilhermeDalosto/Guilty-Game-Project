@@ -10,7 +10,8 @@ import UIKit
 
 class JudgeUOViewController: UIViewController{
     override func viewDidLoad() {
-        
+        super.viewDidLoad()
+        print("aaaa")
     }
     @IBAction func backBtn(_ sender: Any) {
         dismiss(animated: true, completion: nil)
