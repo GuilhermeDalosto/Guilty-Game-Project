@@ -190,7 +190,7 @@ class SettingsGameViewController: UIViewController {
             deckNames = ["Ninja","Food","Magic","Animal","Old West","Free"]
             
             
-            
+            self.infoImage.image = UIImage(named: "infoEN")
             self.difficultButton.setImage(hardSel, for: .normal)
             self.freeButton.setImage(freeSel, for: .normal)
             self.randomButton.setImage(randomSel, for: .normal)

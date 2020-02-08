@@ -106,7 +106,7 @@ class Report5ViewController: UIViewController, StatisticsProtocol{
     
     func setBackGround(){
         if NSLocalizedString("startText", comment: "") != "Start"{
-            backgroundImage.image = UIImage(named: "cincoPT")
+            backgroundImage.image = UIImage(named: "cincoEN")
         } else {
             backgroundImage.image = UIImage(named: "cincoPT")
         }
