@@ -69,12 +69,12 @@ class MenuViewController: UIViewController {
         
         backgroundImage.layer.zPosition = -1
         backgroundImage.frame = view.frame
-        
+        print(UserDefaults.standard.bool(forKey: "musicOption"))
         frontImage.frame = view.frame
                 self.backgroundImage.removeFromSuperview()
                 self.frontImage.removeFromSuperview()
                 if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
-                    self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                   // self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
                     self.delegate?.passMusic(music: self.sound)
                     UserDefaults.standard.set(true, forKey: "musicPlaying")
         }

@@ -171,6 +171,9 @@ class SettingsGameViewController: UIViewController {
         self.view.addSubview(selecaoGrandeVermelho3)
                 
         self.selecaoPequenaAzul.alpha = 0
+        self.selecaoGrandeVermelho.layer.position = CGPoint(x: -500, y: 0)
+        self.selecaoGrandeVermelho3.layer.position = CGPoint(x: -500, y: 0)
+        self.selecaoGrandeVermelho2.layer.position = CGPoint(x: -500, y: 0)
         self.selecaoGrandeAzul.alpha = 1
         
         

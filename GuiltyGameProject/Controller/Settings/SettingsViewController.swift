@@ -58,7 +58,7 @@ class SettingsViewController: UIViewController {
     var languageOptionStr = "EN"
     var music = AVAudioPlayer()
     var selecao = UIImageView(image: UIImage(named: "selecaoMusica"))
-    var selecaoPequena2 = UIImageView(image: UIImage(named: "selecaoGrande2"))
+    var selecaoPequena2 = UIImageView(image: UIImage(named: "selecaoGrande4"))
     var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
@@ -83,6 +83,7 @@ class SettingsViewController: UIViewController {
         self.onBoarding.layer.zPosition = 2
         self.selecao.layer.zPosition = 1
         self.selecaoPequena.layer.zPosition = 1
+        self.selecaoPequena2.layer.zPosition = 1
         
         self.selecaoPequena.alpha = 0
         
@@ -194,6 +195,7 @@ class SettingsViewController: UIViewController {
             self.selecaoPequena2.layer.position = self.onBoarding.layer.position
             self.selecao.alpha = 0
             self.selecaoPequena2.alpha = 1
+            
             if language == "PT" {
                 self.onBoarding.setImage(UIImage(named: "tutorial"), for: .normal)
             }else{

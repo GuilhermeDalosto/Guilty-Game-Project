@@ -467,8 +467,10 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
                     if team[0].lifes == 0 || team[1].lifes == 0{
                         if team[0].lifes == 0{
                             vencedor = "Time 2"
+                            UserDefaults.standard.set(2, forKey: "vencedor")
                         } else{
                             vencedor = "Time 1"
+                            UserDefaults.standard.set(1, forKey: "vencedor")
                         }
                         
                         switch(qtPlayer){

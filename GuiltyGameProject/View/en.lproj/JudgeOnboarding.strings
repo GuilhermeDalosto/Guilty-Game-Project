@@ -14,11 +14,14 @@
 /* Class = "UILabel"; text = "The judge need to pay attention to the others story"; ObjectID = "Kbb-uw-Ti4"; */
 "Kbb-uw-Ti4.text" = "The judge need to pay attention to the others story";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WvC-NM-gjH"; */
-"WvC-NM-gjH.normalTitle" = "Next";
+/* Class = "UIButton"; normalTitle = "Home"; ObjectID = "WvC-NM-gjH"; */
+"WvC-NM-gjH.normalTitle" = "Home";
 
 /* Class = "UILabel"; text = "Analyse the story "; ObjectID = "YGh-uf-207"; */
 "YGh-uf-207.text" = "Analyse the story ";
 
 /* Class = "UILabel"; text = "The judge need to vote if the story told was valid or not"; ObjectID = "hTs-4e-xx7"; */
 "hTs-4e-xx7.text" = "The judge need to vote if the story told was valid or not";
+
+/* Class = "UIButton"; normalTitle = "Next"; ObjectID = "xhz-Cb-asP"; */
+"xhz-Cb-asP.normalTitle" = "Next";

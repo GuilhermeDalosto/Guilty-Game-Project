@@ -18,7 +18,7 @@
 "LwO-n5-Nz0.text" = "Menu: Pausa o jogo";
 
 /* Class = "UILabel"; text = "Left Swipe: Judge deny defendant story"; ObjectID = "T2q-lk-2fc"; */
-"T2q-lk-2fc.text" = "Delize para esquerda: Juiz nega a estória do jogador";
+"T2q-lk-2fc.text" = "Deslize para esquerda: Juiz nega a estória do jogador";
 
 /* Class = "UIButton"; normalTitle = "Previous"; ObjectID = "kGa-W1-NKb"; */
 "kGa-W1-NKb.normalTitle" = "Anterior";

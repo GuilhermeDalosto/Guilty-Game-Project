@@ -9,16 +9,16 @@
 "EqS-DZ-jEa.text" = "Assuma qualquer papel";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "H4j-li-neS"; */
-"H4j-li-neS.normalTitle" = "Previous";
+"H4j-li-neS.normalTitle" = "Próximo";
 
 /* Class = "UILabel"; text = "Accuse other team"; ObjectID = "OGx-RU-1FW"; */
 "OGx-RU-1FW.text" = "Acuse o outro time";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qgk-Rs-bEV"; */
-"Qgk-Rs-bEV.normalTitle" = "Next";
+"Qgk-Rs-bEV.normalTitle" = "Anterior";
 
 /* Class = "UILabel"; text = "Develop history"; ObjectID = "Vvk-E3-ftd"; */
-"Vvk-E3-ftd.text" = "Develop history";
+"Vvk-E3-ftd.text" = "Construa estória";
 
 /* Class = "UILabel"; text = "During your story, you can be anything and choose others roles too"; ObjectID = "dJ0-25-GbI"; */
 "dJ0-25-GbI.text" = "Durante sua estória, você pode ser qualquer pessoa e escolher os outros papéis também.";
