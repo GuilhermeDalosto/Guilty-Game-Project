@@ -54,7 +54,7 @@
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="Ojw-bA-6t7" kind="show" id="2sG-T0-9JN"/>
+                                    <action selector="backToMenu:" destination="t4m-oQ-hL9" eventType="primaryActionTriggered" id="6Pk-JT-Fh3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kGa-W1-NKb">
@@ -104,21 +104,13 @@
                         <outlet property="text00" destination="Gm6-2F-Cqn" id="lyk-wc-aJu"/>
                         <outlet property="text01" destination="T2q-lk-2fc" id="Jlr-OQ-lfk"/>
                         <outlet property="text03" destination="LwO-n5-Nz0" id="Lrm-0I-SNt"/>
+                        <segue destination="g70-XL-c21" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="GRX-Dv-dsU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQr-jl-WZH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="g70-XL-c21" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="23" y="-188"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="RJV-Cj-3Zo">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Ojw-bA-6t7" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="WBf-Wf-Kah"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CTV-0n-CqF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1382" y="-181"/>
         </scene>
     </scenes>
     <resources>
