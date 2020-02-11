@@ -9,7 +9,17 @@
 import Foundation
 import UIKit
 
-class Report5ViewController: UIViewController{
+class Report5ViewController: UIViewController, StatisticsProtocol{
+    var playersInfo: [StatisticsInfo] = [StatisticsInfo]()
+    
+    func sendPlayersInfo(playersInfo: [StatisticsInfo]) {
+        print(playersInfo[0].words)
+        print(playersInfo[1].words)
+        print(playersInfo[2].words)
+        print(playersInfo[3].words)
+        self.playersInfo = playersInfo
+    }
+    
     
     @IBOutlet weak var word00: UILabel!
     @IBOutlet weak var word01: UILabel!
@@ -29,62 +39,131 @@ class Report5ViewController: UIViewController{
     @IBOutlet weak var word33: UILabel!
     
     @IBOutlet weak var backgroundImage: UIImageView!
-    weak var delegate: StatisticsProtocol?
+//    weak var delegate: StatisticsProtocol?
+    @IBOutlet weak var winner: UILabel!
+    
+    
+    var arrayLabel = [UILabel]()
+    let sfx = Sound()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        word00.text = ""
+        word01.text = ""
+        word02.text = ""
+        word03.text = ""
+        word10.text = ""
+        word11.text = ""
+        word12.text = ""
+        word13.text = ""
+        word20.text = ""
+        word21.text = ""
+        word22.text = ""
+        word23.text = ""
+        word30.text = ""
+        word31.text = ""
+        word32.text = ""
+        word33.text = ""
+        setAll()
+        
+    }
     
     override func viewDidLoad() {
-        setAll()
+        super.viewDidLoad()
+        var value = UserDefaults.standard.integer(forKey: "vencedor")
+        winner.text = "\(NSLocalizedString("team", comment: "")) \(value) \(NSLocalizedString("won", comment: ""))"
     }
     
     @IBAction func backBtn(_ sender: Any) {
-        performSegue(withIdentifier: "goMenu", sender: nil)
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
     }
     
     func setAll(){
+        labelArrayCreate()
         setBackGround()
         setWords()
     }
     
+    func labelArrayCreate(){
+        arrayLabel.append(word00)
+        arrayLabel.append(word01)
+        arrayLabel.append(word02)
+        arrayLabel.append(word03)
+        arrayLabel.append(word10)
+        arrayLabel.append(word11)
+        arrayLabel.append(word12)
+        arrayLabel.append(word13)
+        arrayLabel.append(word20)
+        arrayLabel.append(word21)
+        arrayLabel.append(word22)
+        arrayLabel.append(word23)
+        arrayLabel.append(word30)
+        arrayLabel.append(word31)
+        arrayLabel.append(word32)
+        arrayLabel.append(word33)
+    }
+    
     func setBackGround(){
         if NSLocalizedString("startText", comment: "") != "Start"{
-            backgroundImage.image = UIImage(named: "cincoPt")
+            backgroundImage.image = UIImage(named: "cincoEN")
         } else {
-            backgroundImage.image = UIImage(named: "cincoPt")
+            backgroundImage.image = UIImage(named: "cincoPT")
         }
     }
     
     func setWords(){
-        guard let word000 = delegate?.playersInfo[0].words[0] else { return }
-        word00.text = word000
-        guard let word001 = delegate?.playersInfo[1].words[0] else { return }
-        word10.text = word001
-        guard let word002 = delegate?.playersInfo[0].words[1] else { return }
-        word20.text = word002
-        guard let word003 = delegate?.playersInfo[1].words[1] else { return }
-        word30.text = word003
-        guard let word004 = delegate?.playersInfo[0].words[2] else { return }
-        word01.text = word004
-        guard let word005 = delegate?.playersInfo[1].words[2] else { return }
-        word11.text = word005
-        guard let word006 = delegate?.playersInfo[0].words[3] else { return }
-        word21.text = word006
-        guard let word007 = delegate?.playersInfo[1].words[3] else { return }
-        word31.text = word007
-        guard let word008 = delegate?.playersInfo[0].words[4] else { return }
-        word02.text = word008
-        guard let word009 = delegate?.playersInfo[1].words[4] else { return }
-        word12.text = word009
-        guard let word010 = delegate?.playersInfo[0].words[5] else { return }
-        word22.text = word010
-        guard let word011 = delegate?.playersInfo[1].words[5] else { return }
-        word32.text = word011
-        guard let word012 = delegate?.playersInfo[0].words[4] else { return }
-        word03.text = word012
-        guard let word013 = delegate?.playersInfo[1].words[4] else { return }
-        word13.text = word013
-        guard let word014 = delegate?.playersInfo[0].words[5] else { return }
-        word23.text = word014
-        guard let word015 = delegate?.playersInfo[1].words[5] else { return }
-        word33.text = word015
+//        guard let word000 = playersInfo[0].words[0] else { return }
+//        word00.text = word000
+//        guard let word001 = playersInfo[1].words[0] else { return }
+//        word10.text = word001
+//        guard let word002 = playersInfo[2].words[0] else { return }
+//        word20.text = word002
+//        guard let word003 = playersInfo[3].words[0] else { return }
+//        word30.text = word003
+//        guard let word004 = playersInfo[0].words[1] else { return }
+//        word01.text = word004
+//        guard let word005 = playersInfo[1].words[1] else { return }
+//        word11.text = word005
+//        guard let word006 = playersInfo[2].words[1] else { return }
+//        word21.text = word006
+//        guard let word007 = playersInfo[3].words[1] else { return }
+//        word31.text = word007
+//        guard let word008 = playersInfo[0].words[2] else { return }
+//        word02.text = word008
+//        guard let word009 = playersInfo[1].words[2] else { return }
+//        word12.text = word009
+//        guard let word010 = playersInfo[2].words[2] else { return }
+//        word22.text = word010
+//        guard let word011 = playersInfo[3].words[2] else { return }
+//        word32.text = word011
+//        guard let word012 = playersInfo[0].words[3] else { return }
+//        word03.text = word012
+//        guard let word013 = playersInfo[1].words[3] else { return }
+//        word13.text = word013
+//        guard let word014 = playersInfo[2].words[3] else { return }
+//        word23.text = word014
+//        guard let word015 = playersInfo[3].words[3] else { return }
+//        word33.text = word015
+        
+        var aux = 0
+        for player in playersInfo{
+            for word in player.words{
+                arrayLabel[aux].text = word
+                aux += 1
+                if aux % 4 == 0{
+                    break
+                }
+            }
+            if aux <= 4 {
+                aux = 4
+            } else if aux <= 8 {
+                aux = 8
+            } else if aux <= 12 {
+                aux = 12
+            }
+            print("=======")
+        }
     }
     
 }

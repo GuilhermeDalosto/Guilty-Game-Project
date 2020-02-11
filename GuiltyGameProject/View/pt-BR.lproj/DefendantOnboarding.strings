@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "Use your story to disturb other team"; ObjectID = "2Gi-Bq-lme"; */
+"2Gi-Bq-lme.text" = "Use sua estória para atrapalhar o outro time.";
+
+/* Class = "UILabel"; text = "Defendant"; ObjectID = "El8-ts-8FG"; */
+"El8-ts-8FG.text" = "Jogador";
+
+/* Class = "UILabel"; text = "Take on any role"; ObjectID = "EqS-DZ-jEa"; */
+"EqS-DZ-jEa.text" = "Assuma qualquer papel";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "H4j-li-neS"; */
+"H4j-li-neS.normalTitle" = "Próximo";
+
+/* Class = "UILabel"; text = "Accuse other team"; ObjectID = "OGx-RU-1FW"; */
+"OGx-RU-1FW.text" = "Acuse o outro time";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qgk-Rs-bEV"; */
+"Qgk-Rs-bEV.normalTitle" = "Anterior";
+
+/* Class = "UILabel"; text = "Develop history"; ObjectID = "Vvk-E3-ftd"; */
+"Vvk-E3-ftd.text" = "Construa estória";
+
+/* Class = "UILabel"; text = "During your story, you can be anything and choose others roles too"; ObjectID = "dJ0-25-GbI"; */
+"dJ0-25-GbI.text" = "Durante sua estória, você pode ser qualquer pessoa e escolher os outros papéis também.";
+
+/* Class = "UILabel"; text = "Create a story based on story of judge and others players"; ObjectID = "djO-3T-n0S"; */
+"djO-3T-n0S.text" = "Crie uma estória baseado na estória do juiz e dos outros jogadores.";

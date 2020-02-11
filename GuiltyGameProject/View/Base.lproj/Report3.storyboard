@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cDf-Cc-Cpa">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Report3 View Controller-->
         <scene sceneID="1Vl-YW-yJQ">
             <objects>
-                <viewController id="cDf-Cc-Cpa" customClass="Report3ViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cDf-Cc-Cpa" customClass="Report3ViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VTv-ND-QbA"/>
                         <viewControllerLayoutGuide type="bottom" id="CQJ-ya-wah"/>
@@ -19,9 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tresEn" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-EV-thh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tresEn" translatesAutoresizingMaskIntoConstraints="NO" id="dBy-EV-thh">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUW-Qh-awN">
                                 <rect key="frame" x="415" y="652" width="325" height="46"/>
@@ -65,11 +64,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGf-Ho-Lv9">
+                                <rect key="frame" x="1618" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="cDf-Cc-Cpa" eventType="primaryActionTriggered" id="fWZ-oG-bcz"/>
                                 </connections>
@@ -116,11 +114,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O time 1 venceu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgc-21-efL">
+                                <rect key="frame" x="822" y="253" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="dBy-EV-thh" firstAttribute="top" secondItem="9Mg-eC-CH6" secondAttribute="top" id="2cD-J2-Xz9"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="centerY" secondItem="R3K-yd-gRl" secondAttribute="centerY" multiplier="1.692" id="771-mg-p8g"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="centerX" secondItem="R3K-yd-gRl" secondAttribute="centerX" multiplier="1.7856" id="84n-89-yAC"/>
+                            <constraint firstAttribute="trailing" secondItem="dBy-EV-thh" secondAttribute="trailing" id="OeK-Jw-kHw"/>
+                            <constraint firstAttribute="bottom" secondItem="dBy-EV-thh" secondAttribute="bottom" id="YI5-2F-gOc"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="height" secondItem="9Mg-eC-CH6" secondAttribute="height" multiplier="0.0796296" id="f8K-Or-Y0M"/>
+                            <constraint firstItem="YGf-Ho-Lv9" firstAttribute="width" secondItem="9Mg-eC-CH6" secondAttribute="width" multiplier="0.1" id="nLh-ZW-L7a"/>
+                            <constraint firstItem="dBy-EV-thh" firstAttribute="leading" secondItem="9Mg-eC-CH6" secondAttribute="leading" id="wpf-5Y-zhU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="R3K-yd-gRl"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="dBy-EV-thh" id="5c1-oR-xRN"/>
+                        <outlet property="winner" destination="Zgc-21-efL" id="Qc2-WA-WBO"/>
                         <outlet property="word00" destination="v4e-VH-e2S" id="WlU-rl-NPw"/>
                         <outlet property="word01" destination="iW3-zV-QTU" id="sIj-r9-6xO"/>
                         <outlet property="word02" destination="2qQ-Pd-qbZ" id="UeZ-YT-Ou3"/>
@@ -134,11 +150,13 @@
                         <outlet property="word14" destination="Lw7-nn-Hx0" id="Tjy-Xl-o9e"/>
                         <outlet property="word15" destination="JIM-sz-r55" id="e9V-yv-Htk"/>
                         <segue destination="wCu-e1-WBo" kind="show" identifier="goMenu" id="8LR-tF-CRQ"/>
+                        <segue destination="p63-3X-N9H" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="zBn-12-pFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3k1-bZ-umO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="p63-3X-N9H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-7"/>
+            <point key="canvasLocation" x="-531" y="-164"/>
         </scene>
         <!--Main-->
         <scene sceneID="VLh-LP-yFW">
@@ -152,6 +170,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="174" height="59"/>
         <image name="tresEn" width="1977" height="1113"/>
     </resources>
 </document>

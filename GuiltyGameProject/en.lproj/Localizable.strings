@@ -13,6 +13,25 @@
 "musicText" = "Music";
 "homeText" = "Home";
 
+"balaoAnjinho0" = "You lost";
+"balaoAnjinho1" = "Don't lie pls";
+"balaoAnjinho2" = "Stop lying";
+"balaoAnjinho3" = "He's Guilty";
+"balaoAnjinho4" = "LOL";
+
+"balaoDemonio0" = "GUILTY";
+"balaoDemonio1" = "CASE CLOSED";
+"balaoDemonio2" = "Hahahah";
+"balaoDemonio3" = "Lie moree";
+"balaoDemonio4" = "Why you lie man";
+
+
+"choosePins" = "Choose your colors";
+"courtSession" = "The court will begin...";
+
+"eventIs" = "Event: ";
+"wordIs" = "Word: ";
+
 "difficultText" = "Difficulty";
 "peopleText" = "Nº of Players";
 "themeText" = "Theme";
@@ -32,6 +51,8 @@
 "timeOver" = "Time is over!";
 
 "turnComment" = "It's %@'s turn";
+"team" = "Team";
+"won" = "won";
 
 "yellow" = "Yellow";
 "blue" = "Blue";

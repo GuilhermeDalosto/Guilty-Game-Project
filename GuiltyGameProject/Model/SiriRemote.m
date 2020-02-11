@@ -11,6 +11,8 @@
 
 @implementation SiriRemote
 
+UITapGestureRecognizer *Menu;
+
 - (instancetype) init : (UIView*) view
 {
     self = [super init];
@@ -26,9 +28,9 @@
     UITapGestureRecognizer *PlayPause = [[UITapGestureRecognizer alloc]initWithTarget:self action:nil];
     PlayPause.allowedPressTypes = @[[NSNumber numberWithInteger:UIPressTypePlayPause]];
     
-    UITapGestureRecognizer *Menu = [[UITapGestureRecognizer alloc]initWithTarget:self action:nil];
+    Menu = [[UITapGestureRecognizer alloc]initWithTarget:self action:nil];
     Menu.allowedPressTypes = @[[NSNumber numberWithInteger:UIPressTypeMenu]];
-    
+        
     UITapGestureRecognizer *Select = [[UITapGestureRecognizer alloc]initWithTarget:self action:nil];
     Select.allowedPressTypes = @[[NSNumber numberWithInteger:UIPressTypeSelect]];
     

@@ -36,9 +36,11 @@ class TurnScene: SKScene{
     ///sprite npc and baloons events and words
     var npcAngel = SKSpriteNode(imageNamed: "anjoTurno")
     var npcDevil = SKSpriteNode(imageNamed: "demonEvento")
-    var baloonWord = SKSpriteNode(imageNamed: "balaoPalavra")
-    var baloonEvent = SKSpriteNode(imageNamed: "balaoEvento")
     
+    var language = ""
+    
+    var baloonWord = SKSpriteNode()
+    var baloonEvent = SKSpriteNode()
     /**
      Init the turn scene
      */
@@ -59,6 +61,21 @@ class TurnScene: SKScene{
      Add elements (player's pin and title label) to the scene
      */
     func setupScene(player: Person){
+        
+        if NSLocalizedString("startText", comment: "") == "Start" {
+            language = "EN"
+            
+        }else{
+            language =  "PT"
+        }
+
+        
+        if language == "EN" {
+            baloonWord = SKSpriteNode(imageNamed: "word")
+        }else {
+            baloonWord = SKSpriteNode(imageNamed: "palavra")
+        }
+        
         print(player.color)
         playerTimeSprite = SKSpriteNode(imageNamed: "\(player.color)Turn")
         playerTimeSprite?.position = CGPoint(x: size.width/2 * 0.55, y: size.height * 0.4)
@@ -81,33 +98,40 @@ class TurnScene: SKScene{
         baloonEvent.size = CGSize(width: 420, height: 280)
         
         
-        titleEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2)
-        titleEvent.fontColor = .black
-        titleEvent.text = "Evento"
-        titleEvent.fontSize = 60
-        
-        titleWord.text = "Palavra"
-        titleWord.fontColor = .black
-        titleWord.fontSize = 60
-        
-        
         if ((eventLabel.text! as NSString).length) > 14 && ((eventLabel.text! as NSString).length) < 30{
+            if language == "EN" {
+                baloonEvent = SKSpriteNode(imageNamed: "eventPequeno")
+            }else{
+                baloonEvent = SKSpriteNode(imageNamed: "eventoPequeno")
+            }
+            
             if ((eventLabel.text! as NSString).length) < 25 {
-                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
+                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
             } else{
-                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.8)
+                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.9)
             }
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
             eventLabel.preferredMaxLayoutWidth = 275
-            eventLabel.fontSize = 50
+            eventLabel.fontSize = 40
         } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
-            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
+            if language == "EN" {
+                baloonEvent = SKSpriteNode(imageNamed: "eventGrande")
+            }else{
+                baloonEvent = SKSpriteNode(imageNamed: "eventoGrande")
+            }
+            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.9)
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
-            eventLabel.preferredMaxLayoutWidth = 300
-            eventLabel.fontSize = 45
+            eventLabel.preferredMaxLayoutWidth = 350 //300
+            eventLabel.fontSize = 50
         }else if ((eventLabel.text! as NSString).length) >= 40 {
+            if language == "EN" {
+                baloonEvent = SKSpriteNode(imageNamed: "eventGrande")
+            }else {
+                baloonEvent = SKSpriteNode(imageNamed: "eventoGrande")
+            }
+            
             eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
@@ -123,15 +147,21 @@ class TurnScene: SKScene{
         
         if eventDisplay.isEmpty{
             
-            titleWord.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.63)
-            
+            if ((wordLabel.text! as NSString).length) >= 18 {
+                wordLabel.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.5)
+                wordLabel.lineBreakMode = .byCharWrapping
+                wordLabel.numberOfLines = 0
+                wordLabel.preferredMaxLayoutWidth = 300
+            }else {
+                wordLabel.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.53)
+            }
             wordLabel.fontSize = 50
-            wordLabel.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
+            
             
             npcAngel.position = CGPoint(x: size.width/2 * 1.82, y: size.height/3.7)
             npcAngel.size = CGSize(width: 200, height: 450)
             
-            baloonWord.position = wordLabel.position
+            baloonWord.position = CGPoint(x: size.width/2 * 1.47, y: size.height*0.55)
             baloonWord.zPosition = 0
             baloonWord.size = CGSize(width: 400, height: 350)
             
@@ -143,6 +173,13 @@ class TurnScene: SKScene{
             addChild(baloonWord)
             
         } else {
+            
+            if language == "EN" {
+                baloonWord = SKSpriteNode(imageNamed: "word")
+            }else {
+                baloonWord = SKSpriteNode(imageNamed: "palavra")
+            }
+            
             npcAngel.position = CGPoint(x: size.width/2 * 1.85, y: size.height/3)
             npcAngel.size = CGSize(width: 200, height: 400)
             npcDevil.position = CGPoint(x: size.width/2 * 1.65, y: size.height/5)
@@ -150,16 +187,19 @@ class TurnScene: SKScene{
 
             baloonEvent.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.3)
             baloonEvent.zPosition = 0
-           
-            titleWord.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.5)
-            titleWord.fontSize = 50
             
-            titleEvent.fontSize = 55
-            
-            wordLabel.fontSize = 50
-            wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
+            if ((wordLabel.text! as NSString).length) >= 18 {
+                wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.8)
+                wordLabel.lineBreakMode = .byCharWrapping
+                wordLabel.numberOfLines = 0
+                wordLabel.preferredMaxLayoutWidth = 300
+                wordLabel.fontSize = 40
+            }else {
+                wordLabel.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.65)
+                wordLabel.fontSize = 45
+            }
 
-            baloonWord.position = wordLabel.position
+            baloonWord.position = CGPoint(x: size.width/2 * 1.6, y: size.height/1.6)
             baloonWord.zPosition = 0
             baloonWord.size = CGSize(width: 300, height: 250)
 
@@ -167,7 +207,6 @@ class TurnScene: SKScene{
             addChild(npcDevil)
             addChild(baloonEvent)
             addChild(baloonWord)
-//            addChild(titleEvent)
         }
         
         
@@ -176,7 +215,6 @@ class TurnScene: SKScene{
         addChild(titleLabel)
         addChild(wordLabel)
         addChild(eventLabel)
-//        addChild(titleWord)
         
     }
 }

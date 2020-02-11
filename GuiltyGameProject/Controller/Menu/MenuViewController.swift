@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import StoreKit
 
+protocol passMusicDelegate {
+    func passMusic(music: AVAudioPlayer)
+}
+
 class MenuViewController: UIViewController {
     
     var configSel = UIImage(named: "configuracoes")
@@ -18,15 +22,22 @@ class MenuViewController: UIViewController {
     var playSel = UIImage(named: "playMenu")
     var shopSel = UIImage(named: "shop")
     var lojaSel = UIImage(named: "loja")
+    var sound = AVAudioPlayer()
+    
+        var configDes = UIImage(named: "settingsMenu")
+       var configuracoesDes = UIImage(named: "configuracoes")
+       var jogarDes = UIImage(named: "jogarMenu")
+       var playDes = UIImage(named: "playMenu")
+       var shopDes = UIImage(named: "shop")
+       var lojaDes = UIImage(named: "loja")
     
     
-    
-    var configDes = UIImage(named: "configDes")
-    var configuracoesDes = UIImage(named: "configuracoesDes")
-    var jogarDes = UIImage(named: "jogarDes")
-    var playDes = UIImage(named: "playMenuSelecionado")
-    var shopDes = UIImage(named: "shopDes")
-    var lojaDes = UIImage(named: "lojaDes")
+//    var configDes = UIImage(named: "configDes")
+//    var configuracoesDes = UIImage(named: "configuracoesDes")
+//    var jogarDes = UIImage(named: "jogarDes")
+//    var playDes = UIImage(named: "playMenuSelecionado")
+//    var shopDes = UIImage(named: "shopDes")
+//    var lojaDes = UIImage(named: "lojaDes")
     
     
     @IBOutlet weak var shopButton: UIButton!
@@ -35,7 +46,57 @@ class MenuViewController: UIViewController {
     
     var language = ""
     
+
+    let frontImage = UIImageView()
+    let backgroundImage = UIImageView()
+    var delegate: passMusicDelegate?
+    
+    var selecao = UIImageView(image: UIImage(named: "selecaoGrande2"))
+    var defaults = AllUserDefault()
+    let music = Sound()
+    let sfx = Sound()
+    var musicPlaying = UserDefaults.standard.bool(forKey: "musicPlaying")
+    
+    var firstLaunch = UserDefaults.standard.bool(forKey: "firstLaunch")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        
+        
+       
+        backgroundImage.image = UIImage(named: "fundoTribunal")
+        frontImage.image = UIImage(named: "telaInicial")
+        
+        backgroundImage.layer.zPosition = -1
+        backgroundImage.frame = view.frame
+        print(UserDefaults.standard.bool(forKey: "musicOption"))
+        frontImage.frame = view.frame
+                self.backgroundImage.removeFromSuperview()
+                self.frontImage.removeFromSuperview()
+                if UserDefaults.standard.bool(forKey: "musicOption") && !self.musicPlaying {
+                    self.sound = self.music.play("GuiltyProjectSong", type: ".wav", repeat: -1)
+                    self.delegate?.passMusic(music: self.sound)
+                    UserDefaults.standard.set(true, forKey: "musicPlaying")
+        }
+        defaults.screenNumber = 1
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "firstLaunch")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
+        
+        
+        self.view.insertSubview(selecao, at: 0)
+        self.selecao.layer.zPosition = 1
+        self.startButton.layer.zPosition = 2
+        self.settingsButton.layer.zPosition = 2
+        
+        self.selecao.layer.position = self.startButton.layer.position
+        
         if NSLocalizedString("startText", comment: "") != "Start"{
             language = "PT"
         } else{
@@ -49,39 +110,56 @@ class MenuViewController: UIViewController {
             settingsButton.setImage(configDes, for: .normal)
         }
         if NSLocalizedString("startText", comment: "") == "Start"{
-            language = "EN"            
+            language = "EN"
+            self.startButton.setImage(playSel,for: .normal)
+            self.settingsButton.setImage(configuracoesSel,for:.normal)
+            
         } else {
             language = "PT"
+            self.startButton.setImage(jogarSel,for: .normal)
+            self.settingsButton.setImage(configSel,for:.normal)
         }
 
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-////        sound.play("GuiltyProjectSong", type: "wav", repeat: 2)
-//    }
-//    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Settings"{
+             let vc = segue.destination as! SettingsViewController
+                vc.music = sound
+            
+        }
+    }
+      
     @IBAction func PressStart(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "SetGame", sender: nil)
     }
     
     @IBAction func PressSettings(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "Settings", sender: nil)
+    }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {
+        
+        
     }
     
     
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         guard let focus = context.nextFocusedView else {return}
-        
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.startButton:
+            self.selecao.layer.position = startButton.layer.position
             if language == "PT"{
                 self.startButton.setImage(jogarSel,for: .normal)
             } else{
                 self.startButton.setImage(playSel,for: .normal)
             }
         case self.settingsButton:
+            self.selecao.layer.position = settingsButton.layer.position
             if language == "PT"{
                 self.settingsButton.setImage(configSel,for: .normal)
             } else{

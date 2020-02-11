@@ -38,9 +38,12 @@ class DrawScene: SKScene{
         super.init(size: size)
         numPlayers = players.count
         
-       
+        if NSLocalizedString("startText", comment: "") == "Start" {
+            randomLabel.text = "The event will be held by..."
+        }else{
+            randomLabel.text = "O evento será realizado por..."
+        }
         
-        randomLabel.text = "Random Dices"
         randomLabel.fontName = "MyriadPro-Regular"
         randomLabel.fontSize = 60
         randomLabel.position = CGPoint(x: size.width/2, y: size.height/8)
@@ -88,7 +91,6 @@ class DrawScene: SKScene{
 
         randomDelegate?.sendRandom(one : Int(numberOne),two: Int(numbertwo))
         
-
         
         self.diceTeam1.position = CGPoint(x: size.width/2, y: size.height/2 - 50)
         self.diceTeam1.size = CGSize(width: 500, height: 500)
@@ -106,7 +108,7 @@ class DrawScene: SKScene{
             for i in 1...2 {
                 let diceTextureName = "Dice\(i)"
                 rotateFrame.append(diceAnimateAtlas.textureNamed(diceTextureName))
-                
+                print(i)
             }
             print("...\(numberOne)")
         } else if players == 4{
@@ -139,10 +141,12 @@ class DrawScene: SKScene{
             diceTeam1.position.x = size.width/2 + 200
             diceTeam1.position.y = size.height/2
             diceTeam1.size = CGSize(width: 300, height: 300)
-
+            diceTeam1.alpha = 0.0
+            
             diceTeam2.position.x = size.width/2 - 200
             diceTeam2.position.y = size.height/2
             diceTeam2.size = CGSize(width: 300, height: 300)
+            diceTeam2.alpha = 0.0
             
             
             addChild(diceTeam1)
@@ -150,87 +154,171 @@ class DrawScene: SKScene{
             animateDice()
         } else {
             self.diceRotate = rotateFrame
-
-            firstFrameTextureDice1 = diceRotate[Int(0)]
+            firstFrameTextureDice1 = diceRotate[Int(numberOne) - 1]
             firstFrameTextureDice2 = diceRotate[Int(1)]
-            print("....\(numberOne)")
-           
+            
+            self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+            
+            
+               addChild(diceTeam1)
+               animateDice()
+            
+//            self.diceRotate = rotateFrame
+//
+//            firstFrameTextureDice1 = diceRotate[Int(0)]
+//            firstFrameTextureDice2 = diceRotate[Int(1)]
+//            print("....\(numberOne)")
+//
 //            self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
-
-
-            if aux {
-                self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
-                aux = false
-                addChild(diceTeam2)
-                numbertwo = 0
-                animateNode([diceTeam2])
-            } else {
-                 self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
-                aux = true
-                addChild(diceTeam1)
-                numbertwo = 2
-                animateNode([diceTeam1])
-            }
-           
+//            self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+//
+//            if aux {
+//                self.diceTeam1 = SKSpriteNode(texture: firstFrameTextureDice1)
+//                aux = false
+//                addChild(diceTeam1)
+//                numbertwo = 0
+//                animateNode([diceTeam2])
+//                animateDice()
+//            } else {
+//                self.diceTeam2 = SKSpriteNode(texture: firstFrameTextureDice2)
+//                aux = true
+//                addChild(diceTeam2)
+//                numbertwo = 2
+//                animateNode([diceTeam1])
+//                animateDice()
+//            }
+//
             diceTeam1.position.x = size.width/2
             diceTeam1.position.y = size.height/2
             self.diceTeam1.size = CGSize(width: 500, height: 500)
-            diceTeam2.position = diceTeam1.position
-            diceTeam2.size = diceTeam1.size
+//            diceTeam2.position = diceTeam1.position
+//            diceTeam2.size = diceTeam1.size
         }
-        print("1 -> \(numberOne) 2-> \(numbertwo)" )
-         
-        
-        
-        
-        //        addChild(diceTeam1)
-        //        addChild(diceTeam2)
-        //
+//        print("1 -> \(numberOne) 2-> \(numbertwo)" )
+//
+//
+//
+//
+//                addChild(diceTeam1)
+//                addChild(diceTeam2)
+//        animateDice()
         //        animateNode(diceTeam1.children)
         //        animateNode(diceTeam2.children)
         
     }
     
     var i = 0
-    
+    var j = 0
     func animateNode(_ nodes: [SKSpriteNode]){
-        i = Int.random(in: 0...1)
         
-        for nodePassed in nodes {
-            
-            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
-            
-            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7) //0.3
-            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8) //0.3
-            
-            let waitAction = SKAction.wait(forDuration: 0.5) //2
-            
-            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
-             rotateFrame.shuffle()
-            
-            if i == 0{
-                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
-                i = 1
-            } else{
-                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
-                i = 0
-            }
-     
-            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.3)
-            
-            
-            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
-            
-            let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
-            
-            nodePassed.run(actionSequence)
-            
+        
+        
+        
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 2.0, animations: {
+                
+                for node in nodes{
+                    let alpha = SKAction.fadeAlpha(by: 1, duration: 3.0)
+                    
+                    node.run(alpha)
+                }
+                
+            })
         }
         
+        
+        
+        
+        
+//        for nodePassed in nodes {
+//            i = Int.random(in: 0...1)
+//
+//
+//            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
+//
+//            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7) //0.3
+//            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8) //0.3
+//
+//            let waitAction = SKAction.wait(forDuration: 0.5) //2
+//
+//            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+//            rotateFrame.shuffle()
+//
+//            rotateFrame[0] =  firstFrameTextureDice1
+//            rotateFrame[1] = firstFrameTextureDice2
+//
+//
+//            if i == 0{
+//                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice1
+//                i = 1
+//            } else{
+//                rotateFrame[rotateFrame.count - 1] = firstFrameTextureDice2
+//                i = 0
+//            }
+//
+//
+//            let animateTexture = SKAction.animate(with: rotateFrame, timePerFrame: 0.3)
+//
+//
+//            let rotateAction = SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
+//
+//            let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture, rotateAction])
+//
+//            nodePassed.run(actionSequence)
+//        }
+//
         
     }
     
     func animateDice(){
-        animateNode([self.diceTeam1,self.diceTeam2])
+        if numPlayers == 2{
+            if aux{
+                animateNode([self.diceTeam2])
+            } else {
+                animateNode([self.diceTeam1])
+            }
+        } else {
+            animateNode([self.diceTeam1,self.diceTeam2])
+        }
+    }
+    
+    func animateDice2Players(_ nodes: [SKSpriteNode]){
+        
+        for (_ ,node) in nodes.enumerated() {
+            // Offset each node with a slight delay depending on the index
+            let delayAction = SKAction.wait(forDuration: TimeInterval(1) * 0.2)
+
+            // Scale up and then back down
+            let scaleUpAction = SKAction.scale(to: 1.5, duration: 0.7)
+            let scaleDownAction = SKAction.scale(to: 1, duration: 0.8)
+
+            // Wait for 2 seconds before repeating the action
+            let waitAction = SKAction.wait(forDuration: 0.5)
+
+            // Form a sequence with the scale actions, as well as the wait action
+            let scaleActionSequence = SKAction.sequence([scaleUpAction, scaleDownAction, waitAction])
+            rotateFrame.shuffle()
+            
+            let aux1 = [firstFrameTextureDice1,firstFrameTextureDice2]
+            
+            if aux {
+                rotateFrame[rotateFrame.count - 1] = aux1[0]
+                aux = false
+            }else{
+                rotateFrame[rotateFrame.count - 1] = aux1[1]
+                aux = true
+            }
+            
+            
+            let animateTexture = SKAction.animate(withNormalTextures: rotateFrame, timePerFrame: 0.3)
+            
+            let rotateAction =  SKAction.rotate(byAngle: .pi * 2, duration: 1.5)
+            
+            // Combine the delay and the repeat actions into another sequence
+            let actionSequence = SKAction.group([delayAction,scaleActionSequence,animateTexture,rotateAction])
+
+            // Run the action
+            node.run(actionSequence)
+        }
     }
 }

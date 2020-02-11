@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gl1-qT-t1X">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gl1-qT-t1X">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Report5 View Controller-->
         <scene sceneID="AZQ-Ox-zTh">
             <objects>
-                <viewController id="gl1-qT-t1X" customClass="Report5ViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gl1-qT-t1X" customClass="Report5ViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aub-ip-JVU"/>
                         <viewControllerLayoutGuide type="bottom" id="g7X-nK-KzB"/>
@@ -23,15 +23,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NoP-37-ENm">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="backBtn:" destination="gl1-qT-t1X" eventType="primaryActionTriggered" id="rms-YA-w8I"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sh1-gS-vnP">
                                 <rect key="frame" x="620" y="297" width="267" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,6 +30,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NoP-37-ENm">
+                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                <state key="normal" image="home"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="gl1-qT-t1X" eventType="primaryActionTriggered" id="rms-YA-w8I"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAg-85-m66">
                                 <rect key="frame" x="620" y="351" width="267" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,11 +144,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O time 1 venceu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6e-rF-een">
+                                <rect key="frame" x="822" y="209" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yyF-lc-dCy"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="dxk-SV-6e8" id="5B1-Y5-1lt"/>
+                        <outlet property="winner" destination="U6e-rF-een" id="gsA-Hw-kDi"/>
                         <outlet property="word00" destination="sh1-gS-vnP" id="mj7-Wl-LAj"/>
                         <outlet property="word01" destination="xAg-85-m66" id="CsF-Mt-u97"/>
                         <outlet property="word02" destination="6x0-Rm-6YN" id="nF1-1S-FXd"/>
@@ -166,9 +174,11 @@
                         <outlet property="word32" destination="c09-lR-0CX" id="Wrt-sx-e8c"/>
                         <outlet property="word33" destination="sk6-ok-SpJ" id="4XI-H5-UlS"/>
                         <segue destination="jqh-Hf-1Hs" kind="show" identifier="goMenu" id="IDa-Bf-vaJ"/>
+                        <segue destination="bhX-ZE-CIA" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="DAF-tM-xe1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gqv-wR-O6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="bhX-ZE-CIA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-399" y="113"/>
         </scene>
@@ -185,5 +195,6 @@
     </scenes>
     <resources>
         <image name="cincoEn" width="1977" height="1113"/>
+        <image name="home" width="174" height="59"/>
     </resources>
 </document>

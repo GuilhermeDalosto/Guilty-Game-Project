@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PcQ-j0-ipl">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15702" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PcQ-j0-ipl">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--Report7 View Controller-->
         <scene sceneID="Ktr-pF-jJf">
             <objects>
-                <viewController id="PcQ-j0-ipl" customClass="Report7ViewController" customModule="GuiltyGameProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PcQ-j0-ipl" customClass="Report7ViewController" customModule="Final_Court" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fnX-ez-bve"/>
                         <viewControllerLayoutGuide type="bottom" id="PiU-FN-gxW"/>
@@ -19,15 +19,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="seteEn" translatesAutoresizingMaskIntoConstraints="NO" id="UW9-MG-uhV">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seteEn" translatesAutoresizingMaskIntoConstraints="NO" id="UW9-MG-uhV">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1Y-Bw-eby">
-                                <rect key="frame" x="1622" y="926" width="192" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1Y-Bw-eby">
+                                <rect key="frame" x="1618" y="870.5" width="192" height="86"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" image="home"/>
                                 <connections>
                                     <action selector="backBtn:" destination="PcQ-j0-ipl" eventType="primaryActionTriggered" id="sfO-iN-ieN"/>
                                 </connections>
@@ -158,11 +156,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="O time 1 venceu!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSY-lC-PEP">
+                                <rect key="frame" x="822" y="182" width="277" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="centerX" secondItem="XJt-4u-sJj" secondAttribute="centerX" multiplier="1.7856" id="9qX-fN-lae"/>
+                            <constraint firstAttribute="trailing" secondItem="UW9-MG-uhV" secondAttribute="trailing" id="ACp-5c-FaR"/>
+                            <constraint firstItem="UW9-MG-uhV" firstAttribute="leading" secondItem="rzM-FA-e5m" secondAttribute="leading" id="KgU-W6-Kpq"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="width" secondItem="rzM-FA-e5m" secondAttribute="width" multiplier="0.1" id="LEU-Dw-T3X"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="height" secondItem="rzM-FA-e5m" secondAttribute="height" multiplier="0.0796296" id="aML-wT-v7a"/>
+                            <constraint firstItem="UW9-MG-uhV" firstAttribute="top" secondItem="rzM-FA-e5m" secondAttribute="top" id="e6w-54-zyq"/>
+                            <constraint firstItem="x1Y-Bw-eby" firstAttribute="centerY" secondItem="XJt-4u-sJj" secondAttribute="centerY" multiplier="1.692" id="gVi-q3-SOd"/>
+                            <constraint firstAttribute="bottom" secondItem="UW9-MG-uhV" secondAttribute="bottom" id="lCC-hZ-JIS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="XJt-4u-sJj"/>
                     </view>
                     <connections>
                         <outlet property="backgroundImage" destination="UW9-MG-uhV" id="c1a-NE-6Bu"/>
+                        <outlet property="winner" destination="JSY-lC-PEP" id="tF7-K2-vk7"/>
                         <outlet property="word00" destination="4qP-xO-Ykr" id="TJz-MB-PP4"/>
                         <outlet property="word01" destination="ceH-MU-Fjy" id="yHW-8R-fpV"/>
                         <outlet property="word02" destination="yng-2O-fLs" id="WLQ-Cn-gHc"/>
@@ -182,9 +198,11 @@
                         <outlet property="word51" destination="aSh-Ys-aR1" id="s4a-sR-f8U"/>
                         <outlet property="word52" destination="YX6-Av-egC" id="acJ-6p-Nig"/>
                         <segue destination="xHV-4a-OzE" kind="show" identifier="goMenu" id="XU3-fG-Zhg"/>
+                        <segue destination="sIO-or-UrG" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="pXS-r7-lRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EtG-Gl-a7P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="sIO-or-UrG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-25" y="19"/>
         </scene>
@@ -200,6 +218,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="home" width="174" height="59"/>
         <image name="seteEn" width="1977" height="1112"/>
     </resources>
 </document>

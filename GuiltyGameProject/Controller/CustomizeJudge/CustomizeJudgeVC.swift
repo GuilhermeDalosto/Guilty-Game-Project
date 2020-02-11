@@ -36,6 +36,9 @@ class CustomizeJudgeViewController: UIViewController {
     var startSel = UIImage(named: "start")
     var startDes = UIImage(named: "startSelecionado")
     
+    var pequenoAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
+    var grandeAzul = UIImageView(image: UIImage(named: "selecaoQuadrado2"))
+    
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
@@ -58,6 +61,7 @@ class CustomizeJudgeViewController: UIViewController {
     var characterSelected : UIImage?
     
     var judge = [UIImage]()
+    var infoJudge = [UIImage]()
     var judgeIdentifier = [""]
     var hammer = [UIImage]()
     var hammerIdentifier = [""]
@@ -66,26 +70,26 @@ class CustomizeJudgeViewController: UIViewController {
     var typeTheme: Int?
     var typeDifficulty: Int?
     var typePeople: Int?
+    let sfx = Sound()
     
-    
-    func escureceTodos(){
-        if language == "EN"{
-        self.backButton.setImage(homeDes, for: .normal)
-        self.startButton.setImage(startDes, for: .normal)
-       
-        } else{
-            self.backButton.setImage(menuDes, for: .normal)
-                  self.startButton.setImage(jogarDes, for: .normal)
+    var firstLaunch = true
+    override weak var preferredFocusedView: UIView? {
+        if (self.firstLaunch) {
+            self.firstLaunch = false;
+            return self.leftButton;
+        }  else {
+            let view  = super.preferredFocusedView
+            return view;
+            
         }
-        self.leftButton.setImage(setaEsquerdaDes, for: .normal)
-               self.rightButton.setImage(setaDireitaDes, for: .normal)
     }
+    
+    
     override func viewDidLoad() {
         // judge = judgeIdentifier.map{UIImage(named: $0)!}
         super.viewDidLoad()
         setLayoutGuide()
         populateJudge()
-        judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
         judgeCollectionVIew.allowsSelection = false
         judgeCollectionVIew.delegate = self
         judgeCollectionVIew.dataSource = self
@@ -96,32 +100,45 @@ class CustomizeJudgeViewController: UIViewController {
     var language = ""
     
     override func viewWillAppear(_ animated: Bool) {
-        escureceTodos()
+        
+        self.backButton.layer.zPosition = 2
+        self.startButton.layer.zPosition = 2
+        self.rightButton.layer.zPosition = 2
+        self.leftButton.layer.zPosition = 2
+        self.pequenoAzul.layer.zPosition = 1
+        self.grandeAzul.layer.zPosition = 1
+        
+        self.view.addSubview(pequenoAzul)
+        self.view.addSubview(grandeAzul)
+        self.grandeAzul.layer.position = self.leftButton.layer.position
+        self.pequenoAzul.alpha = 0
+        
+        
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
+            self.backButton.setImage(homeSel, for: .normal)
+            self.startButton.setImage(startSel, for: .normal)
         } else{
             language = "PT"
+            self.backButton.setImage(menuSel, for: .normal)
+            self.startButton.setImage(jogarSel, for: .normal)
         }
         self.leftButton.setImage(UIImage(named:"setaEsquerdaSelecionado"), for: .normal)
-        judgeCollectionVIew.scrollToItem(at: IndexPath(row: UserDefaults.standard.integer(forKey: "positionCollection"), section: 0), at: .right, animated: true)
+        _judgeIndex = 0
         backButton.setTitle(NSLocalizedString("backText", comment: ""), for: .normal)
         startButton.setTitle(NSLocalizedString("startText", comment: ""), for: .normal)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UserDefaults.standard.set(boolNinja, forKey: "ninjaDeckOn")
-        UserDefaults.standard.set(boolFood, forKey: "foodDeckOn")
-        UserDefaults.standard.set(boolOldWest, forKey: "oldWestDeckOn")
-        UserDefaults.standard.set(boolMagic, forKey: "magicDeckOn")
-        UserDefaults.standard.set(boolAnimal, forKey: "animalDeckOn")
-        UserDefaults.standard.set(boolNatal, forKey: "natalDeckOn")
-        UserDefaults.standard.set(_judgeIndex, forKey: "positionCollection")
+        
         characterSelected = judge[_judgeIndex]
+        UserDefaults.standard.set(_judgeIndex,forKey: "positionCollection")
     }
     
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        escureceTodos()
+        
         guard let focus = context.nextFocusedView else {return}
         guard let focusedGuideUp = context.nextFocusedView else {return}
         guard let focusedGuideLeft = context.nextFocusedView else {return}
@@ -129,24 +146,24 @@ class CustomizeJudgeViewController: UIViewController {
         guard let focusedGuideGuideRightDown = context.nextFocusedView else {return}
         guard let focusedGuideGuideRightUp = context.nextFocusedView else {return}
         guard let focusedGuideGuideDownDown = context.nextFocusedView else {return}
-        
+        self.pequenoAzul.alpha = 0
+        self.grandeAzul.alpha = 1
+        sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.backButton:
-            if language == "PT"{
-                self.backButton.setImage(menuSel, for: .normal)
-            } else{
-                self.backButton.setImage(homeSel, for: .normal)
-            }
+            self.grandeAzul.alpha = 0
+            self.pequenoAzul.alpha = 1
+            self.pequenoAzul.layer.position = self.backButton.layer.position
         case self.leftButton:
-            self.leftButton.setImage(setaEsquerdaSel, for: .normal)
+            self.grandeAzul.alpha = 1
+            self.grandeAzul.layer.position = self.leftButton.layer.position
         case self.rightButton:
-            self.rightButton.setImage(setaDireitaSel, for: .normal)
+            self.grandeAzul.alpha = 1
+            self.grandeAzul.layer.position = self.rightButton.layer.position
         default:
-            if language == "PT"{
-                self.startButton.setImage(jogarSel, for: .normal)
-                       } else{
-                           self.startButton.setImage(startSel, for: .normal)
-                       }
+            self.grandeAzul.alpha = 0
+            self.pequenoAzul.alpha = 1
+            self.pequenoAzul.layer.position = self.startButton.layer.position
         }
         
         
@@ -184,13 +201,13 @@ class CustomizeJudgeViewController: UIViewController {
         }
         
         switch focusedGuideGuideRightDown{
-               case self.rightButton:
-                   self.focusedGuideRightDown.preferredFocusedView = self.startButton
-               case self.startButton:
-                   self.focusedGuideRightDown.preferredFocusedView = self.rightButton
-               default:
-                self.focusedGuideRightDown.preferredFocusedView = self.rightButton
-            }
+        case self.rightButton:
+            self.focusedGuideRightDown.preferredFocusedView = self.startButton
+        case self.startButton:
+            self.focusedGuideRightDown.preferredFocusedView = self.rightButton
+        default:
+            self.focusedGuideRightDown.preferredFocusedView = self.rightButton
+        }
         
         switch focusedGuideGuideRightUp{
         case self.rightButton:
@@ -198,7 +215,7 @@ class CustomizeJudgeViewController: UIViewController {
         default:
             self.focusedGuideRightUp.preferredFocusedView = self.rightButton
         }
-               
+        
         
         switch focusedGuideGuideDownDown{
         case self.leftButton:
@@ -256,50 +273,83 @@ class CustomizeJudgeViewController: UIViewController {
         self.focusedGuideLeftDownDown.heightAnchor.constraint(equalTo: self.startButton.heightAnchor).isActive = true
         self.focusedGuideLeftDownDown.topAnchor.constraint(equalTo: self.startButton.topAnchor).isActive = true
         
- 
+        
         
     }
     
     
     
     @IBAction func scrollRightJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex < judge.count - 1){
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex + 1, section: 0), at: .right, animated: true)
             _judgeIndex += 1
         }
-        else{
-////            rightButton.backgroundColor = .red
-//            leftButton.backgroundColor = .white
-//            rightButton.setImage(UIImage(named: "setaDireita"), for: .normal)
-
+        if _judgeIndex == judge.count - 1 {
+            rightButton.setImage(setaDireitaDes, for: .normal)
+        } else{
+            rightButton.setImage(setaDireitaSel, for: .normal)
+        }
+        
+        if _judgeIndex == 0 {
+            leftButton.setImage(setaEsquerdaDes, for: .normal)
+        } else{
+            leftButton.setImage(setaEsquerdaSel, for: .normal)
         }
     }
     
     @IBAction func scrollLeftJudge(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         if(_judgeIndex > 0) {
             judgeCollectionVIew.scrollToItem(at: IndexPath(row: _judgeIndex - 1, section: 0), at: .left, animated: true)
             _judgeIndex -= 1
-
+            
         }
-        else{
-//            leftButton.backgroundColor = .red
-//            rightButton.backgroundColor = .white
-//            leftButton.setImage(UIImage(named: "setaEsquerda"), for: .normal)
-        }
+               
+          if _judgeIndex == judge.count - 1 {
+                 rightButton.setImage(setaDireitaDes, for: .normal)
+             } else{
+                 rightButton.setImage(setaDireitaSel, for: .normal)
+             }
+             
+             if _judgeIndex == 0 {
+                 leftButton.setImage(setaEsquerdaDes, for: .normal)
+             } else{
+                 leftButton.setImage(setaEsquerdaSel, for: .normal)
+             }
     }
     
     @IBAction func pressStart(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goGame", sender: nil)
         
     }
     
     @IBAction func pressBack(_ sender: Any) {
+        sfx.play("ChooseOption", type: ".wav", repeat: 0)
         performSegue(withIdentifier: "goBack", sender: nil)
     }
     
     func populateJudge(){
-        judge.append(UIImage(named: "judge0")!)
-        judge.append(UIImage(named: "judge1")!)
+        judge.append(UIImage(named: "bigjudge0")!)
+        judge.append(UIImage(named: "bigjudge1")!)
+        judge.append(UIImage(named: "bigjudge2")!)
+        judge.append(UIImage(named: "bigjudge3")!)
+        judge.append(UIImage(named: "bigjudge4")!)
+        
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        } else {
+            infoJudge.append(UIImage(named: "juiz")!)
+            infoJudge.append(UIImage(named: "noel")!)
+            infoJudge.append(UIImage(named: "branca")!)
+            infoJudge.append(UIImage(named: "charlie")!)
+            infoJudge.append(UIImage(named: "cinderela")!)
+        }
     }
     
 }
@@ -316,10 +366,14 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         return self.judgeCollectionVIew.frame.size
     }
     
+    
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
+        cell.infoImage.image = infoJudge[indexPath.row]
+      //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         
         

@@ -10,8 +10,17 @@ import Foundation
 import SpriteKit
 import UIKit
 
-class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, StatisticsProtocol{
+protocol StatisticsProtocol: NSObject{
+    //    var playersInfo: [StatisticsInfo] { get set }
+    func sendPlayersInfo(playersInfo: [StatisticsInfo])
+}
+
+class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, passMusicDelegate{
+    func passMusic(music: AVAudioPlayer) {
+        music1 = music
+    }
     
+    // secondViewController
     var playersInfo: [StatisticsInfo] = []
     
     func sendRandom(one: Int, two: Int) {
@@ -25,8 +34,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         //changeScene()
     }
     
+    //Views
     @IBOutlet weak var gameView: SKView!
-    @IBOutlet weak var pauseView: SKView!
+    @IBOutlet var pauseUIView: UIView!
+    @IBOutlet var quitGameUIView: UIView!
+    
+    //Pause Images
+    @IBOutlet weak var pauseScreen: UIImageView!
+    @IBOutlet weak var quitGameScreen: UIImageView!
+    
     
     
     let music = Sound()
@@ -44,7 +60,11 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     /// main scene of the game
     var gameScene: GameScene? = nil
     /// scene of pause
-    var pauseScene: PauseScene? = nil
+    
+    /// scene of quit game
+    
+    // scene of preparation
+    var preparationScene : PreparationScene? = nil
     
     
     // characters of the game (without judge)
@@ -99,19 +119,12 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var gameRunning = true
     /// sound player
     let sound = Sound()
+    var music1 : AVAudioPlayer?
+    var musicSound = Sound()
+    var delegate: StatisticsProtocol?
     
     // words and events
     // all words
-    var wordsRandom =  [String]()
-    var wordsHard = [String]()
-    var wordsFood = [String]()
-    var wordsFoodHard = [String]()
-    var wordsMagic = [String]()
-    var wordsAnimal = [String]()
-    var wordsAnimalHard = [String]()
-    var wordsOldWest = [String]()
-    var wordsNinja = [String]()
-    var wordsChristmas = [String]()
     
     /// all events
     var allEvents = [Event]()
@@ -119,38 +132,67 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var randomEvent : String? = ""
     var randomWord = ""
     
+    //User Defaults
+    let defaults = AllUserDefault()
+    
+    //Botões da tela de pause
+    ///Botão para voltar ao jogo
+    @IBOutlet weak var backToTheGameBtn: UIButton!
+    
+    ///Botão para sair do jogo
+    @IBOutlet weak var quitGameBtn: UIButton!
+    
+    ///Botão para confirmar a saida do jogo
+    @IBOutlet weak var yesBtn: UIButton!
+    
+    ///Botão para voltar ao pause do jogo
+    @IBOutlet weak var noBtn: UIButton!
+    
+    
     override func viewDidLoad() {
-//        gameView.addSubview(pauseView)
-//        pauseView.sendSubviewToBack(gameView)
-        pauseView.alpha = 0.0
+        //        musicSound.change(music1!)
+        defaults.isOnGame = true
+        defaults.screenNumber = 2
         super.viewDidLoad()
-//        pauseView.
-//        menuPressRecognizer.addTarget(self, action: #selector(GameViewController.Menu(recognizer:)))
-//        menuPressRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
-//        self.view.addGestureRecognizer(menuPressRecognizer)
+        //        pauseView.
         UserDefaults.standard.set(true, forKey: "flag")
         UserDefaults.standard.set(true, forKey: "flag2")
         
         setupGame()
-        startTheme()
+        
+        startPreparation()
+        
     }
     
+    
+    func startPreparation(){
+        preparationScene = PreparationScene(size: view.bounds.size)
+        preparationScene?.qtdPinos = qtPlayer
+        self.gameView.presentScene(preparationScene)
+        
+    }
     /**
      Function to start the game with theme scene
      */
+    
     func startTheme(){
         let size: CGSize = view.bounds.size
-        themeScene = ThemeScene(size: size)
+        themeScene = ThemeScene(size: size)     
         gameView.presentScene(themeScene)
     }
     
     /**
      Setup the game (colors, players, judge, words, team, controller)
      */
+    
+    var language = ""
     func setupGame(){
-        // pegar as cores e adicionar ao array colors
-        // PROVISORIO
         
+        if NSLocalizedString("startText", comment: "") == "Start"{
+            language = "EN"
+        } else{
+            language = "PT"
+        }
         // instantiate and add teams to team array
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
         team.append(Team(UserDefaults.standard.integer(forKey: "numberOfPlayers")))
@@ -168,13 +210,15 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         // instantiate
         judge = Judge(team)        
         addAll()
+        //Add gesture
         
         // create class to stored players info
         for i in 0...qtPlayer - 1{
+            print(players[i].color)
             playersInfo.append(StatisticsInfo(color: players[i].color))
-            for _ in 0...9{
-                playersInfo[i].addWord(word: "")
-            }
+            //            for _ in 0...9{
+            //                playersInfo[i].addWord(word: "")
+            //            }
         }
     }
     
@@ -198,15 +242,18 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     }
     
     /**
+     Function to remove the controller
+     */
+    func rmvController(){
+        var _ = SiriRemote(self.view)
+        for i in 0..<funcoesControle.count{
+            self.view.gestureRecognizers?[i].removeTarget(self, action: Selector(funcoesControle[i]))
+        }
+    }
+    
+    /**
      Function to add words
      */
-    
-    var ninjaDeck = UserDefaults.standard.bool(forKey: "ninjaDeckOn")
-    var foodDeck = UserDefaults.standard.bool(forKey: "foodDeckOn")
-    var magicDeck = UserDefaults.standard.bool(forKey: "magicDeckOn")
-    var westDeck = UserDefaults.standard.bool(forKey: "oldWestDeckOn")
-    var christmasDeck = UserDefaults.standard.bool(forKey: "natalDeckOn")
-    var animalDeck = UserDefaults.standard.bool(forKey: "animalDeckOn")
     
     var hardDeck = false
     var normalDeck = false
@@ -214,56 +261,85 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     var actualDeck = [String]()
     
     func addWords(){
-        print(ninjaDeck)
         let words = Words()
         let difficulty = UserDefaults.standard.integer(forKey: "difficulty")
-        let theme = UserDefaults.standard.integer(forKey: "theme")
-//
-//        if difficulty == 1{
-//            for i in words.strNormalWords{
-//                actualDeck.append(i)
-//            }
-//        } else{
-//            for i in words.strHardWords{
-//                actualDeck.append(i)
-//            }
-//        }
         
-        if ninjaDeck{
-            for i in words.strNinja{
-                actualDeck.append(i)
+        let theme = UserDefaults.standard.integer(forKey: "deck")
+        switch theme{
+        case 1:
+            if language == "EN"{
+                actualDeck = words.strNinja
+            } else{
+                actualDeck = words.strNinja
+            }
+        case 2:
+            if language == "EN"{
+                actualDeck = words.strFoodEng
+                if difficulty == 1{
+                    actualDeck = words.strFoodHardEng
+                }
+            } else{
+                actualDeck = words.strFood
+                if difficulty == 1{
+                    actualDeck = words.strHardFood
+                }
+            }
+        case 3:
+            if language == "EN"{
+                actualDeck = words.strMagicEng
+            } else{
+                actualDeck = words.strMagic
+            }
+        case 4:
+            if language == "EN"{
+                actualDeck = words.strAnimalEng
+                if difficulty == 1{
+                    actualDeck = words.strAnimalHardEng
+                }
+            } else{
+                actualDeck = words.strAnimal
+                if difficulty == 1{
+                    actualDeck = words.strHardAnimal
+                }
+            }
+        case 5:
+            if language == "EN"{
+                actualDeck = words.strOldWestEN
+            } else{
+                actualDeck = words.strOldWest
+            }
+        case 6:
+            if language == "EN"{
+                actualDeck = words.strNatal
+            } else{
+                actualDeck = words.strNatal
+            }
+        case 0:
+            if language == "EN"{
+                actualDeck = words.normalStrEng
+                if difficulty == 1{
+                    actualDeck = words.hardStrEng
+                }
+            } else{
+                actualDeck = words.strNormal
+                if difficulty == 1{
+                    actualDeck = words.strHardWords
+                }
+            }
+        default:
+            if language == "EN"{
+                actualDeck = words.normalStrEng
+                if difficulty == 1{
+                    actualDeck = words.hardStrEng
+                }
+            } else{
+                actualDeck = words.strNormal
+                if difficulty == 1{
+                    actualDeck = words.strHardWords
+                }
             }
         }
         
-        if foodDeck{
-            for i in words.strFood{
-                actualDeck.append(i)
-            }
-        }
-        
-        if magicDeck{
-            for i in words.strMagic{
-                actualDeck.append(i)
-            }
-        }
-        
-        if westDeck{
-            for i in words.strOldWest{
-                actualDeck.append(i)
-            }
-        }
-        
-        if christmasDeck{
-            for i in words.strNatal{
-                actualDeck.append(i)
-            }
-        }
-        
-        if animalDeck{
-            for i in words.strAnimal{
-                actualDeck.append(i)
-            }
-        }
     }
     
     /**
@@ -271,22 +347,37 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
      */
     func addEvents(){
         let events = allEventsSigned()
-        
-        for element in  events.events{
-            allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+        if language == "PT"{
+            for element in  events.events{
+                allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+            }
+            
+        } else{
+            for element in  events.eventsEnglish{
+                allEvents.append(Event(element, difficulty: 0, type: "", duration: 0))
+            }
         }
-       
+        
     }
     
     /**
      Function to end game by team life or by the judge
      */
     func finishGame(team: Team, judge: Judge){
+        defaults.isOnGame = false
         if team.lifes != 0{
             judge.deny(team)
         }else{
             judge.endGame()
         }
+    }
+    
+    /**
+     Function to end game by the player
+     */
+    func finishGame(judge: Judge){
+        defaults.isOnGame = false
+        judge.endGame()
     }
     
     /**
@@ -303,39 +394,26 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         print("pause")
     }
     
+    //MARK: - Menu
     /**
      Function to pause game
      */
     @objc func Menu(/*recognizer: UITapGestureRecognizer*/){
         print("menu")
-        //Pause o tempo
-        //Pausa a cena
-        //Se não estiver no menu
-        if pauseScene == nil{
-            pauseScene = PauseScene(size: CGSize(width: (UIScreen.main.bounds.width)*0.5, height: (UIScreen.main.bounds.height)*0.5))
-            gameScene?.endTimer()
-            gameScene?.isPaused = true
-            pauseView.alpha = 1.0
-            pauseView.presentScene(pauseScene)
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
+        if defaults.isPaused == false, defaults.isQuitable == false{
+            //            pauseScene?.buttonToBackToTheGame.addTarget(self, action: #selector(pressPauseBackToTheGameBtn), for: .touchUpInside)
+            pause()
+            //            self.setNeedsFocusUpdate()
+            //            self.updateFocusIfNeeded()
             
         }else{
-            //O que fazer quando ele apertar no botão
-            pauseScene = nil
-            gameScene?.startTimer()
-            gameScene?.isPaused = false
-            pauseView.alpha = 0.0
+            if defaults.isQuitable == true{
+                quitGame()
+            }else{
+                quitPause()
+            }
+            
         }
-        /*
-         else{
-            let quitGameView = UIView(frame: CGRect(x: (pauseView.frame.size.width)*0.19, y: (pauseView.frame.size.height)*0.15, width: (UIScreen.main.bounds.width)*0.45, height: (UIScreen.main.bounds.height)*0.45))
-            quitGameView.backgroundColor = .systemPink
-            pauseView.addSubview(quitGameView)
-         qui
-         }
-         */
     }
     
     /**
@@ -344,7 +422,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     @objc func Select(){
         
         //if gameScene?.scene == themeScene{
-            //changeScene()
+        //changeScene()
         //}
     }
     
@@ -370,46 +448,89 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     
     var vencedor = ""
     @objc func SwipeLeft(){
-        
-        if (GameScene.turn > 0) && gameView.scene == gameScene{
-            sound.play("SwipeLeft", type: ".wav",repeat: 0)
-            if choosenTeam == team[0]{
-                judge?.deny(team[1])
-            } else{
-                judge?.deny(team[0])
-            }
+        if self.pauseUIView.isDescendant(of: self.view) ||  self.quitGameUIView.isDescendant(of: self.view){
             
-            if team[0].lifes == 0 || team[1].lifes == 0{
-                if team[0].lifes == 0{
-                    vencedor = "Time 2"
-                } else{
-                    vencedor = "Time 1"
+        }else{
+            if (GameScene.turn > 0) && gameView.scene == gameScene {
+                if !chooseOption{
+                    sound.play("SwipeLeft", type: ".wav",repeat: 0)
+                    chooseOption.toggle()
+                    
+                    if choosenTeam == team[0]{
+                        self.gameScene!.mostrarBalao1()
+                        judge?.deny(team[1])
+                    } else{
+                        self.gameScene!.mostrarBalao0()
+                        judge?.deny(team[0])
+                    }
+                    
+                    if team[0].lifes == 0 || team[1].lifes == 0{
+                        if team[0].lifes == 0{
+                            vencedor = "Time 2"
+                            UserDefaults.standard.set(2, forKey: "vencedor")
+                        } else{
+                            vencedor = "Time 1"
+                            UserDefaults.standard.set(1, forKey: "vencedor")
+                        }
+                        
+                        switch(qtPlayer){
+                        case 2:
+                            self.performSegue(withIdentifier: "endGame3", sender: nil)
+                            break
+                        case 4:
+                            self.performSegue(withIdentifier: "endGame5", sender: nil)
+                            break
+                        default:
+                            self.performSegue(withIdentifier: "endGame7", sender: nil)
+                        }
+                        
+                    }
+                    self.gameScene?.juizBravo()
+                    self.gameScene?.endTimer()
+                    
                 }
                 
-                switch(qtPlayer){
-                case 2:
-                    self.performSegue(withIdentifier: "endGame3", sender: nil)
-                    break
-                case 4:
-                    self.performSegue(withIdentifier: "endGame5", sender: nil)
-                    break
-                default:
-                    self.performSegue(withIdentifier: "endGame7", sender: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.chooseOption = false
+                    self.changeScene()
                 }
-                
-            }else{
-                changeScene()
             }
+            self.gameScene?.juizBravo()
+            self.gameScene?.endTimer()
+            
         }
         
     }
     
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        GameScene.turn = 0
+        GameScene.round = 0
         if segue.identifier == "endGame"{
-            if let vc = segue.destination as? ViewController{
-                vc.vencedor = vencedor
-                vc.delegate = self
+            
+        }
+        switch segue.identifier {
+        case "endGame3":
+            if let vc = segue.destination as? Report3ViewController{
+                print("endGame3")
+                self.delegate = vc
             }
+            break
+        case "endGame5":
+            if let vc = segue.destination as? Report5ViewController{
+                self.delegate = vc
+            }
+            break
+        case "endGame7":
+            if let vc = segue.destination as? Report7ViewController{
+                self.delegate = vc
+            }
+        default:
+            break
+        }
+        if segue.identifier != "unwindToMenu"{
+            self.delegate?.sendPlayersInfo(playersInfo: playersInfo)
         }
     }
     
@@ -418,15 +539,48 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         print("swipedown")
     }
     
+    var chooseOption = false
+    
     @objc func SwipeRight(){
-        if gameView.scene == gameScene && GameScene.turn > 0{
-            sound.play("SwipeRight", type: ".wav",repeat: 0)
-            print("swiperight")
+        if gameView.scene == preparationScene{
+            startTheme()
+        }
+        if self.pauseUIView.isDescendant(of: self.view) ||  self.quitGameUIView.isDescendant(of: self.view){
+                   
+               }else{
+        if gameView.scene == gameScene && GameScene.turn > 0  {
+            if !chooseOption{
+                sound.play("SwipeRight", type: ".wav",repeat: 0)
+                chooseOption.toggle()
+                
+                if self.pauseUIView.isDescendant(of: self.view)  ||  self.quitGameUIView.isDescendant(of: self.view) {
+                    print("oi")
+                } else{
+                    if gameView.scene == gameScene && GameScene.turn > 0  {
+                        if !chooseOption{
+                            sound.play("SwipeRight", type: ".wav",repeat: 0)
+                            chooseOption.toggle()
+                        }
+                        
+                        self.gameScene?.juizFeliz()
+                        self.gameScene?.endTimer()
+                    }
+                }
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.chooseOption = false
+                
+                
+                self.changeScene()
+            }
+        } else{
+            changeScene()
+        }
         }
         
-        changeScene()
-        
     }
+    
     
     var teamTurnA = 0
     
@@ -489,6 +643,10 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         
     }
     
+    //    @objc func pressPauseBackToTheGameBtn(_ sender: AnyObject?){
+    //
+    //    }
+    
     
     /**
      Function to change scenes
@@ -503,11 +661,16 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
         print("Random event -> \(randomEvent!)")
         switch gameView.scene {
         case themeScene:
-            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
+            //            gameScene = GameScene(size: size, word: currentWord, team1: team[0], team2: team[1], judge: judge!, players: players)
             gameScene?.delegateSend = self
+            //            print("Piru")
+            //            gameView.presentScene(gameScene)
+            definePlayerTurn()
+            defineEventPlayer()
+            turnScene = TurnScene(size: size, player: playerTurn, word: currentWord, event: randomEvent!)
+            randomWord = currentWord
             gameView.scene?.removeFromParent()
-            print("Piru")
-            gameView.presentScene(gameScene)
+            gameView.presentScene(turnScene)
             break
         case gameScene:
             gameScene?.timer?.invalidate()
@@ -547,7 +710,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
                 gameScene = GameScene(size: size, word: randomWord, team1: team[0], team2: team[1], judge: judge!, players: players)
                 
             }
-
+            
             if auxFirst == 5{
                 gameScene!.sendSortedEvent(auxFirst,auxSecond)
             }
@@ -567,9 +730,6 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
             drawPassed = true
             
             break
-        case pauseScene:
-            
-            break
         default:
             print("None Scene")
         }
@@ -582,8 +742,215 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, S
     func addWordInfo(color: String, word: String){
         for player in playersInfo{
             if player.pinColor == color{
+                print(word)
                 player.addWord(word: word)
             }
         }
     }
+    
+    // MARK: - Comandos dos botões de pause
+    @IBAction func keepPlaying(_ sender: Any) {
+        unPause()
+    }
+    
+    @IBAction func leaveMatch(_ sender: Any) {
+        quitPause()
+    }
+    
+    @IBAction func leaveMatchDenied(_ sender: Any) {
+        unQuitPause()
+    }
+    
+    @IBAction func leaveMatchAccepted(_ sender: Any) {
+        quitGame()
+    }
+    
+}
+
+// MARK: - Sub view do pause
+extension GameViewController{
+    
+    ///Essa função é chamada quando se deve entrar no pause
+    func pause(){
+        defaults.isPaused = true
+        gameScene?.endTimer()
+        gameScene?.isPaused = true
+        defaults.positionOnTheGameScreen = 2
+        gameView.addSubview(pauseUIView)
+        pauseUIView.center = view.center
+        
+        
+        updateFocusIfNeeded()
+        
+        
+        print(backToTheGameBtn.alpha)
+        verifyLanguage(btn: backToTheGameBtn, namePT: "voltar", nameEN: "back")
+        //        backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoGrande"), for: .normal)
+        verifyLanguage(btn: quitGameBtn, namePT: "sair", nameEN: "quit")
+        //        quitGameBtn.setBackgroundImage(nil, for: .normal)
+        verifyLanguage(pauseScreen: pauseScreen, namePT: "pausePT", nameEN: "pauseEN")
+    }
+    
+    ///Essa função é chamada quando se deve sair do pause
+    func unPause(){
+        defaults.isPaused = false
+        defaults.positionOnTheGameScreen = 1
+        if gameScene?.time ?? 30 > 0{
+            gameScene?.startTimer()
+        }
+        gameScene?.isPaused = false
+        pauseUIView.removeFromSuperview()
+    }
+    
+    ///Essa função é chamada quando se deve ir para seleção de sair ou não do jogo
+    func quitPause(){
+        defaults.isQuitable = true
+        defaults.isPaused = false
+        defaults.positionOnTheGameScreen = 3
+        gameView.addSubview(quitGameUIView)
+        quitGameUIView.center = view.center
+        pauseUIView.removeFromSuperview()
+        verifyLanguage(btn: yesBtn, namePT: "sim", nameEN: "yes")
+        verifyLanguage(btn: noBtn, namePT: "nao", nameEN: "no")
+        verifyLanguage(pauseScreen: quitGameScreen, namePT: "encerrarPT", nameEN: "encerrarEN")
+    }
+    
+    ///Essa função é chamada quando se deve ir para seleção de sair ou não do jogo
+    func unQuitPause(){
+        defaults.isQuitable = false
+        defaults.isPaused = true
+        defaults.positionOnTheGameScreen = 2
+        quitGameUIView.removeFromSuperview()
+        gameView.addSubview(pauseUIView)
+        pauseUIView.center = view.center
+    }
+    
+    ///Essa função é chamada quando se deve sair do jogo
+    func quitGame(){
+        defaults.isQuitable = false
+        finishGame(judge: judge!)
+        quitGameUIView.removeFromSuperview()
+        performSegue(withIdentifier: "unwindToMenu", sender: nil)
+    }
+    
+    func verifyLanguage(btn: UIButton, namePT: String, nameEN: String){
+        if language == "PT"{
+            btn.setImage(UIImage(named: namePT),for: .normal)
+        } else{
+            btn.setImage(UIImage(named: nameEN),for: .normal)
+        }
+    }
+    
+    func verifyLanguage(pauseScreen: UIImageView, namePT: String, nameEN: String){
+        if language == "PT"{
+            pauseScreen.image = UIImage(named: namePT)
+        } else{
+            pauseScreen.image = UIImage(named: nameEN)
+        }
+    }
+    
+}
+
+// MARK: - Focus Update
+extension GameViewController{
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        guard let focus = context.nextFocusedView else {return}
+        
+        switch  defaults.positionOnTheGameScreen{
+        case 2:        
+            switch focus{
+            case quitGameBtn:
+                if language == "PT"{
+                    self.quitGameBtn.setImage(UIImage(named: "sair"),for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
+                } else{
+                    self.quitGameBtn.setImage(UIImage(named: "quit"),for: .normal)
+                    quitGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
+                }
+                break
+            default:
+                if language == "PT"{
+                    self.backToTheGameBtn.setImage(UIImage(named: "voltar"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
+                } else{
+                    self.backToTheGameBtn.setImage(UIImage(named: "back"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(UIImage(named: "selecaoVGrande"), for: .normal)
+                }
+                break
+                
+            }
+            
+            if  focus != self.backToTheGameBtn {
+                if language == "PT"{
+                    self.backToTheGameBtn.setImage(UIImage(named: "voltar"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.backToTheGameBtn.setImage(UIImage(named: "back"),for: .normal)
+                    backToTheGameBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
+            
+            if focus != self.quitGameBtn{
+                if language == "PT"{
+                    self.quitGameBtn.setImage(UIImage(named: "sair"),for: .normal)
+                    quitGameBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.quitGameBtn.setImage(UIImage(named: "quit"),for: .normal)
+                    quitGameBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
+            break
+        case 3:
+            switch focus{
+            case yesBtn:
+                if language == "PT"{
+                    self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
+                } else{
+                    self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
+                    yesBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
+                }
+                break
+            default:
+                if language == "PT"{
+                    self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
+                } else{
+                    self.noBtn.setImage(UIImage(named: "no"),for: .normal)
+                    noBtn.setBackgroundImage(UIImage(named: "selecaoVPequena"), for: .normal)
+                }
+                break
+                
+            }
+            
+            if  focus != self.yesBtn {
+                if language == "PT"{
+                    self.yesBtn.setImage(UIImage(named: "sim"),for: .normal)
+                    yesBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.yesBtn.setImage(UIImage(named: "yes"),for: .normal)
+                    yesBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
+            
+            if focus != self.noBtn{
+                if language == "PT"{
+                    self.noBtn.setImage(UIImage(named: "nao"),for: .normal)
+                    noBtn.setBackgroundImage(nil, for: .normal)
+                } else{
+                    self.noBtn.setImage(UIImage(named: "no"),for: .normal)
+                    noBtn.setBackgroundImage(nil, for: .normal)
+                }
+            }
+            break
+        default:
+            break
+        }
+        
+        
+        updateFocusIfNeeded()
+        
+    }
+    
 }

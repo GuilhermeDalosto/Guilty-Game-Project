@@ -13,9 +13,29 @@
 "musicText" = "Música";
 "homeText" = "Menu";
 
+
+"balaoAnjinho0" = "Você perdeu";
+"balaoAnjinho1" = "Não minta por favor";
+"balaoAnjinho2" = "Pare de mentir";
+"balaoAnjinho3" = "Ele é culpado";
+"balaoAnjinho4" = "LOL";
+
+"balaoDemonio0" = "CULPADO!";
+"balaoDemonio1" = "Caso encerrado";
+"balaoDemonio2" = "Hahahah";
+"balaoDemonio3" = "Mente mais";
+"balaoDemonio4" = "Por que você mente cara";
+
+"choosePins" = "Escolha seus pinos";
+"courtSession" = "A corte entrará em sessão";
+
 "difficultText" = "Dificuldade";
 "peopleText" = "Nº de jogadores";
 "themeText" = "Tema";
+
+
+"eventIs" = "Evento: ";
+"wordIs" = "Palavra: ";
 
 "homeText" = "Menu";
 "normalText" = "Normal";
@@ -33,6 +53,9 @@
 "errorSelect" = "Alguma(as) das opções não foi(ram) selecionada(s). Selecione alguma das opções!";
 
 "turnComment" = "É a vez do %@";
+"winner" = "O Time %@ venceu";
+"team" = "Time";
+"won" = "venceu";
 
 "yellow" = "Amarelo";
 "blue" = "Azul";
@@ -40,3 +63,6 @@
 "black" = "Preto";
 "pink" = "Rosa";
 "green" = "Verde";
+
+"The word is..." = "A palavra é...";
+"The event is..." = "O evento é...";
