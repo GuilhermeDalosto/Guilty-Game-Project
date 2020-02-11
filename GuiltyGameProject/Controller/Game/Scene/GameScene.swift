@@ -89,7 +89,8 @@ class GameScene: SKScene{
     var balaoPalavra = SKSpriteNode()
     var balaoEvento = SKSpriteNode()
     
-    
+//    var wordsApresentacao = ["Pigeot","Plug","Dinosaur"]
+//    var i = 0
     var sound = Sound()
 
     init(size: CGSize, word: String, team1: Team, team2: Team, judge: Judge, players: [Person]) {
@@ -214,7 +215,7 @@ class GameScene: SKScene{
             titleEvents.text = "\(NSLocalizedString("eventIs", comment: "")) \(event!)"
             titleEvents.fontSize = 43
             titleEvents.fontColor = .white
-            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
+            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.81))
             titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
             
             addChild(titleEvents)
@@ -225,20 +226,20 @@ class GameScene: SKScene{
             eventLabel.text = ""
             titleEvents.fontSize = 35
             titleEvents.fontColor = .white
-            titleEvents.position = CGPoint(x: size.width/2, y: 40)
+            //titleEvents.position = CGPoint(x: size.width/2, y: 40)
 //            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
             titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
             
 //            eventLabel.verticalAlignmentMode = .baseline
             
             if ((eventLabel.text! as NSString).length) >= 30 &&  ((eventLabel.text! as NSString).length) < 40{
-                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.81))
                 titleEvents.numberOfLines = 0
                 titleEvents.lineBreakMode = .byCharWrapping
                 titleEvents.preferredMaxLayoutWidth = 500
                 
             } else if ((eventLabel.text! as NSString).length) >= 40 {
-                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.81))
                 titleEvents.numberOfLines = 0
                 titleEvents.lineBreakMode = .byCharWrapping
                 titleEvents.preferredMaxLayoutWidth = 500
@@ -257,6 +258,7 @@ class GameScene: SKScene{
         
 //        addChild(balaoPalavra)
 //        addChild(balaoEvento)
+       
     }
     
     /**

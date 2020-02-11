@@ -36,8 +36,8 @@ class CustomizeJudgeViewController: UIViewController {
     var startSel = UIImage(named: "start")
     var startDes = UIImage(named: "startSelecionado")
     
-    var pequenoAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
-    var grandeAzul = UIImageView(image: UIImage(named: "selecaoQuadrado2"))
+    var pequenoAzul = UIImageView(image: UIImage(named: "selecaoQuadrado"))
+    var grandeAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
     
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
@@ -110,8 +110,9 @@ class CustomizeJudgeViewController: UIViewController {
         
         self.view.addSubview(pequenoAzul)
         self.view.addSubview(grandeAzul)
-        self.grandeAzul.layer.position = self.leftButton.layer.position
+        self.pequenoAzul.layer.position = self.leftButton.layer.position
         self.pequenoAzul.alpha = 0
+        self.grandeAzul.alpha = 0
         
         
         if NSLocalizedString("startText", comment: "") == "Start"{
@@ -151,19 +152,21 @@ class CustomizeJudgeViewController: UIViewController {
         sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.backButton:
-            self.grandeAzul.alpha = 0
-            self.pequenoAzul.alpha = 1
-            self.pequenoAzul.layer.position = self.backButton.layer.position
+            self.grandeAzul.alpha = 1
+            self.pequenoAzul.alpha = 0
+            self.grandeAzul.layer.position = self.backButton.layer.position
         case self.leftButton:
-            self.grandeAzul.alpha = 1
-            self.grandeAzul.layer.position = self.leftButton.layer.position
-        case self.rightButton:
-            self.grandeAzul.alpha = 1
-            self.grandeAzul.layer.position = self.rightButton.layer.position
-        default:
             self.grandeAzul.alpha = 0
             self.pequenoAzul.alpha = 1
-            self.pequenoAzul.layer.position = self.startButton.layer.position
+            self.pequenoAzul.layer.position = self.leftButton.layer.position
+        case self.rightButton:
+            self.grandeAzul.alpha = 0
+            self.pequenoAzul.alpha = 1
+            self.pequenoAzul.layer.position = self.rightButton.layer.position
+        default:
+            self.grandeAzul.alpha = 1
+            self.pequenoAzul.alpha = 0
+            self.grandeAzul.layer.position = self.startButton.layer.position
         }
         
         
