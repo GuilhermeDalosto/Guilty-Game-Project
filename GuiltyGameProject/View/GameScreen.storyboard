@@ -99,12 +99,6 @@
                                 <action selector="leaveMatchAccepted:" destination="gDs-tw-zEt" eventType="primaryActionTriggered" id="X0v-Af-3Po"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib5-uV-j0p">
-                            <rect key="frame" x="7" y="411" width="224" height="86"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
-                            <state key="normal" title="Button" image="seleca"/>
-                        </button>
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="ogP-8z-CSQ"/>
                 </view>
@@ -148,7 +142,6 @@
         <image name="no" width="174" height="59"/>
         <image name="pauseEN" width="864" height="549"/>
         <image name="quit" width="348" height="116"/>
-        <image name="seleca" width="16" height="16"/>
         <image name="yes" width="174" height="59"/>
     </resources>
 </document>
