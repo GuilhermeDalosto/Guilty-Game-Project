@@ -21,6 +21,10 @@ class PreparationScene : SKScene{
     var qtdPinos =  UserDefaults.standard.integer(forKey: "numberOfPlayers")
     var colors: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     var positions = [CGPoint(x: 0, y: 0)]
+     
+    func changeJuiz(){
+        juiz = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
+    }
     
     override init(size: CGSize){
         super.init(size: size)

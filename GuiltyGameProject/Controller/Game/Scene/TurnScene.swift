@@ -88,7 +88,7 @@ class TurnScene: SKScene{
         titleLabel.position = CGPoint(x: size.width/2 * 0.55, y: size.height/12)
         
         eventLabel.text = eventDisplay
-        eventLabel.fontColor = .black
+        eventLabel.fontColor = .white
 //        eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.5)
 //        eventLabel.lineBreakMode = .byWordWrapping
        
@@ -108,11 +108,11 @@ class TurnScene: SKScene{
             if ((eventLabel.text! as NSString).length) < 25 {
                 eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
             } else{
-                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.9)
+                eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
             }
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
-            eventLabel.preferredMaxLayoutWidth = 275
+            eventLabel.preferredMaxLayoutWidth = 300
             eventLabel.fontSize = 40
         } else if ((eventLabel.text! as NSString).length) >= 30 && ((eventLabel.text! as NSString).length) < 40{
             if language == "EN" {
@@ -132,11 +132,11 @@ class TurnScene: SKScene{
                 baloonEvent = SKSpriteNode(imageNamed: "eventoGrande")
             }
             
-            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.6)
+            eventLabel.position = CGPoint(x: size.width/2 * 1.3, y: size.height/2.7)
             eventLabel.lineBreakMode = .byCharWrapping
             eventLabel.numberOfLines = 0
-            eventLabel.preferredMaxLayoutWidth = 400
-            eventLabel.fontSize = 35
+            eventLabel.preferredMaxLayoutWidth = 375
+            eventLabel.fontSize = 33
             baloonEvent.size = CGSize(width: 450, height: 280)
         }
         

@@ -59,7 +59,7 @@ class SettingsViewController: UIViewController {
     var music = AVAudioPlayer()
     var selecao = UIImageView(image: UIImage(named: "selecaoMusica"))
     var selecaoPequena2 = UIImageView(image: UIImage(named: "selecaoGrande4"))
-    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena"))
+    var selecaoPequena = UIImageView(image: UIImage(named: "selecaoPequena2"))
     var sound = Sound()
     @IBOutlet weak var musicButton: UIButton!
     

@@ -160,14 +160,20 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
         
         setupGame()
         
+        startTheme()
+        
         startPreparation()
+        
+        
         
     }
     
     
     func startPreparation(){
+
         preparationScene = PreparationScene(size: view.bounds.size)
         preparationScene?.qtdPinos = qtPlayer
+        preparationScene?.changeJuiz()
         self.gameView.presentScene(preparationScene)
         
     }
@@ -178,7 +184,7 @@ class GameViewController: UIViewController, sendTimerDelegate, randomDelegate, p
     func startTheme(){
         let size: CGSize = view.bounds.size
         themeScene = ThemeScene(size: size)     
-        gameView.presentScene(themeScene)
+        self.gameView.presentScene(themeScene)
     }
     
     /**
