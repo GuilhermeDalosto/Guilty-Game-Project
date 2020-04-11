@@ -17,10 +17,14 @@ class PreparationScene : SKScene{
     var choosePinos = SKLabelNode()
     var courtSession = SKLabelNode()
     var pinos = [SKSpriteNode]()
-    var juiz = SKSpriteNode(imageNamed: "judge0")
+    var juiz = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
     var qtdPinos =  UserDefaults.standard.integer(forKey: "numberOfPlayers")
     var colors: [String] = ["pinBlue", "pinGreen", "pinOrange", "pinPink", "pinBlack", "pinYellow"]
     var positions = [CGPoint(x: 0, y: 0)]
+     
+    func changeJuiz(){
+        juiz = SKSpriteNode(imageNamed: "judge\(UserDefaults.standard.integer(forKey: "positionCollection"))")
+    }
     
     override init(size: CGSize){
         super.init(size: size)
@@ -50,7 +54,7 @@ class PreparationScene : SKScene{
         switch(qtdPinos){
         case 2:
             var pino = SKSpriteNode(imageNamed: colors[0])
-            pino.position = CGPoint(x: size.width*0.3, y: size.height*0.3)
+            pino.position = CGPoint(x: size.width*0.4, y: size.height*0.3)
             
             var pino2 = SKSpriteNode(imageNamed: colors[1])
             pino2.position = CGPoint(x: size.width*0.6, y: size.height*0.3)

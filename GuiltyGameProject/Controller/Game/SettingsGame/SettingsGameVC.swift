@@ -163,6 +163,8 @@ class SettingsGameViewController: UIViewController {
         self.selecaoGrandeVermelho3.layer.zPosition = 1
         
         self.labelDecks.layer.zPosition = 3
+
+        
         
         self.view.addSubview(selecaoPequenaAzul)
         self.view.addSubview(selecaoGrandeAzul)
@@ -187,7 +189,7 @@ class SettingsGameViewController: UIViewController {
         if NSLocalizedString("startText", comment: "") == "Start"{
             language = "EN"
             self.backgroundImage.image = fundoEN
-            deckNames = ["Ninja","Food","Magic","Animal","Old West","Free"]
+            deckNames = ["Free","Ninja","Food","Magic","Animal","Old West"]
             
             
             self.infoImage.image = UIImage(named: "infoEN")
@@ -201,7 +203,7 @@ class SettingsGameViewController: UIViewController {
         } else{
             language = "PT"
             self.backgroundImage.image = fundoPT
-           deckNames = ["Ninja","Comida","Mágica","Animal","Velho Oeste","Livre"]
+           deckNames = ["Livre","Ninja","Comida","Mágica","Animal","Velho Oeste"]
             
             
             
@@ -213,6 +215,28 @@ class SettingsGameViewController: UIViewController {
         }
         self.labelDecks.text = ""
         self.view.insertSubview(backgroundImage, at: 0)
+        
+        
+        if UserDefaults.standard.integer(forKey: "difficulty") == 1{
+            self.selecaoGrandeVermelho2.layer.position = self.normalButton.layer.position
+        } else {
+            self.selecaoGrandeVermelho2.layer.position = self.difficultButton.layer.position
+        }
+        
+        if UserDefaults.standard.integer(forKey: "numberOfPlayers") == 2{
+            self.selecaoGrandeVermelho.layer.position = self.number3.layer.position
+              } else if UserDefaults.standard.integer(forKey: "numberOfPlayers") == 4{
+                      self.selecaoGrandeVermelho.layer.position = self.number5.layer.position
+              } else{
+                  self.selecaoGrandeVermelho.layer.position = self.number7.layer.position
+              }
+        
+        if UserDefaults.standard.integer(forKey: "theme") == 1{
+            self.selecaoGrandeVermelho3.layer.position = self.freeButton.layer.position
+              } else{
+            self.selecaoGrandeVermelho3.layer.position = self.randomButton.layer.position
+        }
+        
         
         
     }
@@ -468,6 +492,7 @@ class SettingsGameViewController: UIViewController {
     func pressedRandom(){
       self.selecaoGrandeVermelho3.layer.position = self.randomButton.layer.position
         typeTheme = 2
+        selectedTheme = 2
         themeSelected = true
         sfx.play("ChooseOption", type: ".wav", repeat: 0)
       self.selecaoGrandeVermelho3.layer.position = self.randomButton.layer.position

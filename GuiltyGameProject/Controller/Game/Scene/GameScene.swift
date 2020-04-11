@@ -89,7 +89,8 @@ class GameScene: SKScene{
     var balaoPalavra = SKSpriteNode()
     var balaoEvento = SKSpriteNode()
     
-    
+//    var wordsApresentacao = ["Pigeot","Plug","Dinosaur"]
+//    var i = 0
     var sound = Sound()
 
     init(size: CGSize, word: String, team1: Team, team2: Team, judge: Judge, players: [Person]) {
@@ -168,34 +169,118 @@ class GameScene: SKScene{
            
         }
         
+        balaoEvento = SKSpriteNode(imageNamed: "balaoEvento")
+        balaoPalavra = SKSpriteNode(imageNamed: "balaoAnjo")
+        
         if NSLocalizedString("startText", comment: "") == "Start" {
-            balaoPalavra = SKSpriteNode(imageNamed: "word")
-            balaoEvento = SKSpriteNode(imageNamed: "eventPequeno")
             
         }else{
-            balaoPalavra = SKSpriteNode(imageNamed: "palavra")
-            balaoEvento = SKSpriteNode(imageNamed: "eventoPequeno")
+           
         }
         
         titlesWords.text =  "\(NSLocalizedString("wordIs", comment: "")) \(word)"
-        titlesWords.fontColor = .white
+        titlesWords.fontColor = .black
         titlesWords.fontSize = 43
         titlesWords.position = CGPoint(x: size.width * CGFloat(0.88), y: size.height * CGFloat(0.85))
+        titlesWords.zPosition = 5
 //        titlesWords.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
         addChild(titlesWords)
         
         // set word label
-        //wordLabel.text = word
+        wordLabel.text = word
         wordLabel.fontSize = 40
         wordLabel.fontColor = .white
         wordLabel.position = CGPoint(x: size.width * CGFloat(0.9), y: size.height * CGFloat(0.85))
         
 
-        balaoPalavra.position = CGPoint(x: size.width * 0.80, y: size.height*0.75)
-        balaoPalavra.zPosition = 10
+        balaoPalavra.position = CGPoint(x: size.width * 0.85, y: size.height*0.7)
+//        balaoPalavra.zPosition = 1
+        balaoPalavra.size = CGSize(width: 400, height: 250)
         
-        balaoEvento.position = CGPoint(x: size.width * 1.2, y: size.height*0.75)
-        balaoEvento.zPosition = 10
+        if (titlesWords.text! as NSString).length >= 8 && (titlesWords.text! as NSString).length < 27{
+            titlesWords.position = CGPoint(x: size.width * 0.85, y: size.height*0.68)
+            titlesWords.numberOfLines = 0
+            titlesWords.lineBreakMode = .byCharWrapping
+            titlesWords.preferredMaxLayoutWidth = 300
+            
+        } else if (titlesWords.text! as NSString).length >= 27 && (titlesWords.text! as NSString).length < 30 {
+            titlesWords.position = CGPoint(x: size.width * 0.85, y: size.height*0.65)
+            titlesWords.fontSize = 40
+            titlesWords.numberOfLines = 0
+            titlesWords.lineBreakMode = .byCharWrapping
+            titlesWords.preferredMaxLayoutWidth = 150
+        } else if (titlesWords.text! as NSString).length >= 30 {
+            titlesWords.position = CGPoint(x: size.width * 0.85, y: size.height*0.63)
+            titlesWords.fontSize = 37
+            titlesWords.numberOfLines = 0
+            titlesWords.lineBreakMode = .byCharWrapping
+            titlesWords.preferredMaxLayoutWidth = 150
+        }
+        
+        
+        balaoEvento.position = CGPoint(x: size.width * CGFloat(0.15), y: size.height * CGFloat(0.7))
+        balaoEvento.size = CGSize(width: 400, height: 250)
+        
+        
+        if !(event!.isEmpty) {
+            titleEvents.text = "\(NSLocalizedString("eventIs", comment: "")) \(event!)"
+            print((titleEvents.text! as NSString).length)
+            titleEvents.fontSize = 35
+            titleEvents.fontColor = .white
+            titleEvents.position = CGPoint(x: size.width * CGFloat(0.22), y: size.height * CGFloat(0.68))
+            titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+            titleEvents.zPosition = 5
+            titleEvents.numberOfLines = 0
+            titleEvents.lineBreakMode = .byCharWrapping
+            titleEvents.preferredMaxLayoutWidth = 300
+            
+            
+            if (titleEvents.text! as NSString).length >= 30 && (titleEvents.text! as NSString).length < 40{
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.22), y: size.height * CGFloat(0.65))
+             
+            } else if (titleEvents.text! as NSString).length >= 40 && (titleEvents.text! as NSString).length < 50{
+                 titleEvents.position = CGPoint(x: size.width * CGFloat(0.22), y: size.height * CGFloat(0.63))
+                
+            }else if (titleEvents.text! as NSString).length >= 50 && (titleEvents.text! as NSString).length < 60{
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.22), y: size.height * CGFloat(0.65))
+                balaoEvento.size = CGSize(width: 425, height: 265)
+            
+            }else if (titleEvents.text! as NSString).length >= 60 && (titleEvents.text! as NSString).length < 70{
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.24), y: size.height * CGFloat(0.64))
+                titleEvents.preferredMaxLayoutWidth = 400
+                balaoEvento.size = CGSize(width: 445, height: 285)
+                titleEvents.fontSize = 33
+            
+            } else if (titleEvents.text! as NSString).length >= 70{
+                titleEvents.position = CGPoint(x: size.width * CGFloat(0.23), y: size.height * CGFloat(0.65))
+                titleEvents.preferredMaxLayoutWidth = 350
+                titleEvents.fontSize = 30
+                balaoEvento.size = CGSize(width: 445, height: 285)
+            }
+            
+     
+            addChild(titleEvents)
+            addChild(balaoEvento)
+        }
+
+        // set event if player had it
+//        if let eventString = event{
+//            eventLabel.text = ""
+//            titleEvents.fontSize = 35
+//            titleEvents.fontColor = .white
+//            //titleEvents.position = CGPoint(x: size.width/2, y: 40)
+////            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
+//            titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+//
+////            eventLabel.verticalAlignmentMode = .baseline
+//
+//
+//            addChild(eventLabel)
+//
+//
+//
+//        }
+//
         
         // set timer label
         timerLabel.text = "\(time)"
@@ -209,54 +294,15 @@ class GameScene: SKScene{
         roundLabel.fontColor = .white
         roundLabel.position = CGPoint(x: size.width/2, y: size.height - 30)
         
-        
-        if !(event!.isEmpty) {
-            titleEvents.text = "\(NSLocalizedString("eventIs", comment: "")) \(event!)"
-            titleEvents.fontSize = 43
-            titleEvents.fontColor = .white
-            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
-            titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-            
-            addChild(titleEvents)
-        }
-
-        // set event if player had it
-        if let eventString = event{
-            eventLabel.text = ""
-            titleEvents.fontSize = 35
-            titleEvents.fontColor = .white
-            titleEvents.position = CGPoint(x: size.width/2, y: 40)
-//            titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
-            titleEvents.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
-            
-//            eventLabel.verticalAlignmentMode = .baseline
-            
-            if ((eventLabel.text! as NSString).length) >= 30 &&  ((eventLabel.text! as NSString).length) < 40{
-                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
-                titleEvents.numberOfLines = 0
-                titleEvents.lineBreakMode = .byCharWrapping
-                titleEvents.preferredMaxLayoutWidth = 500
-                
-            } else if ((eventLabel.text! as NSString).length) >= 40 {
-                titleEvents.position = CGPoint(x: size.width * CGFloat(0.96), y: size.height * CGFloat(0.73))
-                titleEvents.numberOfLines = 0
-                titleEvents.lineBreakMode = .byCharWrapping
-                titleEvents.preferredMaxLayoutWidth = 500
-            }
-            addChild(eventLabel)
-            
-            
-            
-        }
-        
         // add label to the scene
-        addChild(wordLabel)
+//        addChild(wordLabel)
         addChild(timerLabel)
      //   addChild(roundLabel)
         
         
-//        addChild(balaoPalavra)
-//        addChild(balaoEvento)
+        addChild(balaoPalavra)
+        
+       
     }
     
     /**
@@ -297,7 +343,7 @@ class GameScene: SKScene{
         
         
         
-        timeOver.fontSize = 50
+        timeOver.fontSize = 40
         timeOver.fontColor = .red
         timeOver.text = NSLocalizedString("timeOver", comment: "")
         timeOver.position = CGPoint(x: size.width*0.63, y: size.height*0.8)
@@ -376,8 +422,8 @@ class GameScene: SKScene{
         addChild(judgeSprite)
         addChild(backgroundSprite)
         addChild(backgroundLayerSprite)
-        addChild(balaoAnjo)
-        addChild(balaoCapeta)
+//        addChild(balaoAnjo)
+//        addChild(balaoCapeta)
         addChild(balaoJuiz)
         addChild(timeOver)
 

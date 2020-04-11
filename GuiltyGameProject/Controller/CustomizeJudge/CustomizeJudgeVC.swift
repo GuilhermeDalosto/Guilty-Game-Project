@@ -36,8 +36,8 @@ class CustomizeJudgeViewController: UIViewController {
     var startSel = UIImage(named: "start")
     var startDes = UIImage(named: "startSelecionado")
     
-    var pequenoAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
-    var grandeAzul = UIImageView(image: UIImage(named: "selecaoQuadrado2"))
+    var pequenoAzul = UIImageView(image: UIImage(named: "selecaoQuadrado"))
+    var grandeAzul = UIImageView(image: UIImage(named: "selecaoPequena2"))
     
     @IBOutlet weak var judgeCollectionVIew: UICollectionView!
     @IBOutlet weak var leftButton: UIButton!
@@ -110,8 +110,9 @@ class CustomizeJudgeViewController: UIViewController {
         
         self.view.addSubview(pequenoAzul)
         self.view.addSubview(grandeAzul)
-        self.grandeAzul.layer.position = self.leftButton.layer.position
+        self.pequenoAzul.layer.position = self.leftButton.layer.position
         self.pequenoAzul.alpha = 0
+        self.grandeAzul.alpha = 0
         
         
         if NSLocalizedString("startText", comment: "") == "Start"{
@@ -151,19 +152,21 @@ class CustomizeJudgeViewController: UIViewController {
         sfx.play("PassOption", type: ".wav", repeat: 0)
         switch focus{
         case self.backButton:
-            self.grandeAzul.alpha = 0
-            self.pequenoAzul.alpha = 1
-            self.pequenoAzul.layer.position = self.backButton.layer.position
+            self.grandeAzul.alpha = 1
+            self.pequenoAzul.alpha = 0
+            self.grandeAzul.layer.position = self.backButton.layer.position
         case self.leftButton:
-            self.grandeAzul.alpha = 1
-            self.grandeAzul.layer.position = self.leftButton.layer.position
-        case self.rightButton:
-            self.grandeAzul.alpha = 1
-            self.grandeAzul.layer.position = self.rightButton.layer.position
-        default:
             self.grandeAzul.alpha = 0
             self.pequenoAzul.alpha = 1
-            self.pequenoAzul.layer.position = self.startButton.layer.position
+            self.pequenoAzul.layer.position = self.leftButton.layer.position
+        case self.rightButton:
+            self.grandeAzul.alpha = 0
+            self.pequenoAzul.alpha = 1
+            self.pequenoAzul.layer.position = self.rightButton.layer.position
+        default:
+            self.grandeAzul.alpha = 1
+            self.pequenoAzul.alpha = 0
+            self.grandeAzul.layer.position = self.startButton.layer.position
         }
         
         
@@ -296,6 +299,8 @@ class CustomizeJudgeViewController: UIViewController {
         } else{
             leftButton.setImage(setaEsquerdaSel, for: .normal)
         }
+        
+        UserDefaults.standard.set(_judgeIndex,forKey: "positionCollection")
     }
     
     @IBAction func scrollLeftJudge(_ sender: Any) {
@@ -317,6 +322,8 @@ class CustomizeJudgeViewController: UIViewController {
              } else{
                  leftButton.setImage(setaEsquerdaSel, for: .normal)
              }
+        
+        UserDefaults.standard.set(_judgeIndex,forKey: "positionCollection")
     }
     
     @IBAction func pressStart(_ sender: Any) {
@@ -336,19 +343,28 @@ class CustomizeJudgeViewController: UIViewController {
         judge.append(UIImage(named: "bigjudge2")!)
         judge.append(UIImage(named: "bigjudge3")!)
         judge.append(UIImage(named: "bigjudge4")!)
+        judge.append(UIImage(named: "bigjudge5")!)
+        judge.append(UIImage(named: "bigjudge6")!)
+        judge.append(UIImage(named: "bigjudge7")!)
         
         if NSLocalizedString("startText", comment: "") == "Start"{
-            infoJudge.append(UIImage(named: "juiz")!)
-            infoJudge.append(UIImage(named: "noel")!)
-            infoJudge.append(UIImage(named: "branca")!)
-            infoJudge.append(UIImage(named: "charlie")!)
-            infoJudge.append(UIImage(named: "cinderela")!)
+            infoJudge.append(UIImage(named: "juizEN")!)
+            infoJudge.append(UIImage(named: "noelEN")!)
+            infoJudge.append(UIImage(named: "brancaEN")!)
+            infoJudge.append(UIImage(named: "charlieEN")!)
+            infoJudge.append(UIImage(named: "cinderelaEN")!)
+            infoJudge.append(UIImage(named: "xerifeEN")!)
+            infoJudge.append(UIImage(named: "tianaEN")!)
+            infoJudge.append(UIImage(named: "floraEN")!)
         } else {
             infoJudge.append(UIImage(named: "juiz")!)
             infoJudge.append(UIImage(named: "noel")!)
             infoJudge.append(UIImage(named: "branca")!)
             infoJudge.append(UIImage(named: "charlie")!)
             infoJudge.append(UIImage(named: "cinderela")!)
+            infoJudge.append(UIImage(named: "xerifePT")!)
+            infoJudge.append(UIImage(named: "tianaPT")!)
+            infoJudge.append(UIImage(named: "floraPT")!)
         }
     }
     
@@ -372,7 +388,7 @@ extension CustomizeJudgeViewController: UICollectionViewDelegateFlowLayout, UICo
         
         let cell = judgeCollectionVIew.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomizeJudgeCollectionViewCell
         cell.imageJudge.image = judge[indexPath.row]
-        cell.infoImage.image = infoJudge[indexPath.row]
+        cell.infoImage.image = infoJudge[indexPath.row]        
       //  cell.imageJudge.frame.size = CGSize(
         cell.imageJudge.contentMode = .center
         
